@@ -1,0 +1,26 @@
+{
+    "name": "Office Engine M2 Orchestration",
+    "version": "18.0.26.0.22",
+    "category": "Productivity/Office",
+    "summary": "User-scoped Office mapping sessions and restricted usage metering",
+    "license": "LGPL-3",
+    "depends": [
+        "base",
+        "office_engine_odoo",
+        "llm_assistant",
+        "llm_tool",
+        "llm_openai",
+    ],
+    "data": [
+        "security/office_engine_m2_groups.xml",
+        "data/office_tools.xml",
+        "security/office_mapping_session_rules.xml",
+        "security/office_workbook_version_rules.xml",
+        "security/office_export_skill_rules.xml",
+        "security/ir.model.access.csv",
+    ],
+    "assets": {},
+    "installable": True,
+    "application": False,
+    "auto_install": False,
+}
