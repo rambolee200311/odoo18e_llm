@@ -1,0 +1,1040 @@
+{
+  "cases": [
+    {
+      "assertions": {
+        "only_id_field_requested": true,
+        "operation_and_model_match": true,
+        "requested_domain_condition_preserved": true,
+        "tool_execute_success": true,
+        "zero_records_returned": true
+      },
+      "case": "in_array",
+      "provider_request": {
+        "messages": [
+          {
+            "content": "This is a synthetic compatibility probe. Call only the supplied odoo_record_retriever function once. Do not add, remove, or change any requested argument.",
+            "role": "system"
+          },
+          {
+            "content": "Use the tool exactly once. Search res.partner with domain [[\"name\",\"in\",[\"__cc_m3_01_provider_in_a__\",\"__cc_m3_01_provider_in_b__\"]],[\"id\",\"=\",0]]. Set fields to [\"id\"], limit 1, offset 0, include_pagination true, and order \"id asc\". Preserve the domain exactly.",
+            "role": "user"
+          }
+        ],
+        "model": "gpt-5.6-luna",
+        "reasoning_effort": "none",
+        "stream": false,
+        "tool_choice": {
+          "function": {
+            "name": "odoo_record_retriever"
+          },
+          "type": "function"
+        },
+        "tools": [
+          {
+            "function": {
+              "description": "Retrieve records from any Odoo model with filtering capabilities. Specify model, domain, fields, limit, offset, and optional ORM order. Set include_pagination=true to receive records plus the current-user-visible count, offset, limit, and has_more; continue pages until has_more is false when the request asks for all matches. Search runs through the current user's Odoo ORM permissions.",
+              "name": "odoo_record_retriever",
+              "parameters": {
+                "properties": {
+                  "domain": {
+                    "anyOf": [
+                      {
+                        "description": "Standard Odoo domain. Use JSON scalar arrays for in/not in values.",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "enum": [
+                                "|",
+                                "&",
+                                "!"
+                              ],
+                              "type": "string"
+                            },
+                            {
+                              "maxItems": 3,
+                              "minItems": 3,
+                              "prefixItems": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "oneOf": [
+                                    {
+                                      "type": [
+                                        "string",
+                                        "integer",
+                                        "number",
+                                        "boolean",
+                                        "null"
+                                      ]
+                                    },
+                                    {
+                                      "items": {
+                                        "type": [
+                                          "string",
+                                          "integer",
+                                          "number",
+                                          "boolean",
+                                          "null"
+                                        ]
+                                      },
+                                      "maxItems": 1000,
+                                      "type": "array"
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "array"
+                            }
+                          ],
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "fields": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "include_pagination": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "limit": {
+                    "anyOf": [
+                      {
+                        "maximum": 500,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "model": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "offset": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "operation": {
+                    "anyOf": [
+                      {
+                        "enum": [
+                          "discover",
+                          "describe",
+                          "search"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Omit to use the legacy search contract."
+                  },
+                  "order": {
+                    "anyOf": [
+                      {
+                        "maxLength": 512,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "query": {
+                    "anyOf": [
+                      {
+                        "maxLength": 256,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            },
+            "type": "function"
+          }
+        ]
+      },
+      "provider_response": {
+        "finish_reason": "tool_calls",
+        "model": "gpt-5.6-luna",
+        "request_id": "req_c6439dfd3cb9456aa281e4c58946827a",
+        "response_id": "chatcmpl-EjhEhgPMimO8nK6OM2YSAB6T1J1SB",
+        "tool_call_arguments_raw": "{\"operation\":\"search\",\"model\":\"res.partner\",\"domain\":[[\"name\",\"in\",[\"__cc_m3_01_provider_in_a__\",\"__cc_m3_01_provider_in_b__\"]],[\"id\",\"=\",0]],\"fields\":[\"id\"],\"limit\":1,\"offset\":0,\"order\":\"id asc\",\"include_pagination\":true}",
+        "tool_call_id": "call_V6RAddIgJxqQAggFE089fSEO",
+        "tool_call_type": "function",
+        "tool_name": "odoo_record_retriever",
+        "usage": {
+          "completion_tokens": 88,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 512,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 600
+        }
+      },
+      "requested_parameters": {
+        "domain": [
+          [
+            "name",
+            "in",
+            [
+              "__cc_m3_01_provider_in_a__",
+              "__cc_m3_01_provider_in_b__"
+            ]
+          ],
+          [
+            "id",
+            "=",
+            0
+          ]
+        ],
+        "fields": [
+          "id"
+        ],
+        "include_pagination": true,
+        "limit": 1,
+        "model": "res.partner",
+        "offset": 0,
+        "operation": "search",
+        "order": "id asc"
+      },
+      "returned_tool_arguments": {
+        "domain": [
+          [
+            "name",
+            "in",
+            [
+              "__cc_m3_01_provider_in_a__",
+              "__cc_m3_01_provider_in_b__"
+            ]
+          ],
+          [
+            "id",
+            "=",
+            0
+          ]
+        ],
+        "fields": [
+          "id"
+        ],
+        "include_pagination": true,
+        "limit": 1,
+        "model": "res.partner",
+        "offset": 0,
+        "operation": "search",
+        "order": "id asc"
+      },
+      "status": "passed",
+      "tool_execute": {
+        "count": 0,
+        "has_more": false,
+        "limit": 1,
+        "next_offset": null,
+        "offset": 0,
+        "operation": "search",
+        "records": [],
+        "returned_count": 0,
+        "status": "success"
+      }
+    },
+    {
+      "assertions": {
+        "only_id_field_requested": true,
+        "operation_and_model_match": true,
+        "requested_domain_condition_preserved": true,
+        "tool_execute_success": true,
+        "zero_records_returned": true
+      },
+      "case": "not_in_array",
+      "provider_request": {
+        "messages": [
+          {
+            "content": "This is a synthetic compatibility probe. Call only the supplied odoo_record_retriever function once. Do not add, remove, or change any requested argument.",
+            "role": "system"
+          },
+          {
+            "content": "Use the tool exactly once. Search res.partner with domain [[\"name\",\"not in\",[\"__cc_m3_01_provider_not_in__\"]],[\"id\",\"=\",0]]. Set fields to [\"id\"], limit 1, offset 0, include_pagination true, and order \"id asc\". Preserve the domain exactly.",
+            "role": "user"
+          }
+        ],
+        "model": "gpt-5.6-luna",
+        "reasoning_effort": "none",
+        "stream": false,
+        "tool_choice": {
+          "function": {
+            "name": "odoo_record_retriever"
+          },
+          "type": "function"
+        },
+        "tools": [
+          {
+            "function": {
+              "description": "Retrieve records from any Odoo model with filtering capabilities. Specify model, domain, fields, limit, offset, and optional ORM order. Set include_pagination=true to receive records plus the current-user-visible count, offset, limit, and has_more; continue pages until has_more is false when the request asks for all matches. Search runs through the current user's Odoo ORM permissions.",
+              "name": "odoo_record_retriever",
+              "parameters": {
+                "properties": {
+                  "domain": {
+                    "anyOf": [
+                      {
+                        "description": "Standard Odoo domain. Use JSON scalar arrays for in/not in values.",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "enum": [
+                                "|",
+                                "&",
+                                "!"
+                              ],
+                              "type": "string"
+                            },
+                            {
+                              "maxItems": 3,
+                              "minItems": 3,
+                              "prefixItems": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "oneOf": [
+                                    {
+                                      "type": [
+                                        "string",
+                                        "integer",
+                                        "number",
+                                        "boolean",
+                                        "null"
+                                      ]
+                                    },
+                                    {
+                                      "items": {
+                                        "type": [
+                                          "string",
+                                          "integer",
+                                          "number",
+                                          "boolean",
+                                          "null"
+                                        ]
+                                      },
+                                      "maxItems": 1000,
+                                      "type": "array"
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "array"
+                            }
+                          ],
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "fields": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "include_pagination": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "limit": {
+                    "anyOf": [
+                      {
+                        "maximum": 500,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "model": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "offset": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "operation": {
+                    "anyOf": [
+                      {
+                        "enum": [
+                          "discover",
+                          "describe",
+                          "search"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Omit to use the legacy search contract."
+                  },
+                  "order": {
+                    "anyOf": [
+                      {
+                        "maxLength": 512,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "query": {
+                    "anyOf": [
+                      {
+                        "maxLength": 256,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            },
+            "type": "function"
+          }
+        ]
+      },
+      "provider_response": {
+        "finish_reason": "tool_calls",
+        "model": "gpt-5.6-luna",
+        "request_id": "req_6abdcf3fb5c34d339d35266927253fda",
+        "response_id": "chatcmpl-EjhEjL68nTmMjwjlQR5awNmCbRjXl",
+        "tool_call_arguments_raw": "{\"operation\":\"search\",\"model\":\"res.partner\",\"domain\":[[\"name\",\"not in\",[\"__cc_m3_01_provider_not_in__\"]],[\"id\",\"=\",0]],\"fields\":[\"id\"],\"limit\":1,\"offset\":0,\"order\":\"id asc\",\"include_pagination\":true}",
+        "tool_call_id": "call_Eq4vAeJPJqlyvSNz4YGECHJ4",
+        "tool_call_type": "function",
+        "tool_name": "odoo_record_retriever",
+        "usage": {
+          "completion_tokens": 78,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 502,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 580
+        }
+      },
+      "requested_parameters": {
+        "domain": [
+          [
+            "name",
+            "not in",
+            [
+              "__cc_m3_01_provider_not_in__"
+            ]
+          ],
+          [
+            "id",
+            "=",
+            0
+          ]
+        ],
+        "fields": [
+          "id"
+        ],
+        "include_pagination": true,
+        "limit": 1,
+        "model": "res.partner",
+        "offset": 0,
+        "operation": "search",
+        "order": "id asc"
+      },
+      "returned_tool_arguments": {
+        "domain": [
+          [
+            "name",
+            "not in",
+            [
+              "__cc_m3_01_provider_not_in__"
+            ]
+          ],
+          [
+            "id",
+            "=",
+            0
+          ]
+        ],
+        "fields": [
+          "id"
+        ],
+        "include_pagination": true,
+        "limit": 1,
+        "model": "res.partner",
+        "offset": 0,
+        "operation": "search",
+        "order": "id asc"
+      },
+      "status": "passed",
+      "tool_execute": {
+        "count": 0,
+        "has_more": false,
+        "limit": 1,
+        "next_offset": null,
+        "offset": 0,
+        "operation": "search",
+        "records": [],
+        "returned_count": 0,
+        "status": "success"
+      }
+    },
+    {
+      "assertions": {
+        "legacy_operation_omission_accepted": true,
+        "legacy_response_shape_preserved": true,
+        "requested_scalar_domain_preserved": true,
+        "tool_execute_completed": true,
+        "zero_records_returned": true
+      },
+      "case": "scalar_condition",
+      "error": {
+        "exception_class": "RuntimeError",
+        "http_status": null,
+        "provider_code": null,
+        "provider_message_redacted": "",
+        "provider_param": null,
+        "provider_request_attempted": true,
+        "provider_type": null,
+        "request_id": null
+      },
+      "operation_route": "legacy_omitted_operation",
+      "pre_execution_harness_rejection": {
+        "provider_call_was_successful": true,
+        "provider_returned_tool_arguments_are_unchanged": true,
+        "reason": "Runner originally required an explicit operation; CC permits omitted operation as legacy search."
+      },
+      "provider_request": {
+        "messages": [
+          {
+            "content": "This is a synthetic compatibility probe. Call only the supplied odoo_record_retriever function once. Do not add, remove, or change any requested argument.",
+            "role": "system"
+          },
+          {
+            "content": "Use the tool exactly once. Search res.partner with domain [[\"id\",\"=\",0]]. Set fields to [\"id\"], limit 1, offset 0, include_pagination true, and order \"id asc\". Preserve the domain exactly.",
+            "role": "user"
+          }
+        ],
+        "model": "gpt-5.6-luna",
+        "reasoning_effort": "none",
+        "stream": false,
+        "tool_choice": {
+          "function": {
+            "name": "odoo_record_retriever"
+          },
+          "type": "function"
+        },
+        "tools": [
+          {
+            "function": {
+              "description": "Retrieve records from any Odoo model with filtering capabilities. Specify model, domain, fields, limit, offset, and optional ORM order. Set include_pagination=true to receive records plus the current-user-visible count, offset, limit, and has_more; continue pages until has_more is false when the request asks for all matches. Search runs through the current user's Odoo ORM permissions.",
+              "name": "odoo_record_retriever",
+              "parameters": {
+                "properties": {
+                  "domain": {
+                    "anyOf": [
+                      {
+                        "description": "Standard Odoo domain. Use JSON scalar arrays for in/not in values.",
+                        "items": {
+                          "oneOf": [
+                            {
+                              "enum": [
+                                "|",
+                                "&",
+                                "!"
+                              ],
+                              "type": "string"
+                            },
+                            {
+                              "maxItems": 3,
+                              "minItems": 3,
+                              "prefixItems": [
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "type": "string"
+                                },
+                                {
+                                  "oneOf": [
+                                    {
+                                      "type": [
+                                        "string",
+                                        "integer",
+                                        "number",
+                                        "boolean",
+                                        "null"
+                                      ]
+                                    },
+                                    {
+                                      "items": {
+                                        "type": [
+                                          "string",
+                                          "integer",
+                                          "number",
+                                          "boolean",
+                                          "null"
+                                        ]
+                                      },
+                                      "maxItems": 1000,
+                                      "type": "array"
+                                    }
+                                  ]
+                                }
+                              ],
+                              "type": "array"
+                            }
+                          ],
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "fields": {
+                    "anyOf": [
+                      {
+                        "items": {
+                          "type": "string"
+                        },
+                        "type": "array"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "include_pagination": {
+                    "anyOf": [
+                      {
+                        "type": "boolean"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "limit": {
+                    "anyOf": [
+                      {
+                        "maximum": 500,
+                        "minimum": 1,
+                        "type": "integer"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "model": {
+                    "anyOf": [
+                      {
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "offset": {
+                    "minimum": 0,
+                    "type": "integer"
+                  },
+                  "operation": {
+                    "anyOf": [
+                      {
+                        "enum": [
+                          "discover",
+                          "describe",
+                          "search"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ],
+                    "description": "Omit to use the legacy search contract."
+                  },
+                  "order": {
+                    "anyOf": [
+                      {
+                        "maxLength": 512,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "query": {
+                    "anyOf": [
+                      {
+                        "maxLength": 256,
+                        "type": "string"
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  }
+                },
+                "required": [],
+                "type": "object"
+              }
+            },
+            "type": "function"
+          }
+        ]
+      },
+      "provider_response": {
+        "finish_reason": "tool_calls",
+        "model": "gpt-5.6-luna",
+        "request_id": "req_e0dc944e5cc74276af2ccc68e1d11aaf",
+        "response_id": "chatcmpl-EjhElHqU4YalRZLs4yaHAR6axi0gC",
+        "tool_call_arguments_raw": "{\"model\":\"res.partner\",\"domain\":[[\"id\",\"=\",0]],\"fields\":[\"id\"],\"limit\":1,\"offset\":0,\"order\":\"id asc\",\"include_pagination\":true}",
+        "tool_call_id": "call_c19pqBS9fgHnLetnwUaW6jIS",
+        "tool_call_type": "function",
+        "tool_name": "odoo_record_retriever",
+        "usage": {
+          "completion_tokens": 55,
+          "completion_tokens_details": {
+            "accepted_prediction_tokens": 0,
+            "audio_tokens": 0,
+            "reasoning_tokens": 0,
+            "rejected_prediction_tokens": 0
+          },
+          "prompt_tokens": 483,
+          "prompt_tokens_details": {
+            "audio_tokens": 0,
+            "cache_write_tokens": 0,
+            "cached_tokens": 0
+          },
+          "total_tokens": 538
+        }
+      },
+      "requested_parameters": {
+        "domain": [
+          [
+            "id",
+            "=",
+            0
+          ]
+        ],
+        "fields": [
+          "id"
+        ],
+        "include_pagination": true,
+        "limit": 1,
+        "model": "res.partner",
+        "offset": 0,
+        "operation": "search",
+        "order": "id asc"
+      },
+      "returned_tool_arguments": {
+        "domain": [
+          [
+            "id",
+            "=",
+            0
+          ]
+        ],
+        "fields": [
+          "id"
+        ],
+        "include_pagination": true,
+        "limit": 1,
+        "model": "res.partner",
+        "offset": 0,
+        "order": "id asc"
+      },
+      "status": "passed",
+      "tool_execute": {
+        "count": 0,
+        "has_more": false,
+        "limit": 1,
+        "offset": 0,
+        "records": []
+      }
+    }
+  ],
+  "database": "odoo18e_llm",
+  "execution_user_id": 2,
+  "finished_at_utc": "2026-11-13T08:49:05.623194+00:00",
+  "provider": {
+    "active": true,
+    "credential_present": true,
+    "credential_value_recorded": false,
+    "endpoint_class": "https://api.openai.com/v1",
+    "model": "gpt-5.6-luna",
+    "model_use": "multimodal",
+    "name": "OpenAI GPT-5.6 Luna",
+    "reasoning_effort": "none (matches office_engine_m2 GPT-5 tool-call path)",
+    "sdk_automatic_retries": 0,
+    "service": "openai"
+  },
+  "provider_request_count": 3,
+  "provider_tool_schema": [
+    {
+      "function": {
+        "description": "Retrieve records from any Odoo model with filtering capabilities. Specify model, domain, fields, limit, offset, and optional ORM order. Set include_pagination=true to receive records plus the current-user-visible count, offset, limit, and has_more; continue pages until has_more is false when the request asks for all matches. Search runs through the current user's Odoo ORM permissions.",
+        "name": "odoo_record_retriever",
+        "parameters": {
+          "properties": {
+            "domain": {
+              "anyOf": [
+                {
+                  "description": "Standard Odoo domain. Use JSON scalar arrays for in/not in values.",
+                  "items": {
+                    "oneOf": [
+                      {
+                        "enum": [
+                          "|",
+                          "&",
+                          "!"
+                        ],
+                        "type": "string"
+                      },
+                      {
+                        "maxItems": 3,
+                        "minItems": 3,
+                        "prefixItems": [
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "type": "string"
+                          },
+                          {
+                            "oneOf": [
+                              {
+                                "type": [
+                                  "string",
+                                  "integer",
+                                  "number",
+                                  "boolean",
+                                  "null"
+                                ]
+                              },
+                              {
+                                "items": {
+                                  "type": [
+                                    "string",
+                                    "integer",
+                                    "number",
+                                    "boolean",
+                                    "null"
+                                  ]
+                                },
+                                "maxItems": 1000,
+                                "type": "array"
+                              }
+                            ]
+                          }
+                        ],
+                        "type": "array"
+                      }
+                    ],
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "fields": {
+              "anyOf": [
+                {
+                  "items": {
+                    "type": "string"
+                  },
+                  "type": "array"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "include_pagination": {
+              "anyOf": [
+                {
+                  "type": "boolean"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "limit": {
+              "anyOf": [
+                {
+                  "maximum": 500,
+                  "minimum": 1,
+                  "type": "integer"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "model": {
+              "anyOf": [
+                {
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "offset": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "operation": {
+              "anyOf": [
+                {
+                  "enum": [
+                    "discover",
+                    "describe",
+                    "search"
+                  ],
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ],
+              "description": "Omit to use the legacy search contract."
+            },
+            "order": {
+              "anyOf": [
+                {
+                  "maxLength": 512,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            },
+            "query": {
+              "anyOf": [
+                {
+                  "maxLength": 256,
+                  "type": "string"
+                },
+                {
+                  "type": "null"
+                }
+              ]
+            }
+          },
+          "required": [],
+          "type": "object"
+        }
+      },
+      "type": "function"
+    }
+  ],
+  "started_at_utc": "2026-11-13T08:47:45.645764+00:00",
+  "status": "passed",
+  "test": "CC-M3-01 TEST-RET-004 Provider facet",
+  "tool_schema_source": "llm.provider.format_tools([odoo_record_retriever])"
+}
