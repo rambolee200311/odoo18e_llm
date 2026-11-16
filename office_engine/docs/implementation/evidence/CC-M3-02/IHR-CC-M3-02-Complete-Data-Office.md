@@ -16,8 +16,8 @@
 | 工作类型 | 下游 addon 功能实现 |
 | 实施负责人 | Codex；负责人 Li Jianqiang |
 | 开始日期 | 2026-11-15 |
-| Git 分支 / 基线 | 当前分支 `codex/cc-m3-01-provider-acceptance`；基线 `1b64e64` |
-| 当前实施状态 | 实施与范围内测试已完成；提交负责人进行 CC 关闭评审，尚未自行关闭 |
+| Git 分支 / 基线 | 当前分支 `codex/cc-m3-01-provider-acceptance`；初始基线 `1b64e64`；CC-M3-02 实现基线 `139d1302d1653ac72e0c8bb27b8454c95892413c`（已推送） |
+| 当前实施状态 | 负责人已批准关闭评审 PASS；CC-M3-02 正式关闭。代码基线为 `139d1302d1653ac72e0c8bb27b8454c95892413c` |
 
 ## 2. Coding Contract 基线
 
@@ -127,6 +127,20 @@
 | Deviation | 实施核验契约允许 root 表中可选且全空的 `__office_parent_id` 及其他全空辅助列出现在任意列位置；任何非空未知列、root parent identity、缺失 / 重复 / 错值仍拒绝。记录于 TDD compatibility addendum §5；不改写冻结 TDD / CC。另修正关系表验证器从本地计划读取字段类型，以及 Candidate 输出的 source / Provider input SHA 嵌套路径。 |
 | Follow-up | 向负责人提交 CC-M3-02 关闭评审；等待决定。CC-M3-03 UI HVR 尚未执行。 |
 
+### IHR-007
+
+| 字段 | 记录 |
+|---|---|
+| 时间 | 2026-11-16 |
+| 阶段 | Owner closure approval |
+| Action | 负责人批准 CC-M3-02 关闭评审 PASS；核对 ATR 中 source-row digest、handoff payload SHA 与 Candidate XLSX 字节 SHA 后，完成 FR 和关闭记录。 |
+| Reason | 负责人明确指示“CC-M3-02 关闭评审 PASS，批准正式关闭”。 |
+| Files / Components | FR-CC-M3-02 Final Report、CC-M3-02 关闭记录、修订后的 ATR；实现提交 `139d1302d1653ac72e0c8bb27b8454c95892413c`。 |
+| Contract Reference | CC-M3-02 v0.2 §13；负责人关闭批准；授权兼容性说明见 TDD v0.4 Implementation Compatibility Addendum。 |
+| Result | **PASS / CLOSED**；FR Closure Status 为 `SATISFIED`。实现、测试和证据提交已推送到 `origin/codex/cc-m3-01-provider-acceptance`。 |
+| Deviation | 冻结 TDD v0.4、Plan v0.3 和 CC v0.2 保持原样；保留 owner-authorized compatibility addendum；无未解决的未经授权偏离。 |
+| Follow-up | CC-M3-03 Draft 已准备并提交评审；未开始实施。 |
+
 ## 5. 实际变更清单
 
 | 文件 / 路径 | 动作 | 实际变更 | CC 来源 |
@@ -137,13 +151,15 @@
 | M2 lifecycle / version services | Modified | 按 `CC-M3-02-003` 增加受约束的 M3 source-less Candidate 接受兼容性和 current-source edit attempt 存取；原 `action="create"` direct-V1 行为保留 | M3 TDD compatibility addendum；CC `TEST-LIFE-001` |
 | `office_engine_m3/**` | Added / Modified | 单一 Office Tool `export_records`；当前用户 ORM 分页与直接关系批量收集、Route B handoff、只读 XLSX identity verifier、Candidate receipt / 流程；本轮最终 M3 export 定向套件 20 项通过 | CC §5、§6、§10 |
 | M3 TDD compatibility addendum | Added / Updated | 记录空白 carrier、受限 M2 兼容扩展、空白辅助列核验契约及后续验证结果；不替换冻结设计 | CC-M3-02-003；IHR-006 |
-| `ATR-CC-M3-02-complete-data-office.md` | Modified | 记录最终自动化、边界、并发 freshness、真实 Provider 与生命周期证据；等待关闭评审 | CC §10；IHR-006 |
+| `ATR-CC-M3-02-complete-data-office.md` | Modified | 记录最终自动化、边界、并发 freshness、真实 Provider 与生命周期证据；修正摘要字段的 digest 分类并记录负责人关闭批准 | CC §10；IHR-006–007 |
+| `FR-CC-M3-02_Complete_Data_Office.md` / `CLOSE-CC-M3-02-20261116.md` | Added | 形成基于实现提交 `139d1302` 的 Final Report 与负责人关闭记录 | CC §13；IHR-007 |
 
 ## 6. 偏离与停止条件记录
 
 - M2 兼容性扩展与 CC v0.2 原文件面不一致；有负责人明确授权并由 versioned TDD compatibility addendum 记录，不改写冻结基线历史。
 - 未修改上游 `odoo-llm`。M2 修改保持在 Candidate / receipt / review 兼容点，未改变 M2 用户确认机制或原 `create` direct-V1 行为。
 - 新建专用 Git 分支尝试因沙箱 `.git` 只读失败；继续使用当前已检出的 Codex 分支，未请求提升 Git 权限。
+- 负责人批准关闭后，按精确文件清单提交并推送 CC-M3-02 实现与证据；实现基线 `139d1302d1653ac72e0c8bb27b8454c95892413c`。未纳入其他工作区文件。
 - 数据库仍限定为现有开发库 `odoo18e_llm`；不创建数据库，不触及既有业务数据。
 
 ## 7. 遗留问题与后续
@@ -162,8 +178,9 @@ CC：CC-M3-02 v0.2
 TDD / Plan：M3 TDD v0.4 / Plan v0.3
 Coding Authorization：CC-M3-02-002
 Compatibility Authorization：CC-M3-02-003
-Implementation：代码和 CC-M3-02 范围验收证据完成；提交负责人关闭评审
+Implementation：CC-M3-02 实现与验收证据完成；负责人已批准 PASS 并正式关闭
+Code Baseline：139d1302d1653ac72e0c8bb27b8454c95892413c（已推送）
 Automated Tests：M3 export 20 项本轮通过；先前 M3 Retriever 8 项、M2 回归 33 项通过；三项上游 Adapter 离线资源检查通过
 Real Provider：148 与 251 行 XLSX 均精确匹配 source；148 行已 Accept → Finalize 同 SHA；较早两次超时后续已恢复，配置 timeout 保持 120 秒
-Open：等待负责人进行 CC-M3-02 关闭评审；CC-M3-03 UI HVR 另行执行
+Open：CC-M3-03 Draft 待评审；UI HVR 尚未执行，属于 CC-M3-03
 ```
