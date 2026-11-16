@@ -1,6 +1,6 @@
 {
     "name": "Office Engine M3 Retriever",
-    "version": "18.0.2.0.0",
+    "version": "18.0.7.0.1",
     "category": "Productivity/Office",
     "summary": "Registry discovery and structured pagination for the existing Odoo Retriever",
     "license": "LGPL-3",

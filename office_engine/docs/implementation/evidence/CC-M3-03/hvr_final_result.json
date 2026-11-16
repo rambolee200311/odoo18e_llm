@@ -1,0 +1,48 @@
+{
+  "database": "odoo18e_llm",
+  "date": "2026-11-16",
+  "thread_id": 677,
+  "provider": "OpenAI GPT-5.6 Luna",
+  "model": "gpt-5.6-luna",
+  "candidate_version_id": 395,
+  "candidate_state": "partially_verified",
+  "final_state": "finalized",
+  "delivery_state": "delivered",
+  "user_acceptance_message_id": 467364,
+  "final_message_id": 467369,
+  "candidate_attachment_id": 10278,
+  "final_attachment_id": 10278,
+  "file_name": "worlddepot_m3cc03_synthetic_acceptance_dcb17989be_outbound_orders.xlsx",
+  "file_size": 14052,
+  "worksheets": ["Outbound Orders", "明细"],
+  "root_record_count": 148,
+  "detail_record_count": 185,
+  "parent_detail_pair_count": 185,
+  "source_fields": {
+    "root": ["billno", "reference", "date"],
+    "details": ["product_id", "quantity"]
+  },
+  "checks": {
+    "all_source_identities_once": "PASS",
+    "all_requested_values_match": "PASS",
+    "all_parent_detail_pairs_match": "PASS",
+    "candidate_receipt_final_attachment_sha_match": "PASS",
+    "ui_download_action_triggered": true,
+    "browser_download_bytes_captured": false,
+    "fixture_cleanup": "PASS",
+    "live_error_zero_clarification_trace": "NOT OBSERVED",
+    "mixed_tool_real_provider_trace": "NOT OBSERVED",
+    "explicit_live_bus_subscriber_trace": "NOT OBSERVED",
+    "live_streaming_safety_trace": "NOT OBSERVED"
+  },
+  "sha256": {
+    "source_snapshot": "28f5d21ca9890e242327ed667e325d209e9f6ff47993be5bf54afda1e96dde67",
+    "source_identity_set": "bee7f6482b3805997885faea731f77a6960b08f1d9cc596542ddfab68091af14",
+    "handoff": "4e14a703bcbf33d6b1513acc97399e70a3f1340e0872a218b8bbae9648682a42",
+    "provider_input": "8765c9813e9a3917b518b7cdbd933dde62ed0215e44e5088e42f7b0e5d40bde6",
+    "candidate_receipt_and_final_attachment": "92d6c0ac972bf406eb220701a637d7b36668c3950821b6c61e2276f5b948a5ee"
+  },
+  "platform_verification_label": "PARTIALLY_VERIFIED",
+  "independent_attachment_verifier_result": "PASS",
+  "frozen_hvr_contract_status": "PARTIAL"
+}

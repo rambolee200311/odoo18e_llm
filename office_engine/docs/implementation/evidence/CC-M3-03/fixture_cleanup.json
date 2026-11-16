@@ -1,0 +1,22 @@
+{
+  "database": "odoo18e_llm",
+  "fixture_marker": "DCB17989BE",
+  "project_name": "M3 CC03 Synthetic Acceptance DCB17989BE",
+  "pre_cleanup": {
+    "projects": 1,
+    "orders": 148,
+    "lines": 185,
+    "templates": 2,
+    "categories": 1,
+    "partners": 1
+  },
+  "post_cleanup_remaining": {
+    "projects": 0,
+    "orders": 0,
+    "lines": 0,
+    "templates": 0,
+    "categories": 0,
+    "partners": 0
+  },
+  "result": "PASS"
+}

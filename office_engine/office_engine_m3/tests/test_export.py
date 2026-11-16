@@ -3,6 +3,7 @@
 import hashlib
 import json
 import re
+from datetime import date, datetime
 from io import BytesIO
 from types import SimpleNamespace
 from unittest.mock import patch
@@ -16,6 +17,7 @@ from odoo.addons.office_engine_m2.services.edit_orchestrator import dispatch_off
 from odoo.addons.office_engine_m2.tests.support import WorkbookVersionFixtures
 
 from ..services.dataset_collector import _read_pages, collect_export_dataset
+from ..services.data_handoff import build_provider_instruction
 from ..services.export_verification import verify_export_workbook
 
 
@@ -145,6 +147,30 @@ class TestM3Export(WorkbookVersionFixtures, TransactionCase):
         for name in ("workbook_source", "source_query", "collections", "tables", "verification_profile"):
             self.assertIn(name, schema["properties"])
             self.assertIn(name, schema["required"])
+
+    def test_openai_provider_formats_the_effective_m3_office_schema(self):
+        office_tool = self.env["llm.tool"].search([("name", "=", "office")], limit=1)
+        formatted = self.provider._openai_format_tool(office_tool)
+        parameters = formatted["function"]["parameters"]
+
+        self.assertIn("export_records", parameters["properties"]["action"]["enum"])
+        for name in ("workbook_source", "source_query", "collections", "tables", "verification_profile"):
+            self.assertIn(name, parameters["properties"])
+            self.assertIn(name, parameters["required"])
+
+    def test_record_projection_handoff_requires_exact_source_cell_copy(self):
+        payload = json.dumps({"tables": [], "root": {"records": []}}, separators=(",", ":")).encode()
+        instruction, digest, instruction_bytes = build_provider_instruction(
+            "Export the requested records.",
+            {"payload": payload, "handoff_sha256": hashlib.sha256(payload).hexdigest()},
+            input_sha256="0" * 64,
+        )
+
+        self.assertIn("copy the value directly from the exact source record", instruction)
+        self.assertIn("Do not perform business calculations", instruction)
+        self.assertIn("compare every planned cell, row identity, and parent-child identity", instruction)
+        self.assertEqual(len(digest), 64)
+        self.assertEqual(instruction_bytes, len(instruction.encode()))
 
     def test_paging_count_drift_and_duplicate_identity_are_rejected(self):
         from odoo.exceptions import ValidationError
@@ -788,6 +814,44 @@ class TestM3Export(WorkbookVersionFixtures, TransactionCase):
             verify_export_workbook(build_book(duplicate_identity=True), "candidate.xlsx", collected)
         with self.assertRaisesRegex(Exception, "selected source value"):
             verify_export_workbook(build_book(wrong_email=True), "candidate.xlsx", collected)
+
+    def test_projection_verifier_compares_xlsx_date_as_calendar_date(self):
+        table = {
+            "name": "Records",
+            "source": "root",
+            "columns": [{"label": "Date", "source_field": "date"}],
+        }
+        collected = {
+            "plan": {
+                "verification_profile": "record_projection",
+                "tables": [table],
+                "field_types": {"date": "date"},
+            },
+            "dataset": {
+                "root": {
+                    "fields": ["id", "date"],
+                    "records": [{"id": 1, "date": date(2026, 10, 1)}],
+                },
+            },
+        }
+
+        def build_book(cell_date):
+            workbook = Workbook()
+            sheet = workbook.active
+            sheet.title = "Records"
+            sheet.append(["Date", "__office_record_id"])
+            sheet.append([cell_date, 1])
+            stream = BytesIO()
+            workbook.save(stream)
+            workbook.close()
+            return stream.getvalue()
+
+        result = verify_export_workbook(
+            build_book(datetime(2026, 10, 1)), "candidate.xlsx", collected
+        )
+        self.assertTrue(result["identity_verified"])
+        with self.assertRaisesRegex(Exception, "selected source value"):
+            verify_export_workbook(build_book(datetime(2026, 10, 2)), "candidate.xlsx", collected)
 
     def test_relation_projection_rejects_missing_or_misassociated_child_rows(self):
         categories = self.env["res.partner.category"].create([

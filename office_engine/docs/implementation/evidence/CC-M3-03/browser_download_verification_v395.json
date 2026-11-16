@@ -1,0 +1,23 @@
+{
+  "source": "Codex in-app browser download from Odoo thread 677, final attachment 10278",
+  "download_path_original": "/Users/lijianqiang/Downloads/worlddepot_m3cc03_synthetic_acceptance_dcb17989be_outbound_orders.xlsx",
+  "evidence_copy": "office_engine/docs/implementation/evidence/CC-M3-03/final_browser_download_v395.xlsx",
+  "file_size": 14052,
+  "sha256": "92d6c0ac972bf406eb220701a637d7b36668c3950821b6c61e2276f5b948a5ee",
+  "matches_candidate_bytes": true,
+  "matches_final_attachment_orm_readback_bytes": true,
+  "openpyxl_readable": true,
+  "worksheets": [
+    {
+      "name": "Outbound Orders",
+      "max_row": 149,
+      "max_column": 4
+    },
+    {
+      "name": "明细",
+      "max_row": 186,
+      "max_column": 4
+    }
+  ],
+  "result": "PASS"
+}

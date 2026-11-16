@@ -1,0 +1,12 @@
+{
+  "database": "odoo18e_llm",
+  "project_name": "M3 CC03 Synthetic Acceptance DCB17989BE",
+  "project_id": 28,
+  "order_count": 148,
+  "line_count": 185,
+  "order_identity_count": 148,
+  "line_identity_count": 185,
+  "parent_relation_count": 185,
+  "source_snapshot_sha256": "28f5d21ca9890e242327ed667e325d209e9f6ff47993be5bf54afda1e96dde67",
+  "result": "PASS"
+}

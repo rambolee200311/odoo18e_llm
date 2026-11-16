@@ -368,3 +368,19 @@
 | 授权人 | Li Jianqiang（项目工作区账号 `lijianqiang`） |
 | 授权证据 | 负责人于 2026-11-16 明确指示：“继续实施 CC-M3-02……已授权解决 M3 新建工作簿与 M2 Candidate 生命周期的兼容性问题……完成代码修改、自动化测试及真实 Provider 集成验证……不要因正常的接口兼容性问题反复停止开发或申请授权。” |
 | 经办人确认 | 此项授权仅扩展 CC-M3-02 的兼容性实施和 Provider 测试边界；实际结果按 ATR 记录。真实 Provider 输出验证未通过，CC 不关闭。 |
+
+### CC-M3-03-001
+
+| 字段 | 记录 |
+|---|---|
+| 批准事项 | `docs/implementation/CC-M3-03_静默检索与最终HVR_v0.2.md`（CC-M3-03 v0.2） |
+| 冻结结果 | `FROZEN WITH OPEN ITEMS`；范围与验收契约冻结，按本记录进入实施 |
+| 一次性 Coding Authorization | 授权按 CC-M3-03 v0.2 在下游 `office_engine_m3` 实施 Silent Retrieval、自动化 / 集成测试和回归；仅在该 CC 范围内编码、修复、升级开发环境和维护实施证据。不得修改上游 `odoo-llm`、M2 addon 或其他 CC。 |
+| 数据库边界 | 仅现有开发数据库 `odoo18e_llm`；授权使用 Odoo ORM 准备和清理 148 条合成出库订单 / 关联产品明细并运行本 CC 测试；不得创建数据库、访问生产或其他数据库。不得以 SQL / RPC 操作业务数据。 |
+| Provider / Hosted CI 边界 | 授权在遵守既有 M2 数据外发政策前提下，使用当前配置的真实 Provider / Hosted Code Interpreter 完成本 CC 非流式 HVR；只允许发送本 CC 的合成数据和必要任务指令。不得使用真实客户数据或泄露密钥，不改变持久 Provider 配置。该授权不豁免或改变 M2 外发政策。 |
+| HVR 边界 | 授权通过当前会话可用的 Odoo 内置浏览器 / 已登录开发 UI，运行自然语言 Agent → Retriever → Office → Candidate → 明确 Accept → Finalize → 下载及独立 XLSX 核验。测试不得预注入模型 / 字段技术参数、Domain、Query Plan 或工具调用。 |
+| Git 边界 | 授权按项目流程提交并推送精确属于 CC-M3-03 的代码、测试、HVR 与关闭证据；不得混入其他工作区文件。 |
+| 其他未授权事项 | 不授权创建数据库、生产操作、修改上游或不相关模块、改变冻结 TDD / Plan、合并、部署或发布。流式路径只验证安全可见边界，不授权修复上游 generator。 |
+| 授权人 | Li Jianqiang（项目工作区账号 `lijianqiang`；Git 身份 `rambolee200311 <rambolee200311@hotmail.com>`） |
+| 授权证据 | 负责人于 2026-11-16 明确指示：“冻结cc-03,进入实施”。结合此前 CC-M3-03 v0.2 要求将开发、Provider、Hosted CI 与 HVR 合并为一次授权，该指示批准冻结本 CC 并一次性授权上述完整范围。 |
+| 经办人确认 | 同一授权记录覆盖本 CC 规定的编码、现有开发库合成 fixture、Provider / Hosted CI、内置浏览器 HVR、定向回归、证据维护及范围内 Git 提交推送；不逐次请求同一授权。测试结果依实际证据记录，授权不代表任何测试已通过。 |

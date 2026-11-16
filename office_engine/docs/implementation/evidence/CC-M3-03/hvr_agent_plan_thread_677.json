@@ -1,0 +1,48 @@
+{
+  "thread_id": 677,
+  "provider": "OpenAI GPT-5.6 Luna",
+  "model": "gpt-5.6-luna",
+  "user_prompt": "请为 WorldDepot 项目“M3 CC03 Synthetic Acceptance DCB17989BE”创建一份新的 Excel，导出项目下全部 outbound order（出库订单），包含订单号、Reference、日期，并在明细中列出每单的产品和数量。请逐条完整保留原始明细，不要汇总数量、四舍五入或改写字段值，确保每条明细都能对应所属订单。",
+  "action": "export_records",
+  "workbook_source": "new",
+  "source_query": {
+    "model": "world.depot.outbound.order",
+    "domain": [
+      "&",
+      ["type", "=", "outbound"],
+      ["project_name", "=", "M3 CC03 Synthetic Acceptance DCB17989BE"]
+    ],
+    "fields": ["billno", "reference", "date"],
+    "order": "id"
+  },
+  "collections": [
+    {
+      "key": "outbound_order_product_ids",
+      "relation_field": "outbound_order_product_ids",
+      "relation_model": "world.depot.outbound.order.product",
+      "inverse_field": "outbound_order_id",
+      "fields": ["product_id", "quantity"],
+      "order": "id"
+    }
+  ],
+  "tables": [
+    {
+      "name": "Outbound Orders",
+      "source": "root",
+      "columns": [
+        {"label": "订单号", "source_field": "billno"},
+        {"label": "Reference", "source_field": "reference"},
+        {"label": "日期", "source_field": "date"}
+      ]
+    },
+    {
+      "name": "明细",
+      "source": "outbound_order_product_ids",
+      "columns": [
+        {"label": "产品", "source_field": "product_id"},
+        {"label": "数量", "source_field": "quantity"}
+      ]
+    }
+  ],
+  "verification_profile": "record_projection"
+}

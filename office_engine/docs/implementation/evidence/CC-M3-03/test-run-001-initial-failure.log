@@ -1,0 +1,634 @@
+2026-11-16 06:39:17,908 88921 INFO odoo18e_llm odoo.addons.queue_job.post_load: Apply Request._get_session_and_dbname monkey patch to capture db from request with multiple databases 
+2026-11-16 06:39:19,604 88921 ERROR odoo18e_llm odoo.modules.registry: Model column.filter.field.info has no table. 
+2026-11-16 06:39:19,916 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: ERROR: TestM3Export.test_current_export_uses_m2_edit_candidate_and_keeps_current_until_accept
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 372, in test_current_export_uses_m2_edit_candidate_and_keeps_current_until_accept
+    env, session, thread, _source_message, _source, _request, _output, parent = self._versioned_session_fixture()
+                                                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/tests/support/__init__.py", line 175, in _versioned_session_fixture
+    env, session, thread, message, source = self._session_fixture()
+                                            ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/tests/support/__init__.py", line 96, in _session_fixture
+    message = thread.message_post(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_thread.py", line 84, in message_post
+    return super().message_post(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_thread/models/llm_thread.py", line 259, in message_post
+    message = super().message_post(message_type=message_type, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/sms/models/mail_thread.py", line 52, in message_post
+    return super().message_post(*args, body=body, message_type=message_type, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/rating/models/mail_thread.py", line 182, in message_post
+    return super().message_post(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2250, in message_post
+    new_message = self._message_create([msg_values])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2928, in _message_create
+    self._raise_for_invalid_parameters(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 3093, in _raise_for_invalid_parameters
+    raise ValueError(
+ValueError: Those values are not supported when posting or notifying: llm_silent_retrieval
+ 
+2026-11-16 06:39:19,937 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: ERROR: TestM3Export.test_handoff_digest_mismatch_stops_before_provider_and_candidate_creation
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 864, in test_handoff_digest_mismatch_stops_before_provider_and_candidate_creation
+    self._user(thread, "Export the synthetic contact.")
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 97, in _user
+    return thread.message_post(body=text, llm_role="user", author_id=thread.env.user.partner_id.id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_thread.py", line 84, in message_post
+    return super().message_post(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_thread/models/llm_thread.py", line 259, in message_post
+    message = super().message_post(message_type=message_type, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/sms/models/mail_thread.py", line 52, in message_post
+    return super().message_post(*args, body=body, message_type=message_type, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/rating/models/mail_thread.py", line 182, in message_post
+    return super().message_post(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2250, in message_post
+    new_message = self._message_create([msg_values])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2928, in _message_create
+    self._raise_for_invalid_parameters(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 3093, in _raise_for_invalid_parameters
+    raise ValueError(
+ValueError: Those values are not supported when posting or notifying: llm_silent_retrieval
+ 
+2026-11-16 06:39:19,955 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: ERROR: TestM3Export.test_indeterminate_provider_attempt_is_not_silently_replayed
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 639, in test_indeterminate_provider_attempt_is_not_silently_replayed
+    self._user(thread, "Export the synthetic contact.")
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 97, in _user
+    return thread.message_post(body=text, llm_role="user", author_id=thread.env.user.partner_id.id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_thread.py", line 84, in message_post
+    return super().message_post(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_thread/models/llm_thread.py", line 259, in message_post
+    message = super().message_post(message_type=message_type, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/sms/models/mail_thread.py", line 52, in message_post
+    return super().message_post(*args, body=body, message_type=message_type, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/rating/models/mail_thread.py", line 182, in message_post
+    return super().message_post(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2250, in message_post
+    new_message = self._message_create([msg_values])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2928, in _message_create
+    self._raise_for_invalid_parameters(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 3093, in _raise_for_invalid_parameters
+    raise ValueError(
+ValueError: Those values are not supported when posting or notifying: llm_silent_retrieval
+ 
+2026-11-16 06:39:19,972 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: ERROR: TestM3Export.test_invalid_provider_projection_is_failed_without_advancing_current
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 700, in test_invalid_provider_projection_is_failed_without_advancing_current
+    self._user(thread, "Export the synthetic contact.")
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 97, in _user
+    return thread.message_post(body=text, llm_role="user", author_id=thread.env.user.partner_id.id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_thread.py", line 84, in message_post
+    return super().message_post(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_thread/models/llm_thread.py", line 259, in message_post
+    message = super().message_post(message_type=message_type, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/sms/models/mail_thread.py", line 52, in message_post
+    return super().message_post(*args, body=body, message_type=message_type, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/rating/models/mail_thread.py", line 182, in message_post
+    return super().message_post(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2250, in message_post
+    new_message = self._message_create([msg_values])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2928, in _message_create
+    self._raise_for_invalid_parameters(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 3093, in _raise_for_invalid_parameters
+    raise ValueError(
+ValueError: Those values are not supported when posting or notifying: llm_silent_retrieval
+ 
+2026-11-16 06:39:20,269 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: ERROR: TestM3Export.test_new_export_candidate_waits_for_accept_then_finalize
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 287, in test_new_export_candidate_waits_for_accept_then_finalize
+    intent = self._user(thread, "Export all 148 synthetic partners with their names and emails.")
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 97, in _user
+    return thread.message_post(body=text, llm_role="user", author_id=thread.env.user.partner_id.id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_thread.py", line 84, in message_post
+    return super().message_post(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_thread/models/llm_thread.py", line 259, in message_post
+    message = super().message_post(message_type=message_type, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/sms/models/mail_thread.py", line 52, in message_post
+    return super().message_post(*args, body=body, message_type=message_type, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/rating/models/mail_thread.py", line 182, in message_post
+    return super().message_post(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2250, in message_post
+    new_message = self._message_create([msg_values])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2928, in _message_create
+    self._raise_for_invalid_parameters(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 3093, in _raise_for_invalid_parameters
+    raise ValueError(
+ValueError: Those values are not supported when posting or notifying: llm_silent_retrieval
+ 
+2026-11-16 06:39:20,332 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: ERROR: TestM3Export.test_provider_without_usable_candidate_is_failed_without_advancing_current
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 900, in test_provider_without_usable_candidate_is_failed_without_advancing_current
+    self._user(thread, "Export the synthetic contact.")
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 97, in _user
+    return thread.message_post(body=text, llm_role="user", author_id=thread.env.user.partner_id.id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_thread.py", line 84, in message_post
+    return super().message_post(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_thread/models/llm_thread.py", line 259, in message_post
+    message = super().message_post(message_type=message_type, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/sms/models/mail_thread.py", line 52, in message_post
+    return super().message_post(*args, body=body, message_type=message_type, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/rating/models/mail_thread.py", line 182, in message_post
+    return super().message_post(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2250, in message_post
+    new_message = self._message_create([msg_values])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2928, in _message_create
+    self._raise_for_invalid_parameters(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 3093, in _raise_for_invalid_parameters
+    raise ValueError(
+ValueError: Those values are not supported when posting or notifying: llm_silent_retrieval
+ 
+2026-11-16 06:39:20,353 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: ERROR: TestM3Export.test_query_page_failure_is_reported_without_candidate_creation
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 551, in test_query_page_failure_is_reported_without_candidate_creation
+    self._user(thread, "Export the synthetic contact.")
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 97, in _user
+    return thread.message_post(body=text, llm_role="user", author_id=thread.env.user.partner_id.id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_thread.py", line 84, in message_post
+    return super().message_post(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_thread/models/llm_thread.py", line 259, in message_post
+    message = super().message_post(message_type=message_type, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/sms/models/mail_thread.py", line 52, in message_post
+    return super().message_post(*args, body=body, message_type=message_type, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/rating/models/mail_thread.py", line 182, in message_post
+    return super().message_post(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2250, in message_post
+    new_message = self._message_create([msg_values])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2928, in _message_create
+    self._raise_for_invalid_parameters(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 3093, in _raise_for_invalid_parameters
+    raise ValueError(
+ValueError: Those values are not supported when posting or notifying: llm_silent_retrieval
+ 
+2026-11-16 06:39:20,382 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: ERROR: TestM3Export.test_reject_new_export_candidate_keeps_session_unmodified
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 442, in test_reject_new_export_candidate_keeps_session_unmodified
+    self._user(thread, "Export the synthetic contact.")
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 97, in _user
+    return thread.message_post(body=text, llm_role="user", author_id=thread.env.user.partner_id.id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_thread.py", line 84, in message_post
+    return super().message_post(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_thread/models/llm_thread.py", line 259, in message_post
+    message = super().message_post(message_type=message_type, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/sms/models/mail_thread.py", line 52, in message_post
+    return super().message_post(*args, body=body, message_type=message_type, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/rating/models/mail_thread.py", line 182, in message_post
+    return super().message_post(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2250, in message_post
+    new_message = self._message_create([msg_values])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2928, in _message_create
+    self._raise_for_invalid_parameters(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 3093, in _raise_for_invalid_parameters
+    raise ValueError(
+ValueError: Those values are not supported when posting or notifying: llm_silent_retrieval
+ 
+2026-11-16 06:39:20,441 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: ERROR: TestM3Export.test_relation_row_limit_fails_before_provider_dispatch
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 609, in test_relation_row_limit_fails_before_provider_dispatch
+    self._user(thread, "Export the synthetic parents and related categories.")
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 97, in _user
+    return thread.message_post(body=text, llm_role="user", author_id=thread.env.user.partner_id.id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_thread.py", line 84, in message_post
+    return super().message_post(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_thread/models/llm_thread.py", line 259, in message_post
+    message = super().message_post(message_type=message_type, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/sms/models/mail_thread.py", line 52, in message_post
+    return super().message_post(*args, body=body, message_type=message_type, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/rating/models/mail_thread.py", line 182, in message_post
+    return super().message_post(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2250, in message_post
+    new_message = self._message_create([msg_values])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2928, in _message_create
+    self._raise_for_invalid_parameters(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 3093, in _raise_for_invalid_parameters
+    raise ValueError(
+ValueError: Those values are not supported when posting or notifying: llm_silent_retrieval
+ 
+2026-11-16 06:39:20,470 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: ERROR: TestM3Export.test_resource_limit_fails_before_session_or_provider_dispatch
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 492, in test_resource_limit_fails_before_session_or_provider_dispatch
+    self._user(thread, "Export the bounded synthetic contacts.")
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 97, in _user
+    return thread.message_post(body=text, llm_role="user", author_id=thread.env.user.partner_id.id)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_thread.py", line 84, in message_post
+    return super().message_post(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_thread/models/llm_thread.py", line 259, in message_post
+    message = super().message_post(message_type=message_type, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/sms/models/mail_thread.py", line 52, in message_post
+    return super().message_post(*args, body=body, message_type=message_type, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/rating/models/mail_thread.py", line 182, in message_post
+    return super().message_post(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2250, in message_post
+    new_message = self._message_create([msg_values])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2928, in _message_create
+    self._raise_for_invalid_parameters(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 3093, in _raise_for_invalid_parameters
+    raise ValueError(
+ValueError: Those values are not supported when posting or notifying: llm_silent_retrieval
+ 
+2026-11-16 06:39:20,913 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: ERROR: TestRetriever.test_retriever_error_message_retains_error_code_and_diagnostic_id
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_retriever.py", line 211, in test_retriever_error_message_retains_error_code_and_diagnostic_id
+    message = self.env["mail.message"].post_tool_call(tool_call, thread_model=thread)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_tool/models/mail_message.py", line 64, in post_tool_call
+    return thread_model.message_post(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_thread.py", line 84, in message_post
+    return super().message_post(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_thread/models/llm_thread.py", line 259, in message_post
+    message = super().message_post(message_type=message_type, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/sms/models/mail_thread.py", line 52, in message_post
+    return super().message_post(*args, body=body, message_type=message_type, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/rating/models/mail_thread.py", line 182, in message_post
+    return super().message_post(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2250, in message_post
+    new_message = self._message_create([msg_values])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2928, in _message_create
+    self._raise_for_invalid_parameters(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 3093, in _raise_for_invalid_parameters
+    raise ValueError(
+ValueError: Those values are not supported when posting or notifying: llm_silent_retrieval
+ 
+2026-11-16 06:39:21,227 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.models.llm_tool: Retriever operation failed; operation=search diagnostic_id=43ef5009398d42d397aad4c77188f0c4 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_tool.py", line 269, in odoo_record_retriever_execute
+    return self._retriever_search(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_tool.py", line 371, in _retriever_search
+    count = model_obj.search_count(domain)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/mock.py", line 1124, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/mock.py", line 1183, in _execute_mock_call
+    raise effect
+RuntimeError: synthetic secret detail
+2026-11-16 06:39:21,505 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: ERROR: TestSilentRetrieval.test_discuss_history_hides_only_marked_messages_and_keeps_rows
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_silent_retrieval.py", line 123, in test_discuss_history_hides_only_marked_messages_and_keeps_rows
+    user_message = thread.message_post(
+                   ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_thread.py", line 84, in message_post
+    return super().message_post(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_thread/models/llm_thread.py", line 259, in message_post
+    message = super().message_post(message_type=message_type, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/sms/models/mail_thread.py", line 52, in message_post
+    return super().message_post(*args, body=body, message_type=message_type, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/rating/models/mail_thread.py", line 182, in message_post
+    return super().message_post(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2250, in message_post
+    new_message = self._message_create([msg_values])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2928, in _message_create
+    self._raise_for_invalid_parameters(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 3093, in _raise_for_invalid_parameters
+    raise ValueError(
+ValueError: Those values are not supported when posting or notifying: llm_silent_retrieval
+ 
+2026-11-16 06:39:21,523 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: ERROR: TestSilentRetrieval.test_failed_retrieval_reveals_tool_and_assistant_messages
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_silent_retrieval.py", line 194, in test_failed_retrieval_reveals_tool_and_assistant_messages
+    assistant = thread.message_post(
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_thread.py", line 84, in message_post
+    return super().message_post(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_thread/models/llm_thread.py", line 259, in message_post
+    message = super().message_post(message_type=message_type, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/sms/models/mail_thread.py", line 52, in message_post
+    return super().message_post(*args, body=body, message_type=message_type, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/rating/models/mail_thread.py", line 182, in message_post
+    return super().message_post(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2250, in message_post
+    new_message = self._message_create([msg_values])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2928, in _message_create
+    self._raise_for_invalid_parameters(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 3093, in _raise_for_invalid_parameters
+    raise ValueError(
+ValueError: Those values are not supported when posting or notifying: llm_silent_retrieval
+ 
+2026-11-16 06:39:21,539 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: ERROR: TestSilentRetrieval.test_only_pure_retriever_messages_on_non_stream_office_route_are_marked
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_silent_retrieval.py", line 45, in test_only_pure_retriever_messages_on_non_stream_office_route_are_marked
+    assistant = thread.message_post(
+                ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_thread.py", line 84, in message_post
+    return super().message_post(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_thread/models/llm_thread.py", line 259, in message_post
+    message = super().message_post(message_type=message_type, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/sms/models/mail_thread.py", line 52, in message_post
+    return super().message_post(*args, body=body, message_type=message_type, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/rating/models/mail_thread.py", line 182, in message_post
+    return super().message_post(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2250, in message_post
+    new_message = self._message_create([msg_values])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2928, in _message_create
+    self._raise_for_invalid_parameters(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 3093, in _raise_for_invalid_parameters
+    raise ValueError(
+ValueError: Those values are not supported when posting or notifying: llm_silent_retrieval
+ 
+2026-11-16 06:39:21,556 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: ERROR: TestSilentRetrieval.test_sse_filter_keeps_tool_events_errors_and_visible_messages
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_silent_retrieval.py", line 160, in test_sse_filter_keeps_tool_events_errors_and_visible_messages
+    silent = thread.message_post(
+             ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_thread.py", line 84, in message_post
+    return super().message_post(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_thread/models/llm_thread.py", line 259, in message_post
+    message = super().message_post(message_type=message_type, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/sms/models/mail_thread.py", line 52, in message_post
+    return super().message_post(*args, body=body, message_type=message_type, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/rating/models/mail_thread.py", line 182, in message_post
+    return super().message_post(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2250, in message_post
+    new_message = self._message_create([msg_values])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2928, in _message_create
+    self._raise_for_invalid_parameters(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 3093, in _raise_for_invalid_parameters
+    raise ValueError(
+ValueError: Those values are not supported when posting or notifying: llm_silent_retrieval
+ 
+2026-11-16 06:39:21,578 88921 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: ERROR: TestSilentRetrieval.test_visible_office_and_clarification_messages_are_never_marked
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_silent_retrieval.py", line 239, in test_visible_office_and_clarification_messages_are_never_marked
+    message = thread.message_post(
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_thread.py", line 84, in message_post
+    return super().message_post(
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_thread/models/llm_thread.py", line 259, in message_post
+    message = super().message_post(message_type=message_type, **kwargs)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/sms/models/mail_thread.py", line 52, in message_post
+    return super().message_post(*args, body=body, message_type=message_type, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/rating/models/mail_thread.py", line 182, in message_post
+    return super().message_post(**kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2250, in message_post
+    new_message = self._message_create([msg_values])
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 2928, in _message_create
+    self._raise_for_invalid_parameters(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/mail/models/mail_thread.py", line 3093, in _raise_for_invalid_parameters
+    raise ValueError(
+ValueError: Those values are not supported when posting or notifying: llm_silent_retrieval
+ 
+2026-11-16 06:39:21,656 88921 ERROR odoo18e_llm odoo.modules.loading: Module office_engine_m3: 0 failures, 16 errors of 33 tests 
+2026-11-16 06:39:21,737 88921 WARNING odoo18e_llm py.warnings: /Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py:482: DeprecationWarning: The model odoo.addons.worlddepot.models.inbound_order is not overriding the create method in batch
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/__init__.py", line 4, in <module>
+    from . import models
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/__init__.py", line 4, in <module>
+    from . import inbound_order
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/inbound_order.py", line 10, in <module>
+    class InboundOrder(models.Model):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/inbound_order.py", line 202, in InboundOrder
+    @api.model
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 429, in model
+    return model_create_single(method)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 482, in model_create_single
+    warnings.warn(
+ 
+2026-11-16 06:39:21,739 88921 WARNING odoo18e_llm py.warnings: /Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py:482: DeprecationWarning: The model odoo.addons.worlddepot.models.outbound_order is not overriding the create method in batch
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/__init__.py", line 4, in <module>
+    from . import models
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/__init__.py", line 6, in <module>
+    from . import outbound_order
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/outbound_order.py", line 19, in <module>
+    class OutboundOrder(models.Model):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/outbound_order.py", line 235, in OutboundOrder
+    @api.model
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 429, in model
+    return model_create_single(method)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 482, in model_create_single
+    warnings.warn(
+ 
+2026-11-16 06:39:21,742 88921 WARNING odoo18e_llm py.warnings: /Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py:482: DeprecationWarning: The model odoo.addons.worlddepot.models.my_api_user is not overriding the create method in batch
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/__init__.py", line 4, in <module>
+    from . import models
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/__init__.py", line 20, in <module>
+    from . import my_api_user
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/my_api_user.py", line 10, in <module>
+    class DepotAPIUser(models.Model):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/my_api_user.py", line 75, in DepotAPIUser
+    @api.model
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 429, in model
+    return model_create_single(method)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 482, in model_create_single
+    warnings.warn(
+ 
+2026-11-16 06:39:21,746 88921 WARNING odoo18e_llm py.warnings: /Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py:482: DeprecationWarning: The model odoo.addons.worlddepot.models.transfer_order is not overriding the create method in batch
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/__init__.py", line 4, in <module>
+    from . import models
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/__init__.py", line 36, in <module>
+    from . import transfer_order
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/transfer_order.py", line 10, in <module>
+    class TransferOrder(models.Model):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/transfer_order.py", line 78, in TransferOrder
+    @api.model
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 429, in model
+    return model_create_single(method)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 482, in model_create_single
+    warnings.warn(
+ 
+2026-11-16 06:39:22,409 88921 ERROR odoo18e_llm odoo.modules.loading: At least one test failed when loading the modules. 
+2026-11-16 06:39:22,592 88921 ERROR odoo18e_llm odoo.tests.result: 0 failed, 16 error(s) of 33 tests when loading database 'odoo18e_llm' 

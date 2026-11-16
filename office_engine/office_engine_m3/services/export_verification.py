@@ -26,7 +26,14 @@ def _comparable(value):
     return value
 
 
-def _matches(actual, expected):
+def _matches(actual, expected, field_type=None):
+    # XLSX serial dates are read by openpyxl as midnight datetimes. Compare
+    # them as calendar dates when the selected Odoo field is a Date.
+    if field_type == "date":
+        if isinstance(actual, datetime):
+            actual = actual.date()
+        if isinstance(expected, datetime):
+            expected = expected.date()
     actual = _comparable(actual)
     expected = _comparable(expected)
     if expected is None:
@@ -145,7 +152,11 @@ def verify_export_workbook(content, filename, collected):
                 for index, column in enumerate(table["columns"]):
                     source_field = column["source_field"]
                     expected_value = _cell_value(record.get(source_field), field_types.get(source_field))
-                    if not _matches(actual_row[visible_indexes[index]], expected_value):
+                    if not _matches(
+                        actual_row[visible_indexes[index]],
+                        expected_value,
+                        field_types.get(source_field),
+                    ):
                         raise ValidationError("A planned export cell does not match its selected source value.")
                 if actual_row[record_id_index] != record_id:
                     raise ValidationError("A planned export worksheet has a missing, duplicate, or misassociated identity.")
