@@ -15,8 +15,8 @@
 | IHR | [`IHR-CC-M3-03-Silent-Retrieval.md`](IHR-CC-M3-03-Silent-Retrieval.md) |
 | 模块 | `office_engine_m3` |
 | 环境 | Odoo 18 开发环境；仅使用数据库 `odoo18e_llm` |
-| 分支 / 基线 | `codex/cc-m3-01-provider-acceptance` / `48e25a52ec45938b2ff8a4c9e3ac32365317a5f7` |
-| 执行状态 | 实施及核心 HVR 已完成；等待关闭评审 |
+| 分支 / 基线 | `codex/cc-m3-01-provider-acceptance` / `9d6918fd4357201b3b514fe6d3001aff43b2df32` |
+| 执行状态 | **已完成并关闭**；证据绑定实现提交 `9d6918fd4357201b3b514fe6d3001aff43b2df32` |
 | 数据处理 | 创建并核验 148 个合成订单和 185 条明细，随后通过 ORM 清理；未使用生产数据 |
 | 最近 M3 测试 | `test-run-006-attachment-context-regression.log`；42 项，0 failures，0 errors |
 
@@ -83,6 +83,18 @@
 `TEST-REG-001` 建议 **PASS（范围化；本轮未发现回归）**。依据为 M2 定向 12 项、M3 全套 42 项、最终真实 HVR 与变更范围审查。依赖第二公司的 1 项失败和 1 项 setup error 列为本 CC 不适用，不要求新增公司 fixture。全量 M2 测试原始结果继续保留为 13 failures / 69 errors；67 个 worker EOF 原因未明，另有跟随失败创建的 `current` 不可用错误。不得把全量结果写成 PASS，也不得把原因不明的 worker 错误称为环境问题。该全量结果未能证明本轮引入了回归；M2 / OfficeCore 均未被本 CC 修改。
 
 确定性 Silent Retrieval 边界 `TEST-SILENT-002`–`005` 已按当前实现路径自动化验收，不依赖 Provider 随机产生特定 tool-call 形态。
+
+## 7. 关闭状态
+
+| 项目 | 结论 |
+|---|---|
+| 当前实现基线 | `9d6918fd4357201b3b514fe6d3001aff43b2df32` |
+| CC-M3-03 必需自动化 | SATISFIED：M3 42/42、适用 M2 定向回归 12/12 |
+| 真实 HVR | SATISFIED：真实 Agent UI、Candidate、用户 Accept、Finalize、下载 XLSX 与 SHA 核验 |
+| `TEST-REG-001` | PASS（范围化；本轮未发现回归）；不等于 M2 全量回归 PASS |
+| M2 全量回归 | 保留非绿色原始结果 13 failures / 69 errors；67 个 worker pipe EOF 原因仍未确定 |
+| 未解决的 CC 阻塞项 | 无 |
+| 关闭记录 | [`CLOSE-CC-M3-03-20261116.md`](CLOSE-CC-M3-03-20261116.md) |
 
 ## 7. 交接状态
 

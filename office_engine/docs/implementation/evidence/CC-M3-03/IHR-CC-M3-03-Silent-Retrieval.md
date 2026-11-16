@@ -15,8 +15,8 @@
 | 模块 | `office_engine_m3` |
 | 实施人 | Codex；负责人 Li Jianqiang |
 | 开始日期 | 2026-11-16 |
-| 实施状态 | 核心代码和 HVR 已完成；等待关闭评审 |
-| 分支 / 基线 | `codex/cc-m3-01-provider-acceptance` / `48e25a52ec45938b2ff8a4c9e3ac32365317a5f7` |
+| 实施状态 | **已完成并关闭** |
+| 分支 / 基线 | `codex/cc-m3-01-provider-acceptance` / `9d6918fd4357201b3b514fe6d3001aff43b2df32` |
 | 数据库 | 仅使用现有开发库 `odoo18e_llm` |
 | 授权 | [`CC-M3-03-001`](../../AUTHORIZATION_RECORDS.md#cc-m3-03-001) |
 
@@ -95,7 +95,7 @@
 |---|---|
 | 日期 / 阶段 | 2026-11-16 / CC 收尾回归 |
 | 操作 | 复核 M2 全量回归原始日志；运行 `TestWorkbookVersionState` 全类及 `test_fileless_xlsx_request_binds_route_b_tools_for_create_and_followup_turns` 定向测试。并按负责人此前要求，复核 `TEST-SILENT-002`–`005` 对确定性自动化边界的充分性。 |
-| 结果 | M2 全量原始结果仍为 208 项中的 13 failures / 69 errors，不记全量 PASS。定向 M2 测试 12 项、0 failures、0 errors；M3 42 项及真实 HVR 通过。67 个全量错误是 OfficeCore 隔离 worker 异常退出（IPC pipe `EOFError`），具体原因未明，未归类为环境问题或 M3 回归。另有 failed-create 后的 current 不可用错误。依赖第二家公司的 1 项失败和 1 项 setup error 按 CC 范围列为 N/A。依据本轮测试与变更范围审查，`TEST-REG-001` 建议 PASS（范围化；本轮未发现回归）；不声称 M2 全量套件通过。 |
+| 结果 | M2 全量原始结果仍为 208 项中的 13 failures / 69 errors，不记全量 PASS。定向 M2 测试 12 项、0 failures、0 errors；M3 42 项及真实 HVR 通过。67 个全量错误是 OfficeCore 隔离 worker 异常退出（IPC pipe `EOFError`），具体原因未明，未归类为环境问题或 M3 回归。另有 failed-create 后的 current 不可用错误。依赖第二家公司的 1 项失败和 1 项 setup error 按 CC 范围列为 N/A。依据本轮测试与变更范围审查，`TEST-REG-001` 记录为 PASS（范围化；本轮未发现回归）；不声称 M2 全量套件通过。 |
 | 证据 | [`test-run-005-m2-regression-status.md`](test-run-005-m2-regression-status.md)、原始日志 `test-run-005-m2-regression-normal-import.log` / `test-run-005-m2-regression-full-compat.log`、[`test-run-007-targeted-m2-regression.log`](test-run-007-targeted-m2-regression.log)。 |
 | Silent 边界 | `TEST-SILENT-002`–`005` 的确定性安全 / 可见性边界由自动化覆盖；HVR 只报告实际观察到的非流式成功路径，不声称实际触发 Provider 随机错误或 mixed tool call。流式只验收未静默隐藏，不声称 generator 续接通过。 |
 | 偏离 | 未修改 M2 / OfficeCore、冻结 TDD / Plan / CC；未扩大测试环境或创建第二家公司。 |
@@ -125,4 +125,4 @@
 
 ## 5. 当前状态与交接
 
-核心实现、附件上下文回归、确定性 Silent Retrieval 边界及最终数据 / 生命周期 HVR 已完成。`TEST-REG-001` 范围化结论和保留的全量原始结果已提交关闭评审。**CC-M3-03 尚待负责人批准关闭。** 冻结的 TDD v0.4、Plan v0.3 和 CC v0.2 均未修改。当前未提交或推送；未合并、部署或发布。
+核心实现、附件上下文回归、确定性 Silent Retrieval 边界及最终数据 / 生命周期 HVR 已完成。负责人已于 2026-11-16 批准 M3 收尾并准备关闭；CC-M3-03 关闭评估为 SATISFIED。实现基线为 `9d6918fd4357201b3b514fe6d3001aff43b2df32`，关闭依据和 Git 推送结果见 [`CLOSE-CC-M3-03-20261116.md`](CLOSE-CC-M3-03-20261116.md)。冻结的 TDD v0.4、Plan v0.3 和 CC v0.2 均未修改。本 CC 不涉及合并、部署或发布。
