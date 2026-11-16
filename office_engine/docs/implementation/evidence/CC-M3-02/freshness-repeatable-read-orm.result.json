@@ -1,0 +1,15 @@
+{
+  "database": "odoo18e_llm",
+  "method": "ORM only; two concurrent Odoo cursors; no SQL or sudo",
+  "initial_source_count": 3,
+  "concurrent_changes": ["insert", "update", "delete"],
+  "collector_count_after_changes": 3,
+  "source_identity_match": true,
+  "source_field_values_match_initial_snapshot": true,
+  "source_view": "single_odoo_transaction",
+  "read_consistency": "repeatable_read",
+  "page_size": 2,
+  "pages": 2,
+  "synthetic_rows_cleaned_by_ORM": 3,
+  "result": "PASS"
+}

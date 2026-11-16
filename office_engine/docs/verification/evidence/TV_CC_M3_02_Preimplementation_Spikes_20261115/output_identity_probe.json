@@ -1,0 +1,19 @@
+{
+  "fixture": "synthetic_only",
+  "file": "synthetic-export.xlsx",
+  "bytes": 4918,
+  "sha256": "63549a74ceb6ee8a213629139323500df6a539a2d8ae2be3af0e2117e47b0f2f",
+  "existing_verifier": "office_verify.verify_created_output_with_metrics",
+  "office_verify_result": "PARTIALLY_VERIFIED",
+  "package_integrity_supported": true,
+  "worksheet_structure_supported": true,
+  "business_semantics_claimed": false,
+  "expected_identity_count": 3,
+  "actual_identity_count": 3,
+  "identity_set_matches": true,
+  "identity_unique": true,
+  "elapsed_seconds": 0.109,
+  "max_observed_rss_bytes": 44761088,
+  "worker_exited": true,
+  "note": "Identity extraction/set comparison was performed as a separate bounded synthetic probe; the existing Office verifier itself does not assert a caller-supplied identity manifest."
+}

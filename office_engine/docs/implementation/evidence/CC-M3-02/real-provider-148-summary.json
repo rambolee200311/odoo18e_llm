@@ -1,0 +1,47 @@
+{
+  "database": "odoo18e_llm",
+  "provider_name": "OpenAI GPT-5.6 Luna",
+  "provider_model": "gpt-5.6-luna",
+  "scenario": "148 synthetic contacts, page size 100, record_projection",
+  "office_result": {
+    "status": "failed",
+    "operation_status": "provider_export_unavailable",
+    "candidate_version_id": null,
+    "source_record_count": null,
+    "projection_verification": null,
+    "handoff_sha256": null,
+    "handoff_bytes": null,
+    "provider": {
+      "operation_status": "failed",
+      "candidate_present": false,
+      "input_sha256": "8765c9813e9a3917b518b7cdbd933dde62ed0215e44e5088e42f7b0e5d40bde6",
+      "candidate_sha256": null,
+      "provider_response_id": "resp_06b73ddfdb93b134016af9d302a58887d2932077019d8c6b31",
+      "request_id": "req_99dc8c4331d64d6db9cb9297e06fe8cc",
+      "download_request_id": null,
+      "tool_call_ids": [
+        "ci_06b73ddfdb93b134016af9d30a171087d299855af964ff8c7d",
+        "ci_06b73ddfdb93b134016af9d30d4b1087d28c2915615ae76c41"
+      ],
+      "container_id": "cntr_6af9d3052d888191b524dd14cd90da38040273231d937dcb",
+      "provider_file_ids": [],
+      "provider_filename": null,
+      "usage": {
+        "input_tokens": 9248,
+        "output_tokens": 4096,
+        "total_tokens": 13344,
+        "reasoning_tokens": 546
+      },
+      "duration_ms": 37349,
+      "cleanup_state": "completed",
+      "error": {
+        "category": "provider_response_incomplete",
+        "retryable": false,
+        "retry_decision": "not_automatic",
+        "http_status": null
+      },
+      "correlation_id": "98414d63d231ce86ee656bf8856c07cb109c4fea9792226a2fc0d9f1b1d9efd5"
+    }
+  },
+  "conclusion": "BLOCKED: Provider did not return a reviewable Candidate."
+}

@@ -1273,7 +1273,7 @@ def _receipt_fields(candidate, receipt):
         raise ValidationError(_("The validation receipt candidate bytes do not match."))
     if fileless_creation:
         if (
-            candidate.state != "verifying"
+            candidate.state not in {"verifying", "candidate_received"}
             or candidate.parent_version_id
             or candidate.source_request_id
             or candidate.input_attachment_id
@@ -1330,7 +1330,7 @@ def record_validation_receipt(env, candidate_id, receipt):
     candidate.check_access("write")
     session = _require_session(env, candidate.session_id.id, write=True)
     fileless_verification = (
-        candidate.state == "verifying"
+        candidate.state in {"verifying", "candidate_received"}
         and candidate.session_id.origin_kind == "fileless"
         and candidate.version_kind == "initial"
     )
@@ -1377,6 +1377,7 @@ def register_fileless_creation_request(
             "session_id": session.id,
             "source_message_id": intent.id,
             "intent_message_id": intent.id,
+            "candidate_review_watermark_message_id": _latest_thread_message(env, session).id,
             "version_no": _next_version_number(env, session),
             "version_kind": "initial",
             "state": "verifying",
@@ -1449,6 +1450,7 @@ def store_fileless_creation_output(
         if stored_bytes != content:
             raise ValidationError(_("The created workbook attachment did not preserve the returned bytes."))
         _write_version(version, {
+            "state": "candidate_received",
             "output_attachment_id": attachment.id,
             "filename": filename,
             "mimetype": mimetype,
@@ -1460,6 +1462,166 @@ def store_fileless_creation_output(
             "provider_usage_json": _safe_usage(provider_usage_json),
             "provider_cleanup_state": provider_cleanup_state,
         })
+    return version
+
+
+def register_export_edit_attempt(
+    env,
+    session_id,
+    *,
+    parent_version_id,
+    expected_document_revision,
+    intent_message_id,
+    idempotency_key,
+    request_digest,
+    provider_model,
+):
+    """Persist a M3 edit attempt before Provider dispatch for safe idempotent retries."""
+    session = _require_session(env, session_id, write=True)
+    parent = _require_version(env, session, parent_version_id)
+    expected_document_revision = _check_expected_revision(expected_document_revision)
+    intent = _require_user_thread_message(env, session, intent_message_id, "Export intent")
+    idempotency_key = _require_idempotency_key(idempotency_key)
+    request_digest = _require_hash(request_digest, "request")
+    if (
+        session.current_version_id != parent
+        or parent.state not in {"accepted_current", "finalized"}
+        or session.document_revision != expected_document_revision
+        or parent.accepted_document_revision != expected_document_revision
+    ):
+        raise ValidationError(_("WORKBOOK_VERSION_STALE: the export parent is no longer Current."))
+    input_bytes, input_sha = _read_attachment(env, parent.output_attachment_id, expected_sha=parent.output_sha256)
+    if not input_bytes:
+        raise ValidationError(_("The accepted Current workbook is unavailable."))
+    existing = env["office.workbook.version"].search(
+        [("session_id", "=", session.id), ("idempotency_key", "=", idempotency_key)], limit=1
+    )
+    if existing:
+        if (
+            existing.version_kind != "edit"
+            or existing.parent_version_id != parent
+            or existing.input_sha256 != input_sha
+            or existing.request_digest != request_digest
+            or existing.intent_message_id != intent
+        ):
+            raise ValidationError(_("The export idempotency key is bound to a different request."))
+        return existing, False
+    with env.cr.savepoint():
+        locked = _lock_session(session)
+        if locked.current_version_id != parent or locked.document_revision != expected_document_revision:
+            raise ValidationError(_("WORKBOOK_VERSION_STALE: the export parent changed before dispatch."))
+        existing = env["office.workbook.version"].search(
+            [("session_id", "=", session.id), ("idempotency_key", "=", idempotency_key)], limit=1
+        )
+        if existing:
+            if existing.request_digest != request_digest or existing.parent_version_id != parent:
+                raise ValidationError(_("The export idempotency key is bound to a different request."))
+            return existing, False
+        version = _create_version_row(env, {
+            "session_id": session.id,
+            "source_message_id": session.source_message_id.id,
+            "intent_message_id": intent.id,
+            "candidate_review_watermark_message_id": _latest_thread_message(env, session).id,
+            "version_no": _next_version_number(env, session),
+            "version_kind": "edit",
+            "state": "verifying",
+            "parent_version_id": parent.id,
+            "idempotency_key": idempotency_key,
+            "request_digest": request_digest,
+            "input_attachment_id": parent.output_attachment_id.id,
+            "input_sha256": input_sha,
+            "filename": parent.filename,
+            "mimetype": parent.mimetype,
+            "session_revision": session.revision,
+            "proposal_revision": session.proposal_revision,
+            "document_revision": locked.document_revision,
+            "provider_id": "openai-responses",
+            "provider_model": _safe_metadata(provider_model, 128),
+            "provider_cleanup_state": "pending",
+        })
+    return version, True
+
+
+def store_export_edit_attempt_output(
+    env,
+    version_id,
+    *,
+    content,
+    filename,
+    mimetype,
+    provider_response_id=False,
+    provider_tool_call_id=False,
+    provider_file_id=False,
+    provider_usage_json=False,
+    provider_cleanup_state="pending",
+):
+    """Persist actual Provider bytes on a previously registered M3 edit attempt."""
+    version = env["office.workbook.version"].browse(version_id).exists()
+    if not version:
+        raise AccessError(_("The workbook version is unavailable."))
+    session = _require_session(env, version.session_id.id, write=True)
+    version = _require_version(env, session, version.id, write=True)
+    if (
+        version.version_kind != "edit"
+        or version.state != "verifying"
+        or not version.parent_version_id
+        or version.output_attachment_id
+        or not version.input_attachment_id
+        or not version.input_sha256
+        or session.current_version_id != version.parent_version_id
+        or session.document_revision != version.document_revision
+    ):
+        raise ValidationError(_("The export edit attempt is no longer available."))
+    _require_user_thread_message(env, session, version.intent_message_id.id, "Export intent")
+    filename, mimetype = _filename_and_mimetype(filename, mimetype)
+    if not isinstance(content, bytes) or not content or len(content) > MAX_VERSION_BYTES:
+        raise ValidationError(_("The export Candidate bytes are empty or exceed the size limit."))
+    output_sha = hashlib.sha256(content).hexdigest()
+    with env.cr.savepoint():
+        locked = _lock_session(session)
+        if locked.current_version_id != version.parent_version_id or locked.document_revision != version.document_revision:
+            raise ValidationError(_("WORKBOOK_VERSION_STALE: the export parent changed during Provider execution."))
+        parent = _require_version(env, locked, version.parent_version_id.id)
+        parent_bytes, parent_sha = _read_attachment(
+            env, parent.output_attachment_id, expected_sha=version.input_sha256
+        )
+        if not parent_bytes or parent_sha != version.input_sha256:
+            raise ValidationError(_("WORKBOOK_VERSION_STALE: the export parent bytes changed during Provider execution."))
+        attachment = _create_version_attachment(env, version, filename, mimetype, content)
+        stored, stored_sha = _read_attachment(env, attachment, expected_sha=output_sha)
+        if stored != content:
+            raise ValidationError(_("The export Candidate attachment did not preserve the returned bytes."))
+        _write_version(version, {
+            "state": "candidate_received",
+            "output_attachment_id": attachment.id,
+            "output_sha256": stored_sha,
+            "file_size": len(stored),
+            "filename": filename,
+            "mimetype": mimetype,
+            "provider_response_id": _safe_metadata(provider_response_id, 255),
+            "provider_tool_call_id": _safe_metadata(provider_tool_call_id, 255),
+            "provider_file_id": _safe_metadata(provider_file_id, 255),
+            "provider_usage_json": _safe_usage(provider_usage_json),
+            "provider_cleanup_state": provider_cleanup_state,
+        })
+    return version
+
+
+def fail_export_edit_attempt(env, version_id, error_code):
+    version = env["office.workbook.version"].browse(version_id).exists()
+    if not version:
+        raise AccessError(_("The workbook version is unavailable."))
+    version.check_access("write")
+    _require_session(env, version.session_id.id, write=True)
+    if (
+        version.version_kind != "edit"
+        or version.state != "verifying"
+        or version.output_attachment_id
+        or not isinstance(error_code, str)
+        or not re.fullmatch(r"[a-z][a-z0-9_]{0,63}", error_code)
+    ):
+        raise ValidationError(_("The export edit attempt cannot be marked failed."))
+    _write_version(version, {"state": "failed", "error_code": error_code})
     return version
 
 
@@ -1544,6 +1706,16 @@ def _revalidate_stored_receipt(env, candidate):
         or candidate.validated_candidate_sha256 != candidate.output_sha256
     ):
         raise ValidationError(_("The candidate has no valid persisted validation proof."))
+    if (
+        session.origin_kind == "fileless"
+        and candidate.version_kind == "initial"
+        and not candidate.source_request_id
+    ):
+        # M3 exports use the existing fileless integrity receipt, but defer
+        # publishing it as Current until the existing user Candidate review.
+        # This branch preserves the legacy fileless-create direct-V1 path.
+        _revalidate_fileless_creation_receipt(env, session, candidate)
+        return session
     _check_version_attachment(candidate, candidate.output_attachment_id)
     output, output_sha = _read_attachment(
         env, candidate.output_attachment_id, expected_sha=candidate.output_sha256

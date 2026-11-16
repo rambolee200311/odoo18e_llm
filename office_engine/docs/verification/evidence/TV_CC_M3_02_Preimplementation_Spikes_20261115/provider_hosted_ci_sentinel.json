@@ -1,0 +1,50 @@
+{
+  "spike": "CC-M3-02 OPEN-01b / OPEN-02 minimum feasibility",
+  "executed_at": "2026-11-15",
+  "database": "odoo18e_llm",
+  "provider": "OpenAI GPT-5.6 Luna",
+  "model": "gpt-5.6-luna",
+  "adapter": "odoo-llm/llm_openai/services/responses_adapter.py::ResponsesAdapter.execute",
+  "execution_boundary": "Odoo shell resolved the configured provider via ORM and invoked the existing ResponsesAdapter with a synthetic XLSX. This exercised the real provider and Hosted Code Interpreter, not the Agent UI or the full Office tool orchestration.",
+  "operation": "edit",
+  "synthetic_input": {
+    "filename": "input.xlsx",
+    "bytes": 4880,
+    "sha256": "8158bac93711e0a61ceacbd0fbc0e9d0c3df98b960894f163372862600c3899a",
+    "sentinel": "M3SPIKE01B-20261115-7f3a",
+    "cells_read_by_hosted_code_interpreter": {
+      "SentinelData!A1": "M3SPIKE01B-20261115-7f3a",
+      "SentinelData!B2": 1
+    }
+  },
+  "hosted_code_interpreter": {
+    "tool_invoked": true,
+    "tool_call_ids": "present in execution output; not persisted in this evidence bundle",
+    "instructions": "Read SentinelData!A1 and B2 and produce a separate Readback.xlsx containing the read values.",
+    "output_worksheet_names": ["Readback"],
+    "readback_cell_check": true,
+    "container_cleanup": "completed"
+  },
+  "candidate_output": {
+    "bytes": 4863,
+    "sha256": "730f8d26aae0b92c291e5955af34c86838a182f73ded85e87561d3f2f844ebf8",
+    "present": true
+  },
+  "provider_metrics": {
+    "input_tokens": 2462,
+    "output_tokens": 683,
+    "reasoning_tokens": 246,
+    "total_tokens": 3145,
+    "duration_ms": 25076,
+    "operation_status": "candidate_received",
+    "provider_response_id": "resp_00943e4b3c33316b016af953f7042087d281c90b6ec8b1afb4",
+    "request_id": "req_5eea223a0a62428e8d0cdf296361cca9",
+    "download_request_id": "req_d05b3038beb444c59a45ed1c434a46ba"
+  },
+  "secrets_or_business_data_sent": false,
+  "limitations": [
+    "This is one small synthetic sample; it does not establish production limits or the 148-row acceptance case.",
+    "The existing adapter's file-input path was exercised in edit mode. Its create mode rejects input_xlsx, so the M3 create-export integration and any separate data carrier remain implementation acceptance items.",
+    "Full Agent UI and office-tool orchestration were not exercised."
+  ]
+}

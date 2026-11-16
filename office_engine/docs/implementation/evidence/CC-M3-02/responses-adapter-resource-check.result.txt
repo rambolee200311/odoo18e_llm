@@ -1,0 +1,4 @@
+source=unmodified odoo-llm/llm_openai/tests/test_responses_adapter.py
+cases=test_provider_timeout_is_indeterminate,test_output_byte_limit_stops_stream_and_fails_closed,input-limit preflight
+mode=direct execution of existing assertion-based offline tests with an import-only pytest decorator shim; no network, no DB
+result=PASS (3 cases)

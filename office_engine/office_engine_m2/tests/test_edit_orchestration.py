@@ -112,7 +112,8 @@ class TestEditOrchestration(WorkbookVersionFixtures, TransactionCase):
         _env, _session, thread, _parent, _bytes = self._versioned()
         thread._office_bind_tools()
         schema = self.env["llm.tool"].search([("name", "=", "office")], limit=1).get_input_schema()
-        self.assertEqual(schema["properties"]["action"]["enum"], ["status", "create", "edit", "accept", "reject", "finalize"])
+        action_enum = schema["properties"]["action"]["enum"]
+        self.assertEqual(action_enum[:6], ["status", "create", "edit", "accept", "reject", "finalize"])
         self.assertNotIn("expected_effect", schema["properties"])
         self.assertNotIn("interpretation", schema["properties"])
         self.assertNotIn("effect_digest", schema["properties"])

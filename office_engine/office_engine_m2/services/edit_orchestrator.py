@@ -567,7 +567,7 @@ def execute_fileless_creation(env, thread, tool_message, *, adapter=None, provid
             )
 
         version.invalidate_recordset()
-        if version.state == "verifying" and version.output_attachment_id:
+        if version.state in {"verifying", "candidate_received"} and version.output_attachment_id:
             validation = validate_fileless_created_workbook(env, session.id, version.id)
             version.invalidate_recordset()
             if validation["validation_result"] == "FAILED":
@@ -579,7 +579,7 @@ def execute_fileless_creation(env, thread, tool_message, *, adapter=None, provid
                     validation_report=validation["report"],
                     message="The generated XLSX failed file integrity checks and was not published.",
                 )
-        elif version.state == "verifying" and not version.output_attachment_id:
+        elif version.state in {"verifying", "candidate_received"} and not version.output_attachment_id:
             return _public_result(
                 "indeterminate", "provider_creation_outcome_unknown", action="create",
                 operation_executed=False, version_id=version.id,
@@ -620,7 +620,7 @@ def execute_fileless_creation(env, thread, tool_message, *, adapter=None, provid
 
 def _latest_edit(env, thread, tool_message):
     for message, result in _tool_results_before(env, thread, tool_message.id):
-        if result.get("action") == "edit" and result.get("candidate_version_id"):
+        if result.get("action") in {"edit", "export_records"} and result.get("candidate_version_id"):
             return message, result
     return None, None
 

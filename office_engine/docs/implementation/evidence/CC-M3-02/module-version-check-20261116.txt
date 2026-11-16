@@ -1,0 +1,14 @@
+CC-M3-02 M3 module version check — 2026-11-16
+
+Scope: read-only ORM query against the explicitly authorized development database `odoo18e_llm`.
+Command: `venv/bin/python odoo-bin shell -c odoo.conf -d odoo18e_llm --no-http`
+ORM statements:
+  module = env['ir.module.module'].search([('name', '=', 'office_engine_m3')], limit=1)
+  print('MODULE', module.name, module.state, module.installed_version, module.latest_version)
+  print('RECEIPT_FIELD', bool(env['office.workbook.version']._fields.get('data_integrity_receipt_json')))
+
+Observed output:
+  MODULE office_engine_m3 installed 18.0.2.0.0 18.0.2.0.0
+  RECEIPT_FIELD True
+
+No database writes were performed by this check.

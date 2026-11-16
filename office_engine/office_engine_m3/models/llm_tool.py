@@ -23,6 +23,112 @@ class LLMTool(models.Model):
 
     def get_input_schema(self):
         self.ensure_one()
+        if self.name == "office":
+            schema = super().get_input_schema()
+            if not isinstance(schema, dict) or not isinstance(schema.get("properties"), dict):
+                return schema
+            schema = json.loads(json.dumps(schema))
+            properties = schema["properties"]
+            action = properties.get("action")
+            if isinstance(action, dict) and isinstance(action.get("enum"), list):
+                action["enum"] = list(dict.fromkeys([*action["enum"], "export_records"]))
+                action["description"] = (
+                    "Use export_records for a complete Odoo dataset export through the existing Office Candidate lifecycle."
+                )
+            properties.update({
+                "workbook_source": {
+                    "anyOf": [{"type": "string", "enum": ["new", "current"]}, {"type": "null"}]
+                },
+                "source_query": {"anyOf": [{
+                    "type": "object",
+                    "additionalProperties": False,
+                    "properties": {
+                        "model": {"type": "string"},
+                        "domain": {
+                            "type": "array",
+                            "items": {
+                                "oneOf": [
+                                    {"type": "string", "enum": ["|", "&", "!"]},
+                                    {
+                                        "type": "array",
+                                        "minItems": 3,
+                                        "maxItems": 3,
+                                        "prefixItems": [
+                                            {"type": "string"},
+                                            {"type": "string"},
+                                            {
+                                                "oneOf": [
+                                                    {"type": ["string", "integer", "number", "boolean", "null"]},
+                                                    {
+                                                        "type": "array",
+                                                        "maxItems": _MAX_DOMAIN_LIST,
+                                                        "items": {"type": ["string", "integer", "number", "boolean", "null"]},
+                                                    },
+                                                ]
+                                            },
+                                        ],
+                                    },
+                                ]
+                            },
+                        },
+                        "fields": {"type": "array", "items": {"type": "string"}},
+                        "order": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+                    },
+                    "required": ["model", "domain", "fields", "order"],
+                }, {"type": "null"}]},
+                "collections": {"anyOf": [{
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": False,
+                        "properties": {
+                            "key": {"type": "string"},
+                            "relation_field": {"type": "string"},
+                            "relation_model": {"type": "string"},
+                            "inverse_field": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+                            "fields": {"type": "array", "items": {"type": "string"}},
+                            "order": {"anyOf": [{"type": "string"}, {"type": "null"}]},
+                        },
+                        "required": ["key", "relation_field", "relation_model", "inverse_field", "fields", "order"],
+                    },
+                }, {"type": "null"}]},
+                "tables": {"anyOf": [{
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "additionalProperties": False,
+                        "properties": {
+                            "name": {"type": "string"},
+                            "source": {"type": "string"},
+                            "columns": {
+                                "type": "array",
+                                "items": {
+                                    "type": "object",
+                                    "additionalProperties": False,
+                                    "properties": {
+                                        "label": {"type": "string"},
+                                        "source_field": {"type": "string"},
+                                    },
+                                    "required": ["label", "source_field"],
+                                },
+                            },
+                        },
+                        "required": ["name", "source", "columns"],
+                    },
+                }, {"type": "null"}]},
+                "verification_profile": {
+                    "anyOf": [
+                        {"type": "string", "enum": ["record_projection", "grouped_aggregate", "semantic_transform"]},
+                        {"type": "null"},
+                    ],
+                },
+            })
+            required = schema.get("required")
+            if isinstance(required, list):
+                schema["required"] = list(dict.fromkeys([
+                    *required, "workbook_source", "source_query", "collections", "tables", "verification_profile"
+                ]))
+            return schema
         if self.name != _RETRIEVER_TOOL:
             return super().get_input_schema()
 

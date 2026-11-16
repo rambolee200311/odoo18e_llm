@@ -1,0 +1,7 @@
+database=odoo18e_llm
+suite=office_engine_m3.tests.test_export.TestM3Export
+selected=20
+run=20
+errors=0
+failures=0
+result=PASS

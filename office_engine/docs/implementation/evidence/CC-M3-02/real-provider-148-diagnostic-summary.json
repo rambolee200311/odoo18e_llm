@@ -1,0 +1,86 @@
+{
+  "database": "odoo18e_llm",
+  "provider_name": "OpenAI GPT-5.6 Luna",
+  "provider_model": "gpt-5.6-luna",
+  "max_output_tokens": 8192,
+  "configuration_override": "process-only; not persisted",
+  "scenario": "148 synthetic contacts, page size 100, record_projection",
+  "office_result": {
+    "status": "failed",
+    "operation_status": "export_integrity_failed",
+    "version_id": 100,
+    "candidate_version_id": null,
+    "candidate_state": "failed",
+    "error_code": "export_integrity_failed",
+    "message": "A planned export worksheet is missing its identity columns.",
+    "source_record_count": 148,
+    "handoff_sha256": "d2fdb9acc66ad929ff33dacb51fd181256be0f25b9d871c7a1038c42c4e6d2fb",
+    "handoff_bytes": 17646,
+    "projection_verification": null,
+    "provider_instruction_sha256": "eaf0dd44718f163e66beed197effaf69a053d397841b3ef9c9c921f5c82e6763",
+    "provider": {
+      "operation_status": "candidate_received",
+      "candidate_present": true,
+      "input_sha256": "8765c9813e9a3917b518b7cdbd933dde62ed0215e44e5088e42f7b0e5d40bde6",
+      "candidate_sha256": "76b63af0725d9b2b1d294dd30911fac35ea01ada54c94bce16e90bef05ef5e10",
+      "provider_response_id": "resp_04b2f44253a87b02016af9d3fed2a887d2aa778fc990f7308a",
+      "request_id": "req_b351f4b42b19446eab65815961f18287",
+      "download_request_id": "req_1824cb7f451e4b6fae986c95fbb14a64",
+      "tool_call_ids": [
+        "ci_04b2f44253a87b02016af9d403fcc087d2bc236d2ae0c9abb9",
+        "ci_04b2f44253a87b02016af9d40615b887d2a5107641d80961cc",
+        "ci_04b2f44253a87b02016af9d408703087d2ba41e2bc44260511",
+        "ci_04b2f44253a87b02016af9d40a29ac87d290ddc502ef2432ed",
+        "ci_04b2f44253a87b02016af9d40be47487d284c60d8f41ed615a",
+        "ci_04b2f44253a87b02016af9d414531887d2957989095f995bc6",
+        "ci_04b2f44253a87b02016af9d417041487d2b4f49f8c48b31117",
+        "ci_04b2f44253a87b02016af9d41a976087d2a80f44b884557acb"
+      ],
+      "container_id": "cntr_6af9d40147f48191a74930e8428c7b900dd41020b7a86a05",
+      "provider_file_ids": [
+        "cfile_6af9d43f12e881918eee2e94a8ec2b0d"
+      ],
+      "provider_filename": "contacts_export.xlsx",
+      "usage": {
+        "input_tokens": 21635,
+        "output_tokens": 7285,
+        "total_tokens": 28920,
+        "reasoning_tokens": 1278
+      },
+      "duration_ms": 70855,
+      "cleanup_state": "completed",
+      "error": null,
+      "correlation_id": "f2160dd9707b897bd33fe8961d986ffe97516dda6204c7fd6c870b6d0617c688"
+    }
+  },
+  "failed_candidate": {
+    "sha256": "76b63af0725d9b2b1d294dd30911fac35ea01ada54c94bce16e90bef05ef5e10",
+    "file_size": 13574,
+    "sheet_diagnostics": [
+      {
+        "name": "Contacts",
+        "row_count_including_header": 149,
+        "header": [
+          "Name",
+          "Email",
+          "__office_parent_id",
+          "__office_record_id"
+        ],
+        "first_data_row": [
+          "M3 synthetic contact 000 20c9ba21",
+          "m3-17047e97e2474862abe696a724527cfb@example.invalid",
+          null,
+          3272
+        ],
+        "last_data_row": [
+          "M3 synthetic contact 147 6d23eaff",
+          "m3-54583bdcaa0f49e0b73f999ba97da888@example.invalid",
+          null,
+          3419
+        ]
+      }
+    ],
+    "evidence_file": "office_engine/docs/implementation/evidence/CC-M3-02/real-provider-148-diagnostic-candidate.xlsx"
+  },
+  "conclusion": "Candidate rejected by local projection verification; raw synthetic file retained for diagnosis."
+}

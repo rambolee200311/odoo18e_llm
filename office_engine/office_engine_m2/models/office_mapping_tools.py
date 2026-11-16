@@ -1568,8 +1568,12 @@ class LLMThreadOfficeTools(models.AbstractModel):
         destructive_hint=True,
         description=(
             "The Office file lifecycle facade. Odoo data reads use the separate existing odoo_record_retriever tool. "
+            "For a complete Odoo record export, use action=export_records, specify the resolved model, fields, relations, "
+            "tables and verification profile; the server collects all authorized pages and returns a reviewable Candidate "
+            "that requires explicit user acceptance before it becomes Current. "
             "When the user requests a new XLSX from scratch without a workbook, call action=create; the service generates actual file bytes, "
             "performs bounded integrity checks, registers V1/Current directly, and delivers it without a user Candidate/Accept event. "
+            "This legacy action=create behavior is not used for Odoo data exports. "
             "It never invents an input attachment, input SHA, or parent version. "
             "Call action=edit once with the user's current request; the server selects the private uploaded workbook "
             "or Accepted Current. An initial uploaded workbook "

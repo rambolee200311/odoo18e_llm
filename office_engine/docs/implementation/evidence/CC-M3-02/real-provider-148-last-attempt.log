@@ -1,0 +1,153 @@
+2026-11-15 19:49:00,439 72334 INFO odoo18e_llm odoo.addons.queue_job.post_load: Apply Request._get_session_and_dbname monkey patch to capture db from request with multiple databases 
+2026-11-15 19:49:01,186 72334 WARNING odoo18e_llm py.warnings: /Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py:482: DeprecationWarning: The model odoo.addons.worlddepot.models.inbound_order is not overriding the create method in batch
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/shell.py", line 126, in run
+    self.shell(config['db_name'])
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/shell.py", line 112, in shell
+    registry = Registry(dbname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 108, in __new__
+    return cls.new(db_name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/__init__.py", line 4, in <module>
+    from . import models
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/__init__.py", line 4, in <module>
+    from . import inbound_order
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/inbound_order.py", line 10, in <module>
+    class InboundOrder(models.Model):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/inbound_order.py", line 202, in InboundOrder
+    @api.model
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 429, in model
+    return model_create_single(method)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 482, in model_create_single
+    warnings.warn(
+ 
+2026-11-15 19:49:01,188 72334 WARNING odoo18e_llm py.warnings: /Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py:482: DeprecationWarning: The model odoo.addons.worlddepot.models.outbound_order is not overriding the create method in batch
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/shell.py", line 126, in run
+    self.shell(config['db_name'])
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/shell.py", line 112, in shell
+    registry = Registry(dbname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 108, in __new__
+    return cls.new(db_name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/__init__.py", line 4, in <module>
+    from . import models
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/__init__.py", line 6, in <module>
+    from . import outbound_order
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/outbound_order.py", line 19, in <module>
+    class OutboundOrder(models.Model):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/outbound_order.py", line 235, in OutboundOrder
+    @api.model
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 429, in model
+    return model_create_single(method)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 482, in model_create_single
+    warnings.warn(
+ 
+2026-11-15 19:49:01,192 72334 WARNING odoo18e_llm py.warnings: /Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py:482: DeprecationWarning: The model odoo.addons.worlddepot.models.my_api_user is not overriding the create method in batch
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/shell.py", line 126, in run
+    self.shell(config['db_name'])
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/shell.py", line 112, in shell
+    registry = Registry(dbname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 108, in __new__
+    return cls.new(db_name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/__init__.py", line 4, in <module>
+    from . import models
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/__init__.py", line 20, in <module>
+    from . import my_api_user
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/my_api_user.py", line 10, in <module>
+    class DepotAPIUser(models.Model):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/my_api_user.py", line 75, in DepotAPIUser
+    @api.model
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 429, in model
+    return model_create_single(method)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 482, in model_create_single
+    warnings.warn(
+ 
+2026-11-15 19:49:01,197 72334 WARNING odoo18e_llm py.warnings: /Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py:482: DeprecationWarning: The model odoo.addons.worlddepot.models.transfer_order is not overriding the create method in batch
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/shell.py", line 126, in run
+    self.shell(config['db_name'])
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/shell.py", line 112, in shell
+    registry = Registry(dbname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 108, in __new__
+    return cls.new(db_name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/__init__.py", line 4, in <module>
+    from . import models
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/__init__.py", line 36, in <module>
+    from . import transfer_order
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/transfer_order.py", line 10, in <module>
+    class TransferOrder(models.Model):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/transfer_order.py", line 78, in TransferOrder
+    @api.model
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 429, in model
+    return model_create_single(method)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 482, in model_create_single
+    warnings.warn(
+ 

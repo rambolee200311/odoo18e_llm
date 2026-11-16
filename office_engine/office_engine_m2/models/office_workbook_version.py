@@ -26,7 +26,7 @@ _VERSION_STATES = {
     "stale",
 }
 _TRANSITIONS = {
-    "verifying": {"verified", "partially_verified", "failed", "rejected"},
+    "verifying": {"candidate_received", "verified", "partially_verified", "failed", "rejected"},
     "candidate_received": {
         "awaiting_confirmation", "verified", "partially_verified", "failed", "rejected", "stale"
     },
@@ -208,6 +208,7 @@ class OfficeWorkbookVersion(models.Model):
             "acceptance_authorization_digest", "rejection_message_id", "rejection_digest", "rejected_at",
             "provider_response_id", "provider_tool_call_id", "provider_file_id",
             "provider_usage_json", "provider_cleanup_state",
+            "data_integrity_receipt_json",
         }
         if set(vals) - allowed:
             raise ValidationError(_("The workbook version update contains unsupported fields."))

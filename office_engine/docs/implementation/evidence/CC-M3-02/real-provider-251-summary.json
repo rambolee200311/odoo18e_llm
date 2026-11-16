@@ -1,0 +1,98 @@
+{
+  "database": "odoo18e_llm",
+  "provider_name": "OpenAI GPT-5.6 Luna",
+  "provider_model": "gpt-5.6-luna",
+  "provider_timeout_seconds": "120",
+  "max_output_tokens_process_override": 8192,
+  "scenario": "251 synthetic contacts, 100+100+51 pages",
+  "source_count": 251,
+  "source_page_count": 3,
+  "handoff_sha256": "55fc5ac463f8c797aade36c226f90e01afcfcadd1b7c0ce830dd8b332afcfd3e",
+  "handoff_bytes": 30199,
+  "source_rows_sha256": "820f15633fff795788a2a5f8ff8874e116972126a3f9851679a0a3d93fab45ff",
+  "office_result": {
+    "status": "confirmation_required",
+    "operation_status": "candidate_review_required",
+    "operation_executed": false,
+    "artifact_state": "not_presented",
+    "delivery_state": "not_finalized",
+    "action": "export_records",
+    "candidate_version_id": 195,
+    "candidate_state": "partially_verified",
+    "validation_result": "PARTIALLY_VERIFIED",
+    "candidate_filename": "synthetic_contacts.xlsx",
+    "candidate_download_url": "/web/content/9267?download=true",
+    "candidate_output_sha256": "6f81d619c08b74458e7284fb8c05de36d1018b2cf5645fcd0256ba160378cc8d",
+    "session_id": 155,
+    "current_version_id": false,
+    "last_valid_version_id": false,
+    "document_revision": 0,
+    "workbook_source": "new",
+    "provider_input_sha256": "8765c9813e9a3917b518b7cdbd933dde62ed0215e44e5088e42f7b0e5d40bde6",
+    "source_record_count": 251,
+    "source_relation_record_count": 0,
+    "source_relation_pair_count": 0,
+    "handoff_sha256": "55fc5ac463f8c797aade36c226f90e01afcfcadd1b7c0ce830dd8b332afcfd3e",
+    "handoff_bytes": 30199,
+    "projection_verification": {
+      "identity_verified": true,
+      "projected_rows": 251,
+      "verified_tables": [
+        "Contacts"
+      ],
+      "worksheet_count": 1
+    },
+    "requires_user_acceptance": true,
+    "provider": {
+      "operation_status": "candidate_received",
+      "candidate_present": true,
+      "input_sha256": "8765c9813e9a3917b518b7cdbd933dde62ed0215e44e5088e42f7b0e5d40bde6",
+      "candidate_sha256": "6f81d619c08b74458e7284fb8c05de36d1018b2cf5645fcd0256ba160378cc8d",
+      "provider_response_id": "resp_006974c74bf93ac2016afa693b840087d1b44519ec48e5ca56",
+      "request_id": "req_4b903b83b21c4caab92905a566e9fbe0",
+      "download_request_id": "req_5fe0110eeae54bde83a23259c829e0e2",
+      "tool_call_ids": [
+        "ci_006974c74bf93ac2016afa693f517487d19bc1ce5f6402a079",
+        "ci_006974c74bf93ac2016afa69409b9887d185195bad48fe402e",
+        "ci_006974c74bf93ac2016afa694214dc87d1aed55917f74ff933",
+        "ci_006974c74bf93ac2016afa69432dd087d19a10e7ba2492e2b8",
+        "ci_006974c74bf93ac2016afa69445d8487d1a6f772cd01e0f55f",
+        "ci_006974c74bf93ac2016afa6947adfc87d1bdb65fb58893d8ee",
+        "ci_006974c74bf93ac2016afa694a22a487d1815b512d9cfe1a33",
+        "ci_006974c74bf93ac2016afa694c15d887d1824dbdbbc4316fdc",
+        "ci_006974c74bf93ac2016afa694f7f4487d1b264b3a39ff7cc7a"
+      ],
+      "container_id": "cntr_6afa693e18bc8190ac7fa9a25b95fc3b032d277d01b3fe6f",
+      "provider_file_ids": [
+        "cfile_6afa6951bb5c8191b1199f92fa74e43c"
+      ],
+      "provider_filename": "synthetic_contacts.xlsx",
+      "usage": {
+        "input_tokens": 18625,
+        "output_tokens": 1187,
+        "total_tokens": 19812,
+        "reasoning_tokens": 708
+      },
+      "duration_ms": 28000,
+      "cleanup_state": "completed",
+      "error": null,
+      "correlation_id": "a51833da930f2ba4b9adc298a4d2a05e42c8d277f9faee3493eada06149d5688"
+    },
+    "unverified_aspects": [
+      "源记录身份及计划字段已逐行核对；M2 的 XLSX 结构验证等级仍为 PARTIALLY_VERIFIED。"
+    ],
+    "message": "The complete bounded dataset was handed to Hosted Code Interpreter and an XLSX Candidate was saved. Current was not changed. Review the Candidate and explicitly accept or reject it."
+  },
+  "operation_status": "candidate_review_required",
+  "workbook_check": {
+    "file": "office_engine/docs/implementation/evidence/CC-M3-02/real-provider-251-candidate.xlsx",
+    "rows": 251,
+    "unique_identities": 251,
+    "exact_source_identity_and_field_match": true,
+    "output_rows_sha256": "820f15633fff795788a2a5f8ff8874e116972126a3f9851679a0a3d93fab45ff",
+    "candidate_sha256": "6f81d619c08b74458e7284fb8c05de36d1018b2cf5645fcd0256ba160378cc8d",
+    "candidate_state": "partially_verified",
+    "current_unchanged_before_accept": true
+  },
+  "database_transaction_rolled_back": true
+}

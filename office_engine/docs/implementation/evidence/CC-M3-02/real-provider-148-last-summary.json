@@ -1,0 +1,51 @@
+{
+  "database": "odoo18e_llm",
+  "provider": "OpenAI GPT-5.6 Luna",
+  "model": "gpt-5.6-luna",
+  "max_output_tokens": 8192,
+  "configuration_override": "process-only",
+  "scenario": "148 synthetic contacts; new workbook; record_projection",
+  "office_result": {
+    "operation_status": "provider_export_unavailable",
+    "version_id": 106,
+    "candidate_version_id": null,
+    "candidate_state": null,
+    "error_code": "provider_connection_or_timeout",
+    "message": "The Provider did not return a usable XLSX Candidate; Current was not advanced.",
+    "source_record_count": 148,
+    "handoff_sha256": "6d54d115e2b79dbb56b3ac5ef55c812fc5782fab28739e35ca06d101200e96a5",
+    "handoff_bytes": 16462,
+    "provider_input_sha256": "8765c9813e9a3917b518b7cdbd933dde62ed0215e44e5088e42f7b0e5d40bde6",
+    "provider_instruction_sha256": "258659e6a2a98cb7c84d3aba8f5de5daf5d9f70655574230ee768eebfaa27475",
+    "projection_verification": null,
+    "provider": {
+      "operation_status": "indeterminate",
+      "candidate_present": false,
+      "input_sha256": "8765c9813e9a3917b518b7cdbd933dde62ed0215e44e5088e42f7b0e5d40bde6",
+      "candidate_sha256": null,
+      "provider_response_id": null,
+      "request_id": null,
+      "download_request_id": null,
+      "tool_call_ids": [],
+      "container_id": null,
+      "provider_file_ids": [],
+      "provider_filename": null,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null,
+        "reasoning_tokens": null
+      },
+      "duration_ms": 48326,
+      "cleanup_state": "unknown",
+      "error": {
+        "category": "provider_connection_or_timeout",
+        "retryable": false,
+        "retry_decision": "not_automatic",
+        "http_status": null
+      },
+      "correlation_id": "cdd84dec747930298c1a91bdd60d8916fbe6c0c9a2bf0ab7d83e2a3ed1f717e4"
+    }
+  },
+  "conclusion": "FAIL: no reviewable Candidate; no acceptance/finalization."
+}

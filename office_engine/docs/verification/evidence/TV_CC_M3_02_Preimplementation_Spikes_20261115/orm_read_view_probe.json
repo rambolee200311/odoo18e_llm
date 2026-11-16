@@ -1,0 +1,15 @@
+{
+  "db": "odoo18e_llm",
+  "uid": 1,
+  "model_read": "ir.model only; no business records",
+  "page_size": 10,
+  "pages": [
+    {"offset": 0, "count": 10, "first_id": 1, "last_id": 10, "same_cursor": true, "same_connection": true},
+    {"offset": 10, "count": 10, "first_id": 11, "last_id": 20, "same_cursor": true, "same_connection": true},
+    {"offset": 20, "count": 10, "first_id": 21, "last_id": 30, "same_cursor": true, "same_connection": true}
+  ],
+  "connection_identity_stable": true,
+  "isolation_level_code": 2,
+  "isolation_level_name": "REPEATABLE READ",
+  "writes": 0
+}

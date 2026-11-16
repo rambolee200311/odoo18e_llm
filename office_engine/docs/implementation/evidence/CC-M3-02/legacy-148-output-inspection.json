@@ -1,0 +1,20 @@
+{
+  "source_file": "real-provider-148-diagnostic-candidate.xlsx",
+  "worksheet": "Contacts",
+  "rows_including_header": 149,
+  "data_rows": 148,
+  "identity_count": 148,
+  "unique_identity_count": 148,
+  "identity_id_range": [3272, 3419],
+  "identities_contiguous_in_row_order": true,
+  "name_nonblank_count": 148,
+  "unique_name_count": 148,
+  "email_nonblank_count": 148,
+  "unique_email_count": 148,
+  "blank_office_parent_id_count": 148,
+  "formula_cells": 0,
+  "requested_relation_collections": 0,
+  "first_and_last_values_match_saved_provider_diagnostics": true,
+  "complete_old_source_value_comparison_possible": false,
+  "limitation": "The original synthetic DB transaction had been rolled back and the middle source values were not retained. A later real Provider 148-row run independently matched every identity and planned field to its in-transaction ORM source."
+}

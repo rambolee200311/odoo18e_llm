@@ -212,7 +212,7 @@ def validate_fileless_created_workbook(env, session_id, version_id):
         or session.current_version_id
         or session.document_revision != 0
         or version.version_kind != "initial"
-        or version.state != "verifying"
+        or version.state not in {"verifying", "candidate_received"}
         or version.parent_version_id
         or version.input_attachment_id
         or version.input_sha256

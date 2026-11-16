@@ -1,0 +1,54 @@
+{
+  "database": "odoo18e_llm",
+  "provider_name": "OpenAI GPT-5.6 Luna",
+  "provider_model": "gpt-5.6-luna",
+  "max_output_tokens": 8192,
+  "configuration_override": "process-only; not persisted",
+  "scenario": "148 synthetic contacts, default 100-row pages, new workbook, record_projection",
+  "office_result": {
+    "status": "indeterminate",
+    "operation_status": "provider_export_unavailable",
+    "version_id": 105,
+    "candidate_version_id": null,
+    "candidate_state": null,
+    "error_code": "provider_connection_or_timeout",
+    "message": "The Provider did not return a usable XLSX Candidate; Current was not advanced.",
+    "source_record_count": 148,
+    "source_relation_record_count": 0,
+    "source_relation_pair_count": 0,
+    "projection_verification": null,
+    "provider_input_sha256": "8765c9813e9a3917b518b7cdbd933dde62ed0215e44e5088e42f7b0e5d40bde6",
+    "handoff_sha256": "3adba66796182575361f7f5eed4d89c4055b010d24beb8797181edc6b872ed04",
+    "handoff_bytes": 17646,
+    "provider_instruction_sha256": "ed912ea6bf1e9e51176684f259dc9c20fa9bf3925846508e961df9809c7bb3e4",
+    "provider": {
+      "operation_status": "indeterminate",
+      "candidate_present": false,
+      "input_sha256": "8765c9813e9a3917b518b7cdbd933dde62ed0215e44e5088e42f7b0e5d40bde6",
+      "candidate_sha256": null,
+      "provider_response_id": null,
+      "request_id": null,
+      "download_request_id": null,
+      "tool_call_ids": [],
+      "container_id": null,
+      "provider_file_ids": [],
+      "provider_filename": null,
+      "usage": {
+        "input_tokens": null,
+        "output_tokens": null,
+        "total_tokens": null,
+        "reasoning_tokens": null
+      },
+      "duration_ms": 37855,
+      "cleanup_state": "unknown",
+      "error": {
+        "category": "provider_connection_or_timeout",
+        "retryable": false,
+        "retry_decision": "not_automatic",
+        "http_status": null
+      },
+      "correlation_id": "1c157b8f8b03152993c94dac6c511b3491356ef561a47fc6884a370e105d5d97"
+    }
+  },
+  "conclusion": "FAIL: Provider output was not a reviewable Candidate; no acceptance/finalization was performed."
+}
