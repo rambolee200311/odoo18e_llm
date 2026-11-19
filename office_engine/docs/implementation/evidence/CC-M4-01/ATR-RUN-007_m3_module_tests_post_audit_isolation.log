@@ -1,0 +1,1411 @@
+2026-11-19 11:17:50,602 8712 INFO ? odoo: Odoo version 18.0+e-20250619 
+2026-11-19 11:17:50,602 8712 INFO ? odoo: Using configuration file at /Users/lijianqiang/Documents/odoo18e_llm/odoo.conf 
+2026-11-19 11:17:50,602 8712 INFO ? odoo: addons paths: ['/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons', '/Users/lijianqiang/Library/Application Support/Odoo/addons/18.0', '/Users/lijianqiang/Documents/odoo18e_llm/addons', '/Users/lijianqiang/Documents/odoo18e_llm/queue', '/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm', '/Users/lijianqiang/Documents/odoo18e_llm/office_engine'] 
+2026-11-19 11:17:50,602 8712 INFO ? odoo: database: odoo@127.0.0.1:5555 
+2026-11-19 11:17:50,603 8712 INFO ? odoo.sql_db: Connection to the database failed 
+2026-11-19 11:18:21,184 8809 INFO ? odoo: Odoo version 18.0+e-20250619 
+2026-11-19 11:18:21,185 8809 INFO ? odoo: Using configuration file at /Users/lijianqiang/Documents/odoo18e_llm/odoo.conf 
+2026-11-19 11:18:21,185 8809 INFO ? odoo: addons paths: ['/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons', '/Users/lijianqiang/Library/Application Support/Odoo/addons/18.0', '/Users/lijianqiang/Documents/odoo18e_llm/addons', '/Users/lijianqiang/Documents/odoo18e_llm/queue', '/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm', '/Users/lijianqiang/Documents/odoo18e_llm/office_engine'] 
+2026-11-19 11:18:21,185 8809 INFO ? odoo: database: odoo@127.0.0.1:5555 
+2026-11-19 11:18:21,338 8809 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2026-11-19 11:18:21,340 8809 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltoimage to generate images from html. 
+2026-11-19 11:18:21,437 8809 INFO ? odoo.service.server: HTTP service (werkzeug) running on lijianqiangs-MacBook-Air.local:8091 
+2026-11-19 11:18:21,454 8809 INFO odoo18e_llm odoo.tests.common: Importing test framework 
+2026-11-19 11:18:21,531 8809 INFO odoo18e_llm odoo.modules.loading: loading 1 modules... 
+2026-11-19 11:18:21,534 8809 INFO odoo18e_llm odoo.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra) 
+2026-11-19 11:18:21,549 8809 INFO odoo18e_llm odoo.modules.loading: updating modules list 
+2026-11-19 11:18:21,559 8809 INFO odoo18e_llm odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a 
+2026-11-19 11:18:23,364 8809 INFO odoo18e_llm odoo.addons.base.models.ir_module: ALLOW access to module.button_upgrade on ['Office Engine M3 Retriever'] to user __system__ #1 via n/a 
+2026-11-19 11:18:23,364 8809 INFO odoo18e_llm odoo.addons.base.models.ir_module: ALLOW access to module.update_list on ['Office Engine M3 Retriever'] to user __system__ #1 via n/a 
+2026-11-19 11:18:23,902 8809 INFO odoo18e_llm odoo.addons.base.models.ir_module: ALLOW access to module.button_install on [] to user __system__ #1 via n/a 
+2026-11-19 11:18:23,935 8809 INFO odoo18e_llm odoo.modules.loading: loading 190 modules... 
+2026-11-19 11:18:23,943 8809 WARNING odoo18e_llm odoo.addons.attachment_indexation.models.ir_attachment: Attachment indexation of PDF documents is unavailable because the 'pdfminer' Python library cannot be found on the system. You may install it from https://pypi.org/project/pdfminer.six/ (e.g. `pip3 install pdfminer.six`) 
+2026-11-19 11:18:24,249 8809 INFO odoo18e_llm odoo.addons.queue_job.post_load: Apply Request._get_session_and_dbname monkey patch to capture db from request with multiple databases 
+2026-11-19 11:18:24,763 8809 WARNING odoo18e_llm odoo.tools.translate: no translation language detected, skipping translation <frame at 0x134171e80, file '/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_odoo/models/llm_thread.py', line 14, code <module>> 
+Stack (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_odoo/__init__.py", line 2, in <module>
+    from . import models
+  File "<frozen importlib._bootstrap>", line 1232, in _handle_fromlist
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_odoo/models/__init__.py", line 4, in <module>
+    from . import llm_thread
+  File "<frozen importlib._bootstrap>", line 1232, in _handle_fromlist
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_odoo/models/llm_thread.py", line 14, in <module>
+    _REJECT_MESSAGE = _(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 621, in get_text_alias
+    module, lang = _get_translation_source(1)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 610, in _get_translation_source
+    lang = lang or _get_lang(frame, default_lang)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 601, in _get_lang
+    _logger.log(log_level, 'no translation language detected, skipping translation %s', frame, stack_info=True)
+2026-11-19 11:18:24,957 8809 INFO odoo18e_llm odoo.modules.loading: Loading module office_engine_m3 (137/190) 
+2026-11-19 11:18:25,094 8809 INFO odoo18e_llm odoo.modules.registry: module office_engine_m3: creating or updating database tables 
+2026-11-19 11:18:25,199 8809 INFO odoo18e_llm odoo.modules.registry: Models have no table: column.filter.field.info. 
+2026-11-19 11:18:25,199 8809 INFO odoo18e_llm odoo.modules.registry: Recreate table of model column.filter.field.info. 
+2026-11-19 11:18:25,200 8809 ERROR odoo18e_llm odoo.modules.registry: Model column.filter.field.info has no table. 
+2026-11-19 11:18:25,261 8809 INFO odoo18e_llm odoo.addons.base.models.ir_module: module office_engine_m3: no translation for language zh_CN 
+2026-11-19 11:18:25,593 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_148_records_are_collected_as_100_plus_48 ... 
+2026-11-19 11:18:25,725 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_collector_fails_closed_for_missing_related_rows_and_wrong_inverse ... 
+2026-11-19 11:18:25,747 8809 WARNING odoo18e_llm odoo.tools.translate: no translation language detected, skipping translation <frame at 0x135b78e10, file '/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py', line 376, code collect_export_dataset> 
+Stack (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 284, in load_module_graph
+    test_results = loader.run_suite(suite, global_report=report)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/loader.py", line 118, in run_suite
+    suite(results)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/suite.py", line 47, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/case.py", line 678, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/common.py", line 346, in run
+    super().run(result)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 216, in run
+    self._callTestMethod(testMethod)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 184, in _callTestMethod
+    method()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 1099, in test_collector_fails_closed_for_missing_related_rows_and_wrong_inverse
+    collect_export_dataset(self.env, m2m_query, m2m_collections, m2m_tables, "record_projection")
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py", line 376, in collect_export_dataset
+    raise ValidationError(_("The related records visible to this user do not match the selected relationship set."))
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 621, in get_text_alias
+    module, lang = _get_translation_source(1)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 610, in _get_translation_source
+    lang = lang or _get_lang(frame, default_lang)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 601, in _get_lang
+    _logger.log(log_level, 'no translation language detected, skipping translation %s', frame, stack_info=True)
+2026-11-19 11:18:25,768 8809 WARNING odoo18e_llm odoo.tools.translate: no translation language detected, skipping translation <frame at 0x135b78630, file '/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py', line 351, code collect_export_dataset> 
+Stack (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 284, in load_module_graph
+    test_results = loader.run_suite(suite, global_report=report)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/loader.py", line 118, in run_suite
+    suite(results)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/suite.py", line 47, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/case.py", line 678, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/common.py", line 346, in run
+    super().run(result)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 216, in run
+    self._callTestMethod(testMethod)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 184, in _callTestMethod
+    method()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 1132, in test_collector_fails_closed_for_missing_related_rows_and_wrong_inverse
+    collect_export_dataset(self.env, o2m_query, o2m_collections, o2m_tables, "record_projection")
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py", line 351, in collect_export_dataset
+    raise ValidationError(_("A related record points outside the selected root dataset."))
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 621, in get_text_alias
+    module, lang = _get_translation_source(1)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 610, in _get_translation_source
+    lang = lang or _get_lang(frame, default_lang)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 601, in _get_lang
+    _logger.log(log_level, 'no translation language detected, skipping translation %s', frame, stack_info=True)
+2026-11-19 11:18:25,769 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_current_export_uses_m2_edit_candidate_and_keeps_current_until_accept ... 
+2026-11-19 11:18:26,380 8809 WARNING odoo18e_llm odoo.tools.translate: no translation language detected, skipping translation <frame at 0x135c79930, file '/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/services/workbook_version_service.py', line 1220, code finalize_accepted_current> 
+Stack (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 284, in load_module_graph
+    test_results = loader.run_suite(suite, global_report=report)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/loader.py", line 118, in run_suite
+    suite(results)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/suite.py", line 47, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/case.py", line 678, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/common.py", line 346, in run
+    super().run(result)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 216, in run
+    self._callTestMethod(testMethod)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 184, in _callTestMethod
+    method()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 465, in test_current_export_uses_m2_edit_candidate_and_keeps_current_until_accept
+    finalized = dispatch_office_action(env, thread, finalize_tool, "finalize")
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/services/edit_orchestrator.py", line 1208, in dispatch_office_action
+    delivered = finalize_accepted_current(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/services/workbook_version_service.py", line 1220, in finalize_accepted_current
+    body = _("Finalized workbook: %(filename)s", filename=version.filename)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 621, in get_text_alias
+    module, lang = _get_translation_source(1)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 610, in _get_translation_source
+    lang = lang or _get_lang(frame, default_lang)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 601, in _get_lang
+    _logger.log(log_level, 'no translation language detected, skipping translation %s', frame, stack_info=True)
+2026-11-19 11:18:26,380 8809 WARNING odoo18e_llm odoo.tools.translate: no translation language detected, skipping translation <frame at 0x135c79930, file '/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/services/workbook_version_service.py', line 1222, code finalize_accepted_current> 
+Stack (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 284, in load_module_graph
+    test_results = loader.run_suite(suite, global_report=report)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/loader.py", line 118, in run_suite
+    suite(results)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/suite.py", line 47, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/case.py", line 678, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/common.py", line 346, in run
+    super().run(result)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 216, in run
+    self._callTestMethod(testMethod)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 184, in _callTestMethod
+    method()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 465, in test_current_export_uses_m2_edit_candidate_and_keeps_current_until_accept
+    finalized = dispatch_office_action(env, thread, finalize_tool, "finalize")
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/services/edit_orchestrator.py", line 1208, in dispatch_office_action
+    delivered = finalize_accepted_current(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/services/workbook_version_service.py", line 1222, in finalize_accepted_current
+    body += _(" — validation remains PARTIALLY_VERIFIED; unverified aspects remain unverified.")
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 621, in get_text_alias
+    module, lang = _get_translation_source(1)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 610, in _get_translation_source
+    lang = lang or _get_lang(frame, default_lang)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 601, in _get_lang
+    _logger.log(log_level, 'no translation language detected, skipping translation %s', frame, stack_info=True)
+2026-11-19 11:18:26,408 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_existing_office_tool_schema_adds_export_records ... 
+2026-11-19 11:18:26,409 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_handoff_digest_mismatch_stops_before_provider_and_candidate_creation ... 
+2026-11-19 11:18:26,489 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_indeterminate_provider_attempt_is_not_silently_replayed ... 
+2026-11-19 11:18:26,606 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_invalid_provider_projection_is_failed_without_advancing_current ... 
+2026-11-19 11:18:27,008 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.services.export_orchestrator: M3 export verification failed (version_id=491): A root worksheet's optional parent identity column must be blank. 
+2026-11-19 11:18:27,010 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_larger_bounded_dataset_spans_more_than_two_pages ... 
+2026-11-19 11:18:27,198 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_many2many_and_one2many_relations_are_batch_collected_with_parent_pairs ... 
+2026-11-19 11:18:27,241 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_new_export_candidate_waits_for_accept_then_finalize ... 
+2026-11-19 11:18:27,816 8809 WARNING odoo18e_llm odoo.tools.translate: no translation language detected, skipping translation <frame at 0x135c79e70, file '/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/services/workbook_version_service.py', line 1220, code finalize_accepted_current> 
+Stack (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 284, in load_module_graph
+    test_results = loader.run_suite(suite, global_report=report)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/loader.py", line 118, in run_suite
+    suite(results)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/suite.py", line 47, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/case.py", line 678, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/common.py", line 346, in run
+    super().run(result)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 216, in run
+    self._callTestMethod(testMethod)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 184, in _callTestMethod
+    method()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 400, in test_new_export_candidate_waits_for_accept_then_finalize
+    finalized = dispatch_office_action(env, thread, finalize_tool, "finalize")
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/services/edit_orchestrator.py", line 1208, in dispatch_office_action
+    delivered = finalize_accepted_current(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/services/workbook_version_service.py", line 1220, in finalize_accepted_current
+    body = _("Finalized workbook: %(filename)s", filename=version.filename)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 621, in get_text_alias
+    module, lang = _get_translation_source(1)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 610, in _get_translation_source
+    lang = lang or _get_lang(frame, default_lang)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 601, in _get_lang
+    _logger.log(log_level, 'no translation language detected, skipping translation %s', frame, stack_info=True)
+2026-11-19 11:18:27,816 8809 WARNING odoo18e_llm odoo.tools.translate: no translation language detected, skipping translation <frame at 0x135c79e70, file '/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/services/workbook_version_service.py', line 1222, code finalize_accepted_current> 
+Stack (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 284, in load_module_graph
+    test_results = loader.run_suite(suite, global_report=report)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/loader.py", line 118, in run_suite
+    suite(results)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/suite.py", line 47, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/case.py", line 678, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/common.py", line 346, in run
+    super().run(result)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 216, in run
+    self._callTestMethod(testMethod)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 184, in _callTestMethod
+    method()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 400, in test_new_export_candidate_waits_for_accept_then_finalize
+    finalized = dispatch_office_action(env, thread, finalize_tool, "finalize")
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/services/edit_orchestrator.py", line 1208, in dispatch_office_action
+    delivered = finalize_accepted_current(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/services/workbook_version_service.py", line 1222, in finalize_accepted_current
+    body += _(" — validation remains PARTIALLY_VERIFIED; unverified aspects remain unverified.")
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 621, in get_text_alias
+    module, lang = _get_translation_source(1)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 610, in _get_translation_source
+    lang = lang or _get_lang(frame, default_lang)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 601, in _get_lang
+    _logger.log(log_level, 'no translation language detected, skipping translation %s', frame, stack_info=True)
+2026-11-19 11:18:27,834 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_openai_provider_formats_the_effective_m3_office_schema ... 
+2026-11-19 11:18:27,835 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_paging_count_drift_and_duplicate_identity_are_rejected ... 
+2026-11-19 11:18:27,835 8809 WARNING odoo18e_llm odoo.tools.translate: no translation language detected, skipping translation <frame at 0x135ca2710, file '/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py', line 111, code _read_pages> 
+Stack (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 284, in load_module_graph
+    test_results = loader.run_suite(suite, global_report=report)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/loader.py", line 118, in run_suite
+    suite(results)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/suite.py", line 47, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/case.py", line 678, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/common.py", line 346, in run
+    super().run(result)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 216, in run
+    self._callTestMethod(testMethod)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 184, in _callTestMethod
+    method()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 210, in test_paging_count_drift_and_duplicate_identity_are_rejected
+    _read_pages(model, [], ["name"], "id asc", page_size=2, max_rows=10)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py", line 111, in _read_pages
+    raise ValidationError(_("The export page made no progress before the counted result was complete."))
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 621, in get_text_alias
+    module, lang = _get_translation_source(1)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 610, in _get_translation_source
+    lang = lang or _get_lang(frame, default_lang)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 601, in _get_lang
+    _logger.log(log_level, 'no translation language detected, skipping translation %s', frame, stack_info=True)
+2026-11-19 11:18:27,835 8809 WARNING odoo18e_llm odoo.tools.translate: no translation language detected, skipping translation <frame at 0x135ca2710, file '/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py', line 115, code _read_pages> 
+Stack (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 284, in load_module_graph
+    test_results = loader.run_suite(suite, global_report=report)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/loader.py", line 118, in run_suite
+    suite(results)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/suite.py", line 47, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/case.py", line 678, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/common.py", line 346, in run
+    super().run(result)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 216, in run
+    self._callTestMethod(testMethod)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 184, in _callTestMethod
+    method()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 210, in test_paging_count_drift_and_duplicate_identity_are_rejected
+    _read_pages(model, [], ["name"], "id asc", page_size=2, max_rows=10)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py", line 115, in _read_pages
+    raise ValidationError(_("The export contains a missing or duplicate record identity."))
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 621, in get_text_alias
+    module, lang = _get_translation_source(1)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 610, in _get_translation_source
+    lang = lang or _get_lang(frame, default_lang)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 601, in _get_lang
+    _logger.log(log_level, 'no translation language detected, skipping translation %s', frame, stack_info=True)
+2026-11-19 11:18:27,836 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_projection_verifier_accepts_blank_auxiliary_columns_without_weakening_data_checks ... 
+2026-11-19 11:18:27,861 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_projection_verifier_compares_xlsx_date_as_calendar_date ... 
+2026-11-19 11:18:27,865 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_projection_verifier_rejects_missing_or_duplicate_identity ... 
+2026-11-19 11:18:27,880 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_provider_without_usable_candidate_is_failed_without_advancing_current ... 
+2026-11-19 11:18:27,972 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_query_page_failure_is_reported_without_candidate_creation ... 
+2026-11-19 11:18:28,046 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_record_projection_handoff_requires_exact_source_cell_copy ... 
+2026-11-19 11:18:28,046 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_reject_new_export_candidate_keeps_session_unmodified ... 
+2026-11-19 11:18:28,472 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_relation_projection_rejects_missing_or_misassociated_child_rows ... 
+2026-11-19 11:18:28,500 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_relation_row_limit_fails_before_provider_dispatch ... 
+2026-11-19 11:18:28,572 8809 WARNING odoo18e_llm odoo.tools.translate: no translation language detected, skipping translation <frame at 0x135b8d390, file '/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py', line 330, code collect_export_dataset> 
+Stack (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 284, in load_module_graph
+    test_results = loader.run_suite(suite, global_report=report)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/loader.py", line 118, in run_suite
+    suite(results)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/suite.py", line 47, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/case.py", line 678, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/common.py", line 346, in run
+    super().run(result)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 216, in run
+    self._callTestMethod(testMethod)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 184, in _callTestMethod
+    method()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 665, in test_relation_row_limit_fails_before_provider_dispatch
+    result = office_tool.with_context(message=tool_message).execute({
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_tool.py", line 233, in execute
+    return super().execute(parameters)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/models/office_mapping_tools.py", line 3514, in execute
+    return super().execute(parameters)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_tool/models/llm_tool.py", line 206, in execute
+    return method(**validated.model_dump())
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_tool/decorators.py", line 127, in wrapper
+    return f(*args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/office_action.py", line 50, in office
+    return execute_export_records(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/export_orchestrator.py", line 247, in execute_export_records
+    collected = collect_export_dataset(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py", line 330, in collect_export_dataset
+    raise ValidationError(_("The related dataset exceeds the configured relation-row limit."))
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 621, in get_text_alias
+    module, lang = _get_translation_source(1)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 610, in _get_translation_source
+    lang = lang or _get_lang(frame, default_lang)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 601, in _get_lang
+    _logger.log(log_level, 'no translation language detected, skipping translation %s', frame, stack_info=True)
+2026-11-19 11:18:28,573 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_resource_limit_fails_before_session_or_provider_dispatch ... 
+2026-11-19 11:18:28,646 8809 WARNING odoo18e_llm odoo.tools.translate: no translation language detected, skipping translation <frame at 0x135ca29f0, file '/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py', line 92, code _read_pages> 
+Stack (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 284, in load_module_graph
+    test_results = loader.run_suite(suite, global_report=report)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/loader.py", line 118, in run_suite
+    suite(results)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/suite.py", line 47, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/case.py", line 678, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/common.py", line 346, in run
+    super().run(result)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 216, in run
+    self._callTestMethod(testMethod)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 184, in _callTestMethod
+    method()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 547, in test_resource_limit_fails_before_session_or_provider_dispatch
+    result = office_tool.with_context(message=tool_message).execute({
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_tool.py", line 233, in execute
+    return super().execute(parameters)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/models/office_mapping_tools.py", line 3514, in execute
+    return super().execute(parameters)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_tool/models/llm_tool.py", line 206, in execute
+    return method(**validated.model_dump())
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_tool/decorators.py", line 127, in wrapper
+    return f(*args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/office_action.py", line 50, in office
+    return execute_export_records(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/export_orchestrator.py", line 247, in execute_export_records
+    collected = collect_export_dataset(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py", line 309, in collect_export_dataset
+    root_rows, root_count, root_pages = _read_pages(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py", line 92, in _read_pages
+    raise ValidationError(_("The requested dataset exceeds the configured row limit."))
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 621, in get_text_alias
+    module, lang = _get_translation_source(1)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 610, in _get_translation_source
+    lang = lang or _get_lang(frame, default_lang)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 601, in _get_lang
+    _logger.log(log_level, 'no translation language detected, skipping translation %s', frame, stack_info=True)
+2026-11-19 11:18:28,681 8809 WARNING odoo18e_llm odoo.tools.translate: no translation language detected, skipping translation <frame at 0x1352618a0, file '/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py', line 402, code collect_export_dataset> 
+Stack (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 284, in load_module_graph
+    test_results = loader.run_suite(suite, global_report=report)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/loader.py", line 118, in run_suite
+    suite(results)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/suite.py", line 47, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/case.py", line 678, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/common.py", line 346, in run
+    super().run(result)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 216, in run
+    self._callTestMethod(testMethod)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 184, in _callTestMethod
+    method()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 573, in test_resource_limit_fails_before_session_or_provider_dispatch
+    byte_result = office_tool.with_context(message=byte_tool_message).execute({
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_tool.py", line 233, in execute
+    return super().execute(parameters)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m2/models/office_mapping_tools.py", line 3514, in execute
+    return super().execute(parameters)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_tool/models/llm_tool.py", line 206, in execute
+    return method(**validated.model_dump())
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm_tool/decorators.py", line 127, in wrapper
+    return f(*args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/office_action.py", line 50, in office
+    return execute_export_records(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/export_orchestrator.py", line 247, in execute_export_records
+    collected = collect_export_dataset(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py", line 402, in collect_export_dataset
+    raise ValidationError(_("The complete export exceeds the configured handoff byte limit."))
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 621, in get_text_alias
+    module, lang = _get_translation_source(1)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 610, in _get_translation_source
+    lang = lang or _get_lang(frame, default_lang)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 601, in _get_lang
+    _logger.log(log_level, 'no translation language detected, skipping translation %s', frame, stack_info=True)
+2026-11-19 11:18:28,682 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_export: Starting TestM3Export.test_root_and_handoff_resource_limits_accept_exact_boundary ... 
+2026-11-19 11:18:28,702 8809 WARNING odoo18e_llm odoo.tools.translate: no translation language detected, skipping translation <frame at 0x135264e50, file '/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py', line 402, code collect_export_dataset> 
+Stack (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 284, in load_module_graph
+    test_results = loader.run_suite(suite, global_report=report)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/loader.py", line 118, in run_suite
+    suite(results)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/suite.py", line 84, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/suite.py", line 47, in run
+    test(result)
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/case.py", line 678, in __call__
+    return self.run(*args, **kwds)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/common.py", line 346, in run
+    super().run(result)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 216, in run
+    self._callTestMethod(testMethod)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tests/case.py", line 184, in _callTestMethod
+    method()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_export.py", line 1065, in test_root_and_handoff_resource_limits_accept_exact_boundary
+    collect_export_dataset(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/dataset_collector.py", line 402, in collect_export_dataset
+    raise ValidationError(_("The complete export exceeds the configured handoff byte limit."))
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 621, in get_text_alias
+    module, lang = _get_translation_source(1)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 610, in _get_translation_source
+    lang = lang or _get_lang(frame, default_lang)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 601, in _get_lang
+    _logger.log(log_level, 'no translation language detected, skipping translation %s', frame, stack_info=True)
+2026-11-19 11:18:28,788 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: filestore gc 8 checked, 8 removed 
+2026-11-19 11:18:28,788 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_m4_tv_test_hooks: Starting TestM4TVTestHooks.test_allowed_fault_values_are_explicit_and_bounded ... 
+2026-11-19 11:18:28,788 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_m4_tv_test_hooks: Starting TestM4TVTestHooks.test_fault_controls_are_not_accepted_from_untrusted_tool_payload ... 
+2026-11-19 11:18:28,789 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_m4_tv_test_hooks: Starting TestM4TVTestHooks.test_fault_requires_test_switch_development_database_and_exact_thread ... 
+2026-11-19 11:18:28,790 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_m4_tv_test_hooks: Starting TestM4TVTestHooks.test_invalid_fault_and_page_size_are_rejected ... 
+2026-11-19 11:18:28,790 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_m4_tv_test_hooks: Starting TestM4TVTestHooks.test_provider_audit_requires_test_switch_database_absolute_path_and_allowlisted_thread ... 
+2026-11-19 11:18:28,856 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: filestore gc 0 checked, 0 removed 
+2026-11-19 11:18:28,923 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: Starting TestRetriever.test_chat_reranker_accepts_empty_match_and_rejects_unknown_or_malformed_ids ... 
+2026-11-19 11:18:28,926 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: Starting TestRetriever.test_chat_reranker_uses_only_query_and_full_registry_metadata ... 
+2026-11-19 11:18:28,926 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: Starting TestRetriever.test_default_and_explicit_sorting_are_stable ... 
+2026-11-19 11:18:29,027 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: Starting TestRetriever.test_discover_preserves_public_metadata_shape_and_stable_pagination ... 
+2026-11-19 11:18:29,029 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: Starting TestRetriever.test_legacy_search_shape_and_explicit_pagination_with_in_domain ... 
+2026-11-19 11:18:29,051 8809 INFO odoo18e_llm odoo.addons.llm_tool.models.llm_tool_record_retriever: Executing Odoo Record Retriever with model=res.partner, domain=[['email', 'in', ['m3-6343b57951964e5c9d6b52e5458631c9-0@example.invalid', 'm3-6343b57951964e5c9d6b52e5458631c9-1@example.invalid', 'm3-6343b57951964e5c9d6b52e5458631c9-2@example.invalid']]], fields=[], limit=3, offset=0, order=None 
+2026-11-19 11:18:29,105 8809 INFO odoo18e_llm odoo.addons.llm_tool.models.llm_tool_record_retriever: Executing Odoo Record Retriever with model=res.partner, domain=[['email', 'in', ['m3-6343b57951964e5c9d6b52e5458631c9-0@example.invalid', 'm3-6343b57951964e5c9d6b52e5458631c9-1@example.invalid', 'm3-6343b57951964e5c9d6b52e5458631c9-2@example.invalid']]], fields=['name', 'email'], limit=100, offset=0, order=None 
+2026-11-19 11:18:29,108 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: Starting TestRetriever.test_registry_discovery_and_description_ignore_business_acl ... 
+2026-11-19 11:18:29,211 8809 INFO odoo18e_llm odoo.addons.base.models.ir_model: Access Denied by ACLs for operation: read, uid: 295, model: ir.config_parameter 
+2026-11-19 11:18:29,217 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: Starting TestRetriever.test_relation_and_selection_metadata_are_reported ... 
+2026-11-19 11:18:29,219 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: Starting TestRetriever.test_retriever_error_message_retains_error_code_and_diagnostic_id ... 
+2026-11-19 11:18:29,331 8809 INFO odoo18e_llm odoo.addons.base.models.ir_model: Access Denied by ACLs for operation: read, uid: 296, model: ir.config_parameter 
+2026-11-19 11:18:29,333 8809 ERROR odoo18e_llm odoo.addons.llm_tool.models.mail_message: Error executing tool odoo_record_retriever: ACCESS_DENIED: The current user cannot read the requested records. (diagnostic_id=d69cfd4cd4b240778c7d09263efc870c) 
+2026-11-19 11:18:29,345 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: Starting TestRetriever.test_semantic_discovery_provider_failure_is_query_failed_not_empty_success ... 
+2026-11-19 11:18:29,373 8809 ERROR odoo18e_llm odoo.addons.office_engine_m3.models.llm_tool: Retriever operation failed; operation=discover diagnostic_id=601d86317fdb465ead60292925768404 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_tool.py", line 410, in _retriever_semantic_discovery
+    raise ValueError("The embedding Provider returned an incomplete result.")
+ValueError: The embedding Provider returned an incomplete result.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_tool.py", line 304, in odoo_record_retriever_execute
+    return self._retriever_discover(query=query, limit=limit, offset=offset)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_tool.py", line 677, in _retriever_discover
+    matches = self._retriever_stable_discovery_matches(
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_tool.py", line 656, in _retriever_stable_discovery_matches
+    matches = self._retriever_semantic_discovery(query, registry_models)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_tool.py", line 427, in _retriever_semantic_discovery
+    raise RuntimeError("Semantic Registry discovery failed.") from exc
+RuntimeError: Semantic Registry discovery failed.
+2026-11-19 11:18:29,374 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: Starting TestRetriever.test_semantic_discovery_ranks_stably_without_discarding_low_similarity_models ... 
+2026-11-19 11:18:29,374 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: Starting TestRetriever.test_semantic_discovery_uses_full_registry_and_preserves_legacy_literal_discovery ... 
+2026-11-19 11:18:29,416 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: Starting TestRetriever.test_semantic_pagination_fails_closed_when_saved_order_is_missing ... 
+2026-11-19 11:18:29,457 8809 INFO odoo18e_llm odoo.models.unlink: User #1 deleted mail.message records with IDs: [475774] 
+2026-11-19 11:18:29,474 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: Starting TestRetriever.test_semantic_pagination_reuses_persisted_order_across_provider_calls ... 
+2026-11-19 11:18:29,530 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: Starting TestRetriever.test_structured_query_errors_and_empty_results ... 
+2026-11-19 11:18:29,539 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: Starting TestRetriever.test_tool_schema_exposes_array_valued_domain ... 
+2026-11-19 11:18:29,540 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: Starting TestRetriever.test_unexpected_orm_failure_is_sanitized_and_has_diagnostic_id ... 
+2026-11-19 11:18:29,570 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914'
+2026-11-19 11:18:29,571 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2'
+2026-11-19 11:18:29,571 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2'
+2026-11-19 11:18:29,571 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/89/89d967228718bfb0e5ba510b056b6ac829c5f79e 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/89/89d967228718bfb0e5ba510b056b6ac829c5f79e'
+2026-11-19 11:18:29,572 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/40/40d536aab8149748f6605b2c45ca79c069e83397 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/40/40d536aab8149748f6605b2c45ca79c069e83397'
+2026-11-19 11:18:29,572 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914'
+2026-11-19 11:18:29,572 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/c0/c07d67c17835d0462ce9cadbf5c889568e8b9a70 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/c0/c07d67c17835d0462ce9cadbf5c889568e8b9a70'
+2026-11-19 11:18:29,573 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/8b/8b6d364a6529f457013ceae8ff75ec34652ff90e 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/8b/8b6d364a6529f457013ceae8ff75ec34652ff90e'
+2026-11-19 11:18:29,573 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/44/4443074f7ed49cdc7c2a2c81c6988b029e5356d3 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/44/4443074f7ed49cdc7c2a2c81c6988b029e5356d3'
+2026-11-19 11:18:29,575 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914'
+2026-11-19 11:18:29,575 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2'
+2026-11-19 11:18:29,575 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2'
+2026-11-19 11:18:29,575 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/89/89d967228718bfb0e5ba510b056b6ac829c5f79e 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/89/89d967228718bfb0e5ba510b056b6ac829c5f79e'
+2026-11-19 11:18:29,575 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/40/40d536aab8149748f6605b2c45ca79c069e83397 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/40/40d536aab8149748f6605b2c45ca79c069e83397'
+2026-11-19 11:18:29,575 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914'
+2026-11-19 11:18:29,575 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/c0/c07d67c17835d0462ce9cadbf5c889568e8b9a70 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/c0/c07d67c17835d0462ce9cadbf5c889568e8b9a70'
+2026-11-19 11:18:29,575 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/8b/8b6d364a6529f457013ceae8ff75ec34652ff90e 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/8b/8b6d364a6529f457013ceae8ff75ec34652ff90e'
+2026-11-19 11:18:29,575 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/44/4443074f7ed49cdc7c2a2c81c6988b029e5356d3 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/44/4443074f7ed49cdc7c2a2c81c6988b029e5356d3'
+2026-11-19 11:18:29,577 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914'
+2026-11-19 11:18:29,577 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2'
+2026-11-19 11:18:29,577 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2'
+2026-11-19 11:18:29,577 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/89/89d967228718bfb0e5ba510b056b6ac829c5f79e 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/89/89d967228718bfb0e5ba510b056b6ac829c5f79e'
+2026-11-19 11:18:29,577 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/40/40d536aab8149748f6605b2c45ca79c069e83397 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/40/40d536aab8149748f6605b2c45ca79c069e83397'
+2026-11-19 11:18:29,577 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914'
+2026-11-19 11:18:29,577 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/c0/c07d67c17835d0462ce9cadbf5c889568e8b9a70 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/c0/c07d67c17835d0462ce9cadbf5c889568e8b9a70'
+2026-11-19 11:18:29,578 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/8b/8b6d364a6529f457013ceae8ff75ec34652ff90e 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/8b/8b6d364a6529f457013ceae8ff75ec34652ff90e'
+2026-11-19 11:18:29,578 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/4c/4ce21f271c481ff874c8190d606b95250c573bd8 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/4c/4ce21f271c481ff874c8190d606b95250c573bd8'
+2026-11-19 11:18:29,580 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914'
+2026-11-19 11:18:29,580 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2'
+2026-11-19 11:18:29,580 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2'
+2026-11-19 11:18:29,580 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/89/89d967228718bfb0e5ba510b056b6ac829c5f79e 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/89/89d967228718bfb0e5ba510b056b6ac829c5f79e'
+2026-11-19 11:18:29,580 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/40/40d536aab8149748f6605b2c45ca79c069e83397 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/40/40d536aab8149748f6605b2c45ca79c069e83397'
+2026-11-19 11:18:29,580 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914'
+2026-11-19 11:18:29,580 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/c0/c07d67c17835d0462ce9cadbf5c889568e8b9a70 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/c0/c07d67c17835d0462ce9cadbf5c889568e8b9a70'
+2026-11-19 11:18:29,580 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/8b/8b6d364a6529f457013ceae8ff75ec34652ff90e 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/8b/8b6d364a6529f457013ceae8ff75ec34652ff90e'
+2026-11-19 11:18:29,581 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/84/84b06e39f076cdd5dddfebee751df6bb5b02b789 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/84/84b06e39f076cdd5dddfebee751df6bb5b02b789'
+2026-11-19 11:18:29,582 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914'
+2026-11-19 11:18:29,582 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2'
+2026-11-19 11:18:29,582 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/f8/f8ecd5b4ea0ad44d7420c1644fe5a8a1aa1e0ff2'
+2026-11-19 11:18:29,582 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/89/89d967228718bfb0e5ba510b056b6ac829c5f79e 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/89/89d967228718bfb0e5ba510b056b6ac829c5f79e'
+2026-11-19 11:18:29,582 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/40/40d536aab8149748f6605b2c45ca79c069e83397 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/40/40d536aab8149748f6605b2c45ca79c069e83397'
+2026-11-19 11:18:29,582 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/2f/2f71ae4427c87a7c2f67ae47ca969d0a267c5914'
+2026-11-19 11:18:29,582 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/c0/c07d67c17835d0462ce9cadbf5c889568e8b9a70 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/c0/c07d67c17835d0462ce9cadbf5c889568e8b9a70'
+2026-11-19 11:18:29,583 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/8b/8b6d364a6529f457013ceae8ff75ec34652ff90e 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/8b/8b6d364a6529f457013ceae8ff75ec34652ff90e'
+2026-11-19 11:18:29,583 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: _read_file reading /Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/a3/a3870fab6b68c32e1fd5f4239f6a00de635b2392 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_attachment.py", line 122, in _file_read
+    with open(full_path, 'rb') as f:
+         ^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/Users/lijianqiang/Library/Application Support/Odoo/filestore/odoo18e_llm/a3/a3870fab6b68c32e1fd5f4239f6a00de635b2392'
+2026-11-19 11:18:29,820 8809 ERROR odoo18e_llm odoo.addons.office_engine_m3.models.llm_tool: Retriever operation failed; operation=search diagnostic_id=5237789fcbe245a58e602ee1900766c3 
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_tool.py", line 307, in odoo_record_retriever_execute
+    return self._retriever_search(
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_tool.py", line 773, in _retriever_search
+    count = model_obj.search_count(domain)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/mock.py", line 1124, in __call__
+    return self._mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/mock.py", line 1128, in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Library/Frameworks/Python.framework/Versions/3.11/lib/python3.11/unittest/mock.py", line 1183, in _execute_mock_call
+    raise effect
+RuntimeError: synthetic secret detail
+2026-11-19 11:18:29,877 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: filestore gc 2 checked, 2 removed 
+2026-11-19 11:18:30,041 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_chinese_organize_into_excel_request_binds_m3_export_tools_without_upload ... 
+2026-11-19 11:18:30,074 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_complete_export_route_requires_registry_discovery_before_search ... 
+2026-11-19 11:18:30,098 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_discuss_history_hides_only_marked_messages_and_keeps_rows ... 
+2026-11-19 11:18:30,140 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_explicit_historical_filename_overrides_latest_upload ... 
+2026-11-19 11:18:31,214 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_failed_retrieval_reveals_tool_and_assistant_messages ... 
+2026-11-19 11:18:31,256 8809 ERROR odoo18e_llm odoo.addons.llm_tool.models.mail_message: Error executing tool odoo_record_retriever: ACCESS_DENIED: synthetic denial 
+2026-11-19 11:18:31,280 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_latest_upload_remains_available_after_more_than_100_user_messages ... 
+2026-11-19 11:18:32,340 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_new_fileless_export_is_filtered_before_m2_binds_tools ... 
+2026-11-19 11:18:32,356 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_only_pure_retriever_messages_on_non_stream_office_route_are_marked ... 
+2026-11-19 11:18:32,431 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_silent_retrieval_messages_remain_in_provider_context ... 
+2026-11-19 11:18:32,469 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_sse_filter_keeps_tool_events_errors_and_visible_messages ... 
+2026-11-19 11:18:32,501 8809 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_visible_office_and_clarification_messages_are_never_marked ... 
+2026-11-19 11:18:32,627 8809 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: filestore gc 5 checked, 5 removed 
+2026-11-19 11:18:32,643 8809 INFO odoo18e_llm odoo.modules.loading: Module office_engine_m3 loaded in 7.69s (incl. 7.28s test), 135 queries (+7471 test, +135 other) 
+2026-11-19 11:18:32,717 8809 WARNING odoo18e_llm py.warnings: /Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py:482: DeprecationWarning: The model odoo.addons.worlddepot.models.inbound_order is not overriding the create method in batch
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/__init__.py", line 4, in <module>
+    from . import models
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/__init__.py", line 4, in <module>
+    from . import inbound_order
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/inbound_order.py", line 10, in <module>
+    class InboundOrder(models.Model):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/inbound_order.py", line 202, in InboundOrder
+    @api.model
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 429, in model
+    return model_create_single(method)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 482, in model_create_single
+    warnings.warn(
+ 
+2026-11-19 11:18:32,719 8809 WARNING odoo18e_llm py.warnings: /Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py:482: DeprecationWarning: The model odoo.addons.worlddepot.models.outbound_order is not overriding the create method in batch
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/__init__.py", line 4, in <module>
+    from . import models
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/__init__.py", line 6, in <module>
+    from . import outbound_order
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/outbound_order.py", line 19, in <module>
+    class OutboundOrder(models.Model):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/outbound_order.py", line 235, in OutboundOrder
+    @api.model
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 429, in model
+    return model_create_single(method)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 482, in model_create_single
+    warnings.warn(
+ 
+2026-11-19 11:18:32,765 8809 WARNING odoo18e_llm py.warnings: /Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py:482: DeprecationWarning: The model odoo.addons.worlddepot.models.my_api_user is not overriding the create method in batch
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/__init__.py", line 4, in <module>
+    from . import models
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/__init__.py", line 20, in <module>
+    from . import my_api_user
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/my_api_user.py", line 10, in <module>
+    class DepotAPIUser(models.Model):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/my_api_user.py", line 75, in DepotAPIUser
+    @api.model
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 429, in model
+    return model_create_single(method)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 482, in model_create_single
+    warnings.warn(
+ 
+2026-11-19 11:18:32,770 8809 WARNING odoo18e_llm py.warnings: /Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py:482: DeprecationWarning: The model odoo.addons.worlddepot.models.transfer_order is not overriding the create method in batch
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/__init__.py", line 4, in <module>
+    from . import models
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/__init__.py", line 36, in <module>
+    from . import transfer_order
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/transfer_order.py", line 10, in <module>
+    class TransferOrder(models.Model):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/transfer_order.py", line 78, in TransferOrder
+    @api.model
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 429, in model
+    return model_create_single(method)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 482, in model_create_single
+    warnings.warn(
+ 
+2026-11-19 11:18:32,817 8809 INFO odoo18e_llm odoo.modules.loading: 190 modules loaded in 8.88s, 135 queries (+7606 extra) 
+2026-11-19 11:18:32,820 8809 INFO odoo18e_llm odoo.modules.loading: loading 190 modules... 
+2026-11-19 11:18:32,820 8809 INFO odoo18e_llm odoo.modules.loading: 190 modules loaded in 0.00s, 0 queries (+0 extra) 
+2026-11-19 11:18:32,823 8809 INFO odoo18e_llm odoo.modules.loading: loading 190 modules... 
+2026-11-19 11:18:32,824 8809 INFO odoo18e_llm odoo.modules.loading: 190 modules loaded in 0.00s, 0 queries (+0 extra) 
+2026-11-19 11:18:32,868 8809 WARNING odoo18e_llm odoo.fields: operation.order.clearance.statement_period_id_state: selection attribute will be ignored as the field is related 
+2026-11-19 11:18:32,868 8809 WARNING odoo18e_llm odoo.fields: operation.order.clearance.charge.line.quotation_tab_category: selection attribute will be ignored as the field is related 
+2026-11-19 11:18:32,868 8809 WARNING odoo18e_llm odoo.fields: operation.order.clearance.charge.line.charge_item_operation_type: selection attribute will be ignored as the field is related 
+2026-11-19 11:18:32,869 8809 WARNING odoo18e_llm odoo.fields: operation.order.handover.statement_period_id_state: selection attribute will be ignored as the field is related 
+2026-11-19 11:18:32,869 8809 WARNING odoo18e_llm odoo.fields: operation.order.handover.charge.line.quotation_tab_category: selection attribute will be ignored as the field is related 
+2026-11-19 11:18:32,869 8809 WARNING odoo18e_llm odoo.fields: operation.order.handover.charge.line.charge_item_operation_type: selection attribute will be ignored as the field is related 
+2026-11-19 11:18:32,870 8809 WARNING odoo18e_llm odoo.fields: pickup.container.line.container_type: selection attribute will be ignored as the field is related 
+2026-11-19 11:18:32,879 8809 WARNING odoo18e_llm odoo.fields: Field stock.location.is_bonded: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,880 8809 WARNING odoo18e_llm odoo.fields: Field stock.picking.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,880 8809 WARNING odoo18e_llm odoo.fields: Field stock.package.destination.pallet_name: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.warehouse: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field statement.period.state: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.project_name: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.quantity: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.weight_total: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.is_inbound_handling: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.inbound_handling_price: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.inbound_handling_charge: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.is_scanning: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.inbound_scanning_price: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.inbound_scanning_charge: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.products.pallet.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.products.pallet.project_name: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.docs.doc_type: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.owner: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.warehouse: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.pick_type: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.product.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.product.adr: unknown parameter 'stock', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,882 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.docs.doc_type: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,883 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.pack.info.is_loaded: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,883 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.pack.product.lot_id with unknown comodel_name 'stock.production.lot' 
+2026-11-19 11:18:32,883 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.transfer.order.warehouse: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,883 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.transfer.order.line.product: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,883 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.transfer.order.docs.doc_type: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,883 8809 WARNING odoo18e_llm odoo.fields: Field sunrise.stock.report.line.lifecycle_start_datetime: unknown parameter 'oldname', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,884 8809 WARNING odoo18e_llm odoo.fields: Field portbase.webhook.log.process_status: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,884 8809 WARNING odoo18e_llm odoo.fields: Field statement.period.handover_order_lines: unknown parameter 'ondelete', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,884 8809 WARNING odoo18e_llm odoo.fields: Field statement.period.clearance_order_lines: unknown parameter 'ondelete', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,884 8809 WARNING odoo18e_llm odoo.fields: Field waybill.arrival.wizard.ata: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,884 8809 WARNING odoo18e_llm odoo.fields: Field waybill.arrival.wizard.terminal_a: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,884 8809 WARNING odoo18e_llm odoo.fields: Field waybill.arrival.wizard.terminal_id: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,937 8809 WARNING odoo18e_llm odoo.fields: operation.order.clearance.statement_period_id_state: selection attribute will be ignored as the field is related 
+2026-11-19 11:18:32,937 8809 WARNING odoo18e_llm odoo.fields: operation.order.clearance.charge.line.quotation_tab_category: selection attribute will be ignored as the field is related 
+2026-11-19 11:18:32,937 8809 WARNING odoo18e_llm odoo.fields: operation.order.clearance.charge.line.charge_item_operation_type: selection attribute will be ignored as the field is related 
+2026-11-19 11:18:32,937 8809 WARNING odoo18e_llm odoo.fields: operation.order.handover.statement_period_id_state: selection attribute will be ignored as the field is related 
+2026-11-19 11:18:32,938 8809 WARNING odoo18e_llm odoo.fields: operation.order.handover.charge.line.quotation_tab_category: selection attribute will be ignored as the field is related 
+2026-11-19 11:18:32,938 8809 WARNING odoo18e_llm odoo.fields: operation.order.handover.charge.line.charge_item_operation_type: selection attribute will be ignored as the field is related 
+2026-11-19 11:18:32,939 8809 WARNING odoo18e_llm odoo.fields: pickup.container.line.container_type: selection attribute will be ignored as the field is related 
+2026-11-19 11:18:32,947 8809 WARNING odoo18e_llm odoo.fields: Field stock.location.is_bonded: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,947 8809 WARNING odoo18e_llm odoo.fields: Field stock.picking.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,948 8809 WARNING odoo18e_llm odoo.fields: Field stock.package.destination.pallet_name: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.warehouse: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field statement.period.state: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.project_name: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.quantity: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.weight_total: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.is_inbound_handling: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.inbound_handling_price: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.inbound_handling_charge: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.is_scanning: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.inbound_scanning_price: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.inbound_scanning_charge: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.products.pallet.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.products.pallet.project_name: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.docs.doc_type: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.owner: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.warehouse: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.pick_type: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.product.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.product.adr: unknown parameter 'stock', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.docs.doc_type: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.pack.info.is_loaded: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.transfer.order.warehouse: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.transfer.order.line.product: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field world.depot.transfer.order.docs.doc_type: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,950 8809 WARNING odoo18e_llm odoo.fields: Field sunrise.stock.report.line.lifecycle_start_datetime: unknown parameter 'oldname', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,951 8809 WARNING odoo18e_llm odoo.fields: Field portbase.webhook.log.process_status: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,951 8809 WARNING odoo18e_llm odoo.fields: Field statement.period.handover_order_lines: unknown parameter 'ondelete', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,951 8809 WARNING odoo18e_llm odoo.fields: Field statement.period.clearance_order_lines: unknown parameter 'ondelete', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,951 8809 WARNING odoo18e_llm odoo.fields: Field waybill.arrival.wizard.ata: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,951 8809 WARNING odoo18e_llm odoo.fields: Field waybill.arrival.wizard.terminal_a: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:32,951 8809 WARNING odoo18e_llm odoo.fields: Field waybill.arrival.wizard.terminal_id: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-19 11:18:33,480 8809 INFO odoo18e_llm odoo.modules.loading: Modules loaded. 
+2026-11-19 11:18:33,659 8809 INFO odoo18e_llm odoo.modules.registry: Registry changed, signaling through the database 
+2026-11-19 11:18:33,660 8809 INFO odoo18e_llm odoo.modules.registry: Registry loaded in 12.222s 
+2026-11-19 11:18:33,660 8809 INFO odoo18e_llm odoo.service.server: Starting post tests 
+2026-11-19 11:18:33,660 8809 INFO odoo18e_llm odoo.service.server: 0 post-tests in 0.00s, 0 queries 
+2026-11-19 11:18:33,660 8809 INFO odoo18e_llm odoo.tests.stats: office_engine_m3: 63 tests 7.28s 7471 queries 
+2026-11-19 11:18:33,660 8809 INFO odoo18e_llm odoo.tests.result: 0 failed, 0 error(s) of 55 tests when loading database 'odoo18e_llm' 
+2026-11-19 11:18:33,660 8809 INFO odoo18e_llm odoo.service.server: Initiating shutdown 
+2026-11-19 11:18:33,660 8809 INFO odoo18e_llm odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2026-11-19 11:18:33,662 8809 INFO odoo18e_llm odoo.addons.base.models.ir_http: Generating routing map for key 1 
+2026-11-19 11:18:33,725 8809 INFO odoo18e_llm odoo.addons.base.models.res_device: User 2 inserts device log (D_dg-1YMudLuLyzDdQYODiyk6DlFWouswis_IM3Ulw) 
+2026-11-19 11:18:33,727 8809 INFO odoo18e_llm werkzeug: 127.0.0.1 - - [19/Nov/2026 11:18:33] "GET /websocket?version=18.0-5 HTTP/1.1" 101 - 10 0.010 5.659
+2026-11-19 11:18:33,832 8809 INFO odoo18e_llm odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 2 connections  

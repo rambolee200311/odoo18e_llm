@@ -170,7 +170,7 @@ class LLMThread(models.Model):
         )
 
     def _prepare_chat_kwargs(self, message_history, use_streaming):
-        """Guide complete exports through the generic Registry discovery contract."""
+        """为完整 Odoo 导出补充通用 Registry 发现、查询及 Office 交付指引。"""
         values = super()._prepare_chat_kwargs(message_history, use_streaming)
         tools = values.get("tools") or self.tool_ids
         tool_names = set(tools.mapped("name"))
@@ -180,14 +180,16 @@ class LLMThread(models.Model):
                 "content": (
                     "For a complete Odoo data export when the user gives a business name rather than a technical "
                     "model, do not guess a model from a familiar Odoo app. First call the existing "
-                    "odoo_record_retriever with operation=discover using only a short, distinctive business noun "
-                    "phrase from the user's wording, not the entire sentence or project name, because model discovery "
-                    "matches substrings in model names and descriptions. If no model matches, retry with a shorter "
-                    "or singular core business noun phrase derived from the same wording; do not substitute a "
-                    "technical model name or stop after one overly broad or inflected phrase. Select the "
-                    "best matching registered model from its model name, description, and record name metadata. "
-                    "Then call operation=describe on that model and use its returned field and relation definitions "
-                    "to choose the query fields and any child collections. Only then search records. "
+                    "odoo_record_retriever with operation=discover using the user's natural business wording or a "
+                    "concise paraphrase that preserves its meaning. Discovery ranks registered model metadata "
+                    "semantically; do not translate the request into a guessed technical model name. Review the "
+                    "returned model names and descriptions and, when needed, call operation=describe on plausible "
+                    "candidates to compare their fields and relations. You may use read-only discover/describe to "
+                    "resolve technical uncertainty without asking the user for Odoo model or field names. If the "
+                    "business meaning remains ambiguous after read-only discovery and the alternatives would change "
+                    "the result, ask the user to clarify before searching business records. Select a model only when "
+                    "the user's intent supports it, then use describe to choose query fields and child collections. "
+                    "Only then search records. "
                     "Creating a new workbook from Odoo data does not require a source workbook or user upload. "
                     "Set workbook_source=new and do not ask the user to upload a blank file or template. "
                     "For an Odoo record export, never use Office action=create or action=edit: create directly publishes "

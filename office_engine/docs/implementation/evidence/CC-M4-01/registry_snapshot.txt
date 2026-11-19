@@ -1,0 +1,18 @@
+CC-M4-01 Registry snapshot (read-only ORM)
+Date: 2026-11-19 Asia/Shanghai
+Database: odoo18e_llm
+Registry model count: 757
+
+Verified target model metadata:
+res.partner | Contact | rec_name=name
+product.template | Product | rec_name=name
+product.product | Product Variant | rec_name=name
+sale.order | Sales Order | rec_name=name
+sale.order.line | Sales Order Line | rec_name=name
+stock.picking | Transfer | rec_name=name
+stock.move | Stock Move | rec_name=name
+world.depot.outbound.order | Outbound Order | rec_name=billno
+account.move | Journal Entry | rec_name=name
+project.project | Project | rec_name=name
+
+This snapshot contains Registry metadata only. No business records were queried.

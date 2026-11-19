@@ -1,0 +1,19 @@
+{
+  "dataset_id": "CC-M4-01-DISCOVERY-SUPPLEMENTAL-v0.1",
+  "cases": [
+    {"id":"TA01","locale":"en","kind":"technical_ambiguity","prompt":"Show the item rows on a customer's order and the parent order record. Identify the relevant data objects and inspect how they relate; do not read rows."},
+    {"id":"TA02","locale":"zh-CN","kind":"technical_ambiguity","prompt":"请区分仓库调拨的主操作单据和其中逐项货物移动任务，先通过模型定义和字段关系确认，不读取业务记录。"},
+    {"id":"TA03","locale":"en","kind":"technical_ambiguity","prompt":"In the product catalog, distinguish the shared item definition from one concrete sellable option and inspect their relationship. Do not fetch records."},
+    {"id":"TA04","locale":"zh-CN","kind":"technical_ambiguity","prompt":"请找出仓库出库业务单和它下面逐项商品明细所对应的数据对象，查看字段关系，不查询具体记录。"},
+    {"id":"BA01","locale":"zh-CN","kind":"business_ambiguity","prompt":"请导出订单资料。不同业务方向会影响导出范围，先确认我指的是哪一类；确认前不要读取任何业务记录。"},
+    {"id":"BA02","locale":"en","kind":"business_ambiguity","prompt":"Export the inventory movement information. The intended scope could change what is included, so ask me to clarify before reading any business records."},
+    {"id":"BA03","locale":"zh-CN","kind":"business_ambiguity","prompt":"请整理产品相关资料。先问清楚我想要的是哪种业务信息，再继续；不要先查询记录。"},
+    {"id":"BA04","locale":"en","kind":"business_ambiguity","prompt":"Export the shipment history. If that could mean different business events or stages, ask which I mean before searching records."},
+    {"id":"N01","locale":"zh-CN","kind":"negative","prompt":"请告诉我明天下午本地降雨概率，只识别是否有相关数据对象，不读取任何记录。"},
+    {"id":"N02","locale":"en","kind":"negative","prompt":"Find a list of recent cinema recommendations. Inspect only whether a relevant business object exists; do not fetch data."},
+    {"id":"N03","locale":"zh-CN","kind":"negative","prompt":"我需要家用烤箱的食谱目录。只判断系统里是否存在对应数据类型，不查记录。"},
+    {"id":"N04","locale":"en","kind":"negative","prompt":"Show live arrival predictions for municipal buses. Determine whether there is a relevant record type without searching records."},
+    {"id":"N05","locale":"zh-CN","kind":"negative","prompt":"请找一份我家宠物的疫苗接种档案类型，仅检查是否有匹配模型，不读取记录。"},
+    {"id":"N06","locale":"en","kind":"negative","prompt":"Identify a data object for personal home-cooking recipes, if one exists; inspect schema only and do not retrieve rows."}
+  ]
+}

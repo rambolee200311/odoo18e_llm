@@ -1,0 +1,12 @@
+{
+  "database": "odoo18e_llm",
+  "created_thread_ids": [
+    1230,
+    1231,
+    1232,
+    1233
+  ],
+  "removed_thread_count": 4,
+  "audit_parameter_restored": true,
+  "provider_usage_retained": true
+}

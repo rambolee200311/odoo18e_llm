@@ -1,0 +1,40 @@
+ATR-RUN-003 — Real Provider Blind Retrieval and Agent Integration
+Date: 2026-11-19 Asia/Shanghai
+Database: odoo18e_llm (existing development database only)
+Provider/model: OpenAI GPT-5.6 Luna / gpt-5.6-luna
+Registry: 757 models; only synthetic prompts and Registry metadata were used. No business rows, Oracle labels, or credentials were sent.
+
+Retriever Top-5 and pagination
+- Direct blind set: 40 clear intents; each embedding request contained the query plus 757 Registry profiles (758 inputs).
+- Top-5: 18 PASS / 22 FAIL. The frozen 40/40 threshold fails. Provider errors/timeouts: 0.
+- Direct discover elapsed: p50 3.700s; nearest-rank p95 4.901s.
+- Two exact-query walks using limit=20 returned candidate counts 67 and 66. In walk 2, page `count` values varied between 66 and 67; merged unique results were 66 vs 67, and page order/set differed near index 41. CC-TEST-001 paging and CC-PRESERVE-003 real stability fail.
+- Frozen repeated Agent discovery set (three independent Threads per phrase): P01 ranks 5/5/6 (2/3 Top-5); T01 ranks 53/not returned/23 (0/3); SO01 7/2/4 (2/3); SP01 13/20/27 (0/3); OUT01 1/1/4 (3/3); BA01 clarified in 3/3. Agent final clear-object selection passed all 15/15, separately from Top-5.
+
+Real Agent/Provider integration
+- 66 GPT-5.6 Luna Threads returned; 0 Thread Provider errors/timeouts. Agent elapsed p50 14.019s; nearest-rank p95 20.044s; 68 embedding calls.
+- 40/40 clear prompts had the expected target somewhere in the actual discover result, were described, and were correctly identified in the final answer. The target was in the first Agent discover Top-5 in 29/40 only; this does not change the independent Retriever 18/40 result.
+- Technical ambiguity: 4/4 used read-only discover/describe and identified the expected parent/detail or catalog/variant objects; TA04 described the expected outbound relation and inverse. No business search occurred.
+- Business ambiguity: 4/4 asked the user to clarify before business search; no business search occurred.
+- Negative prompts: 6/6 ended with no matching object / no forced model; no business search occurred.
+- Provider SDK: 187 submitted requests / 187 received responses. Every request carried the exact public tool schema pair `{odoo_record_retriever, office}`; the canonical submitted schema hash was identical across all 187 requests. Initial Thread tool_ids were that pair; after generation Odoo persisted four Office action tools as well, while submitted schemas remained the pair.
+- 185 Provider Tool Calls and 185 Odoo executions correlated by Thread ID + tool_call_id; tool name and parsed JSON arguments matched exactly for all 185. All were `odoo_record_retriever`; no Office action call. The schema-only harness blocked business `search` and all Office execution; no business records were read and no workbook was created or modified.
+- Detailed per-call match evidence: `provider_agent_tool_call_correlation_v0.1.json`; raw SDK requests/responses and Thread messages: `provider_agent_calls_v0.1.jsonl`, `provider_agent_threads_v0.1.jsonl`.
+
+Exploratory profile/query candidates (test-only; no product code change; no candidate reached the frozen threshold)
+| Variant | Top-5 | p50 | p95 |
+|---|---:|---:|---:|
+| Localized model profile | 24/40 | 3.745s | 4.729s |
+| English/Chinese multi-view descriptions | 23/40 | 5.213s | 9.063s |
+| Normalized multi-view profile | 21/40 | 5.007s | 6.814s |
+| One query-only rewrite + embeddings | 24/40 | 5.554s | 8.121s |
+| Three query-only English variants + embeddings | 30/40 | 6.358s | 8.998s |
+
+Other checks and cleanup
+- CC-TEST-005 and CC-TEST-009: PASS in ATR-RUN-002 (23 selected Retriever/Silent Retrieval TransactionCase methods; 0 failures/errors). Product source has not changed since that run; only evidence/test-runner files changed afterward.
+- CC-TEST-007: SKIPPED, because no Alias implementation was adopted.
+- CC-TEST-008: PASS as a metric-collection obligation only; CC defines no hard p95 threshold.
+- The first Odoo shell run left fixtures persisted because `llm.thread.generate()` commits internally. ORM inspection found 67 test Threads (IDs 902–968), 509 messages, 188 `office.llm.usage` rows, and zero linked attachments or Office document/session/version artifacts. Cleanup then removed only the 67 CC-M4-01 test Threads and their messages, removed the run's audit parameter, and retained all 188 usage rows with the existing `set null` relation. Verification: `provider_agent_thread_cleanup_v0.1.json`.
+- A separate metadata-to-GPT-chat reranking attempt was rejected before execution by automatic review. No such Provider request was made; see `provider_chat_metadata_rerank_block.md`.
+
+Overall: real Provider/tool-call integration and Agent selection/ambiguity paths were observed. CC-M4-01 remains NOT CLOSED because the frozen Retriever Top-5 (40/40) and stable paging gates failed. Do not report overall PASS.

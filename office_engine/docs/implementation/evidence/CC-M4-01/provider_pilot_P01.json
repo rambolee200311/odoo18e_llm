@@ -1,0 +1,63 @@
+{
+  "run_id": "CC-M4-01-PILOT-P01",
+  "database": "odoo18e_llm",
+  "thread_id": 900,
+  "provider": "OpenAI GPT-5.6 Luna",
+  "provider_service": "openai",
+  "chat_model": "gpt-5.6-luna",
+  "tools_bound": [
+    "odoo_record_retriever",
+    "office"
+  ],
+  "registry_model_count": 757,
+  "query": "只识别并描述客户、供应商和联系人档案对应的数据对象及字段，不读取记录。",
+  "input_count_expected": 758,
+  "input_bytes_utf8": 74159,
+  "input_sha256_expected": "59184cfcc9435e375a3205a37c2fe8afb284dd1993e2946b1650ebec06a2d3e8",
+  "provider_observation": {
+    "calls": 1,
+    "input_count": 758,
+    "input_sha256": "59184cfcc9435e375a3205a37c2fe8afb284dd1993e2946b1650ebec06a2d3e8",
+    "returned_vectors": 758,
+    "embedding_seconds": 4.516,
+    "embedding_model": "text-embedding-3-large"
+  },
+  "total_discover_seconds": 4.792,
+  "result": {
+    "status": "success",
+    "operation": "discover",
+    "count": 66,
+    "returned_count": 5,
+    "limit": 5,
+    "offset": 0,
+    "has_more": true,
+    "next_offset": 5
+  },
+  "top5": [
+    {
+      "model": "res.partner",
+      "description": "Contact",
+      "rec_name": "name"
+    },
+    {
+      "model": "documents.access",
+      "description": "Document / Partner",
+      "rec_name": null
+    },
+    {
+      "model": "account.edi.xml.ubl_de",
+      "description": "BIS3 DE (XRechnung)",
+      "rec_name": null
+    },
+    {
+      "model": "_unknown",
+      "description": "Unknown",
+      "rec_name": null
+    },
+    {
+      "model": "res.partner.autocomplete.sync",
+      "description": "Partner Autocomplete Sync",
+      "rec_name": null
+    }
+  ]
+}

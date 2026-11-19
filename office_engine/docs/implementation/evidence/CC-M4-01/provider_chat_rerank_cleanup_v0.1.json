@@ -1,0 +1,9 @@
+{
+  "database": "odoo18e_llm",
+  "checked_thread_id": 1050,
+  "thread_exists": false,
+  "message_count": 0,
+  "provider_usage_rows_linked_to_thread": 0,
+  "audit_allowlist_parameter_exists": false,
+  "verification": "Odoo ORM, current shell user, exact test Thread id"
+}

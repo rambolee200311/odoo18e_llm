@@ -1,0 +1,1045 @@
+{
+  "summary": {
+    "dataset_id": "blind_queries_v0.1",
+    "cases": 40,
+    "top5_pass": 18,
+    "top5_fail": 22,
+    "provider_errors": 0,
+    "failures": [
+      {
+        "case_id": "T01",
+        "target_model": "product.template",
+        "top5": [
+          "sale.edi.xml.ubl_bis3",
+          "world.depot.linglong.product.temp",
+          "account.edi.xml.ubl_de",
+          "barcode.nomenclature",
+          "sunrise.product.specification.import.line"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 43,
+        "total_seconds": 3.54,
+        "embedding_seconds": 3.266
+      },
+      {
+        "case_id": "T02",
+        "target_model": "product.template",
+        "top5": [
+          "product.catalog.mixin",
+          "product.category",
+          "sale.order.option",
+          "uom.category",
+          "stock.storage.category"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 12,
+        "total_seconds": 4.901,
+        "embedding_seconds": 4.527
+      },
+      {
+        "case_id": "V01",
+        "target_model": "product.product",
+        "top5": [
+          "sale.edi.xml.ubl_bis3",
+          "barcode.nomenclature",
+          "stock.report",
+          "world.depot.inbound.order.product.details",
+          "stock.scrap"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 74,
+        "total_seconds": 3.408,
+        "embedding_seconds": 3.127
+      },
+      {
+        "case_id": "V03",
+        "target_model": "product.product",
+        "top5": [],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 0,
+        "total_seconds": 3.057,
+        "embedding_seconds": 2.782
+      },
+      {
+        "case_id": "SO01",
+        "target_model": "sale.order",
+        "top5": [
+          "sale.edi.xml.ubl_bis3",
+          "world.depot.inbound.order.product.details",
+          "account.edi.xml.ubl_sg",
+          "world.depot.inbound.order.docs",
+          "world.depot.outbound.order.sn.detail"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 25,
+        "total_seconds": 3.333,
+        "embedding_seconds": 3.057
+      },
+      {
+        "case_id": "SO02",
+        "target_model": "sale.order",
+        "top5": [
+          "product.document",
+          "office.document.request",
+          "documents.access",
+          "world.depot.inbound.order.docs",
+          "documents.document"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 57,
+        "total_seconds": 3.513,
+        "embedding_seconds": 3.239
+      },
+      {
+        "case_id": "SL02",
+        "target_model": "sale.order.line",
+        "top5": [
+          "world.depot.inbound.order.product.details",
+          "stock.picking.type",
+          "world.depot.charge.item",
+          "sale.order",
+          "stock.quant"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 187,
+        "total_seconds": 3.677,
+        "embedding_seconds": 3.403
+      },
+      {
+        "case_id": "SL03",
+        "target_model": "sale.order.line",
+        "top5": [
+          "world.depot.store.report.linglong.products",
+          "world.depot.inbound.order.product.details",
+          "sale.edi.xml.ubl_bis3",
+          "report.stock_barcode_lite.report_inbound_picking_products",
+          "report.stock.label_product_product_view"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 120,
+        "total_seconds": 3.723,
+        "embedding_seconds": 3.45
+      },
+      {
+        "case_id": "SL04",
+        "target_model": "sale.order.line",
+        "top5": [
+          "world.depot.inbound.order.product.details",
+          "sale.edi.xml.ubl_bis3",
+          "product.combo.item",
+          "world.depot.inbound.order.summary",
+          "world.depot.inbound.order.product"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 56,
+        "total_seconds": 4.267,
+        "embedding_seconds": 3.992
+      },
+      {
+        "case_id": "SP01",
+        "target_model": "stock.picking",
+        "top5": [
+          "world.depot.transfer.order.docs",
+          "operation.order.clearance.container.line",
+          "world.depot.inbound.order.docs",
+          "stock.picking.package.scan",
+          "world.depot.transfer.order"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 125,
+        "total_seconds": 4.788,
+        "embedding_seconds": 4.514
+      },
+      {
+        "case_id": "SP02",
+        "target_model": "stock.picking",
+        "top5": [
+          "world.depot.transfer.order.docs",
+          "world.depot.inbound.order.docs",
+          "world.depot.waybill.other.docs",
+          "report.stock.report_reception",
+          "world.depot.outbound.order.docs"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 124,
+        "total_seconds": 3.338,
+        "embedding_seconds": 3.065
+      },
+      {
+        "case_id": "SP03",
+        "target_model": "stock.picking",
+        "top5": [
+          "world.depot.inbound.order.docs",
+          "world.depot.outbound.order.sn.detail",
+          "world.depot.outbound.order.docs",
+          "world.depot.outbound.order.summary",
+          "world.depot.inbound.order.summary"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 186,
+        "total_seconds": 3.272,
+        "embedding_seconds": 2.997
+      },
+      {
+        "case_id": "SP04",
+        "target_model": "stock.picking",
+        "top5": [
+          "world.depot.transfer.order.docs",
+          "stock.picking.to.batch",
+          "world.depot.transfer.order",
+          "world.depot.transfer.order.line",
+          "stock.add.to.wave"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 103,
+        "total_seconds": 3.192,
+        "embedding_seconds": 2.916
+      },
+      {
+        "case_id": "SM01",
+        "target_model": "stock.move",
+        "top5": [
+          "world.depot.inbound.order.actual.pallet.difference.pallet",
+          "world.depot.inbound.order.actual.pallet",
+          "stock.picking.package.scan",
+          "world.depot.inbound.order.docs",
+          "world.depot.outbound.order.sn.detail"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 116,
+        "total_seconds": 4.29,
+        "embedding_seconds": 4.016
+      },
+      {
+        "case_id": "SM02",
+        "target_model": "stock.move",
+        "top5": [
+          "stock.picking",
+          "stock.move.line",
+          "world.depot.transfer.order.line",
+          "world.depot.transfer.order",
+          "stock.picking.to.batch"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 221,
+        "total_seconds": 3.863,
+        "embedding_seconds": 3.587
+      },
+      {
+        "case_id": "SM03",
+        "target_model": "stock.move",
+        "top5": [
+          "stock.quant.relocate",
+          "stock.picking.batch",
+          "stock.picking",
+          "stock.picking.package.scan",
+          "stock.picking.to.batch"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 18,
+        "total_seconds": 3.753,
+        "embedding_seconds": 3.473
+      },
+      {
+        "case_id": "SM04",
+        "target_model": "stock.move",
+        "top5": [
+          "stock.warehouse",
+          "stock.package_level",
+          "sunrise.stock.report.operation.line",
+          "stock.forecasted_product_product",
+          "stock.quant.relocate"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 179,
+        "total_seconds": 4.732,
+        "embedding_seconds": 4.455
+      },
+      {
+        "case_id": "OUT02",
+        "target_model": "world.depot.outbound.order",
+        "top5": [
+          "world.depot.outbound.order.docs",
+          "world.depot.inbound.order.docs",
+          "world.depot.outbound.order.sn.detail",
+          "sale.edi.xml.ubl_bis3",
+          "world.depot.outbound.order.summary"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 128,
+        "total_seconds": 4.342,
+        "embedding_seconds": 4.067
+      },
+      {
+        "case_id": "OUT04",
+        "target_model": "world.depot.outbound.order",
+        "top5": [
+          "world.depot.outbound.order.docs",
+          "world.depot.inbound.order.docs",
+          "wd.vas.order.line",
+          "world.depot.outbound.order.summary",
+          "world.depot.outbound.order.sn.detail"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 87,
+        "total_seconds": 3.624,
+        "embedding_seconds": 3.35
+      },
+      {
+        "case_id": "AM01",
+        "target_model": "account.move",
+        "top5": [
+          "account.reconcile.model",
+          "account.bank.statement.line",
+          "account.move.line",
+          "account.bank.statement",
+          "account.journal"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 40,
+        "total_seconds": 4.606,
+        "embedding_seconds": 4.334
+      },
+      {
+        "case_id": "AM03",
+        "target_model": "account.move",
+        "top5": [
+          "account.reconcile.model",
+          "account.edi.xml.ubl_sg",
+          "account.edi.xml.ubl_de"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 3,
+        "total_seconds": 3.526,
+        "embedding_seconds": 3.251
+      },
+      {
+        "case_id": "PR03",
+        "target_model": "project.project",
+        "top5": [
+          "project.task",
+          "report.project.task.user"
+        ],
+        "target_rank": null,
+        "retriever_top5_pass": false,
+        "provider_status": "success",
+        "candidate_count": 2,
+        "total_seconds": 4.466,
+        "embedding_seconds": 4.188
+      }
+    ]
+  },
+  "results": [
+    {
+      "case_id": "P01",
+      "target_model": "res.partner",
+      "top5": [
+        "res.partner",
+        "documents.access",
+        "account.edi.xml.ubl_de",
+        "_unknown",
+        "res.partner.autocomplete.sync"
+      ],
+      "target_rank": 1,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 67,
+      "total_seconds": 4.969,
+      "embedding_seconds": 4.694
+    },
+    {
+      "case_id": "P02",
+      "target_model": "res.partner",
+      "top5": [
+        "res.partner",
+        "ir.qweb.field.contact",
+        "operation.contact.dashboard",
+        "res.partner.autocomplete.sync",
+        "ir.profile"
+      ],
+      "target_rank": 1,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 85,
+      "total_seconds": 3.224,
+      "embedding_seconds": 2.95
+    },
+    {
+      "case_id": "P03",
+      "target_model": "res.partner",
+      "top5": [
+        "res.partner",
+        "res.company",
+        "_unknown",
+        "sms.account.phone",
+        "sms.sms"
+      ],
+      "target_rank": 1,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 146,
+      "total_seconds": 3.443,
+      "embedding_seconds": 3.168
+    },
+    {
+      "case_id": "P04",
+      "target_model": "res.partner",
+      "top5": [
+        "ir.qweb.field.contact",
+        "operation.contact.dashboard",
+        "res.partner",
+        "account.edi.xml.ubl_nl",
+        "account.edi.xml.ubl_sg"
+      ],
+      "target_rank": 3,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 16,
+      "total_seconds": 3.256,
+      "embedding_seconds": 2.98
+    },
+    {
+      "case_id": "T01",
+      "target_model": "product.template",
+      "top5": [
+        "sale.edi.xml.ubl_bis3",
+        "world.depot.linglong.product.temp",
+        "account.edi.xml.ubl_de",
+        "barcode.nomenclature",
+        "sunrise.product.specification.import.line"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 43,
+      "total_seconds": 3.54,
+      "embedding_seconds": 3.266
+    },
+    {
+      "case_id": "T02",
+      "target_model": "product.template",
+      "top5": [
+        "product.catalog.mixin",
+        "product.category",
+        "sale.order.option",
+        "uom.category",
+        "stock.storage.category"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 12,
+      "total_seconds": 4.901,
+      "embedding_seconds": 4.527
+    },
+    {
+      "case_id": "T03",
+      "target_model": "product.template",
+      "top5": [
+        "product.catalog.mixin",
+        "uom.category",
+        "product.template",
+        "product.product",
+        "sale.edi.xml.ubl_bis3"
+      ],
+      "target_rank": 3,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 115,
+      "total_seconds": 3.089,
+      "embedding_seconds": 2.801
+    },
+    {
+      "case_id": "T04",
+      "target_model": "product.template",
+      "top5": [
+        "product.product",
+        "world.depot.product.duplicate",
+        "uom.uom",
+        "product.template",
+        "stock.forecasted_product_product"
+      ],
+      "target_rank": 4,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 49,
+      "total_seconds": 3.478,
+      "embedding_seconds": 3.201
+    },
+    {
+      "case_id": "V01",
+      "target_model": "product.product",
+      "top5": [
+        "sale.edi.xml.ubl_bis3",
+        "barcode.nomenclature",
+        "stock.report",
+        "world.depot.inbound.order.product.details",
+        "stock.scrap"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 74,
+      "total_seconds": 3.408,
+      "embedding_seconds": 3.127
+    },
+    {
+      "case_id": "V02",
+      "target_model": "product.product",
+      "top5": [
+        "product.product",
+        "sunrise.stock.report.product.line",
+        "world.depot.inbound.order.product.details",
+        "product.catalog.mixin",
+        "stock.barcode.lite.sunrise.product.master.import.line"
+      ],
+      "target_rank": 1,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 67,
+      "total_seconds": 3.914,
+      "embedding_seconds": 3.64
+    },
+    {
+      "case_id": "V03",
+      "target_model": "product.product",
+      "top5": [],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 0,
+      "total_seconds": 3.057,
+      "embedding_seconds": 2.782
+    },
+    {
+      "case_id": "V04",
+      "target_model": "product.product",
+      "top5": [
+        "product.product",
+        "product.catalog.mixin",
+        "product.template",
+        "world.depot.inbound.order.product.details",
+        "product.combo.item"
+      ],
+      "target_rank": 1,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 92,
+      "total_seconds": 3.244,
+      "embedding_seconds": 2.968
+    },
+    {
+      "case_id": "SO01",
+      "target_model": "sale.order",
+      "top5": [
+        "sale.edi.xml.ubl_bis3",
+        "world.depot.inbound.order.product.details",
+        "account.edi.xml.ubl_sg",
+        "world.depot.inbound.order.docs",
+        "world.depot.outbound.order.sn.detail"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 25,
+      "total_seconds": 3.333,
+      "embedding_seconds": 3.057
+    },
+    {
+      "case_id": "SO02",
+      "target_model": "sale.order",
+      "top5": [
+        "product.document",
+        "office.document.request",
+        "documents.access",
+        "world.depot.inbound.order.docs",
+        "documents.document"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 57,
+      "total_seconds": 3.513,
+      "embedding_seconds": 3.239
+    },
+    {
+      "case_id": "SO03",
+      "target_model": "sale.order",
+      "top5": [
+        "sale.edi.xml.ubl_bis3",
+        "sale.order",
+        "product.document",
+        "account.edi.xml.ubl_sg",
+        "sale.order.spreadsheet"
+      ],
+      "target_rank": 2,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 212,
+      "total_seconds": 3.809,
+      "embedding_seconds": 3.533
+    },
+    {
+      "case_id": "SO04",
+      "target_model": "sale.order",
+      "top5": [
+        "world.depot.inbound.order.summary",
+        "world.depot.outbound.order.summary",
+        "sale.order",
+        "world.depot.inbound.order.docs",
+        "sale.edi.xml.ubl_bis3"
+      ],
+      "target_rank": 3,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 72,
+      "total_seconds": 3.858,
+      "embedding_seconds": 3.582
+    },
+    {
+      "case_id": "SL01",
+      "target_model": "sale.order.line",
+      "top5": [
+        "sale.order.line",
+        "world.depot.outbound.order.sn.detail",
+        "world.depot.inbound.order.product.details",
+        "sunrise.stock.report.operation.line",
+        "sale.order"
+      ],
+      "target_rank": 1,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 20,
+      "total_seconds": 4.295,
+      "embedding_seconds": 4.016
+    },
+    {
+      "case_id": "SL02",
+      "target_model": "sale.order.line",
+      "top5": [
+        "world.depot.inbound.order.product.details",
+        "stock.picking.type",
+        "world.depot.charge.item",
+        "sale.order",
+        "stock.quant"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 187,
+      "total_seconds": 3.677,
+      "embedding_seconds": 3.403
+    },
+    {
+      "case_id": "SL03",
+      "target_model": "sale.order.line",
+      "top5": [
+        "world.depot.store.report.linglong.products",
+        "world.depot.inbound.order.product.details",
+        "sale.edi.xml.ubl_bis3",
+        "report.stock_barcode_lite.report_inbound_picking_products",
+        "report.stock.label_product_product_view"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 120,
+      "total_seconds": 3.723,
+      "embedding_seconds": 3.45
+    },
+    {
+      "case_id": "SL04",
+      "target_model": "sale.order.line",
+      "top5": [
+        "world.depot.inbound.order.product.details",
+        "sale.edi.xml.ubl_bis3",
+        "product.combo.item",
+        "world.depot.inbound.order.summary",
+        "world.depot.inbound.order.product"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 56,
+      "total_seconds": 4.267,
+      "embedding_seconds": 3.992
+    },
+    {
+      "case_id": "SP01",
+      "target_model": "stock.picking",
+      "top5": [
+        "world.depot.transfer.order.docs",
+        "operation.order.clearance.container.line",
+        "world.depot.inbound.order.docs",
+        "stock.picking.package.scan",
+        "world.depot.transfer.order"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 125,
+      "total_seconds": 4.788,
+      "embedding_seconds": 4.514
+    },
+    {
+      "case_id": "SP02",
+      "target_model": "stock.picking",
+      "top5": [
+        "world.depot.transfer.order.docs",
+        "world.depot.inbound.order.docs",
+        "world.depot.waybill.other.docs",
+        "report.stock.report_reception",
+        "world.depot.outbound.order.docs"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 124,
+      "total_seconds": 3.338,
+      "embedding_seconds": 3.065
+    },
+    {
+      "case_id": "SP03",
+      "target_model": "stock.picking",
+      "top5": [
+        "world.depot.inbound.order.docs",
+        "world.depot.outbound.order.sn.detail",
+        "world.depot.outbound.order.docs",
+        "world.depot.outbound.order.summary",
+        "world.depot.inbound.order.summary"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 186,
+      "total_seconds": 3.272,
+      "embedding_seconds": 2.997
+    },
+    {
+      "case_id": "SP04",
+      "target_model": "stock.picking",
+      "top5": [
+        "world.depot.transfer.order.docs",
+        "stock.picking.to.batch",
+        "world.depot.transfer.order",
+        "world.depot.transfer.order.line",
+        "stock.add.to.wave"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 103,
+      "total_seconds": 3.192,
+      "embedding_seconds": 2.916
+    },
+    {
+      "case_id": "SM01",
+      "target_model": "stock.move",
+      "top5": [
+        "world.depot.inbound.order.actual.pallet.difference.pallet",
+        "world.depot.inbound.order.actual.pallet",
+        "stock.picking.package.scan",
+        "world.depot.inbound.order.docs",
+        "world.depot.outbound.order.sn.detail"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 116,
+      "total_seconds": 4.29,
+      "embedding_seconds": 4.016
+    },
+    {
+      "case_id": "SM02",
+      "target_model": "stock.move",
+      "top5": [
+        "stock.picking",
+        "stock.move.line",
+        "world.depot.transfer.order.line",
+        "world.depot.transfer.order",
+        "stock.picking.to.batch"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 221,
+      "total_seconds": 3.863,
+      "embedding_seconds": 3.587
+    },
+    {
+      "case_id": "SM03",
+      "target_model": "stock.move",
+      "top5": [
+        "stock.quant.relocate",
+        "stock.picking.batch",
+        "stock.picking",
+        "stock.picking.package.scan",
+        "stock.picking.to.batch"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 18,
+      "total_seconds": 3.753,
+      "embedding_seconds": 3.473
+    },
+    {
+      "case_id": "SM04",
+      "target_model": "stock.move",
+      "top5": [
+        "stock.warehouse",
+        "stock.package_level",
+        "sunrise.stock.report.operation.line",
+        "stock.forecasted_product_product",
+        "stock.quant.relocate"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 179,
+      "total_seconds": 4.732,
+      "embedding_seconds": 4.455
+    },
+    {
+      "case_id": "OUT01",
+      "target_model": "world.depot.outbound.order",
+      "top5": [
+        "world.depot.outbound.order.docs",
+        "world.depot.outbound.order.summary",
+        "world.depot.outbound.order.sn.detail",
+        "world.depot.outbound.order",
+        "world.depot.inbound.order.docs"
+      ],
+      "target_rank": 4,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 176,
+      "total_seconds": 3.504,
+      "embedding_seconds": 3.226
+    },
+    {
+      "case_id": "OUT02",
+      "target_model": "world.depot.outbound.order",
+      "top5": [
+        "world.depot.outbound.order.docs",
+        "world.depot.inbound.order.docs",
+        "world.depot.outbound.order.sn.detail",
+        "sale.edi.xml.ubl_bis3",
+        "world.depot.outbound.order.summary"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 128,
+      "total_seconds": 4.342,
+      "embedding_seconds": 4.067
+    },
+    {
+      "case_id": "OUT03",
+      "target_model": "world.depot.outbound.order",
+      "top5": [
+        "world.depot.outbound.order.summary",
+        "world.depot.outbound.order.sn.detail",
+        "world.depot.outbound.order",
+        "world.depot.outbound.order.docs",
+        "world.depot.inbound.order.summary"
+      ],
+      "target_rank": 3,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 205,
+      "total_seconds": 4.648,
+      "embedding_seconds": 4.375
+    },
+    {
+      "case_id": "OUT04",
+      "target_model": "world.depot.outbound.order",
+      "top5": [
+        "world.depot.outbound.order.docs",
+        "world.depot.inbound.order.docs",
+        "wd.vas.order.line",
+        "world.depot.outbound.order.summary",
+        "world.depot.outbound.order.sn.detail"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 87,
+      "total_seconds": 3.624,
+      "embedding_seconds": 3.35
+    },
+    {
+      "case_id": "AM01",
+      "target_model": "account.move",
+      "top5": [
+        "account.reconcile.model",
+        "account.bank.statement.line",
+        "account.move.line",
+        "account.bank.statement",
+        "account.journal"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 40,
+      "total_seconds": 4.606,
+      "embedding_seconds": 4.334
+    },
+    {
+      "case_id": "AM02",
+      "target_model": "account.move",
+      "top5": [
+        "account.journal",
+        "account.journal.group",
+        "account.move",
+        "account.reconcile.model",
+        "account.report"
+      ],
+      "target_rank": 3,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 79,
+      "total_seconds": 3.039,
+      "embedding_seconds": 2.765
+    },
+    {
+      "case_id": "AM03",
+      "target_model": "account.move",
+      "top5": [
+        "account.reconcile.model",
+        "account.edi.xml.ubl_sg",
+        "account.edi.xml.ubl_de"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 3,
+      "total_seconds": 3.526,
+      "embedding_seconds": 3.251
+    },
+    {
+      "case_id": "AM04",
+      "target_model": "account.move",
+      "top5": [
+        "account.journal",
+        "account.journal.group",
+        "account.move",
+        "account.bank.selection",
+        "account.move.line"
+      ],
+      "target_rank": 3,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 35,
+      "total_seconds": 4.803,
+      "embedding_seconds": 4.53
+    },
+    {
+      "case_id": "PR01",
+      "target_model": "project.project",
+      "top5": [
+        "project.project",
+        "project.project.stage",
+        "project.milestone",
+        "project.tags",
+        "project.task"
+      ],
+      "target_rank": 1,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 12,
+      "total_seconds": 3.224,
+      "embedding_seconds": 2.946
+    },
+    {
+      "case_id": "PR02",
+      "target_model": "project.project",
+      "top5": [
+        "project.project",
+        "project.task",
+        "report.project.task.user",
+        "project.task.type.delete.wizard",
+        "project.task.stage.personal"
+      ],
+      "target_rank": 1,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 20,
+      "total_seconds": 6.608,
+      "embedding_seconds": 6.32
+    },
+    {
+      "case_id": "PR03",
+      "target_model": "project.project",
+      "top5": [
+        "project.task",
+        "report.project.task.user"
+      ],
+      "target_rank": null,
+      "retriever_top5_pass": false,
+      "provider_status": "success",
+      "candidate_count": 2,
+      "total_seconds": 4.466,
+      "embedding_seconds": 4.188
+    },
+    {
+      "case_id": "PR04",
+      "target_model": "project.project",
+      "top5": [
+        "project.project",
+        "project.milestone",
+        "project.tags",
+        "project.project.stage",
+        "project.share.wizard"
+      ],
+      "target_rank": 1,
+      "retriever_top5_pass": true,
+      "provider_status": "success",
+      "candidate_count": 176,
+      "total_seconds": 4.303,
+      "embedding_seconds": 4.028
+    }
+  ]
+}

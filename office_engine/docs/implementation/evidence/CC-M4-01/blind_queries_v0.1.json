@@ -1,0 +1,54 @@
+{
+  "dataset_id": "CC-M4-01-DISCOVERY-40-v0.1",
+  "cases": [
+    {"id":"P01","locale":"zh-CN","kind":"clear","prompt":"只识别并描述客户、供应商和联系人档案对应的数据对象及字段，不读取记录。"},
+    {"id":"P02","locale":"en","kind":"clear","prompt":"Identify and describe the data object for business contact profiles, including customers and suppliers. Do not fetch records."},
+    {"id":"P03","locale":"zh-CN","kind":"clear","prompt":"通讯录里的企业往来方资料属于哪个数据类型？请先查模型定义和字段，不要查询具体数据。"},
+    {"id":"P04","locale":"en","kind":"clear","prompt":"Where are organization and person contact details represented? Inspect the schema only; do not read business rows."},
+
+    {"id":"T01","locale":"zh-CN","kind":"clear","prompt":"识别用于维护商品基础资料并归组不同可售规格的数据对象，只查看结构。"},
+    {"id":"T02","locale":"en","kind":"clear","prompt":"Find the catalog object that groups the different sellable options of an item. Describe its schema only."},
+    {"id":"T03","locale":"zh-CN","kind":"clear","prompt":"商品目录中承载共用名称和基本属性、可关联多个具体款式的是什么数据对象？不要读记录。"},
+    {"id":"T04","locale":"en","kind":"clear","prompt":"Identify the shared product definition used as the parent for purchasable variations. Do not retrieve records."},
+
+    {"id":"V01","locale":"zh-CN","kind":"clear","prompt":"识别可以单独销售、具有具体规格的单个库存商品数据对象，并查看字段定义。"},
+    {"id":"V02","locale":"en","kind":"clear","prompt":"Which object represents one concrete sellable SKU with its own variant values? Inspect metadata only."},
+    {"id":"V03","locale":"zh-CN","kind":"clear","prompt":"我需要区分颜色和尺码不同的每一个可售款式，请找出对应的数据类型但不要读取记录。"},
+    {"id":"V04","locale":"en","kind":"clear","prompt":"Describe the record type for individual purchasable product variants rather than the shared catalog definition."},
+
+    {"id":"SO01","locale":"zh-CN","kind":"clear","prompt":"只识别客户购买业务中承载整张交易单据的数据对象，并查看其字段。"},
+    {"id":"SO02","locale":"en","kind":"clear","prompt":"Find the document-level record type for a customer's purchase from our company. Do not fetch rows."},
+    {"id":"SO03","locale":"zh-CN","kind":"clear","prompt":"一笔销售交易的单据抬头属于哪个数据对象？请只检查模型定义。"},
+    {"id":"SO04","locale":"en","kind":"clear","prompt":"Identify the customer-facing commercial order header and inspect its schema without reading records."},
+
+    {"id":"SL01","locale":"zh-CN","kind":"clear","prompt":"识别销售单中逐项列出商品和数量的明细行数据对象，先看结构。"},
+    {"id":"SL02","locale":"en","kind":"clear","prompt":"Find the child record type that stores each item and quantity on a customer order."},
+    {"id":"SL03","locale":"zh-CN","kind":"clear","prompt":"如果要查看每笔销售交易里的产品行项目，而不是整张单据，应该描述哪个数据对象？不要查记录。"},
+    {"id":"SL04","locale":"en","kind":"clear","prompt":"Describe the per-item rows belonging to commercial orders; inspect metadata only."},
+
+    {"id":"SP01","locale":"zh-CN","kind":"clear","prompt":"识别仓库收货、发货或内部调拨时使用的整张操作单据数据对象。"},
+    {"id":"SP02","locale":"en","kind":"clear","prompt":"Find the warehouse document that groups the planned movement of goods for a receipt, delivery, or internal transfer."},
+    {"id":"SP03","locale":"zh-CN","kind":"clear","prompt":"仓库人员执行一次收货或发运时打开的主单据属于哪个数据类型？只查看字段关系。"},
+    {"id":"SP04","locale":"en","kind":"clear","prompt":"Identify the warehouse transfer document rather than its individual product movement rows."},
+
+    {"id":"SM01","locale":"zh-CN","kind":"clear","prompt":"识别仓库操作单据下代表某项货物移动计划的明细数据对象。"},
+    {"id":"SM02","locale":"en","kind":"clear","prompt":"Find the operational record for a planned movement of one product within a warehouse transfer."},
+    {"id":"SM03","locale":"zh-CN","kind":"clear","prompt":"我想区分整张仓库调拨单和其中每个商品的移动任务，请识别后者的数据类型。"},
+    {"id":"SM04","locale":"en","kind":"clear","prompt":"Describe the product-level stock operation associated with a warehouse document, not the document header."},
+
+    {"id":"OUT01","locale":"zh-CN","kind":"clear","prompt":"识别仓库向外发货时使用的出库业务单据数据对象，并查看字段，不读取记录。"},
+    {"id":"OUT02","locale":"en","kind":"clear","prompt":"Find the business document used to record outbound fulfillment from the warehouse. Inspect its schema only."},
+    {"id":"OUT03","locale":"zh-CN","kind":"clear","prompt":"发给客户的仓库出货单属于哪个业务数据类型？请只做模型发现和字段描述。"},
+    {"id":"OUT04","locale":"en","kind":"clear","prompt":"Identify the warehouse dispatch order that records goods leaving the facility; do not search its records."},
+
+    {"id":"AM01","locale":"zh-CN","kind":"clear","prompt":"识别财务账簿中正式登记借贷事项的会计凭证数据对象。"},
+    {"id":"AM02","locale":"en","kind":"clear","prompt":"Find the accounting document used to post journal transactions. Describe metadata only."},
+    {"id":"AM03","locale":"zh-CN","kind":"clear","prompt":"请区分一般交易业务单据与记入账簿的凭证，识别后者的数据类型。"},
+    {"id":"AM04","locale":"en","kind":"clear","prompt":"Identify the posted financial journal document and inspect its available fields without fetching data."},
+
+    {"id":"PR01","locale":"zh-CN","kind":"clear","prompt":"识别用于组织项目名称、负责人和项目状态的项目主数据对象。"},
+    {"id":"PR02","locale":"en","kind":"clear","prompt":"Find the top-level project record that represents a project workspace, not its tasks."},
+    {"id":"PR03","locale":"zh-CN","kind":"clear","prompt":"我需要描述每个项目本身的资料，而不是任务清单；请只查找其数据结构。"},
+    {"id":"PR04","locale":"en","kind":"clear","prompt":"Identify the project-level business object and describe its fields and relations only."}
+  ]
+}

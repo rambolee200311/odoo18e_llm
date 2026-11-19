@@ -1,0 +1,12 @@
+ATR-RUN-001
+Date: 2026-11-19 Asia/Shanghai
+Database: odoo18e_llm (existing development database)
+Code baseline: HEAD 8f7ebd259cda414baae46fa91b1d55948ba481a0 plus current working tree; hashes of changed source files are in manifest.txt.
+Command:
+venv/bin/python odoo-bin -c odoo.conf -d odoo18e_llm --test-enable --test-tags /office_engine_m3:TestRetriever,/office_engine_m3:TestSilentRetrieval --stop-after-init --http-port=0 --gevent-port=0 -u office_engine_m3 --log-level=info --log-handler=odoo.tests:INFO --logfile=/private/tmp/cc-m4-01-targeted-tests.log
+
+Odoo test log summary: office_engine_m3: 27 tests, 4.24s, 3659 queries; result line: 0 failed, 0 error(s) of 23 tests when loading database 'odoo18e_llm'. The 23 selected TransactionCase methods are 12 TestRetriever and 11 TestSilentRetrieval methods.
+The log contains expected error-path evidence for ACCESS_DENIED and QUERY_FAILED, and an existing Registry load error 'Model column.filter.field.info has no table.' None caused a test failure.
+The suite used TransactionCase fixtures; no business records persist after rollback.
+
+Evidence scope: local Odoo/ORM tests only. No real Provider request, full-Registry semantic calibration, Agent Thread integration, UI HVR, or CC closure is proven by this run.

@@ -1,0 +1,149 @@
+{
+  "input_file": "provider_agent_threads_retry_P04_v0.2.jsonl",
+  "audit_file": "provider_agent_calls_retry_P04_v0.2.jsonl",
+  "oracle_loaded_only_by_evaluator": true,
+  "summary": {
+    "agent_threads": 1,
+    "registry_count": 757,
+    "clear_cases": 1,
+    "clear_top5_hits": 1,
+    "clear_agent_describe_selections": 1,
+    "clear_end_to_end_passes": 1,
+    "repeated_clear_cases": 0,
+    "repeated_clear_passes": 0,
+    "technical_ambiguity_cases": 0,
+    "technical_ambiguity_passes": 0,
+    "business_ambiguity_cases": 0,
+    "business_ambiguity_passes": 0,
+    "negative_cases": 0,
+    "negative_passes": 0,
+    "repeat_cases": [
+      {
+        "case_id": "P01",
+        "thread_count": 0,
+        "per_thread_statuses": [],
+        "status": "NOT_RUN"
+      },
+      {
+        "case_id": "T01",
+        "thread_count": 0,
+        "per_thread_statuses": [],
+        "status": "NOT_RUN"
+      },
+      {
+        "case_id": "SO01",
+        "thread_count": 0,
+        "per_thread_statuses": [],
+        "status": "NOT_RUN"
+      },
+      {
+        "case_id": "SP01",
+        "thread_count": 0,
+        "per_thread_statuses": [],
+        "status": "NOT_RUN"
+      },
+      {
+        "case_id": "OUT01",
+        "thread_count": 0,
+        "per_thread_statuses": [],
+        "status": "NOT_RUN"
+      },
+      {
+        "case_id": "BA01",
+        "thread_count": 0,
+        "per_thread_statuses": [],
+        "status": "NOT_RUN"
+      }
+    ],
+    "provider_sdk_requests": 4,
+    "provider_sdk_responses": 4,
+    "provider_sdk_errors": 0,
+    "internal_rerank_requests": 1,
+    "internal_rerank_no_thread_history": true,
+    "internal_rerank_full_registry_candidates": true,
+    "normal_agent_request_count": 3,
+    "provider_audit_integrity": true
+  },
+  "rerank_request_checks": [
+    {
+      "request_id": "89f1cee6-3a19-4261-a8a2-713079576251",
+      "thread_ids": [
+        1398
+      ],
+      "message_count": 2,
+      "candidate_count": 757,
+      "tools_count": 0,
+      "no_thread_history": true
+    }
+  ],
+  "per_case": [
+    {
+      "test_id": "P04",
+      "case_id": "P04",
+      "kind": "clear",
+      "thread_id": 1398,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 2,
+      "first_top5": [
+        "res.partner",
+        "res.company",
+        "res.users",
+        "_unknown",
+        "account.account"
+      ],
+      "described_models": [
+        "res.partner",
+        "res.company"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed; no business records were read and no workbook was created or modified.\n\n**Primary business object**\n* res.partner — Contact*\nThis is the main Odoo object representing both organizations and individual people.\n\n*Organization/person distinction*\n- company_type — selection:\n- company — Company\n- person — Individual\n- is_company — Boolean indicating whether the contact is a company.\n- parent_id — Related Company; links a person/contact to an organization.\n- child_ids — Contact; child contacts associated with an organization.\n- company_name — Company Name.\n- commercial_company_name — Company Name Entity.\n- commercial_partner_id — Commercial Entity.\n\n*Core contact details*\n- name — Name\n- email — Email\n- phone — Phone\n- mobile — Mobile\n- website — Website Link\n- function — Job Position\n- title — Title\n\n*Address details*\n- type — Address Type: contact, invoice, delivery, or other\n- street\n- street2\n- city\n- zip\n- state_id — State\n- country_id — Country\n- contact_address — Complete Address\n- contact_address_complete — Contact Address Complete\n- contact_address_inline — Inlined Complete Address\n\n*Organization identifiers*\n- company_registry — Company ID\n- vat — Tax ID\n- iso20022_lei — LEI\n- peppol_endpoint — Peppol Endpoint\n\n*Relevant relationships*\n- parent_id → res.partner — related organization\n- child_ids → res.partner — associated contacts\n- company_id → res.company — Odoo company context\n- country_id → res.country\n- state_id → res.country.state\n\n**Secondary business object**\n* res.company — Companies*\nThis represents Odoo operating companies, not the general contact directory. It also contains organization-level contact information:\n\nname — Company Name\npartner_id → res.partner — associated contact record\nemail\nphone\nwebsite\nstreet\nstreet2\ncity\nzip\nstate_id → res.country.state\ncountry_id → res.country\nvat — Tax ID\ncompany_registry — Company ID\nparent_id → res.company — Parent Company\nchild_ids → res.company — Branches\n\n**Schema conclusion**\nFor an export covering *both organizations and people*, res.partner is the appropriate primary object. Its company_type , is_company , parent_id , and child_ids fields represent the organization/person structure. res.company is relevant when the request specifically concerns configured Odoo operating companies and their company-level settings.",
+      "elapsed_seconds": 17.488,
+      "target_model": "res.partner",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    }
+  ]
+}

@@ -1,0 +1,29 @@
+{
+  "database": "odoo18e_llm",
+  "created_thread_ids": [
+    1053,
+    1054,
+    1055,
+    1056,
+    1057,
+    1058,
+    1059,
+    1060,
+    1061,
+    1062,
+    1063,
+    1064,
+    1065,
+    1066,
+    1067,
+    1068,
+    1069,
+    1070,
+    1071,
+    1072,
+    1073
+  ],
+  "removed_thread_count": 21,
+  "audit_parameter_restored": true,
+  "provider_usage_retained": true
+}

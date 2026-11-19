@@ -1,0 +1,87 @@
+CC-M4-01 evidence manifest — current snapshot
+Updated: 2026-11-19 Asia/Shanghai
+Database: odoo18e_llm (existing development database only)
+Provider: OpenAI GPT-5.6 Luna / gpt-5.6-luna; embedding: text-embedding-3-large
+Registry size: 757 models. No business-record search or Office write action was used in discovery acceptance or ATR-RUN-004.
+
+Authorization and history:
+- Before explicit embedding authorization, blind input and Oracle files were prepared separately; the first attempt output was truncated and its Provider receipt status remains UNKNOWN.
+- The project owner authorized sending Registry model names, descriptions, and _rec_name to OpenAI embedding; ATR-RUN-003 was then executed.
+- A separate GPT chat candidate-metadata rerank request was blocked before execution. The owner later authorized that exact scope for isolated testing only; ATR-RUN-004 sent synthetic queries and only the actual Retriever-returned candidate names, descriptions, and _rec_name.
+- The ATR-RUN-004 Provider runner did not read the Oracle, business rows, or credentials. Oracle labels were used only by a separate offline evaluator after Provider calls completed.
+- Provider SDK audit records payloads only; offline audit checks found no credential fields. Raw rerank request/response evidence has owner-only mode.
+
+Frozen Provider / Agent acceptance (ATR-RUN-003):
+- 40 direct blind Top-5 requests; each embedding batch had 758 inputs (query + 757 Registry profiles). p50 3.700s; nearest-rank p95 4.901s; 0 timeout/error. Top-5 was 18/40 (FAIL).
+- 66 real GPT-5.6 Luna Threads; 187 SDK requests and responses; 185 Provider Tool Calls matched to 185 Odoo executions by thread and tool_call_id, exact tool name, and JSON arguments.
+- Repeated pagination with the same query produced 67 vs 66 unique candidates; second walk page counts varied and order/set changed. Root cause beyond observed Provider/runtime variability is UNKNOWN.
+- Existing fixture cleanup: 67 Agent test Threads and 509 messages removed with ORM; 188 office.llm.usage audit rows preserved; fresh ORM check found zero Agent test Threads/messages/Office artifacts and no test audit parameter.
+
+Isolated GPT chat candidate rerank experiment (ATR-RUN-004; not a product acceptance run):
+- 40 synthetic blind prompts; Retriever candidate pool limit 50; candidate-pool recall 34/40; same-run Retriever first-five hit 18/40.
+- 39 SDK requests / 39 responses; 0 SDK errors; chat request/response p50 1.656s / p95 3.830s, excluding Retriever embedding time.
+- GPT first-choice hit 30/40; returned ranked list included target 34/40; exactly five candidates returned only 12/40 times. One Retriever pool was empty and one GPT response returned an invalid empty list.
+- This directional result does not satisfy frozen 40/40 Top-5, does not prove Agent E2E, and was not integrated into product code. OI-002 remains open.
+- Temporary Thread 1050 was removed; ORM cleanup check found no Thread, 0 messages, 0 Provider usage rows linked to that ID, and no rerank audit allowlist parameter.
+
+Run summaries:
+- ATR-RUN-001/002: 23 selected Retriever/Silent Retrieval TransactionCase methods passed; full logs and historical source hashes are included below.
+- ATR-RUN-003: valid frozen Provider / Agent acceptance evidence; see ATR-RUN-003_summary.txt and raw traces.
+- ATR-RUN-004: separately authorized isolated candidate reranking only; see authorization/result report and raw SDK trace.
+
+SHA-256 for all current evidence files (manifest excludes itself):
+ATR-RUN-001_odoo_tests.log a5b30d1b464f81b837dc5068a73fe38f177790893fceed6244bfb20cf3e8b1c9
+ATR-RUN-001_summary.txt 381b72c837e117a84825cff5c1008ebbf0061a7ec5258453f8e5a550539bd2d4
+ATR-RUN-002_odoo_tests.log 6affd0245e85de66e070abcdbbcfb44d6f710fc41d6ee3ebad1b04bebdbe5569
+ATR-RUN-002_summary.txt 8c1a434df429319bbe4152e33e4b2cd5b46b6c2de93c84e9778d618c639a0bfb
+ATR-RUN-003_summary.txt 9b572a3521e7cde9124b4944b7885c39af12794061e8407f47e8166f4566059d
+blind_queries_v0.1.json 40fdbf7d18e657ae06e781d16c6a1a0b81a6aa52c274b9432e33dbb665727a3e
+evaluate_provider_chat_rerank_blind_v0.1.py cc034de517044718d14d484fde811df0973e6d2b7208e200031f146a66d934d3
+oracle_v0.1.json bd43f7b69e8dcc2fa837e7abe430a46ae29470d633adf6c139781b50643c5238
+provider_agent_calls_v0.1.jsonl 393a1dfe32e51ab492680f2e3710005bd42274a345f99d5e77695682f8ef7889
+provider_agent_evaluation_v0.1.json 01e633e2c16950a6b9f832811a2a5ee985c587b047647215a7853c3ad059a25a
+provider_agent_pilot_P01.json a96c34c6eb610d63a8b8c99cd8d6d95a29b47043c6ab3d18baa4e2f50b61fefe
+provider_agent_thread_cleanup_v0.1.json 05803698f9bb923f7edd2c9205f3eab3d8754106a2662899a00efb5bbe11ef13
+provider_agent_threads_v0.1.jsonl 9a2e69ab8d69002600736603038d55b29860a4f69fea55dc69a12051f03de9e8
+provider_agent_tool_call_correlation_v0.1.json 8ba0bfce6f7bf2f7355a51d652bd6da61692006d325a4ed2b4bb1db1add7c24d
+provider_chat_metadata_rerank_authorization_and_result.md 0ee342145c0c4fac6a96018bbe6180b25ff32764f4ed44b8da476548ed9e0a83
+provider_chat_metadata_rerank_block.md eb35f695e4555a8927db26ae32a9451dff1b5305d9060401e6ea554b8dd9d7c2
+provider_chat_rerank_blind_v0.1.jsonl 48e4e6ed4a3dd303f4a34ee5eb01db62baa3b0cb67d813d9de6ae52b4b4266d3
+provider_chat_rerank_cleanup_v0.1.json 6346fb697f86384fc42f1d43076f2b4f4db274283e876eca6be015f64d3c1031
+provider_chat_rerank_evaluation_v0.1.json c19ca0fdfbb6588809a58a5474370428167c038fbb8f3c05110501591bf602e6
+provider_chat_rerank_sdk_audit_v0.1.jsonl 3a84ed41a8ff31c984b995f8e9821913cf49981e720bd3acf932b90d9a022116
+provider_discovery_pagination_v0.1.json 617f2a7c637a6d4dcbab3a82cb866e5fd24c7defcf5b716cddd8fb9ea4fc6768
+provider_discovery_top5_evaluation_v0.1.json 43fc5de27539ef38751fc4e4590f66414189c130cc70e9ab2cca1fa958751c51
+provider_discovery_top5_v0.1.jsonl 9420b060f46fa9e6a9c8a12a4506e17d66fa46e54ec45bf0510caf209bdd44a5
+provider_localized_profile_blind_v0.1.jsonl 4b73d6d2bf5ccc760bbe5fdbdd8cb1f8307f0eaeff59ba846e93b9a8aa0facca
+provider_localized_profile_probe_v0.1.jsonl 31ca197d29153808b3f0ddaf8fdf1c08ca985449290e65163d9267d7466d1021
+provider_multiview_profile_blind_v0.1.jsonl c6290aefb82945e59f10e7270569d0e9b7096f51da4da39bb12a9aef3a53ff8f
+provider_normalized_multiview_blind_v0.1.jsonl 2b0cf0a25712db4797bf690da8d60aeabe323b313430aeb0008af9e338fe12dd
+provider_pilot_P01.json 28f4ed3e44b54950f22231820ed977723b21af12f9c6b70c8ccc9b25287264c2
+provider_query_rewrite_embedding_blind_v0.1.jsonl 276c0a1d8198a1b11b94fcf4d3ecd8cc361dc2d02d9e7e5fd6f31e89e9128456
+provider_query_rewrite_sdk_audit_v0.1.jsonl 87ba07725907ec0670387c4d4389e633f3c7b1b5577c013323abc2d91b7ba7be
+provider_query_variants_embedding_blind_v0.1.jsonl faaae54bf529cf3a1510c77fee0c32680af7edfb840fefed0f711f04d83d7f9d
+provider_query_variants_sdk_audit_v0.1.jsonl ff2b151643ec1c2c1d1a8e45bb3cf3eb9e9ee8470bf41a9cf418d14e87243231
+provider_request_block.md 8b4825a3d7d2ba10681cb72972f47c84b1a03c49d257520bb773f540135f1994
+registry_snapshot.txt a8ebcce8ef1e7f4811713fb9ee1b2b0a3c0563ae591d6704ea31671cc4732b9b
+run_agent_blind_tests_v0.1.py 6d5fe1d04298744e7417bc16f34fe719de19f4c67e9b042d1122e31a067c9528
+run_discovery_pagination_v0.1.py 6b04942105871a53a2d74c15dd11a60655322a2b32afaca36271b71b4d255498
+run_localized_profile_blind_v0.1.py 87dc902a86381b0e9db3445efe687d901431ffbfc6d17713fdb1e279984641e3
+run_multiview_profile_blind_v0.1.py f7752e1aba327ce9fa8eb2acbeb87fb8b6ed0e83891ce0c431222a826678f918
+run_normalized_multiview_blind_v0.1.py 7253c8cb93ebe4e150999b04aaf321da6c3b696f313044ecb647908eb28e2438
+run_provider_chat_rerank_blind_v0.1.py 095d1ce58e995624c8f761e0c4363779cc52343c27790db38f9f8a8202cbc778
+run_query_rewrite_embedding_blind_v0.1.py 680d2c4917ecc8f95f69775d3622b8d1b4c1c02ab2334a5128e7332784bbf21f
+run_query_variants_embedding_blind_v0.1.py 5e0a76ebb59f231c84d6cf94948f4d06231c29f318dde86b4e5e6da642536559
+supplemental_queries_v0.1.json fa06efd9991e81d8703bc09ee57a74f30195112557a1ba0adf7d3028f0fbc88a
+
+Current source / report SHA-256:
+office_engine/office_engine_m3/models/llm_tool.py 73f60ddb46c427aad6d8e0148c2c0c89d94b1ccb2eb4f6e1e8171f407a1d6c19
+office_engine/office_engine_m3/models/llm_thread.py d34a1a6665fc599b5fac9e2186f915afc0e6ac93275d9cc096916044503417b8
+office_engine/office_engine_m3/tests/test_retriever.py e74b865defa4da73319e47a5d22459d51d1a8a86b0b3190a8c27b874315d5072
+office_engine/office_engine_m3/tests/test_silent_retrieval.py 1b544bfc99cca43c0d3af6c845e7e741eadeaf2face22954a74eb7284ce6c042
+office_engine/docs/implementation/evidence/CC-M4-01/run_agent_blind_tests_v0.1.py 6d5fe1d04298744e7417bc16f34fe719de19f4c67e9b042d1122e31a067c9528
+office_engine/docs/implementation/evidence/CC-M4-01/run_provider_chat_rerank_blind_v0.1.py 095d1ce58e995624c8f761e0c4363779cc52343c27790db38f9f8a8202cbc778
+office_engine/docs/implementation/evidence/CC-M4-01/evaluate_provider_chat_rerank_blind_v0.1.py cc034de517044718d14d484fde811df0973e6d2b7208e200031f146a66d934d3
+office_engine/docs/implementation/IHR-CC-M4-01.md 4f7f8da7be30495fe296614bb9d585c3b1453bd5b759a0490f611889acef14cf
+office_engine/docs/implementation/ATR-CC-M4-01.md b60a23f39cde625678c309ee0ebd6cdd787ddecbf14b3ed4114678214ec5a7b6
+office_engine/docs/implementation/FR-CC-M4-01.md 70be2210bde21619541e1d05d4866a6b31c0774d9c312390c924afabee46011d

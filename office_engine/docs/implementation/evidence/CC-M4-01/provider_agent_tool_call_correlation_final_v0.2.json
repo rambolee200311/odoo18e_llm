@@ -1,0 +1,1592 @@
+{
+  "baseline_66": {
+    "thread_file": "provider_agent_threads_final_snapshot_v0.2.jsonl",
+    "provider_audit_file": "provider_agent_calls_final_snapshot_v0.2.jsonl",
+    "thread_count": 66,
+    "provider_tool_call_count": 171,
+    "assistant_tool_call_count": 171,
+    "odoo_tool_result_count": 171,
+    "all_provider_calls_match_thread_messages": true,
+    "all_thread_tool_calls_have_execution_records": true,
+    "per_call": [
+      {
+        "tool_call_id": "call_0CR7zQEnzVzZS1Er2uh4E3ll",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_0XpFv4cwqWPlQsNd2RyDifTq",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_0a5oq8XleFXPBzurobxGFWuL",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_0dE08gBXjfXr8ynF5yynrBut",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_0sGqthXwUIyW9Di1AD6IK0w6",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "error"
+      },
+      {
+        "tool_call_id": "call_1INY9U2zlAy2dfv4ZTlcSJpu",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_1WFlXInBaWOHc4hGJ8bRoIQg",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_1t2pGefvtKjGWzcVYTMNNVjM",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_2NO8bKaxU2VKm1cFNjHHoR29",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_2cq0GNUpWayXBe8CJ60lSOwB",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_3N54CcysRUUgM0lcWguY5iWT",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_3zLrQsgWtlE6ptQMRHKCGRTb",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_43Vxa8cdIdIibTzgPRQeN2Js",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_4DA34XUtpCylHMTcdgzdvI8y",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_4Wehu0ooCiyXQ39Zj7teFAWz",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_5lYmoDwuUSwUYyPXJgVDp7Gn",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_7jZKrcAzauajOBas8nZnO4Ay",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_7sRnYbS6wtz5o7oZdRY6Shuo",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_8VlKtLZWiD387A05pBNMqSrv",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_8ZVj0VR5lmJgaJmBb1Cn5f73",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_9OtJiUoJG1MnE7kAERBhw22h",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_9eJ1kPAi9XchFk1e8Xy7mQ9Y",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_9gH9qwjFqzQpO6Wof4PJV8Wt",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_9po9pOUMLBSh1Wa4oYjge0hG",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_A0EMQDDT0tvBQ3qFHyZwXuEL",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_BRC7pRoUsK1x2x1BVBk8ByTw",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_BzPHlWAZpv0I6FfSz0eW1cCd",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_DAZsyfCuK9zqtezxyftTp3DH",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_DMSTfoC16a9zGK63JI1AjZEV",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_DNpAT47lFwLvtb2FcJ7AcoJK",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_DObg3ZlcIUPqURa4GmKjEV6O",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_Dkw3AQmf1FlbTzgTWKVFRStb",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_DtLKqFZpFHNvUkIn9Aga0tES",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_F1O1wAVWk0AqWnUShH0IkcCs",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_F8kP21Lt07nzIEpaWDLpSu5D",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_FQR95mhaqb8kcyzq1dWYZqar",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_Fc7qSkSeQjsKkR9exd2redwK",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_GoNMJKf8WuIfGwDLF1lKkQIE",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_H1SubGoGY9ItP8hTYZVkTZWn",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_IF5VAPuStGzT1PKZouftrklP",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_IT6dVr6n9oIJiSKohX8xeN1g",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_JDmQO0XDIhAeQVDk13Mjs74I",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_JQUl8h31YlCKnINRwEB6jQnL",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_Jobj0ETAE754wELyK8IwjOnR",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_KrdC2coAJrCWOOxijCl9qrop",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_LLOEUVQ8rzF032WBHhaQlfcy",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_La4GwJc9Gl2tUc3nH09Jspq1",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_LwVDaNZbmUwEdQDYZfmxLemi",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_MI14xQxSTe2zt17M4Tteteuc",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_MZI5qC98SptKACBIfqza9J0P",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_N13jtuFDQW9oEXM6BHmiJ30O",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_N2u14hw8tmQP3ncrdIxQejpq",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_N4UhLpVS7uFt2sq0CYeUTebS",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_NBepaQbl9K4ZLVAvrRiIcw7j",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_NoA87b0kiRrsqwGHcD18lHFs",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_NwSja9AP1rBd3TJf6bbbWz5v",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_OOtFH2xEJwZyPWhnX5bd9WLX",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_ORQro88J9UWhZQvGommunhBa",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_OXvN58Iwb7YPoNd2rrMcNoMy",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_OmB0MyeBnybiBpxqPy6aYJlU",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_OnGnXEpVcqgNMcFfMjpIbRv9",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_OvktB3n0TzNMYe9hTiog7R0y",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_P9Ed0fqWRH8IMPWSQA12Ociv",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_PE3giMsIx7BseFtKHv41xpKU",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_PMAY0TyDapAP40uNlA0FWZCZ",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_Q7WIPhT7ekKgDK58FL3Frh17",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_QFiAm7pQuqdUslLPKbrkb7ui",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_QR1Y6kSiFeiu6hB79fRjLBen",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_QSzAajHqnMRgjj4keQxAwqVf",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_R2bJAedhehwfwF8dmISnQcf4",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_R7vVPiiXBiR1MRSsVaVpheTN",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_RjKQ3lYd8qM0csPQOwaOhHZU",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_SFzrW5aITNVbCsL9ZbQmQUGo",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_SOLguTubGKxV8ED4kEls9pqB",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_SXxlUmPdEqDbPyKOQ5b4ka1F",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_SlqxsB0zIkc8VS1jUrRm0SD3",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_SrPiWbClr0DUF1GqXtJ92lZb",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_SrWAb2klZG4IzjMoqZ8Gnpm9",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_T8TJQzajBN5JqObXKYyXlRz4",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_TVK9Rpg1INtmWGJ4QCOGA2VQ",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_Tt5Jxeaz6JlZUO9a3zpRQWNv",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_UFuA6NN28ZgyZq9BgOYniIT2",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_UJdR6o57eXdtcNNv0I0AZCBY",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_UTq0oH9JDhRrETVlXgsXGGw8",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_UhqFRZ07tpTULGz2yQRHKnFQ",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_UpuO0VS02MiM5OC8t6notlZ5",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_V1uNjgjT50uctCN8jCn9Em7s",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_VbRbEU5LUJ8vfevrX5bStOib",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_VhdsksKbu7qSLjQNlxxmWSyE",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_WAUE5WnIo94iyhLVfR9HremI",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_WL0v1f7RIh0Krwwy1Iw0NTFA",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_WWPAbcFQnmyi8pRJ3x39QbBM",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_XDKu9kOY5Dz0uDm3JNvfUzg4",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_XSgc1v6t3FI3RwMYbajF6O8k",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_XbK6JUBD7GtUTTxegS0bCK44",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_XpgJ3sx06iW1PaWoF2cxsTCO",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_YCKSCXYQSFxhCVIL8yC1lzug",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_YR1sSb7xBXRbeDOwI6sBfZ7r",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_ZKvSl76vVSff7QOdkF9z9Mlj",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_Zrs46eEp9WLLqmbyI1vCZTYh",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_acdnTxz8XMGgwubRsQQWBPI2",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_asqRkIzQx5avBnDW39zwGzBD",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_b9FQyQR3In02WkX1noydEmZi",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_b9Wv39ocK7ribLuBriEFNfO4",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_by7qU734gsIwvBhIE98kaDZT",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_d0ZX2GFi753s6TjJAqcISxI6",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_d7LrGAbB2xv12XecOOf2HnW3",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_dBMyXGn2OoFoafDUYuBAZvwH",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_dj6BQJECU01xeWqSrO4I2HDD",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_dzVlWJOT6OEoO7eXfcpxltKT",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_e4J18hK3mpOnjO74kBYuKf9L",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_esTF2YNdLdKSkMWD0OrOiFkm",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_fJKtYYw0bW1MtErOMKcaqOqp",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_fWTfkyuKOhqXIHolGF7zXWKh",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_faSKaoZ4OmjklT9EMvwBrvpL",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_gGoYuJXitDhVU88mYOgEke7c",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_glS06hVunTTgtMkH0eq03Dfz",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_hJX4nQFPqnGx4QVhD7gKUpib",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_iSp4tUg7gcZnoafSBvTU0SAu",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_iTO7lbgvfsBgarXQ8uohK3DP",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_jJ93HAo2AtZzTjAsCsWWT7s2",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_jpWoyofLVmTNsXthFJ5bqtSJ",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_kYvKrLzdFG7ikFICEhPkcvuN",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_kbPgiamPbQXT0OTvPOKc8ejD",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_keysF8zNWXH0PvKjZd5nQzCb",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_kmTQqLDXPAGcCRDjDdICtD5P",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_knfDaaS5bWVZjie8pvtxHBF5",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_lB0Gr1loO5p8Ym9HqbWUFdI3",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_mHKnDXiLWgMVesymqwzMe2Vm",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_mmLAyYKzV5USpEVsh00TYvK8",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_mqWkhlD1UUCTGGqAm7sFLXbu",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_n0W5Wr3Nl7AeB2Pkh7gR7NAm",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_n6Udm0cjc3vtfVuDZHDPGQ7G",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_nO3YW3NnEgijgnVEVb01chOG",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_nj6N8wEQoj2cYAi5NpRoXPam",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_nryYvsk8GqGkVcPWVA97EQCs",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_oDoBoi27gOcN4zfvBzwCjzNv",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_oNafyctJKlzdp5c3LlfQHENv",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_p6JSKRfBoug6vQduxYmz4r8w",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_pZEJ0ogaScNrjnhye0AYmrnl",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_q84MuA7eB8iBPfJGymPlgoEA",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_qCjsETt0ZtQkaDsAHoacK53J",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_qHVO2Kzo3XcbbUw4rmumpnm0",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_qScbgVcSVF6wmL3Q6WPgeO9h",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_qVRac4ZmaSaIC13zqRUPmeqE",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_rX4cyyJNiECdiFiGQIx2A40F",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_riw3LgpcZ7VJh3I0OApmqSNq",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_rzYYI84uJCTqhHTskREUTWTB",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_s8ryFSfkcXh8zMwf4z32Qh92",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_sK2iU25FP6on6FWHMHpAeckW",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_sYycHNPl8Qm0UIkEaGFCeKk7",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_t6jYlyszOcker6Qj5Bz32HoV",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_trO3jxSCiHm10Gv5guudw5sA",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_tuOQVJ4g3eoABYqp3ksC4pnV",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_tutaByGdOgdVCfDeIGSdtUmp",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_vATKpMB0SRplr02QB2ebBZld",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_vezPrPsTIY0Z2vVNSDijte76",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_w9TxH03BHAXNt4jfQdgn3DSb",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_wVG9RFiEkmsjF6Qx2PR37WR4",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_wzrcqK3zVwA9hvd2zukptPBl",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_xLQP6g7I982Lo6FfBaMO7PJ9",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_xZN40VYRQOrUp55bn0vd4x9S",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_yFwZwQonRfPofMVQK7wDp1td",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_yZFUq33jYoC6rRgYdTSk17Ne",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_ykkBO8augYQVjW0RBAaLKHrl",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_yty3qYtDm5pjgPuW7YWiO3F6",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_zJmrfHZiqx4xd6nnaAcgw0Z0",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_zPit49fhI64Z0glVTZU4sZgF",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_zT18X142S1F6H467iWj3Kbx3",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_zf4Xhlwr1XTySk4zlWtxhXTu",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_zwjtntwCqs0pvxWSFPEyKq1X",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      }
+    ]
+  },
+  "P04_retry": {
+    "thread_file": "provider_agent_threads_retry_P04_v0.2.jsonl",
+    "provider_audit_file": "provider_agent_calls_retry_P04_v0.2.jsonl",
+    "thread_count": 1,
+    "provider_tool_call_count": 3,
+    "assistant_tool_call_count": 3,
+    "odoo_tool_result_count": 3,
+    "all_provider_calls_match_thread_messages": true,
+    "all_thread_tool_calls_have_execution_records": true,
+    "per_call": [
+      {
+        "tool_call_id": "call_LvDIbn6yIac6hxr4C9zKNGZ3",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_clxURDockI9bVnzu0L91eIz7",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      },
+      {
+        "tool_call_id": "call_oeT8SebZT3fAQawlkFwqvxYH",
+        "provider_response_present": true,
+        "assistant_message_present": true,
+        "odoo_tool_result_present": true,
+        "provider_assistant_match": true,
+        "assistant_execution_match": true,
+        "result_status": "completed"
+      }
+    ]
+  }
+}

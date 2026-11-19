@@ -1,0 +1,4522 @@
+{
+  "baseline_evaluation": "provider_agent_threads_final_snapshot_v0.2_evaluation.json",
+  "retest_evaluation": "provider_agent_threads_retry_P04_v0.2_evaluation.json",
+  "oracle_loaded_only_by_evaluators": true,
+  "summary": {
+    "unique_clear_cases": 40,
+    "initial_clear_passes": 39,
+    "initial_clear_failures": [
+      {
+        "case_id": "P04",
+        "target_model": "res.partner",
+        "retriever_top5_status": "FAIL",
+        "agent_describe_selection_status": "NOT_REACHED",
+        "final_answer": ":cross_mark: *LLM API Error*\nRequest timed out."
+      }
+    ],
+    "retested_case_ids": [
+      "P04"
+    ],
+    "latest_clear_passes": 40,
+    "technical_ambiguity_passes": 4,
+    "technical_ambiguity_cases": 4,
+    "business_ambiguity_passes": 4,
+    "business_ambiguity_cases": 4,
+    "negative_passes": 6,
+    "negative_cases": 6,
+    "repeat_cases": [
+      {
+        "case_id": "P01",
+        "thread_count": 3,
+        "per_thread_statuses": [
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "status": "PASS"
+      },
+      {
+        "case_id": "T01",
+        "thread_count": 3,
+        "per_thread_statuses": [
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "status": "PASS"
+      },
+      {
+        "case_id": "SO01",
+        "thread_count": 3,
+        "per_thread_statuses": [
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "status": "PASS"
+      },
+      {
+        "case_id": "SP01",
+        "thread_count": 3,
+        "per_thread_statuses": [
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "status": "PASS"
+      },
+      {
+        "case_id": "OUT01",
+        "thread_count": 3,
+        "per_thread_statuses": [
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "status": "PASS"
+      },
+      {
+        "case_id": "BA01",
+        "thread_count": 3,
+        "per_thread_statuses": [
+          "PASS",
+          "PASS",
+          "PASS"
+        ],
+        "status": "PASS"
+      }
+    ],
+    "provider_requests_baseline": 254,
+    "provider_errors_baseline": 1,
+    "provider_requests_retest": 4,
+    "provider_errors_retest": 0,
+    "rerank_history_isolated_baseline": true,
+    "rerank_history_isolated_retest": true
+  },
+  "per_case": [
+    {
+      "test_id": "P01",
+      "case_id": "P01",
+      "kind": "clear",
+      "thread_id": 1332,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "res.partner",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "res.partner"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅模式/架构层面的识别与描述*，未读取任何业务记录，也未创建或修改工作簿。\n\n**统一数据对象**\n客户、供应商和联系人均对应同一个 Odoo 数据对象：\n\n*技术模型：* res.partner\n*业务描述：* Contact（联系人/合作伙伴档案）\n*显示名称字段：* name\n\n客户和供应商不是独立模型，通常通过以下字段区分或判断：\n\ncustomer_rank ：客户等级/客户标记\nsupplier_rank ：供应商等级/供应商标记\nis_company ：是否公司\ncompany_type ：个人或公司\ntype ：联系人、发票地址、交货地址或其他地址\n\n**核心档案字段**\n| 字段 | 类型 | 含义 |\n|---|---|---|\n| name | char | 名称 |\n| active | boolean | 是否启用 |\n| is_company | boolean | 是否为公司 |\n| company_type | selection | 个人或公司 |\n| parent_id | many2one → res.partner | 所属公司/关联公司 |\n| child_ids | one2many → res.partner | 下属联系人及地址 |\n| commercial_partner_id | many2one → res.partner | 商业实体 |\n| complete_name | char | 完整名称 |\n| ref | char | 内部参考 |\n| company_id | many2one → res.company | 公司 |\n| company_name | char | 公司名称 |\n| company_registry | char | 公司注册编号 |\n| vat | char | 税号 |\n| industry_id | many2one → res.partner.industry | 行业 |\n\n**客户/供应商业务字段**\n| 字段 | 类型 | 含义 |\n|---|---|---|\n| customer_rank | integer | 客户等级/客户标识 |\n| supplier_rank | integer | 供应商等级/供应商标识 |\n| credit | monetary | 应收余额 |\n| debit | monetary | 应付余额 |\n| credit_limit | float | 信用额度 |\n| property_payment_term_id | many2one → account.payment.term | 客户付款条款 |\n| property_supplier_payment_term_id | many2one → account.payment.term | 供应商付款条款 |\n| property_product_pricelist | many2one → product.pricelist | 价目表 |\n| sale_order_ids | one2many → sale.order | 销售订单 |\n| invoice_ids | one2many → account.move | 发票 |\n| supplier_invoice_count | integer | 供应商账单数量 |\n| sale_order_count | integer | 销售订单数量 |\n\n**联系方式与地址字段**\n| 字段 | 类型 | 含义 |\n|---|---|---|\n| email | char | 电子邮件 |\n| phone | char | 电话 |\n| mobile | char | 手机 |\n| function | char | 职务 |\n| street | char | 街道 |\n| street2 | char | 地址补充行 |\n| city | char | 城市 |\n| zip | char | 邮政编码 |\n| state_id | many2one → res.country.state | 州/省 |\n| country_id | many2one → res.country | 国家 |\n| website | char | 网站 |\n| lang | selection | 语言 |\n| tz | selection | 时区 |\n| type | selection | 地址类型 |\n\ntype 的已发现选项：\n\ncontact ：联系人\ninvoice ：发票地址\ndelivery ：交货地址\nother ：其他地址\n\n**标签与其他关系**\n| 字段 | 类型 | 含义 |\n|---|---|---|\n| category_id | many2many → res.partner.category | 标签 |\n| bank_ids | one2many → res.partner.bank | 银行账户 |\n| user_id | many2one → res.users | 销售人员 |\n| title | many2one → res.partner.title | 称谓 |\n| industry_id | many2one → res.partner.industry | 行业 |\n| country_id | many2one → res.country | 国家 |\n| state_id | many2one → res.country.state | 州/省 |\n\n**结论**\n客户、供应商和联系人档案在当前 Odoo 中均以 * res.partner * 为核心对象：\n\n*客户：* 主要依据 customer_rank\n*供应商：* 主要依据 supplier_rank\n*联系人：* 主要依据 type 、 parent_id 与 company_type\n*客户/供应商公司及其联系人：* 通过 parent_id 、 child_ids 和 commercial_partner_id 建立关系\n\n本次仅执行了模型发现和字段描述；*没有执行 search ，没有读取业务记录，也没有调用 Office 工作簿操作。*",
+      "elapsed_seconds": 22.102,
+      "target_model": "res.partner",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "P02",
+      "case_id": "P02",
+      "kind": "clear",
+      "thread_id": 1333,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "res.partner",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "res.partner"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "**Schema-only preparation completed**\nNo business records were fetched, and no workbook was created or modified.\n\n*Business object*\n\n*Technical model:* res.partner\n*Odoo description:* Contact\n*Record name field:* name\n*Purpose:* Stores business contact profiles, including companies, individuals, customers, suppliers, and related contact/address records.\n\nCustomers and suppliers are represented on the same object. Their business roles are indicated by:\n\ncustomer_rank — customer activity/rank\nsupplier_rank — supplier activity/rank\n\nThese are integer fields rather than separate customer or supplier models.\n\n*Relevant profile fields*\n| Business meaning | Field |\n|---|---|\n| Name | name |\n| Active status | active |\n| Company or individual | company_type , is_company |\n| Parent company | parent_id |\n| Contact/address type | type |\n| Email | email |\n| Phone | phone |\n| Mobile | mobile |\n| Job position | function |\n| Website | website |\n| Tax ID | vat |\n| Company registration ID | company_registry |\n| Internal reference | ref |\n| Street address | street , street2 |\n| City | city |\n| Postal code | zip |\n| State/region | state_id |\n| Country | country_id |\n| Language | lang |\n| Salesperson | user_id |\n| Customer rank | customer_rank |\n| Supplier rank | supplier_rank |\n| Created/updated timestamps | create_date , write_date |\n\n*Relevant relationships*\n\nparent_id — related parent company ( res.partner )\nchild_ids — subordinate contacts and addresses ( res.partner )\ncategory_id — contact tags ( res.partner.category )\ncountry_id — country ( res.country )\nstate_id — state/region ( res.country.state )\nuser_id — salesperson ( res.users )\nbank_ids — bank accounts ( res.partner.bank )\ninvoice_ids — invoices ( account.move )\nsale_order_ids — sales orders ( sale.order )\nproject_ids — projects ( project.project )\ntask_ids — tasks ( project.task )\n\nThe metadata describes the available schema only; it does not establish which contacts are currently customers or suppliers without reading business records.",
+      "elapsed_seconds": 18.058,
+      "target_model": "res.partner",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "P03",
+      "case_id": "P03",
+      "kind": "clear",
+      "thread_id": 1334,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 2,
+      "first_top5": [
+        "res.partner",
+        "res.company",
+        "_unknown",
+        "account.account",
+        "account.account.tag"
+      ],
+      "described_models": [
+        "res.partner",
+        "res.company"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*模型定义与字段关系查询*，未读取任何业务记录，也未创建或修改工作簿。\n\n*结论*\n通讯录里的“企业往来方资料”主要属于：\n\n*技术模型：* res.partner\n*业务对象：* Contact / 联系人（Odoo 中的合作伙伴、客户、供应商及其联系人统一使用此模型）\n**企业识别：**通过 is_company = true 或 company_type = 'company' 区分企业记录\n\nres.company 是系统内部公司/法人实体配置模型，不是通常意义上的通讯录往来方主数据。因此，如后续要导出通讯录中的企业往来方，应以 res.partner 为主模型，并按企业条件筛选。\n\n*关键字段*\n| 字段 | 类型 | 含义 |\n|---|---|---|\n| name | char | 名称 |\n| is_company | boolean | 是否为企业 |\n| company_type | selection | 个人或企业；企业值为 company |\n| vat | char | 税号 |\n| company_registry | char | 企业注册号/公司编号 |\n| company_name | char | 公司名称 |\n| parent_id | many2one → res.partner | 所属/关联公司 |\n| child_ids | one2many → res.partner | 联系人或子联系人 |\n| commercial_partner_id | many2one → res.partner | 商业实体 |\n| customer_rank | integer | 客户标记/等级 |\n| supplier_rank | integer | 供应商标记/等级 |\n| category_id | many2many → res.partner.category | 标签 |\n| country_id | many2one → res.country | 国家/地区 |\n| state_id | many2one → res.country.state | 州/省 |\n| city | char | 城市 |\n| street / street2 | char | 地址 |\n| zip | char | 邮编 |\n| phone | char | 电话 |\n| mobile | char | 手机 |\n| email | char | 邮箱 |\n| website | char | 网站 |\n| industry_id | many2one → res.partner.industry | 行业 |\n| user_id | many2one → res.users | 业务员 |\n| active | boolean | 是否有效 |\n\n*主要关系*\n\n企业下的联系人： child_ids\n联系人所属企业： parent_id\n商业实体归属： commercial_partner_id\n客户订单： sale_order_ids\n发票： invoice_ids\n银行账户： bank_ids\n标签： category_id\n\n本次结果属于*架构/模式准备*，没有执行业务数据搜索。",
+      "elapsed_seconds": 19.464,
+      "target_model": "res.partner",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "P04",
+      "case_id": "P04",
+      "kind": "clear",
+      "thread_id": 1335,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 0,
+      "describe_call_count": 0,
+      "first_top5": [],
+      "described_models": [],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": ":cross_mark: *LLM API Error*\nRequest timed out.",
+      "elapsed_seconds": 34.86,
+      "target_model": "res.partner",
+      "retriever_top5_rank": null,
+      "retriever_top5_status": "FAIL",
+      "agent_describe_selection_status": "NOT_REACHED",
+      "agent_completion_status": "FAIL",
+      "clear_case_status": "FAIL"
+    },
+    {
+      "test_id": "T01",
+      "case_id": "T01",
+      "kind": "clear",
+      "thread_id": 1336,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 3,
+      "first_top5": [
+        "product.template",
+        "product.attribute",
+        "product.attribute.value",
+        "product.category",
+        "product.product"
+      ],
+      "described_models": [
+        "product.template",
+        "product.product",
+        "product.attribute"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅结构层面的识别*，未读取业务记录，也未创建或修改任何工作簿。\n\n*主要业务对象*\n\n* product.template — Product*\n\n用于维护商品基础资料及商品模板。\n关键基础字段：\nname ：名称\ndefault_code ：内部参考\nbarcode ：条码\ncateg_id ：商品类别\nbrand ：品牌\nsale_ok ：是否可销售\nactive ：是否启用\nlist_price ：销售价格\ntype ：商品类型\n规格/变体相关关系：\nproduct_variant_ids → product.product ：该模板下的可售商品变体\nattribute_line_ids → product.template.attribute.line ：该商品模板使用的属性及可选值\nproduct_variant_count ：变体数量\nhas_configurable_attributes ：是否为可配置商品\n\n* product.product — Product Variant*\n\n表示商品模板下具体可售的规格组合/商品变体。\n关键关系：\nproduct_tmpl_id → product.template ：所属商品模板\nproduct_template_attribute_value_ids → product.template.attribute.value ：该变体采用的属性值组合\n关键字段：\nname ：变体名称\ndefault_code ：内部参考\nbarcode ：条码\nlist_price / lst_price ：销售价格\nactive ：是否启用\nsale_ok ：是否可销售\ncombination_indices ：规格组合索引\n\n* product.attribute — Product Attribute*\n\n用于定义规格维度，例如颜色、尺寸等。\n关键关系：\nvalue_ids → product.attribute.value ：该属性的可选值\nattribute_line_ids → product.template.attribute.line ：与商品模板的关联\nproduct_tmpl_ids → product.template ：使用该属性的商品模板\n关键字段：\nname ：属性名称\ncreate_variant ：变体创建方式\ndisplay_type ：属性显示方式\nsequence ：排序\n\n\n*结论*\n此次业务含义对应的核心结构是：\n\ntext\nproduct.template\n├─ product_variant_ids → product.product\n└─ attribute_line_ids → product.template.attribute.line\n└─ 属性及可选值结构\n\n其中：\n\n*商品基础资料与规格归组主体*： product.template\n*不同可售规格/具体变体*： product.product\n*规格维度定义*： product.attribute\n*规格值定义*： product.attribute.value\n*模板与属性值的中间结构*： product.template.attribute.line / product.template.attribute.value\n\n本次状态：*PARTIALLY_VERIFIED*。模型及字段关系已通过当前用户可见的注册元数据完成识别；未验证实际业务记录内容，且未执行任何数据导出或工作簿操作。",
+      "elapsed_seconds": 22.596,
+      "target_model": "product.template",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "T02",
+      "case_id": "T02",
+      "kind": "clear",
+      "thread_id": 1337,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "product.template",
+        "product.attribute",
+        "product.attribute.value",
+        "product.product",
+        "product.template.attribute.value"
+      ],
+      "described_models": [
+        "product.template"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed; no business records were read and no workbook was created or modified.\n\n**Identified business object**\n*Odoo model:* product.template\n*Description:* Product\n*Record name field:* name\n\nThis is the catalog-level product object that groups sellable product variants/options.\n\n**Relevant fields and relationships**\n| Field | Type | Label | Related model |\n|---|---|---|---|\n| name | char | Name | — |\n| attribute_line_ids | one-to-many | Product Attributes | product.template.attribute.line |\n| product_variant_ids | one-to-many | Products | product.product |\n| product_variant_count | integer | # Product Variants | — |\n| product_variant_id | many-to-one | Product | product.product |\n| has_configurable_attributes | boolean | Is a configurable product | — |\n| valid_product_template_attribute_line_ids | many-to-many | Valid Product Attribute Lines | product.template.attribute.line |\n| sale_ok | boolean | Sales | — |\n| active | boolean | Active | — |\n| default_code | char | Internal Reference | — |\n| barcode | char | Barcode | — |\n| list_price | float | Sales Price | — |\n| categ_id | many-to-one | Product Category | product.category |\n| uom_id | many-to-one | Unit of Measure | uom.uom |\n| type | selection | Product Type | — |\n\nThe primary option/variant relationship is:\n\nproduct.template → product_variant_ids → product.product\n\nThe configurable option definitions are represented through:\n\nproduct.template → attribute_line_ids → product.template.attribute.line",
+      "elapsed_seconds": 18.329,
+      "target_model": "product.template",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "T03",
+      "case_id": "T03",
+      "kind": "clear",
+      "thread_id": 1338,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "product.template",
+        "product.product",
+        "_unknown",
+        "account.account",
+        "account.account.tag"
+      ],
+      "described_models": [
+        "product.template"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅限架构的准备*，未读取业务记录，也未创建或修改工作簿。\n\n匹配的数据对象是：\n\n*技术模型*： product.template\n*业务含义*：产品模板（Product）\n*用途*：承载产品的共用名称和基本属性，并可关联多个具体产品款式/变体。\n*共用名称字段*： name （Name）\n*关联具体款式的关系字段*： product_variant_ids\n类型：一对多（one-to-many）\n关联模型： product.product\n关系描述：Products\n反向字段： product_tmpl_id\n*变体数量字段*： product_variant_count\n*产品属性配置关系*： attribute_line_ids\n类型：一对多\n关联模型： product.template.attribute.line\n\n因此，该业务对象不是具体款式模型 product.product ，而是其上层的 *产品模板 product.template *。",
+      "elapsed_seconds": 17.095,
+      "target_model": "product.template",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "T04",
+      "case_id": "T04",
+      "kind": "clear",
+      "thread_id": 1339,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "product.template",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "product.template"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed; no business records were read and no workbook was created or modified.\n\n*Business object:* product.template — Product\n*Role:* Shared product definition/template used as the parent for purchasable product variations.\n*Purchasing field:* purchase_ok — Purchase\n*Parent-to-variation relationship:* product_variant_ids\nType: one-to-many\nRelated model: product.product\nInverse field: product_tmpl_id\nLabel: Products\n*Useful definition fields:* name (Name), default_code (Internal Reference), type (Product Type), categ_id (Product Category), and attribute_line_ids (Product Attributes).",
+      "elapsed_seconds": 14.065,
+      "target_model": "product.template",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "V01",
+      "case_id": "V01",
+      "kind": "clear",
+      "thread_id": 1340,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 2,
+      "first_top5": [
+        "product.product",
+        "product.template",
+        "_unknown",
+        "account.account",
+        "account.account.tag"
+      ],
+      "described_models": [
+        "product.product",
+        "product.template"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅限架构的识别与字段定义查看*，未读取业务记录，也未创建或修改任何工作簿。\n\n**推荐业务对象**\n* product.product — Product Variant（产品变体）*\n该对象最符合“*可以单独销售、具有具体规格的单个库存商品*”：\n\n表示可单独识别和销售的具体产品变体\n可通过 sale_ok 判断是否可销售\n可通过 is_storable 判断是否跟踪库存\n具体规格主要由产品变体及其属性值表示\n通过 product_tmpl_id 关联到产品模板\n通过 product_template_variant_value_ids 关联具体变体属性值\n\n**关键字段**\n| 字段 | 类型 | 含义 |\n|---|---|---|\n| name | char | 产品名称 |\n| default_code | char | 内部参考号 |\n| barcode | char | 条码 |\n| sale_ok | boolean | 是否可销售 |\n| is_storable | boolean | 是否跟踪库存 |\n| type | selection | 产品类型 |\n| product_tmpl_id | many2one → product.template | 所属产品模板 |\n| product_template_variant_value_ids | many2many → product.template.attribute.value | 具体变体属性值 |\n| product_template_attribute_value_ids | many2many → product.template.attribute.value | 产品模板属性值 |\n| attribute_line_ids | one2many → product.template.attribute.line | 产品属性定义 |\n| uom_id | many2one → uom.uom | 库存单位 |\n| categ_id | many2one → product.category | 产品分类 |\n| qty_available | float | 当前库存量 |\n| virtual_available | float | 预测库存量 |\n| list_price / lst_price | float | 销售价 |\n| description | html | 产品描述 |\n| technical_description | text | 技术描述 |\n| product_dimensions | char | 产品尺寸 |\n| weight | float | 重量 |\n| volume | float | 体积 |\n| brand | char | 品牌 |\n| tracking | selection | 库存追踪方式 |\n| active | boolean | 是否启用 |\n\n**相关对象**\n* product.template — Product（产品模板）*\n用于定义产品的共性信息，例如：\n\n产品名称和描述\n产品类型\n销售设置\n库存设置\n产品属性行： attribute_line_ids\n所有具体变体： product_variant_ids\n\n它更适合描述“某类产品”或产品族，而不是单个可销售规格实例。\n\n**结论**\n针对该业务含义，应选择：\n\n*主对象： product.product （Product Variant）*\n*核心规格关系： product_template_variant_value_ids *\n*所属模板关系： product_tmpl_id *\n\n本次仅完成模型发现和字段定义审查；没有执行任何业务记录搜索。",
+      "elapsed_seconds": 16.575,
+      "target_model": "product.product",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "V02",
+      "case_id": "V02",
+      "kind": "clear",
+      "thread_id": 1341,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "product.product",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "product.product"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed; no business records were read and no workbook was created or modified.\n\n*Business object:* product.product\n*Description:* Product Variant\n\nThis object represents a concrete product variant/SKU. Relevant metadata includes:\n\nname — variant name\ndefault_code — internal reference\nbarcode — barcode\nproduct_tmpl_id — related product template\nproduct_template_attribute_value_ids — attribute values defining the variant\nproduct_template_variant_value_ids — variant values defining the combination\nis_product_variant — indicates it is a product variant\nsale_ok — whether it can be sold\n\nThe primary relationship for the variant’s own values is the many-to-many field product_template_variant_value_ids , related to product.template.attribute.value .",
+      "elapsed_seconds": 12.467,
+      "target_model": "product.product",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "V03",
+      "case_id": "V03",
+      "kind": "clear",
+      "thread_id": 1342,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 5,
+      "first_top5": [
+        "product.product",
+        "product.attribute",
+        "product.attribute.value",
+        "product.template",
+        "product.template.attribute.value"
+      ],
+      "described_models": [
+        "product.product",
+        "product.template",
+        "product.attribute",
+        "product.attribute.value",
+        "product.template.attribute.value"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅模式/字段定义准备*，未读取任何业务记录，也未创建或修改工作簿。\n\n*对应业务对象*\n\n* product.product — Product Variant（产品变体）*\n\n表示按具体属性组合区分的可售款式。\n可用字段：\nname ：变体名称\ndefault_code ：内部参考\nbarcode ：条码\nsale_ok ：是否可销售\nactive ：是否启用\nproduct_tmpl_id ：所属产品模板\nproduct_template_attribute_value_ids ：该变体的属性值组合\n\n* product.template — Product（产品模板）*\n\n表示款式/产品的基础定义。\n相关字段：\nname\nattribute_line_ids ：产品属性行\nproduct_variant_ids ：对应的产品变体\nsale_ok\nactive\n\n* product.attribute — Product Attribute（产品属性）*\n\n表示“颜色”“尺码”等属性类型。\n相关字段：\nname\ndisplay_type\nvalue_ids\nattribute_line_ids\n\n* product.attribute.value — Attribute Value（属性值）*\n\n表示具体颜色或尺码值。\n相关字段：\nname\nattribute_id\nactive\nhtml_color （适用于颜色值）\n\n* product.template.attribute.value — Product Template Attribute Value*\n\n表示某个产品模板中实际启用的属性值。\n相关字段：\nproduct_tmpl_id\nattribute_id\nproduct_attribute_value_id\nname\nptav_product_variant_ids\n\n\n*关键关系*\ntext\nproduct.template\n└─ product.variant_ids → product.product\n└─ product_template_attribute_value_ids\n├─ attribute_id → product.attribute\n├─ product_attribute_value_id → product.attribute.value\n└─ product_tmpl_id → product.template\n\n因此，若后续需要导出“每一个可售款式，并区分颜色和尺码”，主要数据类型应为：\n\n根对象： product.product\n产品基础关系： product_tmpl_id\n变体属性组合： product_template_attribute_value_ids\n属性类型： product.attribute\n属性值： product.attribute.value\n\n当前结果为*模式准备完成*；未验证实际记录中的属性名称是否确实为“颜色”和“尺码”，因为本次按要求未读取业务记录。",
+      "elapsed_seconds": 18.106,
+      "target_model": "product.product",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "V04",
+      "case_id": "V04",
+      "kind": "clear",
+      "thread_id": 1343,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "product.product",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "product.product"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "**Schema-only result**\n*Business object:* Individual purchasable product variants\n*Odoo model:* product.product\n*Model description:* Product Variant\n*Record name:* name\n\nThis is the variant-level model, distinct from the shared catalog/template definition ( product.template ).\n\n*Relevant fields*\n| Field | Label | Type | Purpose |\n|---|---|---|---|\n| name | Name | char | Variant name |\n| default_code | Internal Reference | char | Internal SKU/reference |\n| barcode | Barcode | char | Variant barcode |\n| product_tmpl_id | Product Template | many2one → product.template | Shared catalog/template definition |\n| product_template_attribute_value_ids | Attribute Values | many2many → product.template.attribute.value | Attribute values defining the variant |\n| product_template_variant_value_ids | Variant Values | many2many → product.template.attribute.value | Variant-specific attribute values |\n| purchase_ok | Purchase | boolean | Whether the variant can be purchased |\n| sale_ok | Sales | boolean | Whether the variant can be sold |\n| active | Active | boolean | Whether the variant is active |\n| type | Product Type | selection | Product/service/consumable classification |\n| categ_id | Product Category | many2one → product.category | Product category |\n| uom_id | Unit of Measure | many2one → uom.uom | Inventory unit |\n| uom_po_id | Purchase Unit | many2one → uom.uom | Purchase unit |\n| list_price | Sales Price | float | Sales/list price |\n| standard_price | Cost | float | Cost |\n| currency_id | Currency | many2one → res.currency | Currency |\n| company_id | Company | many2one → res.company | Owning company |\n| qty_available | Quantity On Hand | float | Current on-hand quantity |\n| free_qty | Free To Use Quantity | float | Available free quantity |\n| incoming_qty | Incoming | float | Incoming quantity |\n| outgoing_qty | Outgoing | float | Outgoing quantity |\n| virtual_available | Forecasted Quantity | float | Forecasted quantity |\n| is_storable | Track Inventory | boolean | Whether inventory is tracked |\n| tracking | Tracking | selection | Lot/serial/none tracking |\n| weight | Weight | float | Variant weight |\n| volume | Volume | float | Variant volume |\n| description | Description | html | Variant description |\n| description_purchase | Purchase Description | text | Description used for purchases |\n| seller_ids | Vendors | one2many → product.supplierinfo | Vendor records for the variant |\n| variant_seller_ids | Variant Seller | one2many → product.supplierinfo | Variant-specific vendor records |\n| product_tag_ids | Tags | many2many → product.tag | Variant tags |\n| additional_product_tag_ids | Variant Tags | many2many → product.tag | Additional variant tags |\n| taxes_id | Sales Taxes | many2many → account.tax | Sales taxes |\n| supplier_taxes_id | Purchase Taxes | many2many → account.tax | Purchase taxes |\n\n*Relevant child collections*\n\nseller_ids → product.supplierinfo\nvariant_seller_ids → product.supplierinfo\nproduct_template_attribute_value_ids → product.template.attribute.value\nproduct_template_variant_value_ids → product.template.attribute.value\nproduct_tag_ids → product.tag\nadditional_product_tag_ids → product.tag\npackaging_ids → product.packaging\nstock_move_ids → stock.move\nstock_quant_ids → stock.quant\norderpoint_ids → stock.warehouse.orderpoint\n\nNo business records were read, and no workbook was created or modified.",
+      "elapsed_seconds": 22.15,
+      "target_model": "product.product",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SO01",
+      "case_id": "SO01",
+      "kind": "clear",
+      "thread_id": 1344,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "sale.order",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "sale.order"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅模式准备*，未读取任何业务记录，也未创建或修改工作簿。\n\n*业务对象*：销售订单\n*技术模型*： sale.order\n*对象描述*：Sales Order\n*记录名称字段*： name （订单参考）\n*关键客户关系*：\npartner_id ：客户，关联 res.partner\npartner_invoice_id ：发票地址，关联 res.partner\npartner_shipping_id ：收货地址，关联 res.partner\n*关键明细关系*：\norder_line ：订单行，关联 sale.order.line ，反向字段 order_id\n*主要单据字段*：\nname ：订单参考\nstate ：状态\ndate_order ：订单日期\nclient_order_ref ：客户参考\npartner_id ：客户\nuser_id ：销售员\nteam_id ：销售团队\ncompany_id ：公司\ncurrency_id ：币种\npricelist_id ：价目表\npayment_term_id ：付款条款\namount_untaxed ：未税金额\namount_tax ：税额\namount_total ：总额\ninvoice_status ：开票状态\ncommitment_date ：交货日期\nwarehouse_id ：仓库\norigin ：来源单据\n\n本次未查询 sale.order 或其明细记录。",
+      "elapsed_seconds": 19.181,
+      "target_model": "sale.order",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SO02",
+      "case_id": "SO02",
+      "kind": "clear",
+      "thread_id": 1345,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "sale.order",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "sale.order"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed; no business records were read and no workbook was created or modified.\n\n*Identified business object*\n- *Technical model:* sale.order\n- *Business description:* Sales Order\n- *Record name field:* name — Order Reference\n\n*Relevant fields*\n- partner_id — Customer ( res.partner )\n- date_order — Order Date\n- state — Status: Quotation, Quotation Sent, Sales Order, Cancelled\n- amount_untaxed — Untaxed Amount\n- amount_tax — Taxes\n- amount_total — Total\n- currency_id — Currency\n- company_id — Company\n- client_order_ref — Customer Reference\n- user_id — Salesperson\n\n*Relevant detail relationship*\n- order_line — Order Lines ( sale.order.line ), inverse field order_id\n\nThe document-level record type matching a customer's purchase from your company is therefore *Sales Order ( sale.order )*.",
+      "elapsed_seconds": 14.567,
+      "target_model": "sale.order",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SO03",
+      "case_id": "SO03",
+      "kind": "clear",
+      "thread_id": 1346,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "sale.order",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "sale.order"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅模型定义层面的检查*，未读取业务记录，也未创建或修改工作簿。\n\n销售交易的单据抬头对应的数据对象是：\n\n*技术模型*： sale.order\n*业务名称*：Sales Order（销售订单）\n*记录名称字段*： name （Order Reference，订单编号）\n\n相关抬头与明细关系：\n\norder_line ：一对多，关联 sale.order.line （销售订单行），反向字段为 order_id\npartner_id ：客户，关联 res.partner\ndate_order ：订单日期\nstate ：状态\namount_total ：总金额\ninvoice_ids ：多对多，关联 account.move （发票/会计分录）\n\n本次结果为*模型定义级别*，未验证任何实际销售订单数据。",
+      "elapsed_seconds": 15.148,
+      "target_model": "sale.order",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SO04",
+      "case_id": "SO04",
+      "kind": "clear",
+      "thread_id": 1347,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "sale.order",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "sale.order"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed; no business records were read and no workbook was created or modified.\n\n*Identified business object*\n- *Technical model:* sale.order\n- *Description:* Sales Order\n- *Record name:* name — Order Reference\n\n*Relevant customer-facing header fields*\n- name — Order Reference\n- state — Status: Quotation, Quotation Sent, Sales Order, Cancelled\n- date_order — Order Date\n- validity_date — Expiration\n- client_order_ref — Customer Reference\n- partner_id — Customer ( res.partner )\n- partner_invoice_id — Invoice Address ( res.partner )\n- partner_shipping_id — Delivery Address ( res.partner )\n- user_id — Salesperson ( res.users )\n- team_id — Sales Team ( crm.team )\n- company_id — Company ( res.company )\n- currency_id — Currency ( res.currency )\n- pricelist_id — Pricelist ( product.pricelist )\n- payment_term_id — Payment Terms ( account.payment.term )\n- commitment_date — Delivery Date\n- origin — Source Document\n- amount_untaxed — Untaxed Amount\n- amount_tax — Taxes\n- amount_total — Total\n- note — Terms and conditions\n\n*Relevant relationships*\n- order_line — Order Lines, one-to-many → sale.order.line , inverse order_id\n- picking_ids — Transfers, one-to-many → stock.picking , inverse sale_id\n- invoice_ids — Invoices, many-to-many → account.move\n- sale_order_option_ids — Optional Products Lines, one-to-many → sale.order.option , inverse order_id\n- tag_ids — Tags, many-to-many → crm.tag\n- transaction_ids — Transactions, many-to-many → payment.transaction\n- project_ids — Projects, many-to-many → project.project\n\nNo record search or Excel export was performed.",
+      "elapsed_seconds": 17.579,
+      "target_model": "sale.order",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SL01",
+      "case_id": "SL01",
+      "kind": "clear",
+      "thread_id": 1348,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "sale.order.line",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "sale.order.line"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成结构识别，未读取业务记录，也未创建或修改工作簿。\n\n**识别结果**\n\n*业务对象*：销售订单明细行\n*技术模型*： sale.order.line\n*模型说明*：Sales Order Line\n*显示名称字段*： name （描述）\n\n**与“商品和数量”直接相关的字段**\n| 字段 | 类型 | 标签 | 说明 |\n|---|---|---|---|\n| order_id | many2one | Order Reference | 所属销售订单，关联 sale.order |\n| product_id | many2one | Product | 商品，关联 product.product |\n| product_template_id | many2one | Product Template | 商品模板 |\n| name | text | Description | 明细描述 |\n| product_uom_qty | float | Quantity | 订单数量 |\n| product_uom | many2one | Unit of Measure | 计量单位，关联 uom.uom |\n| sequence | integer | Sequence | 明细行顺序 |\n| display_type | selection | Display Type | 普通明细、分组标题或备注行 |\n\n**相关关系**\n\nsale.order.line.order_id → sale.order\nsale.order.line.product_id → product.product\nsale.order.line.product_uom → uom.uom\n\n该对象包含 91 个已注册字段；本次仅进行了 schema discovery 和 describe，没有执行记录查询。",
+      "elapsed_seconds": 17.049,
+      "target_model": "sale.order.line",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SL02",
+      "case_id": "SL02",
+      "kind": "clear",
+      "thread_id": 1349,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "sale.order.line",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "sale.order.line"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed. No business records were read, and no workbook was created or modified.\n\n*Identified child record type*\n- *Technical model:* sale.order.line\n- *Business description:* Sales Order Line\n- *Parent relationship:* order_id → sale.order\n- *Item relationship:* product_id → product.product\n- *Quantity field:* product_uom_qty — Quantity\n- *Unit of measure:* product_uom → uom.uom\n- *Line description:* name — Description\n\nThis is the child record type that stores each item and its ordered quantity on a customer sales order.",
+      "elapsed_seconds": 12.046,
+      "target_model": "sale.order.line",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SL03",
+      "case_id": "SL03",
+      "kind": "clear",
+      "thread_id": 1350,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "sale.order.line",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "sale.order.line"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成模式发现与字段定义查看，未查询业务记录，也未创建或修改工作簿。\n\n应描述的数据对象是：\n\n*技术模型*： sale.order.line\n*业务对象*：销售订单行／销售交易产品明细行\n*对象含义*：每一条产品或服务行，而不是整张销售订单（ sale.order ）\n\n相关字段与关系包括：\n\norder_id ：所属销售订单，关联 sale.order\nproduct_id ：产品，关联 product.product\nproduct_template_id ：产品模板，关联 product.template\nname ：行描述\nproduct_uom_qty ：订购数量\nproduct_uom ：计量单位\nprice_unit ：单价\ndiscount ：折扣\nprice_subtotal ：未税小计\nprice_tax ：税额\nprice_total ：含税合计\nqty_delivered ：已交付数量\nqty_invoiced ：已开票数量\n\n因此，如果要按“每笔销售交易中的产品行项目”查看，核心数据对象应选择 * sale.order.line （销售订单行）*。",
+      "elapsed_seconds": 16.507,
+      "target_model": "sale.order.line",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SL04",
+      "case_id": "SL04",
+      "kind": "clear",
+      "thread_id": 1351,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "sale.order.line",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "sale.order.line"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed; no business records were read and no workbook was created or modified.\n\n*Business object identified:* sale.order.line — *Sales Order Line*\n\nThis is the per-item line object belonging to commercial/sales orders.\n\n*Primary relationship to the order*\n- order_id — many-to-one → sale.order\n- Label: *Order Reference*\n\n*Relevant item and quantity fields*\n- product_id — Product\n- product_template_id — Product Template\n- name — Description\n- product_uom_qty — Quantity\n- product_uom — Unit of Measure\n- product_qty — Product Qty\n- product_packaging_id — Packaging\n- product_packaging_qty — Packaging Quantity\n- sequence — Sequence\n\n*Pricing and tax fields*\n- price_unit — Unit Price\n- discount — Discount (%)\n- price_subtotal — Subtotal\n- price_tax — Total Tax\n- price_total — Total\n- currency_id — Currency\n- tax_id — Taxes\n\n*Fulfilment and invoicing fields*\n- qty_delivered — Delivery Quantity\n- qty_to_deliver — Qty To Deliver\n- qty_invoiced — Invoiced Quantity\n- qty_to_invoice — Quantity To Invoice\n- invoice_status — Invoice Status\n- scheduled_date — Scheduled Date\n- warehouse_id — Warehouse\n\n*Other relevant relationships*\n- order_partner_id — Customer ( res.partner )\n- salesman_id — Salesperson ( res.users )\n- move_ids — Stock Moves ( stock.move )\n- invoice_lines — Invoice Lines ( account.move.line )\n- analytic_line_ids — Analytic lines ( account.analytic.line )\n- sale_order_option_ids — Optional Products Lines ( sale.order.option )\n- product_custom_attribute_value_ids — Custom Values\n- product_template_attribute_value_ids — Attribute Values\n- tax_id — Taxes ( account.tax )\n\nNo record-level values were retrieved.",
+      "elapsed_seconds": 14.674,
+      "target_model": "sale.order.line",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SP01",
+      "case_id": "SP01",
+      "kind": "clear",
+      "thread_id": 1352,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 4,
+      "first_top5": [
+        "stock.picking",
+        "world.depot.inbound.order",
+        "world.depot.outbound.order",
+        "world.depot.transfer.order",
+        "_unknown"
+      ],
+      "described_models": [
+        "stock.picking",
+        "world.depot.inbound.order",
+        "world.depot.outbound.order",
+        "world.depot.transfer.order"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成架构识别，未读取业务记录，也未创建或修改工作簿。\n\n**主要业务对象**\n* stock.picking — Transfer（库存操作单据）*\n这是覆盖仓库*收货、发货和内部调拨*的通用操作单据对象，最符合“整张操作单据数据对象”的描述。\n\n关键字段与关系：\n\n单据标识： name （Reference）\n操作类型： picking_type_id 、 picking_type_code\n状态： state\n计划与完成时间： scheduled_date 、 date_done\n来源与联系人： origin 、 partner_id\n源位置与目标位置： location_id 、 location_dest_id\n仓库：通过 picking_type_id 等库存关系确定\n操作明细： move_line_ids （Operations）\n库存移动： move_ids （Stock Moves）\n相关业务单据：\ninbound_order_id → world.depot.inbound.order\noutbound_order_id → world.depot.outbound.order\ntransfer_order_id → world.depot.transfer.order\n\n推荐的明细关系是：\n\nmove_line_ids → stock.move.line\n逆向字段： picking_id\n\n**相关业务单据对象**\n系统还注册了与库存操作单据关联的业务单据模型：\n\n| 业务含义 | 技术模型 | 与 stock.picking 的关系 |\n|---|---|---|\n| 收货单 | world.depot.inbound.order | stock_picking_id |\n| 发货单 | world.depot.outbound.order | outgoing_picking_lines 、 picking_Out 、 picking_PICK 等 |\n| 内部调拨单 | world.depot.transfer.order | stock_picking_id |\n\n其中：\n\nworld.depot.inbound.order 还包含 inbound_order_product_ids 等收货业务明细；\nworld.depot.outbound.order 还包含 outbound_order_product_ids 、 outbound_order_pack_ids 等发货业务明细；\nworld.depot.transfer.order 还包含 line_ids （Transfer Order Lines）。\n\n**结论**\n若导出目标是统一覆盖仓库收货、发货、内部调拨的*实际库存操作单据及其操作行*，应选择：\n\n根对象： stock.picking\n根明细关系： move_line_ids → stock.move.line\n\n若目标是导出带有业务单据字段、费用、包装或项目扩展信息的仓储业务单据，则需分别使用：\n\nworld.depot.inbound.order\nworld.depot.outbound.order\nworld.depot.transfer.order\n\n本次仅完成模型和字段/关系定义识别，未执行业务数据搜索。",
+      "elapsed_seconds": 19.416,
+      "target_model": "stock.picking",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SP02",
+      "case_id": "SP02",
+      "kind": "clear",
+      "thread_id": 1353,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "stock.picking",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "stock.picking"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed. No business records were read, and no workbook was created or modified.\n\n*Business object identified:* stock.picking\n*Description:* Transfer — the warehouse document grouping planned goods movement for receipts, deliveries, and internal transfers.\n\n*Relevant fields:*\n- name — Reference\n- picking_type_id — Operation Type ( stock.picking.type )\n- picking_type_code — Type of Operation\n- state — Status\n- scheduled_date — Scheduled Date\n- planning_date — Planning Date\n- date_done — Date of Transfer\n- location_id — Source Location ( stock.location )\n- location_dest_id — Destination Location ( stock.location )\n- partner_id — Contact ( res.partner )\n- origin — Source Document\n- move_ids — Stock Moves ( stock.move )\n- move_line_ids — Operations ( stock.move.line )\n- batch_id — Batch Transfer ( stock.picking.batch )\n- group_id — Procurement Group ( procurement.group )\n\nThe primary object for a future export is therefore * stock.picking *.",
+      "elapsed_seconds": 12.574,
+      "target_model": "stock.picking",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SP03",
+      "case_id": "SP03",
+      "kind": "clear",
+      "thread_id": 1354,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 3,
+      "first_top5": [
+        "stock.picking",
+        "world.depot.inbound.order",
+        "world.depot.outbound.order",
+        "_unknown",
+        "account.account"
+      ],
+      "described_models": [
+        "stock.picking",
+        "world.depot.inbound.order",
+        "world.depot.outbound.order"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅模式/字段关系的识别*，未读取业务记录，也未创建或修改工作簿。\n\n*结论*\n仓库人员实际执行一次收货或发运时打开的作业主单据，核心数据类型是：\n\n*技术模型： stock.picking *\n*业务描述：Transfer（库存转移/仓库作业单）*\n*显示名称字段： name （Reference）*\n\nstock.picking 同时覆盖收货、发运及内部调拨等库存作业，作业方向可通过：\n\npicking_type_id → stock.picking.type\npicking_type_code → 作业类型\n\n进行区分。\n\n*关键关系*\nstock.picking 的主要关系包括：\n\nmove_ids → stock.move ：库存移动\nmove_line_ids → stock.move.line ：详细作业/操作行\ninbound_order_id → world.depot.inbound.order ：业务收货单\noutbound_order_id → world.depot.outbound.order ：业务发运单\npartner_id → res.partner ：联系人\nlocation_id → stock.location ：源库位\nlocation_dest_id → stock.location ：目标库位\npicking_type_id → stock.picking.type ：操作类型\nbatch_id → stock.picking.batch ：批次转移\n\n*业务单据与执行单的区别*\n系统中还存在两个较高层的业务主单据：\n\n* world.depot.inbound.order — Inbound Order（收货业务单）*\n\n通过 stock_picking_id → stock.picking 关联实际仓库执行单\n通过 inbound_order_product_ids 关联收货产品/托盘明细\n* world.depot.outbound.order — Outbound Order（发运业务单）*\n\n通过 outgoing_picking_lines → stock.picking 关联发运执行单\n另有 picking_Out 、 picking_PICK 等指向 stock.picking 的关系\n通过 outbound_order_product_ids 关联发运产品明细\n\n因此，如果问题指的是*仓库人员打开并执行收货或发运操作的主作业单*，答案是 * stock.picking *；如果指的是收货/发运流程的*业务来源单据*，则分别是 world.depot.inbound.order 和 world.depot.outbound.order 。",
+      "elapsed_seconds": 19.494,
+      "target_model": "stock.picking",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SP04",
+      "case_id": "SP04",
+      "kind": "clear",
+      "thread_id": 1355,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "stock.picking",
+        "world.depot.transfer.order",
+        "_unknown",
+        "account.account",
+        "account.account.tag"
+      ],
+      "described_models": [
+        "stock.picking"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed; no business records were read and no workbook was created or modified.\n\n*Identified business object*\n- *Model:* stock.picking\n- *Description:* Transfer\n- *Record name:* name — Reference\n\n*Relevant document-level fields*\n- name — Reference\n- state — Status\n- picking_type_id — Operation Type\n- picking_type_code — Type of Operation\n- scheduled_date — Scheduled Date\n- date_done — Date of Transfer\n- location_id — Source Location\n- location_dest_id — Destination Location\n- partner_id — Contact\n- origin — Source Document\n- company_id — Company\n- user_id — Responsible\n- move_type — Shipping Policy\n- priority — Priority\n- note — Notes\n\n*Relevant relationships*\n- move_ids → stock.move — Stock Moves; inverse field picking_id\n- move_ids_without_package → stock.move — Stock move; inverse field picking_id\n- move_line_ids → stock.move.line — Operations; inverse field picking_id\n- move_line_ids_without_package → stock.move.line — Operations without package; inverse field picking_id\n- backorder_ids → stock.picking — Back Orders\n- return_ids → stock.picking — Returns\n- transfer_order_id → world.depot.transfer.order — Transfer Order\n\nThe appropriate export root is therefore * stock.picking *, not the individual movement models.",
+      "elapsed_seconds": 16.499,
+      "target_model": "stock.picking",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SM01",
+      "case_id": "SM01",
+      "kind": "clear",
+      "thread_id": 1356,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 4,
+      "first_top5": [
+        "stock.move",
+        "world.depot.inbound.order.product",
+        "world.depot.outbound.order.product",
+        "world.depot.transfer.order.line",
+        "_unknown"
+      ],
+      "described_models": [
+        "stock.move",
+        "world.depot.inbound.order.product",
+        "world.depot.outbound.order.product",
+        "world.depot.transfer.order.line"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成模式发现与字段/关系定义识别，未读取业务记录，也未创建或修改工作簿。\n\n*最符合“仓库操作单据下代表某项货物移动计划的明细数据对象”的标准 Odoo 对象：*\n\n* stock.move — Stock Move（库存移动）*\n它表示仓库单据中的一项货物移动计划/需求明细，通常通过以下关系挂在仓库转移单据上：\n\npicking_id → stock.picking ：所属仓库转移单据\nproduct_id → product.product ：货物\nproduct_uom_qty ：需求数量\nproduct_qty ：实际数量\nproduct_uom ：计量单位\nlocation_id ：源库位\nlocation_dest_id ：中间/目标库位\nlocation_final_id ：最终库位\nstate ：移动状态\ndate ：计划日期\nmove_line_ids → stock.move.line ：该计划移动的详细操作明细\norigin ：来源单据\npicking_type_id ：操作类型\n\n*需要区分的相关对象：*\n\nstock.move ：货物移动计划/需求行，最符合“某项货物移动计划的明细数据对象”。\nstock.move.line ：实际执行层面的详细操作行，例如批次、序列号、已处理数量和具体库位；它通过 stock.move.move_line_ids 关联。\nworld.depot.transfer.order.line ：系统自定义的“调拨单行”，表示自定义转移订单的明细，字段包括货物、源/目标库位和数量。\nworld.depot.inbound.order.product / world.depot.outbound.order.product ：自定义入库/出库单的货物明细，不是通用的标准仓库移动对象。\n\n本次结果为*模式准备*，没有进行业务数据搜索。",
+      "elapsed_seconds": 16.451,
+      "target_model": "stock.move",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SM02",
+      "case_id": "SM02",
+      "kind": "clear",
+      "thread_id": 1357,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 3,
+      "first_top5": [
+        "stock.move",
+        "stock.move.line",
+        "world.depot.transfer.order.line",
+        "stock.picking",
+        "_unknown"
+      ],
+      "described_models": [
+        "stock.move",
+        "stock.move.line",
+        "stock.picking"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed. No business records were read, and no workbook was created or modified.\n\n**Identified business object**\n*Primary object: stock.move — Stock Move*\n\nThis represents the planned operational movement of one product within a warehouse transfer.\n\n*Relevant fields*\n\nproduct_id — Product ( product.product )\nproduct_uom_qty — Demand / planned quantity\nproduct_uom — Unit of Measure ( uom.uom )\nlocation_id — Source Location ( stock.location )\nlocation_dest_id — Intermediate/Destination Location ( stock.location )\nlocation_final_id — Final Location ( stock.location )\ndate — Date Scheduled\nstate — Move status\npicking_id — Transfer ( stock.picking )\npicking_type_id — Operation Type\nwarehouse_id — Warehouse\nmove_line_ids — Detailed operations ( stock.move.line )\n\n**Relationship to the warehouse transfer**\nThe transfer is represented by * stock.picking — Transfer*.\n\nRelevant transfer relationships:\n\nstock.move.picking_id → stock.picking\nstock.picking.move_ids → stock.move\nstock.picking.move_line_ids → stock.move.line\n\nTransfer-level fields include:\n\nname — Reference\nscheduled_date — Scheduled Date\nstate — Transfer status\nlocation_id — Source Location\nlocation_dest_id — Destination Location\npicking_type_id — Operation Type\ntransfer_order_id — Transfer Order ( world.depot.transfer.order )\n\n**Detailed operation alternative**\n* stock.move.line — Product Moves (Stock Move Line)* represents the detailed execution-level operation linked to a stock move through:\n\nmove_id → stock.move\npicking_id → stock.picking\nproduct_id — Product\nqty_done / quantity — Quantity handled\nlocation_id — From\nlocation_dest_id — To\nlot_id — Lot/Serial Number\n\nFor the wording “planned movement,” stock.move is the best-fit business object; stock.move.line is the detailed operational child object.",
+      "elapsed_seconds": 16.029,
+      "target_model": "stock.move",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SM03",
+      "case_id": "SM03",
+      "kind": "clear",
+      "thread_id": 1358,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 5,
+      "first_top5": [
+        "world.depot.transfer.order",
+        "stock.move",
+        "stock.move.line",
+        "stock.picking",
+        "world.depot.transfer.order.line"
+      ],
+      "described_models": [
+        "world.depot.transfer.order",
+        "world.depot.transfer.order.line",
+        "stock.picking",
+        "stock.move",
+        "stock.move.line"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成架构识别，未读取业务记录，也未创建或修改工作簿。\n\n*整张仓库调拨单*：优先对应 stock.picking （Transfer），其记录名字段为 name 。\n*调拨单中的商品级移动任务*：对应 stock.move （Stock Move），这是“每个商品移动任务”的业务对象。\n*更细的实际执行/批次明细*： stock.move.line （Product Moves / Stock Move Line），用于拆分到具体批次、序列号或实际移动明细，不等同于主移动任务。\n系统还存在自定义对象：\nworld.depot.transfer.order ：Transfer Order\nworld.depot.transfer.order.line ：Transfer Order Line\n但仅凭当前定义摘要，不能将其确定为标准库存调拨及商品移动任务的主对象。\n\n因此，后者的数据类型应识别为 * stock.move （库存移动 / Stock Move）*；若需要实际操作明细，则进一步使用 * stock.move.line *。",
+      "elapsed_seconds": 14.084,
+      "target_model": "stock.move",
+      "retriever_top5_rank": 2,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SM04",
+      "case_id": "SM04",
+      "kind": "clear",
+      "thread_id": 1359,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 2,
+      "first_top5": [
+        "stock.move",
+        "stock.move.line",
+        "_unknown",
+        "account.account",
+        "account.account.tag"
+      ],
+      "described_models": [
+        "stock.move",
+        "stock.move.line"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "**Schema-only preparation**\n*Business object selected:* stock.move — *Stock Move*\nThis represents the product-level stock operation associated with a warehouse document, rather than the warehouse document header ( stock.picking ).\n\n*Relevant fields*\n| Field | Type | Description |\n|---|---|---|\n| name | char | Operation description |\n| product_id | many2one → product.product | Product being moved |\n| product_uom_qty | float | Demand quantity |\n| quantity | float | Quantity |\n| product_qty | float | Real quantity |\n| product_uom | many2one → uom.uom | Unit of measure |\n| state | selection | Move status |\n| picking_id | many2one → stock.picking | Associated warehouse document |\n| picking_type_id | many2one → stock.picking.type | Operation type |\n| picking_code | selection | Type of operation |\n| location_id | many2one → stock.location | Source location |\n| location_dest_id | many2one → stock.location | Destination location |\n| date | datetime | Scheduled date |\n| origin | char | Source document |\n| warehouse_id | many2one → stock.warehouse | Warehouse |\n| move_line_ids | one2many → stock.move.line | Detailed product movement lines |\n\n*Related detail collection*\nmove_line_ids ( stock.move.line ) contains the detailed operation records, including:\n\nproduct_id\nqty_done\nquantity\nproduct_uom_id\nlot_id\nlot_name\nlocation_id\nlocation_dest_id\npicking_id\nmove_id\nstate\npackage_id\nresult_package_id\n\nNo business records were read, and no workbook was created or modified.",
+      "elapsed_seconds": 15.988,
+      "target_model": "stock.move",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "OUT01",
+      "case_id": "OUT01",
+      "kind": "clear",
+      "thread_id": 1360,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 2,
+      "first_top5": [
+        "stock.picking",
+        "world.depot.outbound.order",
+        "world.depot.transfer.order",
+        "_unknown",
+        "account.account"
+      ],
+      "described_models": [
+        "stock.picking",
+        "world.depot.outbound.order"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅模式识别与字段定义查看*，未读取业务记录，也未创建或修改工作簿。\n\n**识别结果**\n最符合“仓库向外发货时使用的出库业务单据”的业务对象是：\n\n*技术模型*： world.depot.outbound.order\n*业务描述*：Outbound Order（出库单）\n*记录名称字段*： billno\n*状态字段*： status\nPlanning（计划）\nPicking（拣货）\nOutbound（出库）\n*订单类型字段*： type\nOutbound（出库）\nService（服务）\nTransfer（调拨）\n\n同时存在标准库存执行单据：\n\n*技术模型*： stock.picking\n*业务描述*：Transfer（库存转移/出入库执行单）\n与出库业务单据的关系字段：\noutgoing_picking_lines ：出库执行单据集合\npicking_Out ：出库库存单\npicking_PICK ：拣货库存单\noutbound_order_id ：关联出库业务单\n\n**出库业务单主要字段**\n*单据基本信息*\n\nbillno ：单据号\nreference ：参考号\nvsourcebillcode ：来源单据号\ndate ：订单日期\no_date ：出库日期\np_date ：计划日期\nstate ：单据状态\nstatus ：业务进度\ntype ：订单类型\nremark 、 remark1 ：备注\n\n*仓库与业务主体*\n\nwarehouse ：仓库\nowner ：货主\nconsignee_id ：收货人\ndelivery_company ：配送公司\ndelivery_partner_id ：送货地址\nunload_company ：卸货公司/收货方\nproject ：项目\n\n*交付与物流*\n\ndelivery_method ：交付方式\ndelivery_number ：配送单号\nload_ref ：装车/提货/快递参考号\nload_date ：装货/配送日期\neta ：预计到达日期\nplate_number ：车牌号\ndelivery_city 、 delivery_street 、 delivery_zip 、 delivery_country_id ：配送地址\ndelivery_phone 、 delivery_mobile 、 delivery_email ：配送联系信息\ntransport_cost ：运输费用\ndelivery_remark ：配送备注\n\n*包装与托盘*\n\npack_type ：包装类型\npallet_type ：托盘类型\npallets ：托盘数\npallets_of_pick ：拣货托盘数\npallets_of_packed ：已包装托盘数\nnew_pallet_count_total ：新增托盘总数\noutbound_pallet_type ：出库托盘类型\npallet_prefix_code ：托盘前缀\n\n*出库明细及关系*\n\noutbound_order_product_ids ：出库商品明细\n子模型： world.depot.outbound.order.product\noutbound_order_product_serial_numbers ：商品序列号明细\n子模型： world.depot.outbound.order.product.serial.number\noutbound_order_pack_ids ：包装信息\n子模型： world.depot.outbound.order.pack.info\noutbound_order_charge_ids ：出库费用明细\n子模型： world.depot.outbound.order.charge\noutbound_order_docs_ids ：其他单据\n子模型： world.depot.outbound.order.docs\npayable_lines ：应付费用明细\n子模型： world.depot.outbound.order.payable\noutgoing_picking_lines ：关联的出库库存执行单\n子模型： stock.picking\n\n**结论**\n如果后续需要导出“仓库向外发货的出库业务单据”，建议以：\n\ntext\nworld.depot.outbound.order\n\n作为主业务对象，并根据需要关联：\n\ntext\noutbound_order_product_ids\noutbound_order_pack_ids\noutgoing_picking_lines\n\n本次结果为*模式级准备*；没有读取任何 world.depot.outbound.order 或其他业务模型的实际记录。",
+      "elapsed_seconds": 19.753,
+      "target_model": "world.depot.outbound.order",
+      "retriever_top5_rank": 2,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "OUT02",
+      "case_id": "OUT02",
+      "kind": "clear",
+      "thread_id": 1361,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 2,
+      "first_top5": [
+        "world.depot.outbound.order",
+        "stock.picking",
+        "_unknown",
+        "account.account",
+        "account.account.tag"
+      ],
+      "described_models": [
+        "world.depot.outbound.order",
+        "stock.picking"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed. No business records were read, and no workbook was created or modified.\n\n**Best-fit business object**\n*Model:* world.depot.outbound.order\n*Description:* Outbound Order\n*Record name:* billno\n\nThis is the best match for the business document recording outbound warehouse fulfillment. It explicitly represents an outbound order and includes outbound status, dates, warehouse, fulfillment details, and related stock pickings.\n\n**Relevant fields**\n| Technical field | Label | Type |\n|---|---|---|\n| billno | BillNo | char |\n| reference | Reference | char |\n| date | Order Date | date |\n| o_date | Outbound Date | date |\n| p_date | Planning Date | date |\n| status | Status | selection: Planning, Picking, Outbound |\n| state | State | selection: New, Confirm, Cancel |\n| type | Order Type | selection: Outbound, Service, Transfer |\n| warehouse | Warehouse | many2one → stock.warehouse |\n| owner | Owner | many2one → res.partner |\n| consignee_id | Consignee | many2one → res.partner |\n| delivery_partner_id | Delivery Address | many2one → res.partner |\n| delivery_method | Delivery Method | selection |\n| delivery_number | Delivery Number | char |\n| load_date | Loading/Delivery Date | datetime |\n| load_ref | Loading / Pickup / Courier Reference No. | char |\n| actual_outbound_datetime | Actual Outbound Datetime | datetime |\n| picking_Out | Outbound | many2one → stock.picking |\n| picking_PICK | Picking | many2one → stock.picking |\n\n**Relevant relationships**\n| Field | Label | Relationship |\n|---|---|---|\n| outgoing_picking_lines | Outgoing Pickings | one-to-many → stock.picking ; inverse outbound_order_id |\n| outbound_order_product_ids | Products of Outbound Order | one-to-many → world.depot.outbound.order.product ; inverse outbound_order_id |\n| outbound_order_pack_ids | Pack Information | one-to-many → world.depot.outbound.order.pack.info ; inverse outbound_order_id |\n| outbound_order_product_serial_numbers | Outbound Order Product Serial Numbers | one-to-many → world.depot.outbound.order.product.serial.number ; inverse outbound_order_id |\n| outbound_order_charge_ids | Outbound Order Charges | one-to-many → world.depot.outbound.order.charge ; inverse outbound_order_id |\n| payable_lines | Payables | one-to-many → world.depot.outbound.order.payable ; inverse outbound_order_id |\n| whole_pallet_picking_id | Whole Pallet Picking | many-to-one → stock.picking |\n| partial_pallet_picking_id | Partial Pallet Picking | many-to-one → stock.picking |\n\n**Related standard fulfillment object**\n*Model:* stock.picking\n*Description:* Transfer\n\nThis represents the warehouse transfer itself and is linked back to the outbound order through:\n\noutbound_order_id — Outbound Order → world.depot.outbound.order\nname — Transfer reference\nstate — Transfer status, including Ready and Done\ndate_done — Date of Transfer\npicking_type_code — Type of Operation\nlocation_id / location_dest_id — Source and destination locations\nmove_ids — Stock Moves\nmove_line_ids — Operations\n\nThus, world.depot.outbound.order is the appropriate business-document model, while stock.picking is the related warehouse transfer execution model.",
+      "elapsed_seconds": 17.767,
+      "target_model": "world.depot.outbound.order",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "OUT03",
+      "case_id": "OUT03",
+      "kind": "clear",
+      "thread_id": 1362,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 3,
+      "first_top5": [
+        "world.depot.outbound.order",
+        "stock.move",
+        "stock.move.line",
+        "stock.picking",
+        "world.depot.outbound.order.product"
+      ],
+      "described_models": [
+        "world.depot.outbound.order",
+        "stock.picking",
+        "world.depot.outbound.order.product"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成模型发现与字段描述，未读取业务记录，也未创建或修改任何工作簿。\n\n**结论**\n“发给客户的仓库出货单”最匹配的业务数据类型是：\n\n*主业务对象： world.depot.outbound.order *\n\n描述：Outbound Order（出库单 / 出货单）\n显示名称字段： billno\n这是仓库面向客户的出库业务单据，包含客户、收货地址、仓库、出库日期、物流及状态等信息。\n\n*主要明细对象： world.depot.outbound.order.product *\n\n描述：Outbound Order Product（出库单产品明细）\n与主单关系：\n主单字段： outbound_order_product_ids\n关系类型：一对多\n明细模型： world.depot.outbound.order.product\n明细反向字段： outbound_order_id\n\n**主单关键字段**\n| 字段 | 类型 | 含义 |\n|---|---|---|\n| billno | char | 出库单号 |\n| reference | char | 参考号 |\n| date | date | 订单日期 |\n| o_date | date | 出库日期 |\n| status | selection | 状态：Planning、Picking、Outbound |\n| state | selection | 单据状态：New、Confirm、Cancel |\n| type | selection | 单据类型：Outbound、Service、Transfer |\n| owner | many2one → res.partner | 货主 |\n| consignee_id | many2one → res.partner | 收货人 |\n| delivery_company | many2one → res.partner | 配送公司 |\n| delivery_partner_id | many2one → res.partner | 收货地址 |\n| warehouse | many2one → stock.warehouse | 仓库 |\n| delivery_method | selection | 配送方式 |\n| delivery_number | char | 配送单号 |\n| load_ref | char | 装车 / 提货 / 快递参考号 |\n| eta | date | 预计到达日期 |\n| load_date | datetime | 装货 / 交付日期 |\n| actual_outbound_datetime | datetime | 实际出库时间 |\n| remark | text | 备注 |\n| outgoing_picking_lines | one2many → stock.picking | 关联的出库调拨 / 仓库转移记录 |\n| outbound_order_product_ids | one2many → world.depot.outbound.order.product | 出库产品明细 |\n\n**明细关键字段**\n| 字段 | 类型 | 含义 |\n|---|---|---|\n| outbound_order_id | many2one → world.depot.outbound.order | 所属出库单 |\n| product_id | many2one → product.product | 产品 |\n| product_ean | char | 产品 EAN |\n| default_code | char | 产品内部编码 |\n| quantity | float | 数量 |\n| u8_aux_qty | float | 辅助数量 |\n| u8_aux_uom_name | char | 辅助计量单位 |\n| serial_numbers | text | 序列号 |\n| lot_name | char | 批次名称 |\n| package_id | many2one → stock.quant.package | 包裹 |\n| package_barcode | char | 包裹条码 |\n| pallet_no | char | 托盘号 |\n| pallets | float | 托盘数量 |\n| locations | char | 库位 |\n| weight | float | 净重 |\n| gross_weight | char | 毛重 |\n| remark | text | 明细备注 |\n\n**相关但次级的标准仓库对象**\n* stock.picking *\n\n描述：Transfer（库存转移 / 调拨）\n在该业务中可作为实际仓库出库操作记录。\n与出库单的关系：\nworld.depot.outbound.order.outgoing_picking_lines → stock.picking\nstock.picking.outbound_order_id → world.depot.outbound.order\n\n其关键字段包括：\n\nname ：仓库转移参考号\noutbound_order_id ：关联出库单\npartner_id ：联系人\nlocation_id ：源库位\nlocation_dest_id ：目标库位\nmove_ids ：库存移动明细\nmove_line_ids ：详细操作明细\nscheduled_date ：计划日期\ndate_done ：转移完成日期\ncarrier_tracking_ref ：物流跟踪号\nstate ：仓库操作状态\n\n因此，如果业务重点是“发给客户的出库业务单据”，应以 world.depot.outbound.order 为主模型，并按需关联其产品明细 world.depot.outbound.order.product ；如果重点是仓库实际执行的转移动作，则可补充 stock.picking 。",
+      "elapsed_seconds": 22.96,
+      "target_model": "world.depot.outbound.order",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "OUT04",
+      "case_id": "OUT04",
+      "kind": "clear",
+      "thread_id": 1363,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "world.depot.outbound.order",
+        "world.depot.outbound.order.product",
+        "world.depot.outbound.order.product.serial.number",
+        "world.depot.outbound.order.sn.detail",
+        "_unknown"
+      ],
+      "described_models": [
+        "world.depot.outbound.order"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed; no business records were read and no workbook was created or modified.\n\n*Identified business object*\n- *Model:* world.depot.outbound.order\n- *Description:* Outbound Order\n- *Record name:* billno\n- *Business fit:* This object represents warehouse outbound/dispatch orders, including goods leaving the facility.\n\n*Relevant fields*\n- billno — BillNo / business identifier\n- reference — Reference\n- date — Order Date\n- o_date — Outbound Date\n- actual_outbound_datetime — Actual Outbound Datetime\n- status — Status: Planning, Picking, Outbound\n- type — Order Type, including Outbound\n- warehouse — Warehouse ( stock.warehouse )\n- consignee_id — Consignee ( res.partner )\n- delivery_partner_id — Delivery Address ( res.partner )\n- picking_Out — Outbound stock picking ( stock.picking )\n- outgoing_picking_lines — Outgoing Pickings ( stock.picking )\n- outbound_order_product_ids — Products of Outbound Order ( world.depot.outbound.order.product )\n\nNo record search was performed.",
+      "elapsed_seconds": 14.002,
+      "target_model": "world.depot.outbound.order",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "AM01",
+      "case_id": "AM01",
+      "kind": "clear",
+      "thread_id": 1364,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 2,
+      "first_top5": [
+        "account.move",
+        "account.move.line",
+        "_unknown",
+        "account.account",
+        "account.account.tag"
+      ],
+      "described_models": [
+        "account.move",
+        "account.move.line"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成模式识别，未读取业务记录，也未创建或修改工作簿。\n\n*主要业务对象*： account.move\n描述：Journal Entry（会计凭证/日记账分录）\n说明：对应财务账簿中正式登记的借贷事项凭证。\n*明细业务对象*： account.move.line\n描述：Journal Item（会计凭证明细/日记账项目）\n说明：承载凭证中的具体借方、贷方及科目明细。\n*相关对象*： account.account\n描述：Account（会计科目）\n\n已对 account.move 和 account.move.line 完成字段定义入口确认；当前仅为 schema-only 准备，未执行记录搜索。",
+      "elapsed_seconds": 12.645,
+      "target_model": "account.move",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "AM02",
+      "case_id": "AM02",
+      "kind": "clear",
+      "thread_id": 1365,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "account.move",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "account.move"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed; no business records were read and no workbook was created or modified.\n\n*Business object identified*\n- *Technical model:* account.move\n- *Description:* Journal Entry\n- *Display field:* name — Number\n\n*Relevant fields*\n- name — Number\n- date — Date\n- ref — Reference\n- move_type — Type\n- entry — Journal Entry\n- Also supports customer invoices, vendor bills, receipts, and credit notes\n- state — Status\n- draft , posted , cancel\n- journal_id — Journal ( account.journal )\n- company_id — Company ( res.company )\n- currency_id — Currency ( res.currency )\n- partner_id — Partner ( res.partner )\n- amount_total — Total\n- amount_untaxed — Untaxed Amount\n- amount_tax — Tax\n\n*Relevant relationships*\n- line_ids — Journal Items ( account.move.line ), one-to-many\n- Inverse field: move_id\n- invoice_line_ids — Invoice lines ( account.move.line ), one-to-many\n- Inverse field: move_id\n- journal_id — Journal ( account.journal ), many-to-one\n- reversal_move_ids — Reversal Moves ( account.move ), one-to-many\n- reversed_entry_id — Reversal of ( account.move ), many-to-one\n- payment_ids — Payments ( account.payment ), one-to-many\n\nThe primary object for the requested accounting document is therefore * account.move (Journal Entry)*.",
+      "elapsed_seconds": 13.636,
+      "target_model": "account.move",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "AM03",
+      "case_id": "AM03",
+      "kind": "clear",
+      "thread_id": 1366,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 2,
+      "first_top5": [
+        "account.move",
+        "account.move.line",
+        "_unknown",
+        "account.account",
+        "account.account.tag"
+      ],
+      "described_models": [
+        "account.move",
+        "account.move.line"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅限模式的准备*，未读取业务记录，也未创建或修改任何工作簿。\n\n**业务对象区分**\n| 业务含义 | Odoo 模型 | 说明 |\n|---|---|---|\n| 一般交易业务单据 | account.move 中的非普通记账分录类型 | 同一模型承载发票、账单、贷项通知单、收据等交易单据 |\n| 记入账簿的凭证 | account.move ，重点为 move_type = entry | Odoo 的 *Journal Entry（会计分录/记账凭证）* |\n| 记账凭证明细 | account.move.line | Journal Entry 的借贷明细，即 *Journal Item（会计分录行）* |\n\n**识别记账凭证的数据类型**\naccount.move.move_type 是选择型字段：\n\nentry ：Journal Entry，记账凭证/普通会计分录\nout_invoice ：客户发票\nout_refund ：客户贷项通知单\nin_invoice ：供应商账单\nin_refund ：供应商贷项通知单\nout_receipt ：销售收据\nin_receipt ：采购收据\n\n因此，若要识别“记入账簿的凭证”，应以：\n\ntext\n模型：account.move\n条件：move_type = entry\n\n其状态字段为 state ：\n\ndraft ：草稿\nposted ：已过账\ncancel ：已取消\n\n若业务含义中的“记入账簿”特指*已正式入账/已过账*，则可进一步使用：\n\ntext\nmove_type = entry\nstate = posted\n\n**相关关系定义**\n凭证 account.move 的主要明细关系：\n\ntext\naccount.move.line_ids\n关系类型：one2many\n关联模型：account.move.line\n反向字段：move_id\n\n发票类交易单据另有：\n\ntext\naccount.move.invoice_line_ids\n关系类型：one2many\n关联模型：account.move.line\n反向字段：move_id\n\n但对于记账凭证导出，应优先使用完整的 line_ids ，因为它代表凭证的全部会计分录行。\n\n**建议的后续导出模式**\n如后续要求导出记账凭证，可采用：\n\n根对象： account.move\n根筛选： move_type = entry ；如只要已入账凭证，再加 state = posted\n子表： account.move.line_ids\n子表字段重点包括： date 、 account_id 、 debit 、 credit 、 balance 、 amount_currency 、 partner_id 、 name 、 analytic_distribution\n\n本次未执行业务记录搜索，未生成候选工作簿。",
+      "elapsed_seconds": 19.299,
+      "target_model": "account.move",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "AM04",
+      "case_id": "AM04",
+      "kind": "clear",
+      "thread_id": 1367,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "account.move",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "account.move"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed; no business records were read and no workbook was created or modified.\n\n*Business object identified*\n- *Technical model:* account.move\n- *Description:* Journal Entry\n- *Posted filter:* state = 'posted'\n- *Document type field:* move_type ; journal entries use move_type = 'entry'\n\n*Relevant available fields*\n- name — Number\n- state — Status ( draft , posted , cancel )\n- move_type — Type, including Journal Entry\n- date — Date\n- ref — Reference\n- journal_id — Journal ( account.journal )\n- company_id — Company ( res.company )\n- currency_id — Currency ( res.currency )\n- partner_id — Partner ( res.partner )\n- amount_total — Total\n- amount_total_signed — Total Signed\n- amount_untaxed — Untaxed Amount\n- amount_tax — Tax\n- posted_before — Posted Before\n- secure_sequence_number — Inalterability No Gap Sequence\n- inalterable_hash — Inalterability Hash\n- line_ids — Journal Items ( account.move.line ), one-to-many via move_id\n- invoice_line_ids — Invoice Lines ( account.move.line ), one-to-many via move_id\n- payment_ids — Payments ( account.payment ), one-to-many via move_id\n- statement_line_ids — Statements ( account.bank.statement.line ), one-to-many via move_id\n\nThe primary object for a posted financial journal document is therefore account.move , with journal lines available through line_ids .",
+      "elapsed_seconds": 17.286,
+      "target_model": "account.move",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "PR01",
+      "case_id": "PR01",
+      "kind": "clear",
+      "thread_id": 1368,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "project.project",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "project.project"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*架构定义识别*，未读取业务记录，也未创建或修改工作簿。\n\n*业务对象*：项目（ project.project ）\n*项目名称*： name （Name）\n*负责人*： user_id （Project Manager），关联对象为 res.users\n*项目状态*：可按以下字段理解：\nstage_id （Stage），关联 project.project.stage ，适合表示项目阶段\nlast_update_status （Last Update Status），预定义状态包括 On Track、At Risk、Off Track、On Hold、Set Status、Done\n另有 sale_order_state （Status），但它表示销售订单状态，不建议作为通用项目状态\n\n因此，针对“项目名称、负责人和项目状态”的项目主数据对象应使用 * project.project *，优先字段组合为：\n\nname 、 user_id 、 stage_id 或 last_update_status 。",
+      "elapsed_seconds": 12.991,
+      "target_model": "project.project",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "PR02",
+      "case_id": "PR02",
+      "kind": "clear",
+      "thread_id": 1369,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "project.project",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "project.project"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed; no business records were read and no workbook was created or modified.\n\n*Business object identified*\n- *Model:* project.project\n- *Description:* Project\n- *Record name field:* name\n- This is the top-level project/workspace object, distinct from task records in project.task .\n\n*Relevant definitions*\n- name — Project Name ( char )\n- active — Active ( boolean )\n- stage_id — Stage ( many2one → project.project.stage )\n- user_id — Project Manager ( many2one → res.users )\n- partner_id — Customer ( many2one → res.partner )\n- company_id — Company ( many2one → res.company )\n- date_start — Start Date ( date )\n- date — Expiration Date ( date )\n- privacy_visibility — Visibility ( selection )\n- task_ids — Tasks ( one2many → project.task , inverse field project_id )\n- tasks — Task Activities ( one2many → project.task , inverse field project_id )\n- milestone_ids — Milestones ( one2many → project.milestone , inverse field project_id )\n- tag_ids — Tags ( many2many → project.tags )\n- type_ids — Task Stages ( many2many → project.task.type )\n\nFor a project-workspace export, the root source should therefore be project.project ; task collections should only be included if explicitly requested.",
+      "elapsed_seconds": 14.671,
+      "target_model": "project.project",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "PR03",
+      "case_id": "PR03",
+      "kind": "clear",
+      "thread_id": 1370,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "project.project",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "project.project"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成架构识别，未读取业务记录，也未创建或修改工作簿。\n\n*业务对象*\n- 技术模型： project.project\n- 业务名称：Project（项目）\n- 显示名称字段： name\n\n*关键字段定义*\n- 项目名称： name （char）\n- 描述： description （html）\n- 客户： partner_id （many2one → res.partner ）\n- 项目负责人： user_id （many2one → res.users ）\n- 公司： company_id （many2one → res.company ）\n- 项目阶段： stage_id （many2one → project.project.stage ）\n- 项目状态： last_update_status （selection）\n- 开始日期： date_start （date）\n- 截止/到期日期： date （date）\n- 可见性： privacy_visibility （selection）\n- 是否启用： active （boolean）\n- 标签： tag_ids （many2many → project.tags ）\n- 分析账户： account_id （many2one → account.analytic.account ）\n- 工作时间： resource_calendar_id （many2one → resource.calendar ）\n- 创建时间： create_date （datetime）\n- 最后更新时间： write_date （datetime）\n\n*关系定义*\n- 任务清单： task_ids / tasks （one2many → project.task ，通过 project_id ）\n- 按你的要求，未将任务作为本次项目资料对象。\n- 项目里程碑： milestone_ids （one2many → project.milestone ，通过 project_id ）\n- 项目更新： update_ids （one2many → project.update ，通过 project_id ）\n- 协作者： collaborator_ids （one2many → project.collaborator ，通过 project_id ）\n- 成员： favorite_user_ids （many2many → res.users ）\n- 允许用户： allowed_user_ids （many2many → res.users ）\n- 标签： tag_ids （many2many → project.tags ）\n- 文档： document_ids （one2many → documents.document ）\n\n本次结果为*仅架构/元数据准备*，没有业务数据读取或文件操作。",
+      "elapsed_seconds": 14.557,
+      "target_model": "project.project",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "PR04",
+      "case_id": "PR04",
+      "kind": "clear",
+      "thread_id": 1371,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "project.project",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "project.project"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed. No business records were read, and no workbook was created or modified.\n\n**Business object**\n\n*Technical model:* project.project\n*Business object:* Project\n*Record name field:* name\n\n**Fields**\nThe model contains *141 fields*, including:\n\n*Core project fields:* name , active , description , sequence , color\n*Dates and audit:* date_start , date , create_date , write_date , create_uid , write_uid\n*Ownership and organization:* user_id (Project Manager), partner_id (Customer), company_id , owner , currency_id\n*Project configuration:* stage_id , privacy_visibility , resource_calendar_id , allow_billable , allow_milestones , allow_task_dependencies , use_documents\n*Task metrics:* task_count , open_task_count , closed_task_count , task_completion_percentage\n*Milestone metrics:* milestone_count , milestone_count_reached , milestone_progress , next_milestone_id\n*Status and updates:* last_update_id , last_update_status , update_count\n*Sales and accounting:* account_id , auto_account_id , sale_order_id , sale_line_id , quotation_id , invoice_count , vendor_bill_count\n*Communication and activities:* activity_ids , message_ids , message_follower_ids , rating_ids\n*Tags and users:* tag_ids , allowed_user_ids , favorite_user_ids , type_ids\n*Documents and logistics:* document_ids , documents_folder_id , documents_tag_ids , warehouse , inbound_pick_type , outbound_pick_type\n*Custom/project-specific fields:* pallet, CMR template, stock-reporting, payment, and package-generation fields\n\n**Relations**\n*One-to-many*\n\nactivity_ids → mail.activity\ncollaborator_ids → project.collaborator\ndocument_ids → documents.document\nmilestone_ids → project.milestone\nmessage_follower_ids → mail.followers\nmessage_ids → mail.message\nrating_ids → rating.rating\ntask_ids → project.task\ntasks → project.task\nupdate_ids → project.update\nwebsite_message_ids → mail.message\n\n*Many-to-many*\n\nallowed_user_ids → res.users\ndocuments_tag_ids → documents.tag\nfavorite_user_ids → res.users\nmessage_partner_ids → res.partner\nportal_stock_location_line_ids → stock.location\ntag_ids → project.tags\ntype_ids → project.task.type\n\n*Many-to-one*\nThe project also links to related objects such as:\n\naccount_id , auto_account_id → account.analytic.account\nactivity_type_id → mail.activity.type\nalias_id → mail.alias\ncategory → product.category\ncompany_id → res.company\ndocuments_folder_id → documents.document\ninbound_pick_type , outbound_pick_type → stock.picking.type\nlast_update_id → project.update\nnext_milestone_id → project.milestone\npartner_id , owner , payment_company_id → res.partner\nquotation_id → charge.quotation\nreinvoiced_sale_order_id , sale_order_id → sale.order\nsale_line_id → sale.order.line\nstage_id → project.project.stage\nuser_id , activity_user_id → res.users\nvendor_cost_quotation_id → vendor.cost.quotation\nwarehouse → stock.warehouse\n\nNo export schema or workbook was produced because the request was limited to object and schema identification.",
+      "elapsed_seconds": 20.255,
+      "target_model": "project.project",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "TA01",
+      "case_id": "TA01",
+      "kind": "technical_ambiguity",
+      "thread_id": 1372,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 2,
+      "first_top5": [
+        "sale.order",
+        "sale.order.line",
+        "_unknown",
+        "account.account",
+        "account.account.tag"
+      ],
+      "described_models": [
+        "sale.order",
+        "sale.order.line"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed; no business records were read and no workbook was created or modified.\n\n**Relevant business objects**\n*Parent object: Sales Order*\n\n*Technical model:* sale.order\n*Business description:* Sales Order\n*Record name:* name — Order Reference\n*Customer relationship:* partner_id — Customer ( res.partner )\n*Item-row relationship:* order_line — Order Lines ( sale.order.line )\nRelationship type: one-to-many\nChild inverse field: order_id\n\nRelevant parent fields include:\n- name — Order Reference\n- partner_id — Customer\n- date_order — Order Date\n- state — Status\n- client_order_ref — Customer Reference\n- amount_untaxed — Untaxed Amount\n- amount_tax — Taxes\n- amount_total — Total\n- currency_id — Currency\n\n*Child object: Sales Order Line*\n\n*Technical model:* sale.order.line\n*Business description:* Sales Order Line\n*Parent relationship:* order_id — Order Reference ( sale.order )\n*Customer relationship:* order_partner_id — Customer ( res.partner )\n\nRelevant item-row fields include:\n- order_id — Parent Order\n- product_id — Product\n- name — Description\n- product_uom_qty — Quantity\n- product_uom — Unit of Measure\n- price_unit — Unit Price\n- discount — Discount\n- price_subtotal — Subtotal\n- price_tax — Total Tax\n- price_total — Total\n- sequence — Line ordering\n- display_type — Section or note indicator\n\n**Relationship summary**\ntext\nsale.order\n└── order_line (one-to-many)\n└── sale.order.line.order_id (many-to-one back to sale.order)\n\nA future export should use:\n- A root table sourced from sale.order\n- A separate detail table sourced from the order_line collection\n- No record search is performed at this stage.",
+      "elapsed_seconds": 17.483,
+      "expected_models": [
+        "sale.order.line",
+        "sale.order"
+      ],
+      "missing_describes": [],
+      "relation_verified": true,
+      "technical_ambiguity_status": "PASS"
+    },
+    {
+      "test_id": "TA02",
+      "case_id": "TA02",
+      "kind": "technical_ambiguity",
+      "thread_id": 1373,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 2,
+      "describe_call_count": 5,
+      "first_top5": [
+        "stock.picking",
+        "stock.move",
+        "stock.move.line",
+        "world.depot.transfer.order",
+        "world.depot.transfer.order.line"
+      ],
+      "described_models": [
+        "stock.picking",
+        "stock.move",
+        "stock.move.line",
+        "world.depot.transfer.order",
+        "world.depot.transfer.order.line"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅 schema 的模型发现与字段关系确认*，未读取任何业务记录，也未创建或修改工作簿。\n\n*识别结果*\n1. 仓库调拨主操作单据： stock.picking\n\n描述：Transfer\n记录名称字段： name （Reference）\n与逐项货物移动任务的关系：\nmove_ids → stock.move ，一对多，逆向字段： picking_id\nmove_line_ids → stock.move.line ，一对多，逆向字段： picking_id\n相关主单据字段包括：\nname ：操作单号\nstate ：操作状态\npicking_type_id ：操作类型\nlocation_id ：源位置\nlocation_dest_id ：目标位置\nscheduled_date ：计划日期\ndate_done ：完成日期\ntransfer_order_id → world.depot.transfer.order ：关联业务调拨单\n\n2. 逐项货物移动任务： stock.move\n\n描述：Stock Move\n记录名称字段： name （Description）\n与主操作单据的关系：\npicking_id → stock.picking ，多对一\n与更细粒度实际操作明细的关系：\nmove_line_ids → stock.move.line ，一对多，逆向字段： move_id\n相关字段包括：\nproduct_id ：产品\nproduct_uom_qty ：需求数量\nquantity / product_qty ：数量字段\nproduct_uom ：计量单位\nlocation_id ：源位置\nlocation_dest_id ：中间/目标位置\nstate ：移动状态\npicking_id ：所属主操作单据\n\n3. 实际逐项操作明细： stock.move.line\n\n描述：Product Moves (Stock Move Line)\n记录名称字段： product_id\n与货物移动任务的关系：\nmove_id → stock.move ，多对一\n与主操作单据的关系：\npicking_id → stock.picking ，多对一\n相关字段包括：\nproduct_id ：产品\nqty_done ：已完成数量\nquantity ：数量\nproduct_uom_id ：计量单位\nlocation_id / location_dest_id ：实际源/目标位置\nlot_id / lot_name ：批次/序列号\npackage_id / result_package_id ：源/目标包装\n\n*另发现的业务调拨单模型*\n系统还注册了定制模型：\n\nworld.depot.transfer.order ：Transfer Order\n\n主单号： billno\n明细关系： line_ids → world.depot.transfer.order.line\n关联库存操作： stock_picking_id → stock.picking\nworld.depot.transfer.order.line ：Transfer Order Line\n\n所属主调拨单： transfer_order_id\n产品： product\n数量： quantity\n源位置： location_from\n目标位置： location_to\n\n*区分结论*\n存在两层业务概念：\n\n*业务调拨单*： world.depot.transfer.order\n其明细为 world.depot.transfer.order.line 。\n*库存执行层的主操作单据*： stock.picking\n其逐项库存移动任务为 stock.move ；若需要查看批次、序列号、实际完成数量和包装等更细粒度信息，则使用 stock.move.line 。\n\n本次仅完成模型定义和关系确认，没有进行业务记录搜索。",
+      "elapsed_seconds": 28.263,
+      "expected_models": [
+        "stock.picking",
+        "stock.move"
+      ],
+      "missing_describes": [],
+      "relation_verified": true,
+      "technical_ambiguity_status": "PASS"
+    },
+    {
+      "test_id": "TA03",
+      "case_id": "TA03",
+      "kind": "technical_ambiguity",
+      "thread_id": 1374,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 2,
+      "describe_call_count": 2,
+      "first_top5": [
+        "product.template",
+        "product.product",
+        "_unknown",
+        "account.account",
+        "account.account.tag"
+      ],
+      "described_models": [
+        "product.template",
+        "product.product"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed. No business records were read, and no workbook was created or modified.\n\n**Business objects**\n| Business concept | Odoo model | Description |\n|---|---|---|\n| Shared item definition | product.template | Product-level definition shared by its variants |\n| Concrete sellable option | product.product | Product Variant representing a specific option/configuration |\n\n**Relationship**\n\nproduct.template.product_variant_ids\nType: one-to-many\nRelated model: product.product\nMeaning: all concrete variants belonging to the shared product definition\nproduct.product.product_tmpl_id\nType: many-to-one\nRelated model: product.template\nMeaning: the shared product definition for that concrete variant\n\n**Relevant schema fields**\n* product.template *\n\nname — shared product name\nproduct_variant_ids — related concrete variants\nproduct_variant_count — number of variants\nattribute_line_ids — product attributes used to define options\n\n* product.product *\n\nname — variant name\nproduct_tmpl_id — parent shared product definition\ndefault_code — variant internal reference\nbarcode — variant barcode\nproduct_template_attribute_value_ids — attribute values defining the variant\n\nNo record search was performed.",
+      "elapsed_seconds": 26.869,
+      "expected_models": [
+        "product.template",
+        "product.product"
+      ],
+      "missing_describes": [],
+      "relation_verified": true,
+      "technical_ambiguity_status": "PASS"
+    },
+    {
+      "test_id": "TA04",
+      "case_id": "TA04",
+      "kind": "technical_ambiguity",
+      "thread_id": 1375,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 2,
+      "first_top5": [
+        "world.depot.outbound.order",
+        "world.depot.outbound.order.product",
+        "world.depot.outbound.order.product.serial.number",
+        "world.depot.outbound.order.sn.detail",
+        "_unknown"
+      ],
+      "described_models": [
+        "world.depot.outbound.order",
+        "world.depot.outbound.order.product"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*模式/结构识别*，未查询任何业务记录，也未创建或修改工作簿。\n\n**业务对象**\n*1. 仓库出库业务单*\n\n*技术模型*： world.depot.outbound.order\n*对象描述*：Outbound Order\n*显示名称字段*： billno （BillNo）\n\n与商品明细的关系：\n\n*字段*： outbound_order_product_ids\n*类型*：一对多（one2many）\n*明细模型*： world.depot.outbound.order.product\n*反向字段*： outbound_order_id\n*含义*：一张出库业务单包含多条逐项商品明细。\n\n*2. 出库商品明细*\n\n*技术模型*： world.depot.outbound.order.product\n*对象描述*：Outbound Order Product\n*父单关系字段*： outbound_order_id\n*类型*：多对一（many2one）\n*关联模型*： world.depot.outbound.order\n\n商品关系：\n\n*字段*： product_id\n*类型*：多对一（many2one）\n*关联模型*： product.product\n*含义*：明细对应的商品。\n\n**主要字段关系摘要**\n| 层级 | 字段 | 类型 | 关联对象/用途 |\n|---|---|---|---|\n| 出库单 | outbound_order_product_ids | one2many | 关联出库商品明细 |\n| 商品明细 | outbound_order_id | many2one | 返回所属出库业务单 |\n| 商品明细 | product_id | many2one | 关联商品主数据 |\n| 商品明细 | outbound_order_product_serial_numbers | one2many | 关联该明细的序列号明细 |\n| 出库单 | outgoing_picking_lines | one2many | 关联出库拣货单 stock.picking |\n| 出库单 | picking_Out | many2one | 关联出库拣货单 |\n| 出库单 | picking_PICK | many2one | 关联拣货单 |\n| 出库单 | warehouse | many2one | 关联仓库 stock.warehouse |\n\n**商品明细中可用于后续导出的典型字段**\n\nproduct_id ：商品\nquantity ：数量\ndefault_code ：商品默认编码\nbarcode ：条码\nproduct_ean ：商品 EAN\nsource_product_code ：来源商品编码\nlot_name ：批次名称\nserial_numbers ：序列号\nweight ：净重\nweight_subtotal ：净重小计\nlocations ：库位\npackage_id ：包装\npallet_no ：托盘号\noutbound_order_id ：所属出库单\n\n本次仅完成模型发现与字段关系说明，状态为*已验证的模式信息*；未验证任何实际业务数据。",
+      "elapsed_seconds": 19.56,
+      "expected_models": [
+        "world.depot.outbound.order",
+        "world.depot.outbound.order.product"
+      ],
+      "missing_describes": [],
+      "relation_verified": true,
+      "technical_ambiguity_status": "PASS"
+    },
+    {
+      "test_id": "BA01",
+      "case_id": "BA01",
+      "kind": "business_ambiguity",
+      "thread_id": 1376,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 0,
+      "first_top5": [
+        "sale.order",
+        "wd.vas.order",
+        "world.depot.inbound.order",
+        "world.depot.outbound.order",
+        "world.depot.transfer.order"
+      ],
+      "described_models": [],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*架构发现*，未读取任何业务记录，也未创建或修改工作簿。\n\n“订单资料”可能对应不同业务对象，例如：\n\n*销售订单*（ sale.order ）\n*仓储增值服务订单*（ wd.vas.order ）\n*入库订单*（ world.depot.inbound.order ）\n*出库订单*（ world.depot.outbound.order ）\n*调拨订单*（ world.depot.transfer.order ）\n\n请确认您要导出哪一类订单。确认后，我会先检查该对象的字段和关系定义，再按您的要求进行导出。",
+      "elapsed_seconds": 14.703,
+      "clarification_status": "PASS",
+      "business_ambiguity_status": "PASS"
+    },
+    {
+      "test_id": "BA02",
+      "case_id": "BA02",
+      "kind": "business_ambiguity",
+      "thread_id": 1377,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 3,
+      "first_top5": [
+        "stock.move",
+        "stock.move.line",
+        "stock.picking",
+        "stock.quant",
+        "stock.quantity.history"
+      ],
+      "described_models": [
+        "stock.move",
+        "stock.move.line",
+        "stock.picking"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed; no business records were read and no workbook was created or modified.\n\nThe phrase “inventory movement information” could refer to several Odoo objects:\n\n*Stock moves ( stock.move )* — planned or completed product movements, with product, demand/quantity, source and destination locations, operation type, status, scheduled date, transfer, and related detailed move lines.\n*Detailed move lines ( stock.move.line )* — operational movement details, including quantity done, product, source/destination locations, lots or serial numbers, packages, dates, and transfer.\n*Transfers ( stock.picking )* — transfer-level documents containing status, reference, operation type, source/destination locations, dates, partner, and related stock moves or detailed operations.\n\nWhich scope should the export use?\n\n*Stock moves* — one row per stock move\n*Detailed move lines* — one row per operational movement line, including lot/package details\n*Transfers* — one row per transfer\n*Transfers with related stock moves or detailed move lines*\nAnother scope, such as only completed movements, a date range, specific warehouses, products, or movement types",
+      "elapsed_seconds": 17.914,
+      "clarification_status": "PASS",
+      "business_ambiguity_status": "PASS"
+    },
+    {
+      "test_id": "BA03",
+      "case_id": "BA03",
+      "kind": "business_ambiguity",
+      "thread_id": 1378,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        }
+      ],
+      "discover_call_count": 0,
+      "describe_call_count": 0,
+      "first_top5": [],
+      "described_models": [],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "您希望整理哪一种“产品”业务信息？\n\n例如：\n\n*产品基本资料*：产品名称、内部参考号、条码、产品类型、销售价、成本价、启用状态\n*产品分类资料*：产品及其所属分类\n*产品库存资料*：库存数量、可用数量、仓库/库位\n*产品销售资料*：销售订单中的产品、客户、数量、金额、日期\n*产品采购资料*：采购订单中的产品、供应商、数量、金额、日期\n*产品明细/变体资料*：产品模板、规格属性、具体变体\n*其他*：请说明希望整理的业务信息和字段\n\n请告诉我您要哪一种（可多选），以及是否需要包含相关明细或关联信息。",
+      "elapsed_seconds": 3.536,
+      "clarification_status": "PASS",
+      "business_ambiguity_status": "PASS"
+    },
+    {
+      "test_id": "BA04",
+      "case_id": "BA04",
+      "kind": "business_ambiguity",
+      "thread_id": 1379,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 0,
+      "first_top5": [
+        "world.depot.waybill",
+        "world.depot.outbound.order",
+        "world.depot.outbound.order.product",
+        "world.depot.outbound.order.sn.detail",
+        "world.depot.waybill.container"
+      ],
+      "described_models": [],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only discovery found several plausible shipment-related business objects:\n\n*Waybill* ( world.depot.waybill )\n*Outbound Order* ( world.depot.outbound.order )\n*Outbound Order Product* ( world.depot.outbound.order.product )\n*Outbound Order Serial-Number Detail* ( world.depot.outbound.order.sn.detail )\n*Waybill Container* ( world.depot.waybill.container )\n\n“Shipment history” could therefore mean different things—for example, waybill/shipping-document history, outbound-order history, or item/container movement history.\n\nWhich business event do you mean: *waybills, outbound orders, containers, or product/serial-number movements*?",
+      "elapsed_seconds": 18.627,
+      "clarification_status": "PASS",
+      "business_ambiguity_status": "PASS"
+    },
+    {
+      "test_id": "N01",
+      "case_id": "N01",
+      "kind": "negative",
+      "thread_id": 1380,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 2,
+      "describe_call_count": 0,
+      "first_top5": [],
+      "described_models": [],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成架构识别（未读取业务记录，也未创建或修改工作簿）。\n\n业务对象：未发现与“明天下午本地降雨概率”匹配的已注册 Odoo 数据对象\n相关字段/关系定义：无可用结果\n业务记录读取：未执行\nExcel 操作：未执行\n\n因此，当前 Odoo 数据模型中没有可供识别的相关天气或降雨概率对象。",
+      "elapsed_seconds": 20.697,
+      "no_match_statement": true,
+      "negative_status": "PASS"
+    },
+    {
+      "test_id": "N02",
+      "case_id": "N02",
+      "kind": "negative",
+      "thread_id": 1381,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 0,
+      "first_top5": [],
+      "described_models": [],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only discovery completed. No registered Odoo business object relevant to “recent cinema recommendations” was found.\n\nNo business records were read, and no workbook was created or modified.",
+      "elapsed_seconds": 11.339,
+      "no_match_statement": true,
+      "negative_status": "PASS"
+    },
+    {
+      "test_id": "N03",
+      "case_id": "N03",
+      "kind": "negative",
+      "thread_id": 1382,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 0,
+      "first_top5": [],
+      "described_models": [],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成架构发现（仅检查模型元数据，未读取业务记录，也未创建或修改工作簿）。\n\n结果：系统中未发现与“家用烤箱食谱目录”相匹配的业务对象或相关数据类型，因此无法继续确认字段和关系定义。",
+      "elapsed_seconds": 12.671,
+      "no_match_statement": true,
+      "negative_status": "PASS"
+    },
+    {
+      "test_id": "N04",
+      "case_id": "N04",
+      "kind": "negative",
+      "thread_id": 1383,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 0,
+      "first_top5": [],
+      "described_models": [],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "No relevant registered Odoo record type was found for “live arrival predictions for municipal buses.”\n\nNo business records were searched, and no workbook was created or modified.",
+      "elapsed_seconds": 14.153,
+      "no_match_statement": true,
+      "negative_status": "PASS"
+    },
+    {
+      "test_id": "N05",
+      "case_id": "N05",
+      "kind": "negative",
+      "thread_id": 1384,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 2,
+      "describe_call_count": 0,
+      "first_top5": [],
+      "described_models": [],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "未找到与“宠物疫苗接种档案”匹配的已注册 Odoo 模型。\n\n本次仅执行了模型发现，没有读取任何业务记录，也没有创建或修改工作簿。",
+      "elapsed_seconds": 15.942,
+      "no_match_statement": true,
+      "negative_status": "PASS"
+    },
+    {
+      "test_id": "N06",
+      "case_id": "N06",
+      "kind": "negative",
+      "thread_id": 1385,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 0,
+      "first_top5": [],
+      "described_models": [],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only discovery completed. No registered Odoo business object matching “personal home-cooking recipes” was found.\n\nNo business records were read, and no workbook was created or modified.",
+      "elapsed_seconds": 8.891,
+      "no_match_statement": true,
+      "negative_status": "PASS"
+    },
+    {
+      "test_id": "P01-R2",
+      "case_id": "P01",
+      "kind": "clear",
+      "thread_id": 1386,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "res.partner",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "res.partner"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅架构层面的识别与描述*，未读取任何业务记录，也未创建或修改工作簿。\n\n**统一业务对象**\n客户、供应商和联系人档案均对应同一个 Odoo 数据对象：\n\n*技术模型*： res.partner\n*对象描述*：Contact（联系人/合作伙伴）\n*显示名称字段*： name\n\nOdoo 通常通过同一对象上的角色与层级字段区分客户、供应商、公司和联系人，而不是分别使用独立的客户模型、供应商模型和联系人模型。\n\n**角色识别字段**\n| 业务含义 | 字段 | 类型 | 说明 |\n|---|---|---|---|\n| 客户识别/客户等级 | customer_rank | integer | 客户等级或历史客户标记 |\n| 供应商识别/供应商等级 | supplier_rank | integer | 供应商等级或历史供应商标记 |\n| 公司/个人类型 | company_type | selection | company ：公司； person ：个人 |\n| 是否公司 | is_company | boolean | 是否为公司实体 |\n| 档案状态 | active | boolean | 是否启用 |\n| 地址/联系人类型 | type | selection | Contact、Invoice Address、Delivery Address、Other Address |\n| 上级公司 | parent_id | many2one → res.partner | 联系人所属公司 |\n| 下属联系人/地址 | child_ids | one2many → res.partner | 当前公司下的联系人或地址 |\n\n**主要档案字段**\n| 业务类别 | 字段 |\n|---|---|\n| 基本信息 | name , complete_name , company_name , short_name , ref , title , function |\n| 联系方式 | email , phone , mobile , website |\n| 地址 | street , street2 , city , state_id , zip , country_id , country_code |\n| 企业信息 | company_registry , vat , industry_id , company_id |\n| 语言与区域 | lang , tz |\n| 销售归属 | user_id |\n| 客户财务属性 | credit , credit_limit , property_account_receivable_id , property_payment_term_id |\n| 供应商财务属性 | debit , debit_limit , property_account_payable_id , property_supplier_payment_term_id |\n| 分类标签 | category_id （many2many → res.partner.category ） |\n| 备注 | comment , additional_info |\n\n**主要关系字段**\n| 关系字段 | 类型 | 关联对象 | 业务含义 |\n|---|---|---|---|\n| parent_id | many2one | res.partner | 所属公司 |\n| child_ids | one2many | res.partner | 下属联系人/地址 |\n| category_id | many2many | res.partner.category | 合作伙伴标签 |\n| bank_ids | one2many | res.partner.bank | 银行账户 |\n| invoice_ids | one2many | account.move | 发票/账单 |\n| sale_order_ids | one2many | sale.order | 销售订单 |\n| project_ids | one2many | project.project | 关联项目 |\n| user_id | many2one | res.users | 销售负责人 |\n| country_id | many2one | res.country | 国家/地区 |\n| state_id | many2one | res.country.state | 州/省 |\n| industry_id | many2one | res.partner.industry | 行业 |\n\n本次识别的核心模型为 * res.partner *；客户、供应商和联系人之间的具体筛选应基于 customer_rank 、 supplier_rank 、 company_type 、 is_company 、 parent_id 和 type 等字段组合确定。",
+      "elapsed_seconds": 22.987,
+      "target_model": "res.partner",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "P01-R3",
+      "case_id": "P01",
+      "kind": "clear",
+      "thread_id": 1387,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "res.partner",
+        "res.users",
+        "_unknown",
+        "account.account",
+        "account.account.tag"
+      ],
+      "described_models": [
+        "res.partner"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*架构识别与字段描述*，未读取任何业务记录，也未创建或修改工作簿。\n\n**核心数据对象**\n| 业务含义 | Odoo 模型 | 说明 |\n|---|---|---|\n| 客户 | res.partner | 客户档案通过 customer_rank 等字段标识 |\n| 供应商 | res.partner | 供应商档案通过 supplier_rank 等字段标识 |\n| 联系人 | res.partner | 联系人也是同一模型中的合作伙伴记录，通常通过 type 、 parent_id 、 child_ids 表示层级和地址关系 |\n\nOdoo 将客户、供应商、公司、个人联系人和地址统一存储在 res.partner 中，并不是三个独立的主数据模型。\n\n**关键字段**\n*1. 档案身份与类型*\n\nname ：名称\ncomplete_name ：完整名称\ndisplay_name ：显示名称\ncompany_type ：公司或个人\nis_company ：是否公司\ntype ：地址/联系人类型\ncontact ：联系人\ninvoice ：发票地址\ndelivery ：送货地址\nother ：其他地址\nactive ：是否启用\nref ：内部参考\ncompany_id ：所属公司\n\n*2. 客户与供应商角色*\n\ncustomer_rank ：客户等级/使用次数指标；通常大于 0 表示客户角色\nsupplier_rank ：供应商等级/使用次数指标；通常大于 0 表示供应商角色\nsale_order_ids ：销售订单关系\nsale_order_count ：销售订单数量\ninvoice_ids ：发票关系\nsupplier_invoice_count ：供应商账单数量\nproperty_payment_term_id ：客户付款条款\nproperty_supplier_payment_term_id ：供应商付款条款\nproperty_product_pricelist ：客户价格表\nproperty_account_receivable_id ：应收账款科目\nproperty_account_payable_id ：应付账款科目\n\n*3. 联系人与公司层级*\n\nparent_id ：所属公司/上级合作伙伴\nchild_ids ：下属联系人、地址或子档案\nparent_name ：上级名称\ncommercial_partner_id ：商业实体\ncommercial_company_name ：商业实体名称\ncompany_name ：公司名称\nfunction ：职位\ntitle ：称谓\n\n其中， child_ids 是 res.partner 对自身的 one-to-many 关系，反向字段为 parent_id 。\n\n*4. 联系方式*\n\nemail ：电子邮件\nphone ：电话\nmobile ：手机\nwebsite ：网站\nlang ：语言\ntz ：时区\n\n*5. 地址信息*\n\nstreet ：街道\nstreet2 ：地址第二行\ncity ：城市\nstate_id ：州/省\nzip ：邮编\ncountry_id ：国家\ncountry_code ：国家代码\ncontact_address ：完整地址\n\n*6. 企业与税务信息*\n\nvat ：税号\nvat_label ：税号标签\ncompany_registry ：公司注册号\ncompany_registry_label ：公司注册号标签\nindustry_id ：行业\niso20022_lei ：LEI\neu_eori_no ：EORI 编号\nvies_valid ：VIES 验证状态\n\n*7. 标签和相关关系*\n\ncategory_id ：标签，多对多关系，关联模型 res.partner.category\nbank_ids ：银行账户，一对多关系，关联模型 res.partner.bank ，反向字段 partner_id\nuser_id ：销售人员，关联模型 res.users\ncompany_id ：公司，关联模型 res.company\ncountry_id ：国家，关联模型 res.country\nstate_id ：州/省，关联模型 res.country.state\nindustry_id ：行业，关联模型 res.partner.industry\n\n**关系摘要**\ntext\nres.partner\n├── child_ids → res.partner\n│  └── inverse: parent_id\n├── category_id → res.partner.category\n├── bank_ids → res.partner.bank\n│  └── inverse: partner_id\n├── sale_order_ids → sale.order\n│  └── inverse: partner_id\n├── invoice_ids → account.move\n│  └── inverse: partner_id\n├── user_id → res.users\n├── company_id → res.company\n├── country_id → res.country\n├── state_id → res.country.state\n└── industry_id → res.partner.industry\n\n*状态：PARTIALLY_VERIFIED*——已验证模型注册信息、字段类型、字段标签及关系定义；未验证任何业务记录内容、记录数量或字段实际取值。",
+      "elapsed_seconds": 28.608,
+      "target_model": "res.partner",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "T01-R2",
+      "case_id": "T01",
+      "kind": "clear",
+      "thread_id": 1388,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 4,
+      "first_top5": [
+        "product.template",
+        "product.attribute",
+        "product.attribute.value",
+        "product.category",
+        "product.product"
+      ],
+      "described_models": [
+        "product.template",
+        "product.product",
+        "product.attribute",
+        "product.attribute.value"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*结构识别与字段关系定义查看*，未读取业务记录，也未创建或修改任何工作簿。\n\n**主要业务对象**\n*1. product.template — 商品模板 / 商品基础资料*\n用于维护商品的共性基础资料，并作为不同可售规格（变体）的归组对象。\n\n相关字段示例：\n\nname ：商品名称\ndefault_code ：内部参考\nbarcode ：条码\ncateg_id ：商品类别\ntype ：商品类型\nsale_ok ：是否可销售\npurchase_ok ：是否可采购\nlist_price ：销售价格\nuom_id ：销售单位\nuom_po_id ：采购单位\nactive ：是否启用\nattribute_line_ids ：商品属性行\nproduct_variant_ids ：所属商品变体集合\nproduct_variant_count ：变体数量\nhas_configurable_attributes ：是否为可配置商品\n\n*2. product.product — 商品变体 / 可售规格*\n表示商品模板下具体的可售规格组合。\n\n关键关系：\n\nproduct_tmpl_id → product.template\n每个商品变体归属于一个商品模板。\nproduct_template_attribute_value_ids → product.template.attribute.value\n表示该变体采用的具体属性值组合。\nproduct_template_variant_value_ids → product.template.attribute.value\n\n相关字段示例：\n\nname ：变体名称\ndefault_code ：内部参考\nbarcode ：条码\nproduct_tmpl_id ：所属商品模板\nproduct_template_attribute_value_ids ：变体属性值\ncombination_indices ：组合索引\nprice_extra ：变体附加价格\nactive ：是否启用\nsale_ok ：是否可销售\n\n**属性定义对象**\n*3. product.attribute — 商品属性*\n用于定义规格维度，例如颜色、尺寸、容量等。\n\n关键字段：\n\nname ：属性名称\nvalue_ids → product.attribute.value ：该属性可用的属性值\nattribute_line_ids → product.template.attribute.line ：商品模板中的属性行\nproduct_tmpl_ids → product.template ：使用该属性的商品\ncreate_variant ：变体创建方式\ndisplay_type ：属性展示方式\n\n*4. product.attribute.value — 属性值*\n用于定义属性下的具体取值，例如红色、蓝色、S、M、L。\n\n关键字段：\n\nname ：属性值\nattribute_id → product.attribute ：所属属性\npav_attribute_line_ids → product.template.attribute.line ：关联的商品属性行\ndefault_extra_price ：默认附加价格\nactive ：是否启用\n\n**关系总结**\ntext\nproduct.template\n├── attribute_line_ids\n│    └── product.template.attribute.line\n│        ├── attribute_id → product.attribute\n│        └── value_ids → product.attribute.value\n│\n└── product_variant_ids\n└── product.product\n├── product_tmpl_id → product.template\n└── product_template_attribute_value_ids\n→ product.template.attribute.value\n\n因此，最符合“维护商品基础资料并归组不同可售规格”的核心对象是：\n\n*归组与基础资料： product.template *\n*具体可售规格： product.product *\n*规格维度： product.attribute *\n*规格取值： product.attribute.value *\n\n本次仅完成 schema discovery/describe，状态为*PARTIALLY_VERIFIED（部分验证）*：已验证注册模型、字段和关系定义；未验证任何业务记录内容，也未生成 Excel。",
+      "elapsed_seconds": 19.866,
+      "target_model": "product.template",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "T01-R3",
+      "case_id": "T01",
+      "kind": "clear",
+      "thread_id": 1389,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 3,
+      "first_top5": [
+        "product.template",
+        "product.attribute",
+        "product.attribute.value",
+        "product.category",
+        "product.product"
+      ],
+      "described_models": [
+        "product.template",
+        "product.product",
+        "product.attribute"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅结构层面的识别*，未读取业务记录，也未创建或修改任何工作簿。\n\n*主要业务对象*\n| 业务含义 | Odoo 模型 | 关键结构 |\n|---|---|---|\n| 商品基础资料及商品归组 | product.template （Product） | 商品模板/基础商品对象 |\n| 不同可售规格 | product.product （Product Variant） | 商品模板下的具体可售变体 |\n| 规格维度 | product.attribute （Product Attribute） | 如颜色、尺寸等属性 |\n| 规格值 | product.attribute.value （Attribute Value） | 属性对应的具体值 |\n\n*关键关系定义*\n\nproduct.template.product_variant_ids\n\none2many → product.product\n商品模板包含的可售规格/变体\n反向字段： product.product.product_tmpl_id\nproduct.product.product_tmpl_id\n\nmany2one → product.template\n将具体可售变体归属于商品模板\nproduct.product.product_template_attribute_value_ids\n\nmany2many → product.template.attribute.value\n变体所采用的规格值组合\nproduct.template.attribute_line_ids\n\none2many → product.template.attribute.line\n商品模板配置的规格属性行\nproduct.attribute.attribute_line_ids\n\none2many → product.template.attribute.line\n属性被哪些商品模板使用\nproduct.attribute.value_ids\n\none2many → product.attribute.value\n属性包含的规格值\n\n*结论*\n本业务请求最核心的数据对象是：\n\n*基础商品/归组对象：* product.template\n*具体可售规格对象：* product.product\n*规格定义对象：* product.attribute\n*规格值对象：* product.attribute.value\n\n本次仅完成模型发现与字段/关系描述，未执行业务数据搜索。",
+      "elapsed_seconds": 16.314,
+      "target_model": "product.template",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SO01-R2",
+      "case_id": "SO01",
+      "kind": "clear",
+      "thread_id": 1390,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "world.depot.outbound.order",
+        "sale.order",
+        "world.depot.inbound.order",
+        "_unknown",
+        "account.account"
+      ],
+      "described_models": [
+        "sale.order"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成架构识别，未读取业务记录，也未创建或修改工作簿。\n\n**识别结果**\n\n*业务对象*：销售订单\n*技术模型*： sale.order\n*对象描述*：Sales Order\n*记录名称字段*： name （Order Reference）\n\n该对象承载客户购买业务中的整张交易单据，包含订单抬头、客户、金额、状态及订单明细等信息。\n\n**主要字段**\n*单据基本信息*\n\nname — Order Reference\nstate — Status\ndate_order — Order Date\nvalidity_date — Expiration\nclient_order_ref — Customer Reference\norigin — Source Document\ncommitment_date — Delivery Date\neffective_date — Effective Date\n\n*客户与组织*\n\npartner_id — Customer\npartner_invoice_id — Invoice Address\npartner_shipping_id — Delivery Address\ncompany_id — Company\nwarehouse_id — Warehouse\nteam_id — Sales Team\nuser_id — Salesperson\n\n*金额与结算*\n\namount_untaxed — Untaxed Amount\namount_tax — Taxes\namount_total — Total\namount_invoiced — Already invoiced\namount_to_invoice — Un-invoiced Balance\ncurrency_id — Currency\npayment_term_id — Payment Terms\npricelist_id — Pricelist\ninvoice_status — Invoice Status\n\n*交易关系*\n\norder_line — Order Lines， one2many ，关联模型 sale.order.line\ninvoice_ids — Invoices， many2many ，关联模型 account.move\npicking_ids — Transfers， one2many ，关联模型 stock.picking\ntransaction_ids — Transactions， many2many ，关联模型 payment.transaction\n\n*其他常用字段*\n\nnote — Terms and conditions\ncarrier_id — Delivery Method\npicking_policy — Shipping Policy\nrequire_payment — Online payment\nrequire_signature — Online signature\nsigned_by — Signed By\nsigned_on — Signed On\ncreate_date — Creation Date\nwrite_date — Last Updated on\n\n本次仅完成模型与字段定义识别，未进行任何业务数据查询。",
+      "elapsed_seconds": 15.667,
+      "target_model": "sale.order",
+      "retriever_top5_rank": 2,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SO01-R3",
+      "case_id": "SO01",
+      "kind": "clear",
+      "thread_id": 1391,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "sale.order",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "sale.order"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅限架构层面的识别*，未读取业务记录，也未创建或修改任何工作簿。\n\n**识别结果**\n\n*业务对象*：销售订单（整张销售交易单据/订单主表）\n*技术模型*： sale.order\n*显示字段*： name\n*模型描述*：Sales Order\n\n**主要字段**\n| 技术字段 | 类型 | 标签 | 关系 |\n|---|---|---|---|\n| name | char | Order Reference | — |\n| state | selection | Status | — |\n| date_order | datetime | Order Date | — |\n| validity_date | date | Expiration | — |\n| partner_id | many2one | Customer | res.partner |\n| partner_invoice_id | many2one | Invoice Address | res.partner |\n| partner_shipping_id | many2one | Delivery Address | res.partner |\n| user_id | many2one | Salesperson | res.users |\n| team_id | many2one | Sales Team | crm.team |\n| company_id | many2one | Company | res.company |\n| currency_id | many2one | Currency | res.currency |\n| pricelist_id | many2one | Pricelist | product.pricelist |\n| payment_term_id | many2one | Payment Terms | account.payment.term |\n| warehouse_id | many2one | Warehouse | stock.warehouse |\n| client_order_ref | char | Customer Reference | — |\n| origin | char | Source Document | — |\n| commitment_date | datetime | Delivery Date | — |\n| picking_policy | selection | Shipping Policy | — |\n| invoice_status | selection | Invoice Status | — |\n| amount_untaxed | monetary | Untaxed Amount | — |\n| amount_tax | monetary | Taxes | — |\n| amount_total | monetary | Total | — |\n| note | html | Terms and conditions | — |\n| create_date | datetime | Creation Date | — |\n| write_date | datetime | Last Updated on | — |\n\n**主要关系与明细集合**\n| 字段 | 类型 | 关系模型 | 说明 |\n|---|---|---|---|\n| order_line | one2many | sale.order.line | 订单明细 |\n| picking_ids | one2many | stock.picking | 转移/交货单 |\n| invoice_ids | many2many | account.move | 发票 |\n| sale_order_option_ids | one2many | sale.order.option | 可选产品明细 |\n| tag_ids | many2many | crm.tag | 销售标签 |\n| transaction_ids | many2many | payment.transaction | 支付交易 |\n| project_ids | many2many | project.project | 关联项目 |\n| tasks_ids | many2many | project.task | 关联任务 |\n| activity_ids | one2many | mail.activity | 活动 |\n| message_ids | one2many | mail.message | 消息 |\n\n本次结果为*架构识别与字段定义*，不包含任何销售订单业务数据。",
+      "elapsed_seconds": 19.172,
+      "target_model": "sale.order",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SP01-R2",
+      "case_id": "SP01",
+      "kind": "clear",
+      "thread_id": 1392,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "stock.picking",
+        "_unknown",
+        "account.account",
+        "account.account.tag",
+        "account.accrued.orders.wizard"
+      ],
+      "described_models": [
+        "stock.picking"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅限模式识别的准备*，未读取业务记录，也未创建或修改任何工作簿。\n\n**识别结果**\n\n**业务对象：**库存操作单据 / Transfer\n*技术模型：* stock.picking\n*记录名称字段：* name （Reference）\n**覆盖业务场景：**收货、发货和内部调拨，具体类型可通过：\npicking_type_id ：操作类型\npicking_type_code ：操作类型代码\nlocation_id ：源位置\nlocation_dest_id ：目标位置\n\n**相关字段定义**\n*单据核心字段*\n| 技术字段 | 标签 | 类型 |\n|---|---|---|\n| name | Reference | 字符 |\n| state | Status | 选择 |\n| picking_type_id | Operation Type | 关联 stock.picking.type |\n| picking_type_code | Type of Operation | 选择 |\n| scheduled_date | Scheduled Date | 日期时间 |\n| date_done | Date of Transfer | 日期时间 |\n| origin | Source Document | 字符 |\n| partner_id | Contact | 关联 res.partner |\n| company_id | Company | 关联 res.company |\n| user_id | Responsible | 关联 res.users |\n| location_id | Source Location | 关联 stock.location |\n| location_dest_id | Destination Location | 关联 stock.location |\n| move_type | Shipping Policy | 选择 |\n| priority | Priority | 选择 |\n| note | Notes | HTML |\n\n*主要业务关系*\n| 字段 | 关系 | 相关模型 |\n|---|---|---|\n| move_ids | 一对多 | stock.move ，库存移动 |\n| move_line_ids | 一对多 | stock.move.line ，详细操作 |\n| move_ids_without_package | 一对多 | stock.move |\n| move_line_ids_without_package | 一对多 | stock.move.line |\n| package_level_ids | 一对多 | stock.package_level |\n| quality_alert_ids | 一对多 | quality.alert |\n| check_ids | 一对多 | quality.check |\n| backorder_ids | 一对多 | stock.picking ，后续单据 |\n| return_ids | 一对多 | stock.picking ，退货单据 |\n\n*其他已发现关联*\n\nsale_id → sale.order\nbatch_id → stock.picking.batch\ngroup_id → procurement.group\ncarrier_id → delivery.carrier\nowner_id → res.partner\nreturn_id → stock.picking\nbackorder_id → stock.picking\ntransfer_order_id → world.depot.transfer.order\ninbound_order_id → world.depot.inbound.order\noutbound_order_id → world.depot.outbound.order\n\n本次结果为*模式定义级别*；未验证任何实际记录、记录数量或字段值。",
+      "elapsed_seconds": 18.104,
+      "target_model": "stock.picking",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "SP01-R3",
+      "case_id": "SP01",
+      "kind": "clear",
+      "thread_id": 1393,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 4,
+      "first_top5": [
+        "stock.picking",
+        "world.depot.inbound.order",
+        "world.depot.outbound.order",
+        "world.depot.transfer.order",
+        "_unknown"
+      ],
+      "described_models": [
+        "stock.picking",
+        "world.depot.inbound.order",
+        "world.depot.outbound.order",
+        "world.depot.transfer.order"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅限架构的识别*，未读取业务记录，也未创建或修改工作簿。\n\n**最匹配的业务对象**\n*1. 统一操作单据对象： stock.picking *\n\nOdoo 描述：*Transfer*\n适用于仓库的：\n收货\n发货\n内部调拨\n操作类型由字段 picking_type_code 表示。\n主要单据标识字段： name （Reference）\n关键关系：\nmove_ids → stock.move ：库存移动\nmove_line_ids → stock.move.line ：详细操作行\ninbound_order_id → world.depot.inbound.order\noutbound_order_id → world.depot.outbound.order\ntransfer_order_id → world.depot.transfer.order\n\n**相关业务扩展对象**\n系统还注册了按业务类型划分的单据对象：\n\n| 业务含义 | 技术模型 | 关键标识 | 主要明细关系 |\n|---|---|---|---|\n| 收货单 | world.depot.inbound.order | billno | inbound_order_product_ids 、 actual_pallet_lines 、 inbound_order_doc_ids |\n| 发货单 | world.depot.outbound.order | billno | outbound_order_product_ids 、 outbound_order_pack_ids 、 outbound_order_docs_ids |\n| 内部调拨单 | world.depot.transfer.order | billno | line_ids 、 doc_ids 、 charge_ids |\n\n**结论**\n如果“整张操作单据”指的是仓库作业系统中统一的收货、发货和内部调拨单据对象，应选择：\n\n* stock.picking *\n\n它是统一的仓库操作单据模型，并通过 picking_type_code 区分操作类型；系统中的收货单、发货单和内部调拨业务单据则分别通过相关关系字段与其关联。\n\n本次结果为*架构识别完成*；未进行业务数据搜索。",
+      "elapsed_seconds": 17.457,
+      "target_model": "stock.picking",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "OUT01-R2",
+      "case_id": "OUT01",
+      "kind": "clear",
+      "thread_id": 1394,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 2,
+      "first_top5": [
+        "stock.picking",
+        "world.depot.outbound.order",
+        "_unknown",
+        "account.account",
+        "account.account.tag"
+      ],
+      "described_models": [
+        "stock.picking",
+        "world.depot.outbound.order"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅 schema 的识别与字段查看*，未读取任何业务记录，也未创建或修改工作簿。\n\n**识别结果**\n业务请求“仓库向外发货时使用的出库业务单据”对应两个相关数据对象：\n\n*1. 出库业务单据主对象： world.depot.outbound.order *\n\n描述：Outbound Order\n显示名称字段： billno\n出库订单状态：\nstate ：New / Confirm / Cancel\nstatus ：Planning / Picking / Outbound\n订单类型： type ，包含 Outbound、Service、Transfer\n典型业务字段：\nbillno ：单据号\ndate ：订单日期\no_date ：出库日期\np_date ：计划日期\nwarehouse ：仓库\nowner ：货主\nconsignee_id ：收货人\ndelivery_partner_id ：送货地址\ndelivery_method ：交付方式\ndelivery_number ：送货编号\nreference ：参考号\nremark 、 remark1 ：备注\nload_date ：装货/交付日期\neta ：预计到达日期\nplate_number ：车牌号\ntransport_cost ：运输成本\nmanual_amount_total ：手工总金额\n\n主要子集合关系：\n\noutbound_order_product_ids → world.depot.outbound.order.product ：出库产品\noutbound_order_pack_ids → world.depot.outbound.order.pack.info ：包装信息\noutbound_order_product_serial_numbers → world.depot.outbound.order.product.serial.number ：产品序列号\noutbound_order_charge_ids → world.depot.outbound.order.charge ：出库费用\noutbound_order_docs_ids → world.depot.outbound.order.docs ：其他单据\npayable_lines → world.depot.outbound.order.payable ：应付款项\noutgoing_picking_lines → stock.picking ：对应出库拣货/调拨单据\n\n*2. 仓库执行层面的出库单据： stock.picking *\n\n描述：Transfer\n显示名称字段： name\n操作类型字段： picking_type_code\n状态字段： state ，包含 Draft、Waiting、Ready、Done、Cancelled\n典型业务字段：\nname ：参考号\nscheduled_date ：计划日期\ndate_done ：调拨完成日期\npartner_id ：联系人\nlocation_id ：源位置\nlocation_dest_id ：目标位置\npicking_type_id ：操作类型\norigin ：来源单据\nsale_id ：销售订单\noutbound_order_id ：关联出库业务单\nmove_ids ：库存移动\nmove_line_ids ：库存操作明细\ncarrier_id ：承运商\ncarrier_tracking_ref ：物流跟踪号\nshipping_weight ：运输重量\nshipping_volume ：运输体积\n\n**结论**\n如果关注的是*仓库向外发货的业务单据主档*，应优先使用：\n\ntext\nworld.depot.outbound.order\n\n如果关注的是该业务单据实际生成或关联的*仓库出库执行单/调拨单*，则使用：\n\ntext\nstock.picking\n\n本次仅完成对象发现和字段定义查看；没有执行 search ，因此没有读取业务记录。",
+      "elapsed_seconds": 19.7,
+      "target_model": "world.depot.outbound.order",
+      "retriever_top5_rank": 2,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "OUT01-R3",
+      "case_id": "OUT01",
+      "kind": "clear",
+      "thread_id": 1395,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 1,
+      "first_top5": [
+        "world.depot.outbound.order",
+        "world.depot.outbound.order.product",
+        "world.depot.outbound.order.product.serial.number",
+        "world.depot.outbound.order.sn.detail",
+        "_unknown"
+      ],
+      "described_models": [
+        "world.depot.outbound.order"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成 schema-only 准备，未读取业务记录，也未创建或修改任何工作簿。\n\n*识别出的主要业务对象*\n\n*模型：* world.depot.outbound.order\n*对象描述：* Outbound Order（出库单/出库业务单据）\n*记录名称字段：* billno （BillNo）\n\n*关键字段*\n\nbillno ：单据编号\ndate ：订单日期\no_date ：出库日期\np_date ：计划日期\nstatus ：业务状态（Planning、Picking、Outbound）\nstate ：单据状态（New、Confirm、Cancel）\ntype ：订单类型（Outbound、Service、Transfer）\nwarehouse ：仓库，关联 stock.warehouse\nowner ：货主，关联 res.partner\nconsignee_id ：收货人，关联 res.partner\ndelivery_partner_id ：送货地址，关联 res.partner\ndelivery_company ：配送公司，关联 res.partner\nunload_company ：卸货公司/收货方，关联 res.partner\ndelivery_method ：配送方式（卡车配送、客户自提、快递配送）\ndelivery_number ：配送单号\nload_ref ：装载/提货/快递参考号\neta ：预计到达日期\nload_date ：装载/配送日期\nactual_outbound_datetime ：实际出库时间\nreference ：参考信息\nvsourcebillcode ：来源单据编码\nremark ：备注\n\n*主要关系*\n\noutbound_order_product_ids ：出库产品明细\n关联模型： world.depot.outbound.order.product\n反向字段： outbound_order_id\noutgoing_picking_lines ：出库拣货单\n关联模型： stock.picking\n反向字段： outbound_order_id\npicking_Out ：出库拣货单，关联 stock.picking\npicking_PICK ：拣货单，关联 stock.picking\noutbound_order_pack_ids ：包装信息\noutbound_order_product_serial_numbers ：产品序列号\noutbound_order_charge_ids ：出库费用\noutbound_order_docs_ids ：其他单据\npayable_lines ：应付明细\n\n本轮未对上述子模型进行业务记录读取或工作簿操作。",
+      "elapsed_seconds": 17.768,
+      "target_model": "world.depot.outbound.order",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS"
+    },
+    {
+      "test_id": "BA01-R2",
+      "case_id": "BA01",
+      "kind": "business_ambiguity",
+      "thread_id": 1396,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 2,
+      "describe_call_count": 0,
+      "first_top5": [
+        "sale.order",
+        "sale.order.line",
+        "world.depot.inbound.order",
+        "world.depot.outbound.order",
+        "world.depot.transfer.order"
+      ],
+      "described_models": [],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅限架构定义的发现*，未读取任何业务记录，也未创建或修改工作簿。\n\n发现的主要“订单”业务方向包括：\n\n*销售订单* — sale.order\n相关明细： sale.order.line\n*采购订单* — 当前发现结果中未显示明确的采购订单模型，需进一步核对注册模型定义\n*仓储入库单* — world.depot.inbound.order\n*仓储出库单* — world.depot.outbound.order\n*仓储调拨单* — world.depot.transfer.order\n*会计单据/发票类记录* — account.move\n但其业务范围可能包含发票、账单及其他会计分录，不能直接等同于订单\n\n请确认您要导出哪一类：\n\n销售订单\n采购订单\n仓储入库单\n仓储出库单\n仓储调拨单\n会计发票/账单\n其他（请说明）\n\n确认后我会继续查看对应对象的字段和关系定义；在您确认前不会读取业务记录。",
+      "elapsed_seconds": 21.883,
+      "clarification_status": "PASS",
+      "business_ambiguity_status": "PASS"
+    },
+    {
+      "test_id": "BA01-R3",
+      "case_id": "BA01",
+      "kind": "business_ambiguity",
+      "thread_id": 1397,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 0,
+      "first_top5": [
+        "sale.order",
+        "wd.vas.order",
+        "world.depot.inbound.order",
+        "world.depot.outbound.order",
+        "world.depot.transfer.order"
+      ],
+      "described_models": [],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "已完成*仅模式发现*，未读取任何业务记录，也未创建或修改工作簿。\n\n“订单资料”可能对应多个业务方向，例如：\n\n*销售订单*（Sales Order，模型 sale.order ）\n*仓储增值订单*（Warehouse Value Add Order，模型 wd.vas.order ）\n*入库订单*（Inbound Order，模型 world.depot.inbound.order ）\n*出库订单*（Outbound Order，模型 world.depot.outbound.order ）\n*调拨订单*（Transfer Order，模型 world.depot.transfer.order ）\n\n请确认您要导出哪一类订单；确认后我再继续读取该对象的字段和关系定义。",
+      "elapsed_seconds": 13.653,
+      "clarification_status": "PASS",
+      "business_ambiguity_status": "PASS"
+    },
+    {
+      "test_id": "P04",
+      "case_id": "P04",
+      "kind": "clear",
+      "thread_id": 1398,
+      "generation_status": "returned",
+      "provider": "OpenAI GPT-5.6 Luna",
+      "chat_model": "gpt-5.6-luna",
+      "tool_ids_before": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "tool_ids_after": [
+        {
+          "id": 1,
+          "name": "odoo_record_retriever"
+        },
+        {
+          "id": 7,
+          "name": "office_prepare_context"
+        },
+        {
+          "id": 8,
+          "name": "office_save_mapping_preview"
+        },
+        {
+          "id": 9,
+          "name": "office_restore_proposal_revision"
+        },
+        {
+          "id": 10,
+          "name": "office_finalize"
+        },
+        {
+          "id": 11,
+          "name": "office"
+        }
+      ],
+      "discover_call_count": 1,
+      "describe_call_count": 2,
+      "first_top5": [
+        "res.partner",
+        "res.company",
+        "res.users",
+        "_unknown",
+        "account.account"
+      ],
+      "described_models": [
+        "res.partner",
+        "res.company"
+      ],
+      "blocked_search_attempts": [],
+      "blocked_office_attempts": [],
+      "final_answer": "Schema-only preparation completed; no business records were read and no workbook was created or modified.\n\n**Primary business object**\n* res.partner — Contact*\nThis is the main Odoo object representing both organizations and individual people.\n\n*Organization/person distinction*\n- company_type — selection:\n- company — Company\n- person — Individual\n- is_company — Boolean indicating whether the contact is a company.\n- parent_id — Related Company; links a person/contact to an organization.\n- child_ids — Contact; child contacts associated with an organization.\n- company_name — Company Name.\n- commercial_company_name — Company Name Entity.\n- commercial_partner_id — Commercial Entity.\n\n*Core contact details*\n- name — Name\n- email — Email\n- phone — Phone\n- mobile — Mobile\n- website — Website Link\n- function — Job Position\n- title — Title\n\n*Address details*\n- type — Address Type: contact, invoice, delivery, or other\n- street\n- street2\n- city\n- zip\n- state_id — State\n- country_id — Country\n- contact_address — Complete Address\n- contact_address_complete — Contact Address Complete\n- contact_address_inline — Inlined Complete Address\n\n*Organization identifiers*\n- company_registry — Company ID\n- vat — Tax ID\n- iso20022_lei — LEI\n- peppol_endpoint — Peppol Endpoint\n\n*Relevant relationships*\n- parent_id → res.partner — related organization\n- child_ids → res.partner — associated contacts\n- company_id → res.company — Odoo company context\n- country_id → res.country\n- state_id → res.country.state\n\n**Secondary business object**\n* res.company — Companies*\nThis represents Odoo operating companies, not the general contact directory. It also contains organization-level contact information:\n\nname — Company Name\npartner_id → res.partner — associated contact record\nemail\nphone\nwebsite\nstreet\nstreet2\ncity\nzip\nstate_id → res.country.state\ncountry_id → res.country\nvat — Tax ID\ncompany_registry — Company ID\nparent_id → res.company — Parent Company\nchild_ids → res.company — Branches\n\n**Schema conclusion**\nFor an export covering *both organizations and people*, res.partner is the appropriate primary object. Its company_type , is_company , parent_id , and child_ids fields represent the organization/person structure. res.company is relevant when the request specifically concerns configured Odoo operating companies and their company-level settings.",
+      "elapsed_seconds": 17.488,
+      "target_model": "res.partner",
+      "retriever_top5_rank": 1,
+      "retriever_top5_status": "PASS",
+      "agent_describe_selection_status": "PASS",
+      "agent_completion_status": "PASS",
+      "clear_case_status": "PASS",
+      "acceptance_retest": true,
+      "prior_status": "FAIL",
+      "prior_failure": ":cross_mark: *LLM API Error*\nRequest timed out."
+    }
+  ]
+}

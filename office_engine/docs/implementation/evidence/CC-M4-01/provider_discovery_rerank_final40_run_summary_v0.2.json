@@ -1,0 +1,29 @@
+{
+  "run_id": "CC-M4-01 full Registry GPT rerank blind 40 v0.2",
+  "database": "odoo18e_llm",
+  "registry_models": 757,
+  "cases": 40,
+  "unique_case_ids": 40,
+  "provider": "OpenAI GPT-5.6 Luna",
+  "chat_model": "gpt-5.6-luna",
+  "embedding_model": "text-embedding-3-large",
+  "result_batches": [
+    "provider_discovery_rerank_blind40_v0.2.jsonl",
+    "provider_discovery_rerank_retry20_v0.2.jsonl"
+  ],
+  "sdk_audit_batches": [
+    "provider_discovery_rerank_sdk_audit_blind40_v0.2.jsonl",
+    "provider_discovery_rerank_sdk_audit_retry20_v0.2.jsonl"
+  ],
+  "first_batch_transient_failure": {
+    "case_id": "SP01",
+    "error_type": "APITimeoutError",
+    "stage": "OpenAI SDK request connection/TLS handshake",
+    "retry_batch": "provider_discovery_rerank_retry20_v0.2.jsonl",
+    "retry_status": "success"
+  },
+  "business_search_invoked": false,
+  "office_actions_invoked": false,
+  "oracle_loaded_by_runner": false,
+  "cleaned_up": true
+}

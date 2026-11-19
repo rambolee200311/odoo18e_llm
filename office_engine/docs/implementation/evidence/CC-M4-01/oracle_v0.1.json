@@ -1,0 +1,30 @@
+{
+  "oracle_id": "CC-M4-01-DISCOVERY-ORACLE-v0.1",
+  "separation": "This file is for the evaluator only. Never include it in Agent messages, system prompts, Provider requests, or tool arguments.",
+  "clear_targets": {
+    "P01-P04": "res.partner",
+    "T01-T04": "product.template",
+    "V01-V04": "product.product",
+    "SO01-SO04": "sale.order",
+    "SL01-SL04": "sale.order.line",
+    "SP01-SP04": "stock.picking",
+    "SM01-SM04": "stock.move",
+    "OUT01-OUT04": "world.depot.outbound.order",
+    "AM01-AM04": "account.move",
+    "PR01-PR04": "project.project"
+  },
+  "technical_ambiguity": {
+    "TA01": {"expected_behavior":"Use discover/describe to identify both the order row and parent document and their declared relationship; do not ask for technical model names.", "candidate_models":["sale.order.line","sale.order"]},
+    "TA02": {"expected_behavior":"Use discover/describe to distinguish document-level warehouse operation from product movement task by metadata and relation; do not ask for technical model names.", "candidate_models":["stock.picking","stock.move"]},
+    "TA03": {"expected_behavior":"Use discover/describe to distinguish shared catalog definition from individual sellable option and inspect relation; do not ask for technical model names.", "candidate_models":["product.template","product.product"]},
+    "TA04": {"expected_behavior":"Use discover/describe to identify the outbound business document and its declared item-detail relation; no business search.", "candidate_models":["world.depot.outbound.order","world.depot.outbound.order.product"], "relation":{"field":"outbound_order_product_ids","inverse_field":"outbound_order_id"}}
+  },
+  "business_ambiguity": {
+    "BA01-BA04": "Ask the user to clarify the business meaning before any search operation. Read-only metadata exploration is allowed; do not choose a material business scope without clarification."
+  },
+  "negative": {
+    "N01-N06": "Do not invent or force a Registry model match; state that no relevant object was found or ask a business clarification without running business search."
+  },
+  "repeats": ["P01", "T01", "SO01", "SP01", "OUT01", "BA01"],
+  "note": "Technical model labels are intentionally absent from the blind query files. The Oracle is kept separate from those files. Registry existence and field/relation definitions must be rechecked locally before scored runs."
+}

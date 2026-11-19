@@ -1,0 +1,1899 @@
+{
+  "direct_top5_40": {
+    "evidence_file": "provider_discovery_rerank_sdk_audit_final40_snapshot_v0.2.jsonl",
+    "request_count": 40,
+    "response_count": 40,
+    "error_count": 0,
+    "request_response_or_error_ids_reconcile": true,
+    "rerank_count": 40,
+    "ordinary_agent_request_count": 0,
+    "ordinary_agent_tool_name_sets": [],
+    "rerank_calls_isolated_from_thread_history": true,
+    "rerank_detail": [
+      {
+        "request_id": "c3c6047b-56ce-4dfa-8459-d8ed2803b493",
+        "thread_ids_for_local_correlation_only": [
+          1292
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "f21d44c7-a749-4aae-a474-1811bf6c5539",
+        "thread_ids_for_local_correlation_only": [
+          1293
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "bbc0bdfd-3090-4daf-93c9-47c4ba704ef8",
+        "thread_ids_for_local_correlation_only": [
+          1294
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "7e5c20a4-a55e-4771-ae0a-b16464d10a74",
+        "thread_ids_for_local_correlation_only": [
+          1295
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "05e9e58b-08de-4217-85b4-07b780298449",
+        "thread_ids_for_local_correlation_only": [
+          1296
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "2ceeca26-a789-4a74-8aa6-b268784154ce",
+        "thread_ids_for_local_correlation_only": [
+          1297
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "8c1bd1f7-0f5b-47da-82c9-8d7786c065c9",
+        "thread_ids_for_local_correlation_only": [
+          1298
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "946b58b4-74f0-4a54-b2b5-28aec6672389",
+        "thread_ids_for_local_correlation_only": [
+          1299
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "56cc610a-5b74-46c7-91c7-c52843f53d5e",
+        "thread_ids_for_local_correlation_only": [
+          1300
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "8da5016b-a366-4d84-a950-c4c82ff210d1",
+        "thread_ids_for_local_correlation_only": [
+          1301
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "a22ba3e7-60c8-4735-8694-259ca736430f",
+        "thread_ids_for_local_correlation_only": [
+          1302
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "de165bc6-61b7-4a5a-addb-896eb46ee1a7",
+        "thread_ids_for_local_correlation_only": [
+          1303
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "0327c59b-9ed6-41f7-acfd-b29a8bd9f443",
+        "thread_ids_for_local_correlation_only": [
+          1304
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "0fe52071-25da-4a61-9ed9-b8a4dc5f78a2",
+        "thread_ids_for_local_correlation_only": [
+          1305
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "6fb9af85-31c5-4af9-866e-e9fb93ee2f16",
+        "thread_ids_for_local_correlation_only": [
+          1306
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "859bd73b-ffa1-4c76-87fe-c534ac5ddb7a",
+        "thread_ids_for_local_correlation_only": [
+          1307
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "b7287965-cf1b-4f09-a897-8f7be0f5578e",
+        "thread_ids_for_local_correlation_only": [
+          1308
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "25a62245-65eb-4dcb-b813-79ffb6fec43c",
+        "thread_ids_for_local_correlation_only": [
+          1309
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "f7c514d1-dff0-4914-97cd-301fadd66d05",
+        "thread_ids_for_local_correlation_only": [
+          1310
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "8f0d93e1-4d6b-478f-963a-73b1d9de7df1",
+        "thread_ids_for_local_correlation_only": [
+          1311
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "3eca4e00-fadd-439b-b0cd-7e2b7b0632e3",
+        "thread_ids_for_local_correlation_only": [
+          1312
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "fb979e6e-84b8-4f83-86ae-786d7619a629",
+        "thread_ids_for_local_correlation_only": [
+          1313
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "f4ef97f6-bb6c-4a47-b242-8f79e6eb3b0d",
+        "thread_ids_for_local_correlation_only": [
+          1314
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "0601e3b4-9dbc-4e40-898f-55db79dd11f3",
+        "thread_ids_for_local_correlation_only": [
+          1315
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "2154ff6a-c56c-411c-b1a0-a3b543888434",
+        "thread_ids_for_local_correlation_only": [
+          1316
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "20271ee3-f992-47b7-a735-9844f38d964a",
+        "thread_ids_for_local_correlation_only": [
+          1317
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "822125f5-4560-40f7-8de9-0d1c6232bf37",
+        "thread_ids_for_local_correlation_only": [
+          1318
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "9a60776b-0f7a-442c-8710-09f74f35be2d",
+        "thread_ids_for_local_correlation_only": [
+          1319
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "1e543da8-0093-42fe-971e-63383336e2f5",
+        "thread_ids_for_local_correlation_only": [
+          1320
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "19310f80-fee9-44f5-a1de-267d76a82067",
+        "thread_ids_for_local_correlation_only": [
+          1321
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "c98e49ef-ed72-4e07-8ed2-ecc1bb2a5d3c",
+        "thread_ids_for_local_correlation_only": [
+          1322
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "fa320a7d-c601-43cb-832b-a570e6cf7f19",
+        "thread_ids_for_local_correlation_only": [
+          1323
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "c1b7daaf-b52e-4075-b0de-85d36d112940",
+        "thread_ids_for_local_correlation_only": [
+          1324
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "6a56a057-896d-4c26-ac9b-b08b1e07df77",
+        "thread_ids_for_local_correlation_only": [
+          1325
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "87d3778e-1883-4d1c-949a-2961f8cfa45e",
+        "thread_ids_for_local_correlation_only": [
+          1326
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "bdf5a960-5882-4412-9a7a-3abceb5fa334",
+        "thread_ids_for_local_correlation_only": [
+          1327
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "984b3251-9def-43cb-bd4e-56dfb52d7d50",
+        "thread_ids_for_local_correlation_only": [
+          1328
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "eb11dcc0-5e8e-4a18-baa4-d60294932d14",
+        "thread_ids_for_local_correlation_only": [
+          1329
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "d625249b-6180-489a-bda9-432e68076611",
+        "thread_ids_for_local_correlation_only": [
+          1330
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "015a4c2d-4e2c-43d4-9eba-8d75b386863d",
+        "thread_ids_for_local_correlation_only": [
+          1331
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      }
+    ],
+    "errors": []
+  },
+  "agent_blind_baseline_66_threads": {
+    "evidence_file": "provider_agent_calls_final_snapshot_v0.2.jsonl",
+    "request_count": 254,
+    "response_count": 253,
+    "error_count": 1,
+    "request_response_or_error_ids_reconcile": true,
+    "rerank_count": 69,
+    "ordinary_agent_request_count": 185,
+    "ordinary_agent_tool_name_sets": [
+      [
+        "odoo_record_retriever",
+        "office"
+      ]
+    ],
+    "rerank_calls_isolated_from_thread_history": true,
+    "rerank_detail": [
+      {
+        "request_id": "96cb2446-dd84-477a-9597-b7eb205f36a4",
+        "thread_ids_for_local_correlation_only": [
+          1332
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "a98bf349-59bd-44f1-9d00-bc537a09953e",
+        "thread_ids_for_local_correlation_only": [
+          1333
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "d491124b-c870-4aa9-b4ec-bbf6fba6f635",
+        "thread_ids_for_local_correlation_only": [
+          1334
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "bd12af7e-1995-4a7d-91fb-eccc3cbce758",
+        "thread_ids_for_local_correlation_only": [
+          1336
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "2a478a15-151c-476c-b696-f0a1f74c37b3",
+        "thread_ids_for_local_correlation_only": [
+          1337
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "528b1b84-2ddc-4c90-8bfd-89385b521420",
+        "thread_ids_for_local_correlation_only": [
+          1338
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "874c6eab-e950-4c63-b6cd-25834e4273ff",
+        "thread_ids_for_local_correlation_only": [
+          1339
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "50bd241e-d309-446b-b39a-192fc7dfeeb3",
+        "thread_ids_for_local_correlation_only": [
+          1340
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "f7cd6846-45e2-4890-a906-7e51d7e55eee",
+        "thread_ids_for_local_correlation_only": [
+          1341
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "ed4edb09-ca9d-40e8-af6a-c67473ecc043",
+        "thread_ids_for_local_correlation_only": [
+          1342
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "1d90ff6c-93d8-41bd-b1fd-385a2100420f",
+        "thread_ids_for_local_correlation_only": [
+          1343
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "b1019384-14b1-4c4c-969a-2ceeca8ba5b9",
+        "thread_ids_for_local_correlation_only": [
+          1344
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "006e1ec9-c1f4-4b30-a454-fdee281b7c8c",
+        "thread_ids_for_local_correlation_only": [
+          1345
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "746067b5-69cd-4c49-8a36-15a07d0aa824",
+        "thread_ids_for_local_correlation_only": [
+          1346
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "daea1a31-1810-474c-bfb5-b6a4c4db8f1a",
+        "thread_ids_for_local_correlation_only": [
+          1347
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "6d605d71-9357-4956-9222-4af1752c2429",
+        "thread_ids_for_local_correlation_only": [
+          1348
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "95ddac5e-c2a1-49e9-a154-4a668f8c2cff",
+        "thread_ids_for_local_correlation_only": [
+          1349
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "2d4eba09-f23e-46ec-99b1-84b28dbdfe72",
+        "thread_ids_for_local_correlation_only": [
+          1350
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "5eb3b0ec-4a22-4460-9823-b3b9009f7e75",
+        "thread_ids_for_local_correlation_only": [
+          1351
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "20fd99d7-a464-4ec4-b82e-2b1d0b237fdb",
+        "thread_ids_for_local_correlation_only": [
+          1352
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "ccac2e55-33ab-4782-b356-5148ac7c15eb",
+        "thread_ids_for_local_correlation_only": [
+          1353
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "cb0508aa-e4a7-466d-a91d-32b9646064af",
+        "thread_ids_for_local_correlation_only": [
+          1354
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "aaa74af4-0501-4e3b-976b-9eff9ed4a7ea",
+        "thread_ids_for_local_correlation_only": [
+          1355
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "703b3c8c-1f4e-4293-a50c-bf1b1360707f",
+        "thread_ids_for_local_correlation_only": [
+          1356
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "56c1866a-7f4f-42a0-aae7-c4aed38836ef",
+        "thread_ids_for_local_correlation_only": [
+          1357
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "02635450-7d9a-41d6-bdeb-0de7fb3ab28e",
+        "thread_ids_for_local_correlation_only": [
+          1358
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "c8d1f1ab-bc90-4913-af00-a5a6dac7c605",
+        "thread_ids_for_local_correlation_only": [
+          1359
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "89bf606c-ef33-423e-b804-6b060c496431",
+        "thread_ids_for_local_correlation_only": [
+          1360
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "1a1d6752-ea23-4e8e-9c4a-e44382a80681",
+        "thread_ids_for_local_correlation_only": [
+          1361
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "dd29e2cb-dff6-441f-b522-55aa7a0f2c76",
+        "thread_ids_for_local_correlation_only": [
+          1362
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "36043b2d-ad02-489c-9650-3f0f945bbd52",
+        "thread_ids_for_local_correlation_only": [
+          1363
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "1a742c39-0ea6-4e35-8b6f-11ef1b39f527",
+        "thread_ids_for_local_correlation_only": [
+          1364
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "c32f76d1-ecd3-4759-9192-3c716fdde8eb",
+        "thread_ids_for_local_correlation_only": [
+          1365
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "37900804-55f5-4b17-82c6-ced55e61e2b3",
+        "thread_ids_for_local_correlation_only": [
+          1366
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "f1f476ef-288d-42c2-ae4d-a5003f25cd9d",
+        "thread_ids_for_local_correlation_only": [
+          1367
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "4a3239bf-87c0-494c-877a-ed8a79077036",
+        "thread_ids_for_local_correlation_only": [
+          1368
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "c839ac13-dabc-4a6b-9062-23581441b735",
+        "thread_ids_for_local_correlation_only": [
+          1369
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "bd8af502-ccd5-4e6d-973a-8a3ea739d6da",
+        "thread_ids_for_local_correlation_only": [
+          1370
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "d4899874-9560-4e02-8c45-fa50ab49a31c",
+        "thread_ids_for_local_correlation_only": [
+          1371
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "f3125efd-8e37-42dd-a48d-4566379973d0",
+        "thread_ids_for_local_correlation_only": [
+          1372
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "accc5716-6cbb-414b-8d9e-5dcbfbb87e9d",
+        "thread_ids_for_local_correlation_only": [
+          1373
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "e5aec927-8e30-409f-b486-5fb3ec342a77",
+        "thread_ids_for_local_correlation_only": [
+          1373
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "edfd70d8-e705-4c5b-8c80-b925c22c34c9",
+        "thread_ids_for_local_correlation_only": [
+          1374
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "14fe4fdf-85db-4804-bfa6-0a3e472e48db",
+        "thread_ids_for_local_correlation_only": [
+          1374
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "0f2c8fc0-77d2-476e-9c67-26b1043d559e",
+        "thread_ids_for_local_correlation_only": [
+          1375
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "2884b8ed-8f20-450a-a82c-9550622baef5",
+        "thread_ids_for_local_correlation_only": [
+          1376
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "ca8169da-5399-4edf-8f67-3a1ce7171c18",
+        "thread_ids_for_local_correlation_only": [
+          1377
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "e58f4147-e5bc-42d5-adba-0fb869263327",
+        "thread_ids_for_local_correlation_only": [
+          1379
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "4170ec31-1f3f-442f-aa2a-4acd42a7f2fb",
+        "thread_ids_for_local_correlation_only": [
+          1380
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "be2cdc70-3494-46fc-b46a-33f4151cf88b",
+        "thread_ids_for_local_correlation_only": [
+          1380
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "92604a01-0de8-42ff-bb86-967b526e17f2",
+        "thread_ids_for_local_correlation_only": [
+          1381
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "c9d7f9a1-d343-4ac8-b090-06cdd4105261",
+        "thread_ids_for_local_correlation_only": [
+          1382
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "3854db5a-8bbe-480d-8b80-051f2fb164ac",
+        "thread_ids_for_local_correlation_only": [
+          1383
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "5e6d0369-70d5-4c2c-94dd-1a58b992b119",
+        "thread_ids_for_local_correlation_only": [
+          1384
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "e2422cf2-49fc-48e2-8d3f-111de06b88fa",
+        "thread_ids_for_local_correlation_only": [
+          1384
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "c5e7c573-76c0-4c5b-9f31-ff85212ef15e",
+        "thread_ids_for_local_correlation_only": [
+          1385
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "f90dc853-ad26-407c-81e1-bcba53f18e00",
+        "thread_ids_for_local_correlation_only": [
+          1386
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "14a24d90-43ea-43a5-a1b1-2466c5da5590",
+        "thread_ids_for_local_correlation_only": [
+          1387
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "609ae59a-24f7-438e-8469-5fe439f42da2",
+        "thread_ids_for_local_correlation_only": [
+          1388
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "2c6c8095-4c90-4956-91a9-098eb702a660",
+        "thread_ids_for_local_correlation_only": [
+          1389
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "90a0ac96-335e-4566-a894-aff807348d07",
+        "thread_ids_for_local_correlation_only": [
+          1390
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "0fb61353-d27e-4075-8640-f3e6c7aa40b4",
+        "thread_ids_for_local_correlation_only": [
+          1391
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "9ab8c5c9-bfa8-4ea5-9f92-56fbfc5abdea",
+        "thread_ids_for_local_correlation_only": [
+          1392
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "1f8d22d9-73cd-4b56-a9f5-24e4b314c5fd",
+        "thread_ids_for_local_correlation_only": [
+          1393
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "0fd8e097-991e-4d7a-8b27-5fd2d0cb1958",
+        "thread_ids_for_local_correlation_only": [
+          1394
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "d3871314-24ff-48cb-820b-43cb1be73bd1",
+        "thread_ids_for_local_correlation_only": [
+          1395
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "415e7abf-625b-440b-a308-89968625cafb",
+        "thread_ids_for_local_correlation_only": [
+          1396
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "6a657803-8a2d-4bed-a139-2380eed6e9bd",
+        "thread_ids_for_local_correlation_only": [
+          1396
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      },
+      {
+        "request_id": "a82c78b3-b72e-4a12-9417-7d66786df02f",
+        "thread_ids_for_local_correlation_only": [
+          1397
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      }
+    ],
+    "errors": [
+      {
+        "request_id": "a243209d-21d5-44ab-bd92-3f88f80f8a1c",
+        "error_type": null,
+        "message": "Request timed out."
+      }
+    ],
+    "ordinary_agent_tool_pair_verified": true,
+    "ordinary_agent_tool_schemas_present": true,
+    "threads_initially_bound_to_exact_tool_pair": true,
+    "thread_count_with_binding_evidence": 66
+  },
+  "agent_P04_independent_retry": {
+    "evidence_file": "provider_agent_calls_retry_P04_v0.2.jsonl",
+    "request_count": 4,
+    "response_count": 4,
+    "error_count": 0,
+    "request_response_or_error_ids_reconcile": true,
+    "rerank_count": 1,
+    "ordinary_agent_request_count": 3,
+    "ordinary_agent_tool_name_sets": [
+      [
+        "odoo_record_retriever",
+        "office"
+      ]
+    ],
+    "rerank_calls_isolated_from_thread_history": true,
+    "rerank_detail": [
+      {
+        "request_id": "89f1cee6-3a19-4261-a8a2-713079576251",
+        "thread_ids_for_local_correlation_only": [
+          1398
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_metadata_shape_valid": true
+      }
+    ],
+    "errors": [],
+    "ordinary_agent_tool_pair_verified": true,
+    "ordinary_agent_tool_schemas_present": true,
+    "threads_initially_bound_to_exact_tool_pair": true,
+    "thread_count_with_binding_evidence": 1
+  },
+  "pagination_two_complete_walks": {
+    "evidence_file": "provider_discovery_pagination_sdk_audit_snapshot_final2.jsonl",
+    "request_count": 1,
+    "response_count": 1,
+    "error_count": 0,
+    "request_response_or_error_ids_reconcile": true,
+    "rerank_count": 1,
+    "ordinary_agent_request_count": 0,
+    "ordinary_agent_tool_name_sets": [],
+    "rerank_calls_isolated_from_thread_history": true,
+    "rerank_detail": [
+      {
+        "request_id": "f0688b48-28b0-4236-861c-8ab5d5bb65f6",
+        "thread_ids_for_local_correlation_only": [
+          1291
+        ],
+        "provider": "OpenAI GPT-5.6 Luna",
+        "model": "gpt-5.6-luna",
+        "messages_are_only_system_and_user": true,
+        "provider_tools_absent": true,
+        "user_payload_keys": [
+          "business_request",
+          "candidates"
+        ],
+        "candidate_count": 757,
+        "candidate_ids_unique": true,
+        "candidate_metadata_shape_valid": true
+      }
+    ],
+    "errors": []
+  }
+}

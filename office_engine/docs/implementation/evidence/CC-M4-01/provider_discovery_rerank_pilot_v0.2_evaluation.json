@@ -1,0 +1,26 @@
+{
+  "result_file": "provider_discovery_rerank_pilot_v0.2.jsonl",
+  "oracle_loaded_only_by_evaluator": true,
+  "cases": 1,
+  "clear_cases": 1,
+  "clear_top5_hits": 1,
+  "clear_top5_required": "40/40",
+  "clear_top5_pass": false,
+  "mean_discover_seconds": 11.348,
+  "latency_sorted_seconds": [
+    11.348
+  ],
+  "per_case": [
+    {
+      "case_id": "P01",
+      "target_model": "res.partner",
+      "target_rank": 1,
+      "top5_hit": true,
+      "returned_count": 5,
+      "registry_count": 757,
+      "count_matches_registry": true,
+      "discover_seconds": 11.348,
+      "embedding_seconds": 6.08
+    }
+  ]
+}

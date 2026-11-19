@@ -1,0 +1,15 @@
+{
+  "scope": "repository Python files excluding venv and .git",
+  "python_files": 189,
+  "module_annotation_coverage": 189,
+  "manifest_comment_coverage": 4,
+  "class_count": 120,
+  "public_function_and_method_count": 929,
+  "complex_private_function_count": 418,
+  "missing_required_docstrings_or_module_annotations": 0,
+  "syntax_parse_errors": 0,
+  "bytecode_compile_pass": true,
+  "policy": "中文模块说明（manifest 使用中文注释）、类和公开函数/方法 Docstring、复杂私有函数 Docstring；简单私有函数不强制逐行注释。",
+  "legacy_comment_policy": "本轮补齐的说明使用中文；未重写历史英文注释，以避免无关翻译和历史证据内容变更。",
+  "verification": "venv/bin/python 对仓库中 189 个 Python 文件（排除 venv 与 .git）执行 AST parse 和 py_compile；185 个常规模块有中文模块 Docstring，4 个 Odoo manifest 有中文注释；120 个类、929 个公开函数/方法及 418 个 office_engine 复杂私有函数均有必需 Docstring。office_engine_m3 全模块 Odoo 测试随后通过。"
+}
