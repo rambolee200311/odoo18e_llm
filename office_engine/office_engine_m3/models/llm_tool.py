@@ -2,6 +2,8 @@
 import hashlib
 import json
 import logging
+import math
+import re
 import uuid
 from typing import Any
 
@@ -18,8 +20,6 @@ _OPERATIONS = {"discover", "describe", "search"}
 _LOGIC_TOKENS = {"|", "&", "!"}
 _MAX_LIMIT = 500
 _MAX_DOMAIN_LIST = 1000
-
-
 _DISCOVERY_SCORE_PRECISION = 0
 _DISCOVERY_SNAPSHOT_TYPE = "office_m4_discovery_order_snapshot"
 _DISCOVERY_RERANK_SYSTEM_PROMPT = (
@@ -38,12 +38,19 @@ _DISCOVERY_RERANK_SYSTEM_PROMPT = (
     "Never invent an ID. "
     "Do not explain your reasoning or include any other text."
 )
-class LLMTool(models.Model):
-    _inherit = "llm.tool"
 
+
+class LLMTool(models.Model):
     """扩展现有 Odoo LLM 工具，并保留 Retriever 与 Office 的公开契约。"""
 
+    _inherit = "llm.tool"
+
     def get_input_schema(self):
+        """返回当前工具对外声明的 JSON 输入 Schema。
+
+        Office Schema 委托 M2 后追加 M3 导出参数；Retriever 返回受支持的
+        discover、describe、search 参数。其他工具沿用父类实现。
+        """
         self.ensure_one()
         if self.name == "office":
             schema = super().get_input_schema()
@@ -170,7 +177,8 @@ class LLMTool(models.Model):
                     "anyOf": [
                         {"type": "string", "maxLength": 256},
                         {"type": "null"},
-                    ]
+                    ],
+                    "description": "Only applies to discover. Supplying a non-null query to describe, search, or legacy search is rejected.",
                 },
                 "domain": {
                     "anyOf": [
@@ -216,6 +224,11 @@ class LLMTool(models.Model):
         }
 
     def execute(self, parameters):
+        """执行当前工具调用，并将 Retriever 异常归一为稳定错误契约。
+
+        参数：parameters 为 Provider 返回的工具参数对象。
+        返回：父类工具执行结果；Retriever 权限、参数和执行错误按原语义抛出。
+        """
         self.ensure_one()
         if self.name != _RETRIEVER_TOOL:
             return super().execute(parameters)
@@ -246,8 +259,17 @@ class LLMTool(models.Model):
         operation: str | None = None,
         query: str | None = None,
     ) -> Any:
-        """Extend the existing Retriever; absent operation preserves M2/upstream behavior."""
+        """分发 Retriever 请求；未提供 operation 时保留 M2/上游兼容行为。
+
+        参数：沿用已有模型、Domain、字段、分页参数，可选提供 operation 与 query。
+        返回：对应操作的既有 JSON 结构；错误通过稳定 Retriever 错误契约返回。
+        """
         if operation is None:
+            # 旧调用仍分发到 search；仅供 discover 使用的 query 必须显式拒绝，避免被静默忽略。
+            if query is not None:
+                raise RetrieverToolError(
+                    "INVALID_QUERY", "query is only supported by the discover operation."
+                )
             if not isinstance(model, str) or not model:
                 raise RetrieverToolError("INVALID_QUERY", "A model is required for a legacy search.")
             model_obj = self._retriever_model(model)
@@ -282,6 +304,10 @@ class LLMTool(models.Model):
             raise RetrieverToolError("INVALID_QUERY", "The requested Retriever operation is not supported.")
         if type(offset) is not int or offset < 0:
             raise RetrieverToolError("INVALID_QUERY", "offset must be a non-negative integer.")
+        if query is not None and operation != "discover":
+            raise RetrieverToolError(
+                "INVALID_QUERY", "query is only supported by the discover operation."
+            )
 
         try:
             if operation == "discover":
@@ -310,17 +336,6 @@ class LLMTool(models.Model):
                 "QUERY_FAILED", "The Retriever operation could not be completed.", diagnostic_id=diagnostic_id
             ) from exc
 
-    def _retriever_discover(self, query=None, limit=None, offset=0):
-        if query is not None and (not isinstance(query, str) or len(query) > 256):
-            raise RetrieverToolError("INVALID_QUERY", "query must be a string of at most 256 characters.")
-        page_limit = self._retriever_limit(limit, default=100)
-        registry_models = sorted(self.env.registry.models.items(), key=lambda row: row[0])
-        normalized_query = (query or "").strip()
-        if not normalized_query:
-            matches = [self._retriever_discovery_profile(name, cls) for name, cls in registry_models]
-        elif self.env.context.get("message"):
-            matches = self._retriever_stable_discovery_matches(
-                normalized_query, registry_models, offset
     def _retriever_discovery_provider(self):
         """返回当前 Thread 选择的 Provider。
 
@@ -655,17 +670,51 @@ class LLMTool(models.Model):
         )
         return matches
 
-            )
+    def _retriever_discover(self, query=None, limit=None, offset=0):
         """在完整 Registry 上执行 discover，并在全局排序后应用现有分页契约。
 
         参数：query 为可选自然语言；limit、offset 沿用现有工具分页参数。
         返回：保持既有字段形状的分页结果，不公开内部语义分数。
         """
-        matches.sort(key=lambda item: item["model"])
-        page = matches[offset : offset + page_limit]
+        if query is not None and (not isinstance(query, str) or len(query) > 256):
+            raise RetrieverToolError("INVALID_QUERY", "query must be a string of at most 256 characters.")
+        page_limit = self._retriever_limit(limit, default=100)
+        registry_models = sorted(self.env.registry.models.items(), key=lambda row: row[0])
+        normalized_query = (query or "").strip()
+        if not normalized_query:
+            matches = [self._retriever_discovery_profile(name, cls) for name, cls in registry_models]
+        elif self.env.context.get("message"):
+            matches = self._retriever_stable_discovery_matches(
+                normalized_query, registry_models, offset
+            )
+        else:
+            # 保留不来自 Thread 的直接调用和旧式字面查询兼容行为。
+            needle = normalized_query.casefold()
+            matches = [
+                profile
+                for name, cls in registry_models
+                if needle in name.casefold()
+                or needle in str(getattr(cls, "_description", "") or "").casefold()
+                for profile in [self._retriever_discovery_profile(name, cls)]
+            ]
+        public_matches = [
+            {
+                "model": profile["model"],
+                "description": profile["description"],
+                "rec_name": profile["rec_name"],
+            }
+            for profile in matches
+        ]
+        page = public_matches[offset : offset + page_limit]
         return self._retriever_page("discover", page, len(matches), offset, page_limit, "models") | {"query": query or ""}
 
     def _retriever_describe(self, model=None, fields=None, limit=None, offset=0):
+        """读取 Registry 中指定模型的字段定义，并按稳定字段名顺序分页。
+
+        参数：model 为模型技术名；fields 可选地限制字段集合；limit、offset
+        控制分页。返回：字段标签、类型、Selection、关联模型/反向字段及分页信息；
+        本操作只读取模型结构，不读取业务记录。
+        """
         model_obj = self._retriever_model(model)
         if fields is not None and (not isinstance(fields, list) or any(not isinstance(name, str) for name in fields)):
             raise RetrieverToolError("INVALID_QUERY", "fields must be a list of field names.")
@@ -692,6 +741,13 @@ class LLMTool(models.Model):
         return result
 
     def _retriever_search(self, model=None, domain=None, fields=None, limit=None, offset=0, order="", include_pagination=None):
+        """按当前用户 ORM 权限查询业务记录，并返回兼容的分页结果。
+
+        参数：model、domain、fields 定义查询；limit、offset、order 控制稳定分页；
+        include_pagination=False 仅用于旧调用兼容。返回：记录列表或含 count、
+        returned_count、has_more、next_offset 的结果；ACL、Record Rules 与字段
+        访问限制由当前用户 ORM 执行，不使用 sudo。
+        """
         model_obj = self._retriever_model(model)
         page_limit = self._retriever_limit(limit, default=100)
         if order is None:
@@ -738,6 +794,11 @@ class LLMTool(models.Model):
         }
 
     def _retriever_model(self, model_name):
+        """解析当前 Registry 中的模型技术名。
+
+        参数：model_name 为 Odoo 模型技术名。返回：对应的 ORM 模型记录集；
+        名称无效或 Registry 中不存在时分别返回 INVALID_QUERY 或 MODEL_NOT_FOUND。
+        """
         if not isinstance(model_name, str) or not model_name:
             raise RetrieverToolError("INVALID_QUERY", "A model is required for this operation.")
         model_class = self.env.registry.models.get(model_name)
@@ -747,6 +808,11 @@ class LLMTool(models.Model):
 
     @staticmethod
     def _retriever_limit(limit, default):
+        """校验并规范化单页记录数。
+
+        参数：limit 为可选调用值；default 是省略 limit 时使用的默认值。
+        返回：1 到 500 之间的整数，非法值抛出 INVALID_QUERY。
+        """
         if limit is None:
             return default
         if type(limit) is not int or not 1 <= limit <= _MAX_LIMIT:
@@ -755,6 +821,11 @@ class LLMTool(models.Model):
 
     @staticmethod
     def _retriever_page(operation, rows, count, offset, limit, key):
+        """构造统一的公开分页信封。
+
+        参数：operation、rows、count、offset、limit 描述当前页；key 指定结果数组名。
+        返回：包含 count、returned_count、has_more 和 next_offset 的既有 JSON 结构。
+        """
         returned_count = len(rows)
         has_more = offset + returned_count < count
         return {
@@ -771,6 +842,11 @@ class LLMTool(models.Model):
 
     @staticmethod
     def _retriever_field_schema(field, name):
+        """将 Odoo 字段定义转换为稳定的描述元数据。
+
+        参数：field 为 Registry 字段对象；name 为字段技术名。返回：包含标签和类型，
+        并按字段类型补充 Selection 或关联定义的字典；不读取字段值。
+        """
         result = {"name": name, "label": str(field.string or name), "type": field.type}
         if field.type in {"many2one", "one2many", "many2many"}:
             result["relation"] = field.comodel_name
@@ -795,6 +871,11 @@ class LLMTool(models.Model):
 
     @staticmethod
     def _retriever_stable_order(order):
+        """为查询排序追加确定性的 ID 次序。
+
+        参数：order 为可选 ORM 排序表达式。返回：空值时使用 ``id asc``；
+        含其他字段时在末尾追加 ``id asc``，已有 ID 排序则保持原表达式。
+        """
         stable = order.strip()
         if not stable:
             return "id asc"
@@ -807,6 +888,11 @@ class LLMTool(models.Model):
 
     @classmethod
     def _retriever_validate_order_fields(cls, model, order):
+        """验证排序表达式中的字段路径是否属于目标模型。
+
+        参数：model 为 ORM 模型记录集；order 为逗号分隔的字段与方向表达式。
+        返回：无；格式或字段无效时抛出 INVALID_QUERY / FIELD_NOT_FOUND。
+        """
         if not order:
             return
         if not isinstance(order, str):
@@ -819,6 +905,12 @@ class LLMTool(models.Model):
 
     @classmethod
     def _retriever_validate_domain(cls, model, domain):
+        """验证并返回符合 Odoo Domain 语法的 JSON 条件。
+
+        参数：model 为用于检查字段路径的 ORM 模型；domain 为三元组项与逻辑运算符
+        组成的列表，``in`` / ``not in`` 值必须是有界 JSON 标量数组。返回：标准化前
+        的合法 Domain；语法、字段或值不合法时抛出 INVALID_QUERY / FIELD_NOT_FOUND。
+        """
         if domain is None:
             return []
         if not isinstance(domain, list):
@@ -831,7 +923,7 @@ class LLMTool(models.Model):
             field_name, operator, value = item
             if not isinstance(field_name, str) or not field_name or not isinstance(operator, str):
                 raise RetrieverToolError("INVALID_QUERY", "domain fields and operators must be strings.")
-            cls._retriever_validate_field_path(model, field_name)
+            cls._retriever_validate_field_path(model, field_name, require_searchable=True)
             if operator in {"in", "not in"} and not isinstance(value, list):
                 raise RetrieverToolError("INVALID_QUERY", "The value for in/not in must be a JSON array.")
             if isinstance(value, list):
@@ -848,7 +940,13 @@ class LLMTool(models.Model):
         return domain
 
     @staticmethod
-    def _retriever_validate_field_path(model, path):
+    def _retriever_validate_field_path(model, path, require_searchable=False):
+        """校验字段名及其点分隔的关系路径。
+
+        参数：model 为起始 ORM 模型；path 为字段技术名或关联字段路径。返回：无；
+        字段缺失或中间字段不是有效关系时抛出 FIELD_NOT_FOUND；当用于 Domain 时，
+        还会按 Odoo ORM 的 ``store or search`` 规则拒绝不可搜索字段。
+        """
         if not isinstance(path, str) or not path:
             raise RetrieverToolError("FIELD_NOT_FOUND", "A requested field name is empty or invalid.")
         current = model
@@ -857,6 +955,14 @@ class LLMTool(models.Model):
             field = current._fields.get(segment)
             if field is None:
                 raise RetrieverToolError("FIELD_NOT_FOUND", "One or more requested fields do not exist.")
+            # Odoo 18 的 Domain 解析会把非存储且没有 search 实现的字段谓词归一为空 Domain，
+            # 造成调用成功但条件未生效。逐段使用 ORM 自身的可搜索条件，保留计算字段自定义 search。
+            if require_searchable and not field.store and not field.search:
+                invalid_path = ".".join(segments[: index + 1])
+                raise RetrieverToolError(
+                    "INVALID_QUERY",
+                    f"Domain field '{invalid_path}' is not searchable by the Odoo ORM.",
+                )
             if index < len(segments) - 1:
                 if field.type not in {"many2one", "one2many", "many2many"} or field.comodel_name not in current.env.registry.models:
                     raise RetrieverToolError("FIELD_NOT_FOUND", "The requested field path is not a valid relation.")

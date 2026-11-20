@@ -1,0 +1,105 @@
+{
+  "database": "odoo18e_llm",
+  "runs": [
+    "provider_constraints_v0.8",
+    "provider_constraints_v0.9",
+    "provider_constraints_v1.0",
+    "provider_constraints_v1.1"
+  ],
+  "user_ids_checked": [
+    390,
+    393,
+    396,
+    399
+  ],
+  "thread_ids_checked": [
+    1761,
+    1776,
+    1791,
+    1806
+  ],
+  "synthetic_partner_ids_checked": [
+    24570,
+    24571,
+    24572,
+    24573,
+    24574,
+    24575,
+    24576,
+    24578,
+    24582,
+    24583,
+    24584,
+    24585,
+    24586,
+    24587,
+    24588,
+    24590,
+    24594,
+    24595,
+    24596,
+    24597,
+    24598,
+    24599,
+    24600,
+    24602,
+    24606,
+    24607,
+    24608,
+    24609,
+    24610,
+    24611,
+    24612,
+    24614
+  ],
+  "existing_country_reference_ids_checked": [
+    1
+  ],
+  "remaining_country_reference_ids": [
+    1
+  ],
+  "remaining_user_ids": [],
+  "remaining_thread_ids": [],
+  "remaining_synthetic_partner_ids": [],
+  "audit_allowlist": "1398",
+  "expected_audit_allowlist": "1398",
+  "runner_cleanup_flags": {
+    "provider_constraints_v0.8": {
+      "thread_removed": true,
+      "partner_ids_removed": true,
+      "test_user_removed": true,
+      "test_user_partner_removed": true,
+      "test_bus_events_removed": true,
+      "provider_usage_retained": true,
+      "oracle_expected_records_not_sent_separately": true
+    },
+    "provider_constraints_v0.9": {
+      "thread_removed": true,
+      "partner_ids_removed": true,
+      "test_user_removed": true,
+      "test_user_partner_removed": true,
+      "test_bus_events_removed": true,
+      "provider_usage_retained": true,
+      "oracle_expected_records_not_sent_separately": true
+    },
+    "provider_constraints_v1.0": {
+      "thread_removed": true,
+      "partner_ids_removed": true,
+      "test_user_removed": true,
+      "test_user_partner_removed": true,
+      "test_bus_events_removed": true,
+      "provider_usage_retained": true,
+      "oracle_expected_records_not_sent_separately": true
+    },
+    "provider_constraints_v1.1": {
+      "thread_removed": true,
+      "partner_ids_removed": true,
+      "test_user_removed": true,
+      "test_user_partner_removed": true,
+      "test_bus_events_removed": true,
+      "provider_usage_retained": true,
+      "oracle_expected_records_not_sent_separately": true
+    }
+  },
+  "status": "PASS"
+}

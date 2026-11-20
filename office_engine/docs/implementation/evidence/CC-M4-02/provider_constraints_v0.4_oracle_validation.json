@@ -1,0 +1,64 @@
+{
+  "database": "odoo18e_llm",
+  "provider": "OpenAI GPT-5.6 Luna",
+  "model": "gpt-5.6-luna",
+  "thread_id": 1601,
+  "turn_1_expected_person_names_and_emails_present": true,
+  "turn_1_other_fixture_objects_absent": true,
+  "turn_2_expected_company_contact_values_present": true,
+  "turn_2_person_and_decoy_objects_absent": true,
+  "turn_2_retained_parent_country_date_active_constraints": true,
+  "provider_call_counts": {
+    "requests": 11,
+    "responses": 11,
+    "errors": 0
+  },
+  "turn_elapsed_seconds": [
+    24.018,
+    7.684
+  ],
+  "cleanup": {
+    "thread_removed": true,
+    "partner_ids_removed": true,
+    "test_user_removed": true,
+    "test_user_partner_removed": true,
+    "test_bus_events_removed": true,
+    "provider_usage_retained": true,
+    "oracle_expected_records_not_sent_separately": true
+  },
+  "oracle_derivation": "从已记录的合成夹具生成规则和随机后缀独立派生期望名称/邮箱；不使用工具返回构造期望集合。",
+  "result": "BUSINESS_OUTPUT_PASS; DOMAIN_SELECTIVITY_FAIL",
+  "domain_selectivity_status": "FAIL_FOR_COMPANY_TYPE_PREDICATES",
+  "domain_selectivity_evidence": [
+    {
+      "requested_company_type": "person",
+      "oracle_ids": [
+        22640,
+        22641
+      ],
+      "retriever_returned_ids": [
+        22642,
+        22643,
+        22640,
+        22641
+      ],
+      "count": 4
+    },
+    {
+      "requested_company_type": "company",
+      "oracle_ids": [
+        22642,
+        22643
+      ],
+      "retriever_returned_ids": [
+        22642,
+        22643,
+        22640,
+        22641
+      ],
+      "count": 4
+    }
+  ],
+  "overall_status": "PARTIAL: 两轮最终业务输出与独立 Oracle 一致；但 Domain 对 company_type 过滤未生效，实际返回集合不等于 Oracle。",
+  "follow_up_boundary": "未把非存储且无 ORM search 方法的 Domain 字段验证并入正式改动；短暂实验的失败及撤回见 ATR-RUN-014/015/017。"
+}

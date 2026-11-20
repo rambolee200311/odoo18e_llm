@@ -1,0 +1,29 @@
+CC-M4-02 临时 Domain 搜索性测试的初次失败摘录。两次失败均为测试 Oracle 误将三条同名夹具期望成单条；修正为完整匹配集合后 ATR-RUN-015 通过。
+
+2026-11-20 01:59:22,834 21087 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: FAIL: TestRetriever.test_domain_rejects_non_searchable_computed_fields_and_allows_search_methods
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_retriever.py", line 464, in test_domain_rejects_non_searchable_computed_fields_and_allows_search_methods
+    self.assertEqual([row["id"] for row in computed_search["records"]], [partners[0].id])
+AssertionError: Lists differ: [22648, 22649, 22650] != [22648]
+
+First list contains 2 additional elements.
+First extra element 1:
+22649
+
+- [22648, 22649, 22650]
++ [22648]
+ 
+
+2026-11-20 01:59:52,851 21106 ERROR odoo18e_llm odoo.addons.office_engine_m3.tests.test_retriever: FAIL: TestRetriever.test_domain_rejects_non_searchable_computed_fields_and_allows_search_methods
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/tests/test_retriever.py", line 464, in test_domain_rejects_non_searchable_computed_fields_and_allows_search_methods
+    self.assertEqual([row["id"] for row in computed_search["records"]], [partners[0].id])
+AssertionError: Lists differ: [22651, 22652, 22653] != [22651]
+
+First list contains 2 additional elements.
+First extra element 1:
+22652
+
+- [22651, 22652, 22653]
++ [22651]
+ 

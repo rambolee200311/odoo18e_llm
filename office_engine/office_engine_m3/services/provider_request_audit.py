@@ -19,6 +19,9 @@ def provider_audit_thread_id(env, thread_id):
 
     返回：
         通过全部限制时返回规范化后的整数 ID，否则返回 ``None``。
+
+    说明：allowlist 是仅供测试观测使用的服务器配置；只对读取该配置使用
+    ``sudo``，不改变工具执行用户，也不参与业务数据查询。
     """
     path = os.environ.get("OFFICE_M4_TV_PROVIDER_AUDIT_PATH")
     if (
@@ -33,7 +36,7 @@ def provider_audit_thread_id(env, thread_id):
         allowed_ids = {
             int(value.strip())
             for value in (
-                env["ir.config_parameter"].get_param(_AUDIT_THREAD_IDS_PARAMETER) or ""
+                env["ir.config_parameter"].sudo().get_param(_AUDIT_THREAD_IDS_PARAMETER) or ""
             ).split(",")
             if value.strip().isdigit()
         }

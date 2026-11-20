@@ -1,0 +1,20 @@
+{
+  "database": "odoo18e_llm",
+  "provider": "OpenAI GPT-5.6 Luna",
+  "model": "gpt-5.6-luna",
+  "status": "COMPLETED",
+  "thread_id": 1916,
+  "provider_requests": 9,
+  "provider_responses": 9,
+  "cleanup": {
+    "thread_removed": true,
+    "partner_ids_removed": true,
+    "test_user_removed": true,
+    "test_user_partner_removed": true,
+    "test_bus_events_removed": true,
+    "provider_usage_retained": true,
+    "oracle_expected_records_not_sent_separately": true
+  },
+  "result_path": "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/docs/implementation/evidence/CC-M4-02/provider_query_recovery_v0.8_result.json",
+  "audit_path": "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/docs/implementation/evidence/CC-M4-02/provider_query_recovery_v0.8_sdk_audit.jsonl"
+}

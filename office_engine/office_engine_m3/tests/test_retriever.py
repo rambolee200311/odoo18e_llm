@@ -1,9 +1,11 @@
 """验证 Retriever 的查询契约、Registry Discovery 和分页稳定性。"""
 import json
+from datetime import timedelta
 from unittest.mock import patch
 from uuid import uuid4
 from types import SimpleNamespace
 
+from odoo import fields
 from odoo.tests import TransactionCase
 from odoo.exceptions import AccessError
 
@@ -433,6 +435,251 @@ class TestRetriever(TransactionCase):
         self.assertEqual(empty["status"], "success")
         self.assertEqual(empty["records"], [])
         self.assertEqual(empty["count"], 0)
+
+    def test_domain_rejects_nonsearchable_computed_field_before_orm(self):
+        """验证 ORM 会静默忽略的非搜索计算字段在查询前返回 INVALID_QUERY。"""
+        Partner = self.env["res.partner"]
+        field = Partner._fields["company_type"]
+        self.assertFalse(field.store)
+        self.assertFalse(field.search)
+
+        with (
+            patch.object(type(Partner), "search_read", side_effect=AssertionError("ORM search_read must not run")),
+            patch.object(type(Partner), "search_count", side_effect=AssertionError("ORM search_count must not run")),
+        ):
+            for arguments in (
+                {
+                    "operation": "search",
+                    "model": "res.partner",
+                    "domain": [["company_type", "=", "person"]],
+                },
+                {
+                    "model": "res.partner",
+                    "domain": [["company_type", "=", "company"]],
+                },
+            ):
+                with self.subTest(arguments=arguments), self.assertRaises(RetrieverToolError) as caught:
+                    self.tool.execute(arguments)
+                self.assertEqual(caught.exception.error_code, "INVALID_QUERY")
+                self.assertIn("company_type", str(caught.exception))
+
+    def test_domain_accepts_stored_custom_search_and_related_search_fields_for_ordinary_user(self):
+        """验证存储字段、自定义计算 search 和 related search 字段仍可精确查询。"""
+        user = self.env["res.users"].with_context(no_reset_password=True).create(
+            {
+                "name": "CC-M4-02 Domain Search User",
+                "login": f"cc-m4-02-domain-{uuid4().hex}",
+                "company_id": self.env.company.id,
+                "company_ids": [(6, 0, [self.env.company.id])],
+                "groups_id": [(6, 0, [
+                    self.env.ref("base.group_user").id,
+                    self.env.ref("base.group_partner_manager").id,
+                ])],
+            }
+        )
+        Partner = self.env["res.partner"].with_user(user)
+        Country = self.env["res.country"].with_user(user)
+        country = Country.search([], order="id", limit=1)
+        self.assertTrue(country)
+        self.assertTrue(country.code)
+        suffix = uuid4().hex
+        names = [f"CC-M4-02 searchable {suffix}-{index}" for index in range(2)]
+        records = Partner.create([
+            {"name": name, "is_company": index == 1, "country_id": country.id}
+            for index, name in enumerate(names)
+        ])
+
+        display_name = Partner._fields["display_name"]
+        country_code = Partner._fields["country_code"]
+        self.assertFalse(display_name.store)
+        self.assertTrue(display_name.search)
+        self.assertFalse(country_code.store)
+        self.assertTrue(country_code.search)
+
+        # 直接 ORM 对照证明 Odoo 会忽略 company_type 谓词；Retriever 必须在调用 ORM 前失败关闭。
+        silently_broadened = Partner.search(
+            [("name", "ilike", suffix), ("company_type", "=", "person")]
+        )
+        expected_people = records.filtered(lambda record: record.company_type == "person")
+        self.assertEqual(set(silently_broadened.ids), set(records.ids))
+        self.assertEqual(expected_people.ids, [records[0].id])
+        with self.assertRaises(RetrieverToolError) as caught:
+            self.tool.with_user(user).execute(
+                {
+                    "operation": "search",
+                    "model": "res.partner",
+                    "domain": [
+                        ["name", "ilike", suffix],
+                        ["company_type", "=", "person"],
+                    ],
+                    "fields": ["id"],
+                }
+            )
+        self.assertEqual(caught.exception.error_code, "INVALID_QUERY")
+        self.assertIn("company_type", str(caught.exception))
+
+        stored_result = self.tool.with_user(user).execute(
+            {
+                "operation": "search",
+                "model": "res.partner",
+                "domain": [["is_company", "=", True], ["name", "ilike", suffix]],
+                "fields": ["id"],
+            }
+        )
+        self.assertEqual([row["id"] for row in stored_result["records"]], [records[1].id])
+
+        computed_result = self.tool.with_user(user).execute(
+            {
+                "operation": "search",
+                "model": "res.partner",
+                "domain": [["display_name", "=", names[0]]],
+                "fields": ["id"],
+            }
+        )
+        self.assertEqual([row["id"] for row in computed_result["records"]], [records[0].id])
+
+        legacy_result = self.tool.with_user(user).execute(
+            {
+                "model": "res.partner",
+                "domain": [["display_name", "=", names[0]]],
+                "fields": ["id"],
+            }
+        )
+        self.assertEqual([row["id"] for row in legacy_result], [records[0].id])
+
+        related_result = self.tool.with_user(user).execute(
+            {
+                "operation": "search",
+                "model": "res.partner",
+                "domain": [["country_code", "=", country.code], ["name", "ilike", suffix]],
+                "fields": ["id"],
+            }
+        )
+        self.assertEqual({row["id"] for row in related_result["records"]}, set(records.ids))
+
+    def test_discovery_query_is_rejected_for_describe_search_and_legacy_before_orm(self):
+        """确认 discovery 专用 query 在其他操作和旧 search 中先报错，不触达 ORM 查询。"""
+        invalid_calls = [
+            {"operation": "search", "model": "res.partner", "query": "synthetic request"},
+            {"operation": "describe", "model": "res.partner", "query": "synthetic request"},
+            {"model": "res.partner", "query": "synthetic request"},
+        ]
+        with (
+            patch.object(type(self.tool), "_retriever_search") as search,
+            patch.object(type(self.tool), "_retriever_model") as resolve_model,
+        ):
+            for arguments in invalid_calls:
+                with self.subTest(arguments=arguments), self.assertRaises(RetrieverToolError) as caught:
+                    self.tool.execute(arguments)
+                self.assertEqual(caught.exception.error_code, "INVALID_QUERY")
+            search.assert_not_called()
+            resolve_model.assert_not_called()
+
+        discovered = self.tool.execute({"operation": "discover", "query": "res.partner"})
+        self.assertIn("res.partner", [item["model"] for item in discovered["models"]])
+
+    def test_ordinary_user_retrieves_synthetic_parent_country_date_and_child_data(self):
+        """用普通用户和 ORM 合成数据验证跨模型条件及父子关联查询。"""
+        user = self.env["res.users"].with_context(no_reset_password=True).create(
+            {
+                "name": "CC-M4-02 Synthetic Reader",
+                "login": f"cc-m4-02-{uuid4().hex}",
+                "company_id": self.env.company.id,
+                "company_ids": [(6, 0, [self.env.company.id])],
+                # 仅授予 Odoo 原生联系人业务角色以便创建自己的合成夹具；查询仍走该用户 ORM 权限。
+                "groups_id": [(6, 0, [
+                    self.env.ref("base.group_user").id,
+                    self.env.ref("base.group_partner_manager").id,
+                ])],
+            }
+        )
+        suffix = uuid4().hex
+        Partner = self.env["res.partner"].with_user(user)
+        Country = self.env["res.country"].with_user(user)
+        parent_name = f"CC-M4-02 parent {suffix}"
+        country = Country.search([], order="id", limit=1)
+        self.assertTrue(country, "The ordinary test user must be able to read a country for this relation test.")
+        parent = Partner.create({
+            "name": parent_name,
+            "is_company": True,
+            "country_id": country.id,
+        })
+        matches = Partner.create([
+            {
+                "name": f"CC-M4-02 match {suffix}-{index}",
+                "is_company": True,
+                "parent_id": parent.id,
+                "country_id": country.id,
+                "email": f"m4-02-{suffix}-{index}@example.invalid",
+            }
+            for index in range(2)
+        ])
+        Partner.create({
+            "name": f"CC-M4-02 wrong object type {suffix}",
+            "is_company": False,
+            "parent_id": parent.id,
+            "country_id": country.id,
+            "email": f"m4-02-object-type-{suffix}@example.invalid",
+        })
+        other_parent = Partner.create({"name": f"CC-M4-02 other parent {suffix}", "is_company": True})
+        Partner.create({
+            "name": f"CC-M4-02 wrong parent {suffix}",
+            "is_company": True,
+            "parent_id": other_parent.id,
+            "country_id": country.id,
+            "email": f"m4-02-other-{suffix}@example.invalid",
+        })
+        contacts = Partner.create([
+            {
+                "name": f"CC-M4-02 contact {suffix}-{index}",
+                "parent_id": company.id,
+                "type": "contact",
+                "country_id": country.id,
+                "email": f"m4-02-contact-{suffix}-{index}@example.invalid",
+            }
+            for index, company in enumerate(matches, start=1)
+        ])
+
+        now = fields.Datetime.now()
+        domain = [
+            ["parent_id.name", "=", parent_name],
+            ["country_id.name", "=", country.name],
+            ["is_company", "=", True],
+            ["active", "=", True],
+            ["create_date", ">=", fields.Datetime.to_string(now - timedelta(minutes=5))],
+            ["create_date", "<=", fields.Datetime.to_string(now + timedelta(minutes=5))],
+        ]
+        orders = self.tool.with_user(user).execute(
+            {
+                "operation": "search",
+                "model": "res.partner",
+                "domain": domain,
+                "fields": ["id", "name", "parent_id", "country_id", "email", "create_date"],
+                "order": "name asc",
+            }
+        )
+        self.assertEqual(orders["status"], "success")
+        self.assertEqual([row["id"] for row in orders["records"]], sorted(matches.ids, key=lambda item: Partner.browse(item).name))
+
+        children = self.tool.with_user(user).execute(
+            {
+                "operation": "search",
+                "model": "res.partner",
+                "domain": [["parent_id", "in", matches.ids], ["type", "=", "contact"]],
+                "fields": ["id", "name", "parent_id", "email"],
+                "order": "name asc",
+            }
+        )
+        returned_contacts = children["records"]
+        self.assertEqual({row["id"] for row in returned_contacts}, set(contacts.ids))
+        self.assertEqual(
+            {row["parent_id"][0] for row in returned_contacts},
+            set(matches.ids),
+        )
+        self.assertEqual(
+            {row["email"] for row in returned_contacts},
+            set(contacts.mapped("email")),
+        )
 
     def test_unexpected_orm_failure_is_sanitized_and_has_diagnostic_id(self):
         """验证意外 ORM 异常被脱敏，并返回可供内部排查的诊断 ID。"""

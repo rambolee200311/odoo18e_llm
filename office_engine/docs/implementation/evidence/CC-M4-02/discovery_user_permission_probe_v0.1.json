@@ -1,0 +1,30 @@
+{
+  "database": "odoo18e_llm",
+  "stage": "discover",
+  "user_id": 337,
+  "thread_id": 1600,
+  "message_id": 478537,
+  "user_groups": [
+    "Extra Rights / Contact Creation",
+    "Extra Rights / Multi Currencies",
+    "Extra Rights / Technical Features",
+    "LLM / LLM Manager",
+    "Technical / Display Serial & Lot Number in Delivery Slips",
+    "Technical / Manage Different Stock Owners",
+    "Technical / Manage Lots / Serial Numbers",
+    "Technical / Manage Multiple Stock Locations",
+    "Technical / Manage Multiple Units of Measure",
+    "Technical / Manage Multiple Warehouses",
+    "Technical / Manage Packages",
+    "Technical / Manage Push and Pull inventory flows",
+    "Technical / Require a signature on your delivery orders",
+    "Technical / Show Quantity to Count",
+    "Technical / Use Reception Report",
+    "User types / Internal User"
+  ],
+  "thread_user_id": 337,
+  "status": "error",
+  "error_type": "AccessError",
+  "error": "You are not allowed to access 'System Parameter' (ir.config_parameter) records.\n\nThis operation is allowed for the following groups:\n\t- Administration/Settings\n\nContact your administrator to request access if necessary.",
+  "traceback": "Traceback (most recent call last):\n  File \"<string>\", line 27, in <module>\n  File \"/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_tool.py\", line 687, in _retriever_discover\n    matches = self._retriever_stable_discovery_matches(\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_tool.py\", line 667, in _retriever_stable_discovery_matches\n    matches = self._retriever_chat_rerank_discovery(query, matches)\n              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_tool.py\", line 511, in _retriever_chat_rerank_discovery\n    response = provider.chat(\n               ^^^^^^^^^^^^^^\n  File \"/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm/models/llm_provider.py\", line 106, in chat\n    return self._dispatch(\n           ^^^^^^^^^^^^^^^\n  File \"/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm/llm/models/llm_provider.py\", line 60, in _dispatch\n    return getattr(record, service_method)(*args, **kwargs)\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/models/llm_provider.py\", line 194, in openai_chat\n    audited_id = provider_audit_thread_id(self.env, _office_m4_tv_audit_thread_id)\n                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_m3/services/provider_request_audit.py\", line 36, in provider_audit_thread_id\n    env[\"ir.config_parameter\"].get_param(_AUDIT_THREAD_IDS_PARAMETER) or \"\"\n    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/base/models/ir_config_parameter.py\", line 68, in get_param\n    self.browse().check_access('read')\n  File \"/Users/lijianqiang/Documents/odoo18e_llm/odoo/models.py\", line 4422, in check_access\n    raise result[1]()\nodoo.exceptions.AccessError: You are not allowed to access 'System Parameter' (ir.config_parameter) records.\n\nThis operation is allowed for the following groups:\n\t- Administration/Settings\n\nContact your administrator to request access if necessary.\n"
+}

@@ -1,0 +1,117 @@
+{
+  "focused_domain_recovery": {
+    "run_tag": "provider_domain_precision_v0.2",
+    "database": "odoo18e_llm",
+    "provider_model": "gpt-5.6-luna",
+    "request_response_counts": [
+      6,
+      6
+    ],
+    "initial_nonsearchable_domain": [
+      [
+        "name",
+        "ilike",
+        "e75fc4cd7f1d"
+      ],
+      [
+        "company_type",
+        "=",
+        "person"
+      ]
+    ],
+    "initial_error_code": "INVALID_QUERY",
+    "initial_error_mentions_field": true,
+    "initial_failure_has_no_success_result": true,
+    "followup_domain": [
+      [
+        "name",
+        "ilike",
+        "e75fc4cd7f1d"
+      ]
+    ],
+    "followup_preserved_equivalent_type_predicate": false,
+    "followup_returned_ids": [
+      23336,
+      23337,
+      23338,
+      23339,
+      23340,
+      23341,
+      23342,
+      23343,
+      23344
+    ],
+    "oracle_expected_ids": [
+      23337,
+      23338,
+      23341,
+      23342
+    ],
+    "followup_extra_ids": [
+      23336,
+      23339,
+      23340,
+      23343,
+      23344
+    ],
+    "followup_domain_matches_full_business_oracle": false,
+    "final_output_contains_all_oracle_values": true,
+    "cleanup": {
+      "thread_removed": true,
+      "partner_ids_removed": true,
+      "test_user_removed": true,
+      "test_user_partner_removed": true,
+      "test_bus_events_removed": true,
+      "provider_usage_retained": true,
+      "oracle_expected_records_not_sent_separately": true
+    }
+  },
+  "complex_two_turn_query": {
+    "run_tag": "provider_constraints_v0.7",
+    "database": "odoo18e_llm",
+    "provider_model": "gpt-5.6-luna",
+    "request_response_counts": [
+      11,
+      11
+    ],
+    "first_parent_domain_value": "0712d5fff7d2",
+    "first_country_domain_value": "Andorra",
+    "first_search_was_zero": true,
+    "expected_oracle_ids": [
+      23957,
+      23958,
+      23959,
+      23960
+    ],
+    "ids_returned_by_all_searches": [],
+    "final_expected_values_present": {
+      "CC-M4-02 Company 0712d5fff7d2-1": false,
+      "CC-M4-02 Company 0712d5fff7d2-2": false,
+      "CC-M4-02 Contact 0712d5fff7d2-1": false,
+      "CC-M4-02 Contact 0712d5fff7d2-2": false,
+      "cc-m4-02-contact-0712d5fff7d2-1@example.invalid": false,
+      "cc-m4-02-contact-0712d5fff7d2-2@example.invalid": false
+    },
+    "final_assistant_text": "未找到符合全部条件的公司账户：\n\n创建日期：2026 年 11 月 20 日\n当前仍有效\n直接属于公司 *CC-M4-02 Parent*（ID： 0712d5fff7d2 ）\n位于 *Andorra*\n\n因此没有可列出的账户及其联系人姓名、邮箱。未创建或修改任何文件。",
+    "tool_errors": [
+      {
+        "error_code": "INVALID_QUERY",
+        "error": "INVALID_QUERY: query is only supported by the discover operation. (diagnostic_id=1c577a04b057407d91252b130cf24743)",
+        "arguments": {
+          "model": "res.partner",
+          "query": "create_date parent_id country_id is_company type email active name",
+          "operation": "describe"
+        }
+      }
+    ],
+    "cleanup": {
+      "thread_removed": true,
+      "partner_ids_removed": true,
+      "test_user_removed": true,
+      "test_user_partner_removed": true,
+      "test_bus_events_removed": true,
+      "provider_usage_retained": true,
+      "oracle_expected_records_not_sent_separately": true
+    }
+  }
+}

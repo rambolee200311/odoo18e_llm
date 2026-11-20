@@ -1,0 +1,3 @@
+CC-M4-02 modified Python files and Provider test runners: py_compile PASS
+git diff --check: PASS
+Scope: static checks only; Odoo runtime outcomes are recorded in ATR-RUN-018/019.

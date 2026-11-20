@@ -1,0 +1,43 @@
+{
+  "run_tag": "provider_constraints_v1.1",
+  "status": "PASS",
+  "database": "odoo18e_llm",
+  "provider": "OpenAI GPT-5.6 Luna",
+  "model": "gpt-5.6-luna",
+  "thread_id": 1806,
+  "provider_requests": 11,
+  "provider_responses": 11,
+  "provider_errors": 0,
+  "ordinary_internal_user_without_contact_manager": true,
+  "metadata_relation_resolution": {
+    "parent_record_id": 24606,
+    "country_record_id": 1,
+    "parent_candidates": 1,
+    "country_candidates": 1
+  },
+  "oracle_identity_checks": {
+    "individual_ids": true,
+    "company_ids": true,
+    "child_ids": true,
+    "child_parent_map": {
+      "24611": 24609,
+      "24612": 24610
+    },
+    "all_query_pages_complete": true,
+    "decoy_absent": true,
+    "oracle_not_injected": true
+  },
+  "turn_output_values": {
+    "turn_1": true,
+    "turn_2": true
+  },
+  "cleanup": {
+    "thread_removed": true,
+    "partner_ids_removed": true,
+    "test_user_removed": true,
+    "test_user_partner_removed": true,
+    "test_bus_events_removed": true,
+    "provider_usage_retained": true,
+    "oracle_expected_records_not_sent_separately": true
+  }
+}

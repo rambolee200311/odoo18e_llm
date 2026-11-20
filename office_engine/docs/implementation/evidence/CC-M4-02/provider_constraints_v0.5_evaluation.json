@@ -1,0 +1,38 @@
+{
+  "database": "odoo18e_llm",
+  "provider": "OpenAI GPT-5.6 Luna",
+  "model": "gpt-5.6-luna",
+  "thread_id": 1602,
+  "provider_requests": 18,
+  "provider_responses": 18,
+  "provider_errors": 0,
+  "tool_message_status_counts": {
+    "completed": 8,
+    "error": 7
+  },
+  "turn_1_expected_values_present": false,
+  "turn_1_agent_final": "未找到符合条件的个人联系人。\n查询过程中，Odoo 不接受提供的父公司标识 3eca8d3e3250 作为 parent_id 的可搜索值，且按名称 CC-M4-02 Parent 也未找到记录，因此无法可靠确认目标父公司并列出姓名和邮箱。\n\n未创建或修改任何文件。",
+  "turn_2_expected_values_present": true,
+  "turn_2_retained_constraints_present": true,
+  "errors_observed": [
+    "INVALID_QUERY: The requested domain contains a field that Odoo cannot search. (diagnostic_id=1c624636ac6846e8a4dc1dad61e2930a)",
+    "INVALID_QUERY: The requested domain contains a field that Odoo cannot search. (diagnostic_id=1beb0f98706f4a6abc3c4bb3462aaa7d)",
+    "INVALID_QUERY: The requested domain contains a field that Odoo cannot search. (diagnostic_id=2a6cf1e2e3154a5a96b5ba1ae09a1ed4)",
+    "INVALID_QUERY: Domain values must be JSON scalar values or arrays. (diagnostic_id=4ca0899ba4664f1d86130736d3d1b79f)",
+    "INVALID_QUERY: The requested domain contains a field that Odoo cannot search. (diagnostic_id=b20698d7041c41478202035b3ef4b837)",
+    "INVALID_QUERY: The requested domain contains a field that Odoo cannot search. (diagnostic_id=e0c25421dffd4e6b9bdb0807be942dd8)",
+    "INVALID_QUERY: The requested domain contains a field that Odoo cannot search. (diagnostic_id=f1ebc7d685a84618a518ef545f69bdc2)"
+  ],
+  "cleanup": {
+    "thread_removed": true,
+    "partner_ids_removed": true,
+    "test_user_removed": true,
+    "test_user_partner_removed": true,
+    "test_bus_events_removed": true,
+    "provider_usage_retained": true,
+    "oracle_expected_records_not_sent_separately": true
+  },
+  "classification": "EXPLORATORY_FAIL_TURN_1_PASS_TURN_2",
+  "scope_note": "该运行包含一次临时非存储计算字段 Domain fail-closed 实验；产品代码已恢复到冻结范围内版本。该运行不计为最终基线 PASS。",
+  "turn_2_retained_constraints_evidence": "符合前面条件的公司账户如下（父公司：*CC-M4-02 Parent 3eca8d3e3250*；已启用；国家/地区：*Andorra*；创建日期为 *2026-11-20*）：\n\n| 公司账户 | 联系人姓名 | 联系人邮箱 |\n|---|---|---|\n| CC-M4-02 Company 3eca8d3e3250-1 | CC-M4-02 Contact 3eca8d3e3250-1 | cc-m4-02-contact-3eca8d3e3250-1@example.invalid |\n| CC-M4-02 Company 3eca8d3e3250-2 | CC-M4-02 Contact 3eca8d3e3250-2 | cc-m4-02-contact-3eca8d3e3250-2@example.invalid |\n\n仅在聊天中回答，未创建或修改文件。"
+}

@@ -1,0 +1,36 @@
+Traceback (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/shell.py", line 126, in run
+    self.shell(config['db_name'])
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/shell.py", line 119, in shell
+    self.console(local_vars)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/shell.py", line 68, in console
+    exec(sys.stdin.read(), local_vars)
+  File "<string>", line 371, in <module>
+  File "<string>", line 329, in run
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/sql_db.py", line 479, in commit
+    self.flush()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/sql_db.py", line 160, in flush
+    self.precommit.run()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/misc.py", line 1162, in run
+    func()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons/bus/models/bus.py", line 134, in create_bus
+    self.sudo().create(self.env.cr.precommit.data.pop("bus.bus.values"))
+  File "<decorator-gen-0>", line 2, in create
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 496, in _model_create_multi
+    return create(self, arg)
+           ^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/models.py", line 5017, in create
+    records = self._create(data_list)
+              ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/models.py", line 5201, in _create
+    cr.execute(SQL(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/sql_db.py", line 354, in execute
+    res = self._obj.execute(query, params)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.ForeignKeyViolation: insert or update on table "bus_bus" violates foreign key constraint "bus_bus_create_uid_fkey"
+DETAIL:  Key (create_uid)=(336) is not present in table "res_users".
+

@@ -1,0 +1,372 @@
+2026-11-20 07:32:00,132 35346 INFO ? odoo: Odoo version 18.0+e-20250619 
+2026-11-20 07:32:00,132 35346 INFO ? odoo: Using configuration file at /Users/lijianqiang/Documents/odoo18e_llm/odoo.conf 
+2026-11-20 07:32:00,132 35346 INFO ? odoo: addons paths: ['/Users/lijianqiang/Documents/odoo18e_llm/odoo/addons', '/Users/lijianqiang/Library/Application Support/Odoo/addons/18.0', '/Users/lijianqiang/Documents/odoo18e_llm/addons', '/Users/lijianqiang/Documents/odoo18e_llm/queue', '/Users/lijianqiang/Documents/odoo18e_llm/odoo-llm', '/Users/lijianqiang/Documents/odoo18e_llm/office_engine'] 
+2026-11-20 07:32:00,132 35346 INFO ? odoo: database: odoo@127.0.0.1:5555 
+2026-11-20 07:32:00,231 35346 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltopdf to print a pdf version of the reports. 
+2026-11-20 07:32:00,233 35346 INFO ? odoo.addons.base.models.ir_actions_report: You need Wkhtmltoimage to generate images from html. 
+2026-11-20 07:32:00,338 35346 INFO ? odoo.service.server: HTTP service (werkzeug) running on lijianqiangs-MacBook-Air.local:8091 
+2026-11-20 07:32:00,360 35346 INFO odoo18e_llm odoo.tests.common: Importing test framework 
+2026-11-20 07:32:00,393 35346 INFO odoo18e_llm odoo.modules.loading: loading 1 modules... 
+2026-11-20 07:32:00,395 35346 INFO odoo18e_llm odoo.modules.loading: 1 modules loaded in 0.00s, 0 queries (+0 extra) 
+2026-11-20 07:32:00,405 35346 INFO odoo18e_llm odoo.modules.loading: updating modules list 
+2026-11-20 07:32:00,410 35346 INFO odoo18e_llm odoo.addons.base.models.ir_module: ALLOW access to module.update_list on [] to user __system__ #1 via n/a 
+2026-11-20 07:32:02,526 35346 INFO odoo18e_llm odoo.addons.base.models.ir_module: ALLOW access to module.button_upgrade on ['Office Engine M3 Retriever'] to user __system__ #1 via n/a 
+2026-11-20 07:32:02,526 35346 INFO odoo18e_llm odoo.addons.base.models.ir_module: ALLOW access to module.update_list on ['Office Engine M3 Retriever'] to user __system__ #1 via n/a 
+2026-11-20 07:32:03,116 35346 INFO odoo18e_llm odoo.addons.base.models.ir_module: ALLOW access to module.button_install on [] to user __system__ #1 via n/a 
+2026-11-20 07:32:03,145 35346 INFO odoo18e_llm odoo.modules.loading: loading 190 modules... 
+2026-11-20 07:32:03,157 35346 WARNING odoo18e_llm odoo.addons.attachment_indexation.models.ir_attachment: Attachment indexation of PDF documents is unavailable because the 'pdfminer' Python library cannot be found on the system. You may install it from https://pypi.org/project/pdfminer.six/ (e.g. `pip3 install pdfminer.six`) 
+2026-11-20 07:32:03,528 35346 INFO odoo18e_llm odoo.addons.queue_job.post_load: Apply Request._get_session_and_dbname monkey patch to capture db from request with multiple databases 
+2026-11-20 07:32:04,207 35346 WARNING odoo18e_llm odoo.tools.translate: no translation language detected, skipping translation <frame at 0x112171e80, file '/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_odoo/models/llm_thread.py', line 14, code <module>> 
+Stack (most recent call last):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_odoo/__init__.py", line 2, in <module>
+    from . import models
+  File "<frozen importlib._bootstrap>", line 1232, in _handle_fromlist
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_odoo/models/__init__.py", line 4, in <module>
+    from . import llm_thread
+  File "<frozen importlib._bootstrap>", line 1232, in _handle_fromlist
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "<frozen importlib._bootstrap>", line 1176, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 1147, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 690, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 940, in exec_module
+  File "<frozen importlib._bootstrap>", line 241, in _call_with_frames_removed
+  File "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/office_engine_odoo/models/llm_thread.py", line 14, in <module>
+    _REJECT_MESSAGE = _(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 621, in get_text_alias
+    module, lang = _get_translation_source(1)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 610, in _get_translation_source
+    lang = lang or _get_lang(frame, default_lang)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/translate.py", line 601, in _get_lang
+    _logger.log(log_level, 'no translation language detected, skipping translation %s', frame, stack_info=True)
+2026-11-20 07:32:04,437 35346 INFO odoo18e_llm odoo.modules.loading: Loading module office_engine_m3 (137/190) 
+2026-11-20 07:32:04,602 35346 INFO odoo18e_llm odoo.modules.registry: module office_engine_m3: creating or updating database tables 
+2026-11-20 07:32:04,676 35346 INFO odoo18e_llm odoo.modules.registry: Models have no table: column.filter.field.info. 
+2026-11-20 07:32:04,676 35346 INFO odoo18e_llm odoo.modules.registry: Recreate table of model column.filter.field.info. 
+2026-11-20 07:32:04,677 35346 ERROR odoo18e_llm odoo.modules.registry: Model column.filter.field.info has no table. 
+2026-11-20 07:32:04,748 35346 INFO odoo18e_llm odoo.addons.base.models.ir_module: module office_engine_m3: no translation for language zh_CN 
+2026-11-20 07:32:04,978 35346 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_chinese_organize_into_excel_request_binds_m3_export_tools_without_upload ... 
+2026-11-20 07:32:05,008 35346 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_complete_export_route_requires_registry_discovery_before_search ... 
+2026-11-20 07:32:05,028 35346 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_current_task_rules_preserve_latest_user_instruction_and_unmodified_constraints ... 
+2026-11-20 07:32:05,055 35346 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_discuss_history_hides_only_marked_messages_and_keeps_rows ... 
+2026-11-20 07:32:05,090 35346 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_explicit_historical_filename_overrides_latest_upload ... 
+2026-11-20 07:32:06,022 35346 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_failed_retrieval_reveals_tool_and_assistant_messages ... 
+2026-11-20 07:32:06,051 35346 ERROR odoo18e_llm odoo.addons.llm_tool.models.mail_message: Error executing tool odoo_record_retriever: ACCESS_DENIED: synthetic denial 
+2026-11-20 07:32:06,072 35346 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_latest_upload_remains_available_after_more_than_100_user_messages ... 
+2026-11-20 07:32:06,864 35346 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_new_fileless_export_is_filtered_before_m2_binds_tools ... 
+2026-11-20 07:32:06,873 35346 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_only_pure_retriever_messages_on_non_stream_office_route_are_marked ... 
+2026-11-20 07:32:06,927 35346 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_silent_retrieval_messages_remain_in_provider_context ... 
+2026-11-20 07:32:06,951 35346 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_sse_filter_keeps_tool_events_errors_and_visible_messages ... 
+2026-11-20 07:32:06,975 35346 INFO odoo18e_llm odoo.addons.office_engine_m3.tests.test_silent_retrieval: Starting TestSilentRetrieval.test_visible_office_and_clarification_messages_are_never_marked ... 
+2026-11-20 07:32:07,085 35346 INFO odoo18e_llm odoo.addons.base.models.ir_attachment: filestore gc 5 checked, 5 removed 
+2026-11-20 07:32:07,101 35346 INFO odoo18e_llm odoo.modules.loading: Module office_engine_m3 loaded in 2.66s (incl. 2.29s test), 135 queries (+2509 test, +135 other) 
+2026-11-20 07:32:07,211 35346 WARNING odoo18e_llm py.warnings: /Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py:482: DeprecationWarning: The model odoo.addons.worlddepot.models.inbound_order is not overriding the create method in batch
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/__init__.py", line 4, in <module>
+    from . import models
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/__init__.py", line 4, in <module>
+    from . import inbound_order
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/inbound_order.py", line 10, in <module>
+    class InboundOrder(models.Model):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/inbound_order.py", line 202, in InboundOrder
+    @api.model
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 429, in model
+    return model_create_single(method)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 482, in model_create_single
+    warnings.warn(
+ 
+2026-11-20 07:32:07,214 35346 WARNING odoo18e_llm py.warnings: /Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py:482: DeprecationWarning: The model odoo.addons.worlddepot.models.outbound_order is not overriding the create method in batch
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/__init__.py", line 4, in <module>
+    from . import models
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/__init__.py", line 6, in <module>
+    from . import outbound_order
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/outbound_order.py", line 19, in <module>
+    class OutboundOrder(models.Model):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/outbound_order.py", line 235, in OutboundOrder
+    @api.model
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 429, in model
+    return model_create_single(method)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 482, in model_create_single
+    warnings.warn(
+ 
+2026-11-20 07:32:07,218 35346 WARNING odoo18e_llm py.warnings: /Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py:482: DeprecationWarning: The model odoo.addons.worlddepot.models.my_api_user is not overriding the create method in batch
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/__init__.py", line 4, in <module>
+    from . import models
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/__init__.py", line 20, in <module>
+    from . import my_api_user
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/my_api_user.py", line 10, in <module>
+    class DepotAPIUser(models.Model):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/my_api_user.py", line 75, in DepotAPIUser
+    @api.model
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 429, in model
+    return model_create_single(method)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 482, in model_create_single
+    warnings.warn(
+ 
+2026-11-20 07:32:07,223 35346 WARNING odoo18e_llm py.warnings: /Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py:482: DeprecationWarning: The model odoo.addons.worlddepot.models.transfer_order is not overriding the create method in batch
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo-bin", line 8, in <module>
+    odoo.cli.main()
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/command.py", line 66, in main
+    o.run(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 182, in run
+    main(args)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/cli/server.py", line 175, in main
+    rc = odoo.service.server.start(preload=preload, stop=stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1457, in start
+    rc = server.run(preload, stop)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 622, in run
+    rc = preload_registries(preload)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/service/server.py", line 1361, in preload_registries
+    registry = Registry.new(dbname, update_module=update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/venv/lib/python3.11/site-packages/decorator.py", line 232, in fun
+    return caller(func, *(extras + args), **kw)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/tools/func.py", line 97, in locked
+    return func(inst, *args, **kwargs)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/registry.py", line 129, in new
+    odoo.modules.load_modules(registry, force_demo, status, update_module)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 480, in load_modules
+    processed_modules += load_marked_modules(env, graph,
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 365, in load_marked_modules
+    loaded, processed = load_module_graph(
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/loading.py", line 186, in load_module_graph
+    load_openerp_module(package.name)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/modules/module.py", line 384, in load_openerp_module
+    __import__(qualname)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/__init__.py", line 4, in <module>
+    from . import models
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/__init__.py", line 36, in <module>
+    from . import transfer_order
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/transfer_order.py", line 10, in <module>
+    class TransferOrder(models.Model):
+  File "/Users/lijianqiang/Documents/odoo18e_llm/addons/worlddepot/models/transfer_order.py", line 78, in TransferOrder
+    @api.model
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 429, in model
+    return model_create_single(method)
+  File "/Users/lijianqiang/Documents/odoo18e_llm/odoo/api.py", line 482, in model_create_single
+    warnings.warn(
+ 
+2026-11-20 07:32:07,281 35346 INFO odoo18e_llm odoo.modules.loading: 190 modules loaded in 4.14s, 135 queries (+2644 extra) 
+2026-11-20 07:32:07,284 35346 INFO odoo18e_llm odoo.modules.loading: loading 190 modules... 
+2026-11-20 07:32:07,285 35346 INFO odoo18e_llm odoo.modules.loading: 190 modules loaded in 0.00s, 0 queries (+0 extra) 
+2026-11-20 07:32:07,287 35346 INFO odoo18e_llm odoo.modules.loading: loading 190 modules... 
+2026-11-20 07:32:07,288 35346 INFO odoo18e_llm odoo.modules.loading: 190 modules loaded in 0.00s, 0 queries (+0 extra) 
+2026-11-20 07:32:07,589 35346 WARNING odoo18e_llm odoo.fields: operation.order.clearance.statement_period_id_state: selection attribute will be ignored as the field is related 
+2026-11-20 07:32:07,590 35346 WARNING odoo18e_llm odoo.fields: operation.order.clearance.charge.line.quotation_tab_category: selection attribute will be ignored as the field is related 
+2026-11-20 07:32:07,590 35346 WARNING odoo18e_llm odoo.fields: operation.order.clearance.charge.line.charge_item_operation_type: selection attribute will be ignored as the field is related 
+2026-11-20 07:32:07,592 35346 WARNING odoo18e_llm odoo.fields: operation.order.handover.statement_period_id_state: selection attribute will be ignored as the field is related 
+2026-11-20 07:32:07,592 35346 WARNING odoo18e_llm odoo.fields: operation.order.handover.charge.line.quotation_tab_category: selection attribute will be ignored as the field is related 
+2026-11-20 07:32:07,592 35346 WARNING odoo18e_llm odoo.fields: operation.order.handover.charge.line.charge_item_operation_type: selection attribute will be ignored as the field is related 
+2026-11-20 07:32:07,594 35346 WARNING odoo18e_llm odoo.fields: pickup.container.line.container_type: selection attribute will be ignored as the field is related 
+2026-11-20 07:32:07,607 35346 WARNING odoo18e_llm odoo.fields: Field stock.location.is_bonded: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,608 35346 WARNING odoo18e_llm odoo.fields: Field stock.picking.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,608 35346 WARNING odoo18e_llm odoo.fields: Field stock.package.destination.pallet_name: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,611 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,611 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.warehouse: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,611 35346 WARNING odoo18e_llm odoo.fields: Field statement.period.state: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,611 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,611 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.project_name: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,611 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.quantity: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,611 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.weight_total: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,611 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.is_inbound_handling: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,611 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.inbound_handling_price: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,611 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.inbound_handling_charge: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,611 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.is_scanning: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,611 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.inbound_scanning_price: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,611 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.inbound_scanning_charge: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,612 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.products.pallet.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,612 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.products.pallet.project_name: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,612 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.docs.doc_type: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,612 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,612 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.owner: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,612 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.warehouse: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,612 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.pick_type: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,612 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.product.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,612 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.product.adr: unknown parameter 'stock', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,612 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.docs.doc_type: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,612 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.pack.info.is_loaded: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,612 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.pack.product.lot_id with unknown comodel_name 'stock.production.lot' 
+2026-11-20 07:32:07,612 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.transfer.order.warehouse: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,612 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.transfer.order.line.product: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,612 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.transfer.order.docs.doc_type: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,613 35346 WARNING odoo18e_llm odoo.fields: Field sunrise.stock.report.line.lifecycle_start_datetime: unknown parameter 'oldname', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,614 35346 WARNING odoo18e_llm odoo.fields: Field portbase.webhook.log.process_status: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,614 35346 WARNING odoo18e_llm odoo.fields: Field statement.period.handover_order_lines: unknown parameter 'ondelete', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,614 35346 WARNING odoo18e_llm odoo.fields: Field statement.period.clearance_order_lines: unknown parameter 'ondelete', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,614 35346 WARNING odoo18e_llm odoo.fields: Field waybill.arrival.wizard.ata: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,615 35346 WARNING odoo18e_llm odoo.fields: Field waybill.arrival.wizard.terminal_a: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,615 35346 WARNING odoo18e_llm odoo.fields: Field waybill.arrival.wizard.terminal_id: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,692 35346 WARNING odoo18e_llm odoo.fields: operation.order.clearance.statement_period_id_state: selection attribute will be ignored as the field is related 
+2026-11-20 07:32:07,692 35346 WARNING odoo18e_llm odoo.fields: operation.order.clearance.charge.line.quotation_tab_category: selection attribute will be ignored as the field is related 
+2026-11-20 07:32:07,692 35346 WARNING odoo18e_llm odoo.fields: operation.order.clearance.charge.line.charge_item_operation_type: selection attribute will be ignored as the field is related 
+2026-11-20 07:32:07,693 35346 WARNING odoo18e_llm odoo.fields: operation.order.handover.statement_period_id_state: selection attribute will be ignored as the field is related 
+2026-11-20 07:32:07,693 35346 WARNING odoo18e_llm odoo.fields: operation.order.handover.charge.line.quotation_tab_category: selection attribute will be ignored as the field is related 
+2026-11-20 07:32:07,693 35346 WARNING odoo18e_llm odoo.fields: operation.order.handover.charge.line.charge_item_operation_type: selection attribute will be ignored as the field is related 
+2026-11-20 07:32:07,695 35346 WARNING odoo18e_llm odoo.fields: pickup.container.line.container_type: selection attribute will be ignored as the field is related 
+2026-11-20 07:32:07,708 35346 WARNING odoo18e_llm odoo.fields: Field stock.location.is_bonded: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,709 35346 WARNING odoo18e_llm odoo.fields: Field stock.picking.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,709 35346 WARNING odoo18e_llm odoo.fields: Field stock.package.destination.pallet_name: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.warehouse: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field statement.period.state: unknown parameter 'track_visibility', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.project_name: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.quantity: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.weight_total: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.is_inbound_handling: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.inbound_handling_price: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.inbound_handling_charge: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.is_scanning: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.inbound_scanning_price: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.product.inbound_scanning_charge: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.products.pallet.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.products.pallet.project_name: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.inbound.order.docs.doc_type: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.owner: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.warehouse: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.pick_type: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,712 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.product.project_name: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,713 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.product.adr: unknown parameter 'stock', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,713 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.docs.doc_type: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,713 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.outbound.order.pack.info.is_loaded: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,713 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.transfer.order.warehouse: unknown parameter 'stored', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,713 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.transfer.order.line.product: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,713 35346 WARNING odoo18e_llm odoo.fields: Field world.depot.transfer.order.docs.doc_type: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,713 35346 WARNING odoo18e_llm odoo.fields: Field sunrise.stock.report.line.lifecycle_start_datetime: unknown parameter 'oldname', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,714 35346 WARNING odoo18e_llm odoo.fields: Field portbase.webhook.log.process_status: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,714 35346 WARNING odoo18e_llm odoo.fields: Field statement.period.handover_order_lines: unknown parameter 'ondelete', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,714 35346 WARNING odoo18e_llm odoo.fields: Field statement.period.clearance_order_lines: unknown parameter 'ondelete', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,715 35346 WARNING odoo18e_llm odoo.fields: Field waybill.arrival.wizard.ata: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,715 35346 WARNING odoo18e_llm odoo.fields: Field waybill.arrival.wizard.terminal_a: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:07,715 35346 WARNING odoo18e_llm odoo.fields: Field waybill.arrival.wizard.terminal_id: unknown parameter 'tracking', if this is an actual parameter you may want to override the method _valid_field_parameter on the relevant model in order to allow it 
+2026-11-20 07:32:08,299 35346 INFO odoo18e_llm odoo.modules.loading: Modules loaded. 
+2026-11-20 07:32:08,572 35346 INFO odoo18e_llm odoo.modules.registry: Registry changed, signaling through the database 
+2026-11-20 07:32:08,572 35346 INFO odoo18e_llm odoo.modules.registry: Registry loaded in 8.234s 
+2026-11-20 07:32:08,572 35346 INFO odoo18e_llm odoo.service.server: Starting post tests 
+2026-11-20 07:32:08,573 35346 INFO odoo18e_llm odoo.service.server: 0 post-tests in 0.00s, 0 queries 
+2026-11-20 07:32:08,573 35346 INFO odoo18e_llm odoo.tests.stats: office_engine_m3: 14 tests 2.28s 2509 queries 
+2026-11-20 07:32:08,573 35346 INFO odoo18e_llm odoo.tests.result: 0 failed, 0 error(s) of 12 tests when loading database 'odoo18e_llm' 
+2026-11-20 07:32:08,573 35346 INFO odoo18e_llm odoo.service.server: Initiating shutdown 
+2026-11-20 07:32:08,573 35346 INFO odoo18e_llm odoo.service.server: Hit CTRL-C again or send a second signal to force the shutdown. 
+2026-11-20 07:32:08,914 35346 INFO odoo18e_llm odoo.sql_db: ConnectionPool(read/write;used=0/count=0/max=64): Closed 2 connections  

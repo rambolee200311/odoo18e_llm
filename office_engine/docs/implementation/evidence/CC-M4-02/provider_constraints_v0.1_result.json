@@ -1,0 +1,20 @@
+{
+  "run_tag": "provider_constraints_v0.1",
+  "database": "odoo18e_llm",
+  "provider": "OpenAI GPT-5.6 Luna",
+  "model": "gpt-5.6-luna",
+  "status": "ERROR",
+  "error_type": "UserError",
+  "error": "Unable to send message, please configure the sender's email address.",
+  "provider_audit_path": "/Users/lijianqiang/Documents/odoo18e_llm/office_engine/docs/implementation/evidence/CC-M4-02/provider_constraints_v0.1_sdk_audit.jsonl",
+  "cleanup": {
+    "thread_removed": true,
+    "partner_ids_removed": true,
+    "test_user_removed": true,
+    "provider_usage_retained": true,
+    "oracle_expected_records_not_sent_separately": true
+  },
+  "provider_request_count": 0,
+  "provider_response_count": 0,
+  "provider_error_count": 0
+}

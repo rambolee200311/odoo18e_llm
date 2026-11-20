@@ -1,7 +1,6 @@
-"""Silent, auditable Retriever messages for the supported non-streaming path."""
+"""实现受支持的非流式路径下 Retriever 消息的静默显示与审计保留。"""
 
 from odoo import api, models, tools
-
 
 _RETRIEVER_TOOL = "odoo_record_retriever"
 _MESSAGE_EVENTS = {"message_create", "message_update"}
@@ -18,14 +17,14 @@ _ADDITIONAL_FILE_ACTION_TERMS = ("整理", "汇总", "归纳", "转换", "转成
 
 
 class LLMThread(models.Model):
+    """扩展 LLM Thread，提供附件上下文、Discovery 指引和 Retriever 静默消息处理。"""
     _inherit = "llm.thread"
 
     def _office_upload_from_thread(self, source_thread):
-        """Find the newest Office upload across the full owned Thread history.
+        """从当前用户拥有的完整 Thread 历史中查找最近的 Office 上传附件。
 
-        M2 bounded this scan to the newest 25 user messages. Keep its ownership,
-        attachment classification, and malformed-upload behavior, but do not
-        make an older still-valid workbook disappear from the Office lifecycle.
+        保留 M2 的附件所有权、类型分类和异常附件失败关闭规则；查找不受最近 25 条
+        用户消息限制，避免较早但仍有效的工作簿丢失。
         """
         source_thread.ensure_one()
         messages = source_thread.message_ids.filtered(
@@ -39,14 +38,14 @@ class LLMThread(models.Model):
             office = source_thread._office_engine_classify_attachments(message.attachment_ids)
             if not office:
                 continue
-            # Preserve M2's fail-closed rule for a malformed or mixed latest upload.
+            # 最近一次上传无效或混有其他文件时，继续沿用 M2 的失败关闭规则。
             if len(office) != 1 or len(message.attachment_ids) != 1:
                 return message, self.env["ir.attachment"]
             return message, office
         return self.env["mail.message"], self.env["ir.attachment"]
 
     def _office_explicit_upload_from_thread(self, source_thread, request_text):
-        """Resolve an explicitly named historical Office upload by its filename."""
+        """按用户本轮明确提供的文件名解析 Thread 历史附件。"""
         source_thread.ensure_one()
         if not request_text:
             return self.env["mail.message"], self.env["ir.attachment"]
@@ -66,7 +65,7 @@ class LLMThread(models.Model):
         return self.env["mail.message"], self.env["ir.attachment"]
 
     def _office_latest_upload(self):
-        """Prefer a historical upload explicitly named in the latest user turn."""
+        """优先使用用户本轮明确指定的历史附件，否则返回 Thread 最近上传。"""
         self.ensure_one()
         latest_user = self._office_latest_user_message()
         request_text = tools.html2plaintext(latest_user.body or "").casefold() if latest_user else ""
@@ -82,7 +81,7 @@ class LLMThread(models.Model):
         return super()._office_latest_upload()
 
     def _office_requests_fileless_workbook(self, body):
-        """Extend M2 intent matching for common Chinese "organize into Excel" wording."""
+        """识别常见中文“整理成 Excel”请求，以支持无源文件的新建工作簿。"""
         if super()._office_requests_fileless_workbook(body):
             return True
         self.ensure_one()
@@ -105,7 +104,7 @@ class LLMThread(models.Model):
         return False
 
     def _office_m3_attachment_reference(self):
-        """Build a text-only reference for the server-owned source file."""
+        """为服务端已有附件构造只含引用信息的上下文，不重复上传文件内容。"""
         self.ensure_one()
         latest_message, latest_attachment = super()._office_latest_upload()
         selected_message, selected_attachment = self._office_latest_upload()
@@ -113,6 +112,7 @@ class LLMThread(models.Model):
             return None
 
         def reference(label, message, attachment):
+            """按显示标签及附件元数据生成服务端文件引用说明。"""
             timestamp = message.date or message.create_date
             return (
                 f"{label}: filename={attachment.name!r}, message_id={message.id}, "
@@ -135,13 +135,14 @@ class LLMThread(models.Model):
         return {"role": "system", "content": "\n".join(lines)}
 
     def _get_message_create_valid_field_names(self):
+        """返回 `mail.message` 创建时允许写入的字段名，并为 Thread 消息加入静默检索标记字段。"""
         names = super()._get_message_create_valid_field_names()
         if self._name == "llm.thread":
             names.add("llm_silent_retrieval")
         return names
 
     def _office_m3_is_non_streaming_office_route(self):
-        """Match the GPT-5 OpenAI Office turn that M2 explicitly runs non-streaming."""
+        """识别 M2 明确以非流式方式运行的 GPT-5 OpenAI Office 请求。"""
         self.ensure_one()
         active_office_turn = self._office_is_active()
         gpt5_office_tool_turn = (
@@ -152,12 +153,10 @@ class LLMThread(models.Model):
         return bool(active_office_turn or gpt5_office_tool_turn)
 
     def _office_m3_is_non_streaming_office_generation(self, user_message_body, attachment_ids):
-        """Detect a new fileless Office request before M2 binds its tools.
+        """在 M2 绑定工具前识别无源文件的新建 Office 工作簿请求。
 
-        The controller iterates this generator before M2's ``generate`` method
-        runs its preflight. At that point a new thread has no Office tools yet,
-        so the route must be recognized from the same generic Office intent
-        predicate that will bind those tools downstream.
+        Controller 会在 M2 的 ``generate`` 预检之前迭代该入口；新 Thread 此时尚无 Office
+        工具，因此按下游通用 Office 意图判定来识别目标路由。
         """
         self.ensure_one()
         if self._office_m3_is_non_streaming_office_route():
@@ -174,6 +173,70 @@ class LLMThread(models.Model):
         values = super()._prepare_chat_kwargs(message_history, use_streaming)
         tools = values.get("tools") or self.tool_ids
         tool_names = set(tools.mapped("name"))
+        if _RETRIEVER_TOOL in tool_names:
+            # 关系显示值与 ORM 外键值不同；显式要求按 Registry 关系元数据解析 ID 并读取子记录，避免错联或漏联。
+            # 自关联模型的查询深度会改变结果；“下面”等词未说明层级时不能自行选直接子项或全部后代。
+            # 计数必须有成功且完整的查询结果支撑，查询失败或未执行不能被解释为零。
+            task_rules = {
+                "role": "system",
+                "content": (
+                    "Current-task continuity and instruction priority: treat the user's explicit goal and constraints "
+                    "in this conversation context as binding throughout the task. The latest explicit user instruction "
+                    "supersedes earlier instructions only where they conflict; keep every unaffected constraint. Your "
+                    "earlier plan and tool results cannot override a user instruction. Make one Retriever tool call per "
+                    "assistant response and wait for its corresponding result before planning the next Retriever call; "
+                    "this keeps relation-resolution evidence ordered and prevents a failed call from leaving sibling "
+                    "tool results unpaired. Use new Registry metadata and "
+                    "read-only results to revise the next step when needed. For Odoo reads, use only model, field, "
+                    "relation, and selection information returned by discover/describe or successful read-only results; "
+                    "do not guess technical names, relation paths, or record values. Discover returns model candidates, "
+                    "not field definitions or business-record matches. Describe is paginated: a field is known only "
+                    "after it appears in a returned fields page. Do not request an unnecessarily small limit; when "
+                    "has_more is true, continue from next_offset until the metadata needed for the query is available. "
+                    "Before using a relation in a Domain, inspect its described relation model and rec_name. Resolve a "
+                    "business label by searching that model's rec_name field with the label supplied by the user; do not "
+                    "reinterpret a name as an ID or reference value. Put only IDs returned by successful searches into "
+                    "ID-valued relation conditions; never substitute a display label, text fragment, or guessed value. "
+                    "Every ID in a query must come from the user or a successful prior read-only result. Do not probe "
+                    "arbitrary IDs or unrelated business records; every query must directly support the user's current "
+                    "task. When the user requests related child records for selected parents, use the described relation "
+                    "and inverse-field metadata to query the child model for those exact parent IDs, retrieve the fields "
+                    "needed for the requested output, and preserve each child's returned parent ID when grouping results. "
+                    "Do not reuse prior records as children unless their returned relation values prove that link. When "
+                    "describe confirms a self-referential relation on the target model, wording such as 'under', "
+                    "'related to', '下面', or '关联' without an explicit depth is a business-scope ambiguity, even if "
+                    "the most likely ORM condition would use the direct parent relation. The parent relation defines one "
+                    "edge only; deeper levels may exist. After discovering this ambiguity, do not search target records "
+                    "using either direct-child or descendant scope, do not choose a scope from the returned rows, and do "
+                    "not report a count/list. Ask the user to choose between records directly attached to the named "
+                    "parent and records attached under any descendant. You may still discover/describe metadata and "
+                    "resolve the named parent record before asking. A requested format such as 'number only' does not "
+                    "override this clarification requirement. Do not use a complete direct-child result as evidence that "
+                    "the all-descendant result is complete. Resume the scoped query only after the user specifies the "
+                    "depth. "
+                    "Refine other plausible record interpretations using metadata "
+                    "and returned values; ask only when unresolved business meaning could change the result. If a "
+                    "Retriever Domain search returns INVALID_QUERY, that failed call has no usable records for its "
+                    "rejected condition; never retry by silently dropping that condition. Prefer an equivalent searchable "
+                    "field or relation confirmed by metadata. Otherwise a broader candidate query is allowed only when "
+                    "every page is collected through has_more=false and the returned fields contain every value needed "
+                    "to filter that rejected condition plus all other user constraints exactly. Apply those filters before "
+                    "counting or claiming completion. A successful broad query proves only that candidates were read: its "
+                    "returned_count is not the requested count unless every predicate is represented in the Domain or "
+                    "has been deterministically applied to the complete candidate set. Never claim completion from a "
+                    "partial, ambiguous, or unfiltered superset; if completeness or filtering cannot be established, "
+                    "report the unresolved limitation. For a requested count, do not answer any number, especially zero, "
+                    "unless a successful complete search result or a complete deterministically filtered candidate set "
+                    "supports that exact count. No search result, a failed search, or an incomplete page set is not a "
+                    "zero-result answer. Before claiming completion, check the observable result against every applicable "
+                    "user constraint. "
+                    "Do not expose hidden reasoning; report concise findings and evidence."
+                ),
+            }
+            values["prepend_messages"] = [
+                task_rules,
+                *(values.get("prepend_messages") or []),
+            ]
         if self._office_is_active() and {"office", _RETRIEVER_TOOL} <= tool_names:
             discovery_rules = {
                 "role": "system",
@@ -213,8 +276,8 @@ class LLMThread(models.Model):
             }
             prepend_messages = list(values.get("prepend_messages") or [])
             values["prepend_messages"] = [discovery_rules, *prepend_messages]
-            # M2's generic Route B instruction covers a blank workbook. M3 Odoo
-            # exports instead use the Candidate-backed export_records action.
+            # M2 通用 Route B 指引处理空白工作簿；M3 的 Odoo 数据导出则必须走
+            # 受 Candidate 生命周期保护的 export_records 操作。
             for message in values["prepend_messages"]:
                 if message.get("role") != "system":
                     continue
@@ -236,6 +299,7 @@ class LLMThread(models.Model):
 
     @staticmethod
     def _office_m3_retriever_calls(body_json):
+        """仅识别消息中全部属于 Retriever 的工具调用数组。"""
         if not isinstance(body_json, dict):
             return []
         calls = body_json.get("tool_calls")
@@ -251,6 +315,11 @@ class LLMThread(models.Model):
         return calls
 
     def _office_m3_should_mark_silent(self, llm_role, body_json, body, is_error):
+        """判断当前消息是否为可隐藏的成功 Retriever 内部记录。
+
+        只有纯 Retriever assistant/tool 消息可静默；错误、Office 工具、最终答复、
+        用户确认及混合工具调用均保持可见。
+        """
         self.ensure_one()
         if is_error or not self._office_m3_is_non_streaming_office_route():
             return False
@@ -278,7 +347,7 @@ class LLMThread(models.Model):
         is_error=False,
         **kwargs,
     ):
-        """Mark only pure Retriever messages before mail.thread sends Bus notifications."""
+        """在 mail.thread 广播 Bus 通知前标记纯 Retriever 内部消息。"""
         self.ensure_one()
         kwargs["llm_silent_retrieval"] = self._office_m3_should_mark_silent(
             llm_role=llm_role,
@@ -295,7 +364,7 @@ class LLMThread(models.Model):
         )
 
     def _notify_thread(self, message, msg_vals=False, **kwargs):
-        """Suppress fanout at the first notification boundary, before Bus delivery."""
+        """在最早通知边界拦截已标记消息，避免静默记录先经 Bus 暴露。"""
         if len(self) == 1 and self._office_m3_is_non_streaming_office_route():
             values = msg_vals or {}
             silent = values.get("llm_silent_retrieval")
@@ -306,6 +375,7 @@ class LLMThread(models.Model):
         return super()._notify_thread(message, msg_vals=msg_vals, **kwargs)
 
     def _office_m3_is_silent_message_event(self, event):
+        """判断 SSE 事件是否只包含已标记的静默 Retriever 消息。"""
         if not isinstance(event, dict) or event.get("type") not in _MESSAGE_EVENTS:
             return False
         message_data = event.get("message") or {}
@@ -322,7 +392,7 @@ class LLMThread(models.Model):
         return hidden
 
     def _office_m3_filter_silent_events(self, events):
-        """Filter only user-visible message events and preserve the generator return value."""
+        """过滤成功的静默消息事件，同时透传其他事件并保留生成器返回值。"""
         iterator = iter(events)
         while True:
             try:
@@ -333,7 +403,7 @@ class LLMThread(models.Model):
                 yield event
 
     def generate(self, user_message_body=None, attachment_ids=None, **kwargs):
-        """Hide successful internal message events only on M2's non-streaming Office route."""
+        """仅在受支持的非流式 Office 路径隐藏成功的 Retriever 内部消息事件。"""
         self.ensure_one()
         if not self._office_m3_is_non_streaming_office_generation(
             user_message_body, attachment_ids
