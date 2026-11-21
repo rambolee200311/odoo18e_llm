@@ -1,3 +1,4 @@
+"""本模块实现 Office Engine 中 `mail_message` 对应的 Odoo 模型扩展与业务处理。"""
 import re
 
 from odoo import api, fields, models
@@ -7,6 +8,7 @@ _ERROR_CODE_RE = re.compile(r"^(MODEL_NOT_FOUND|FIELD_NOT_FOUND|ACCESS_DENIED|IN
 
 
 class MailMessage(models.Model):
+    """封装 `MailMessage` 对应的功能、状态或数据结构。"""
     _inherit = "mail.message"
 
     llm_silent_retrieval = fields.Boolean(
@@ -47,6 +49,15 @@ class MailMessage(models.Model):
         )
 
     def execute_tool_call(self, thread_model=None):
+        """执行工具并保留 Retriever 错误的内部回执。
+
+        参数：``thread_model`` 为关联的 LLM Thread。
+        返回：上游工具执行器的生成结果；错误状态和诊断仍写入消息。
+
+        纯 Retriever 消息在工具执行前已标记为内部消息。执行失败时保留该标记，
+        让 Agent 在后续模型轮次读取错误；最终失败由 assistant 答复对用户说明，
+        避免把尚未确定的中间错误提前作为业务结果展示。
+        """
         self.ensure_one()
         tool_data = self.get_tool_data() or {}
         tool_name = tool_data.get("tool_name") or (tool_data.get("tool_call", {}).get("function", {}) or {}).get("name")
@@ -62,46 +73,10 @@ class MailMessage(models.Model):
                     diagnostic = re.search(r"diagnostic_id=([0-9a-f]+)", error_text)
                     if diagnostic:
                         updated["diagnostic_id"] = diagnostic.group(1)
-                self.write({"body_json": updated, "llm_silent_retrieval": False})
-                if was_silent:
-                    visible_messages = self._office_m3_reveal_retriever_failure(
-                        thread_model=thread_model,
-                        tool_call_id=updated.get("tool_call_id"),
-                    )
-                    for message in visible_messages:
-                        if thread_model and thread_model._name == "llm.thread":
-                            thread_model._notify_thread(message)
-                        yield {"type": "message_create", "message": message.to_store_format()}
-                else:
+                self.write({
+                    "body_json": updated,
+                    "llm_silent_retrieval": was_silent,
+                })
+                if not was_silent:
                     yield {"type": "message_update", "message": self.to_store_format()}
         return result
-
-    def _office_m3_reveal_retriever_failure(self, thread_model=None, tool_call_id=None):
-        """Make a failed retrieval and its formerly hidden assistant call visible."""
-        self.ensure_one()
-        messages = self
-        if not thread_model or thread_model._name != "llm.thread" or not tool_call_id:
-            return messages
-
-        def has_call(message):
-            body_json = message.body_json or {}
-            for call in body_json.get("tool_calls", []):
-                function = call.get("function") or {}
-                if (
-                    call.get("id") == tool_call_id
-                    and function.get("name") == "odoo_record_retriever"
-                ):
-                    return True
-            return False
-
-        assistant_messages = thread_model.message_ids.filtered(
-            lambda message: (
-                message.llm_role == "assistant"
-                and message.llm_silent_retrieval
-                and has_call(message)
-            )
-        )
-        if assistant_messages:
-            assistant_messages.write({"llm_silent_retrieval": False})
-            messages |= assistant_messages
-        return messages

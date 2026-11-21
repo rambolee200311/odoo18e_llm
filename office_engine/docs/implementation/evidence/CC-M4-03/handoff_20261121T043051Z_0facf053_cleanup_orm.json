@@ -1,0 +1,17 @@
+{
+  "checked_at_utc": "2026-11-21T04:36:12.031028+00:00",
+  "database": "odoo18e_llm",
+  "verification_method": "Odoo ORM in a fresh shell session; no SQL/RPC",
+  "thread_id": 2049,
+  "thread_removed": true,
+  "synthetic_business_partner_ids_remaining": [],
+  "office_version_count": 0,
+  "test_user_id": 501,
+  "test_user_active": false,
+  "test_user_partner_id": 26945,
+  "test_user_partner_active": false,
+  "provider_usage_rows_preserved": 6,
+  "audit_allowlist": false,
+  "fault_config": false,
+  "conclusion": "Test-only configuration is disabled and no synthetic business record, Thread, or Candidate remains. Provider usage audit rows are retained; synthetic test user and partner are inactive."
+}

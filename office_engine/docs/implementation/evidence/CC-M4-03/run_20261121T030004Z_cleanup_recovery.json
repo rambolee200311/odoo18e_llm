@@ -1,0 +1,35 @@
+{
+  "run_tag": "run_20261121T030004Z",
+  "pre_cleanup_parameters": {
+    "office_engine.m4_tv.audit_thread_ids": {
+      "exists": true,
+      "value": ""
+    },
+    "office_engine.m4_tv.test_fault": {
+      "exists": true,
+      "value": ""
+    }
+  },
+  "thread_ids": [
+    1993,
+    1994,
+    1995
+  ],
+  "run_suffix": "c62829e4873e",
+  "cleanup": {
+    "thread_ids_removed": false,
+    "synthetic_partner_ids_removed": false,
+    "test_user_ids_removed": false,
+    "test_bus_rows_removed": false,
+    "audit_allowlist_disabled": false,
+    "test_fault_disabled": false,
+    "residual_versions_by_thread": {
+      "1993": [],
+      "1994": [],
+      "1995": [
+        556
+      ]
+    },
+    "original_allowlist_value_before_failed_cleanup": "UNKNOWN; runner lost its in-memory snapshot before saving it"
+  }
+}

@@ -1,0 +1,121 @@
+{
+  "checked_at_utc": "2026-11-21T07:35:28.134090+00:00",
+  "database": "odoo18e_llm",
+  "thread_id": 1995,
+  "orm_audit_path": "office_engine/docs/implementation/evidence/CC-M4-03/thread1995_readonly_audit.json",
+  "provider_sdk_audit_path": "office_engine/docs/implementation/evidence/CC-M4-03/run_20261121T030004Z_provider_sdk_audit.jsonl",
+  "provider_sdk_audit_sha256": "75ed991b2b8a044ad08f148609391a4111e0392e49680ff9d5f176e74c93b95f",
+  "provider": 1,
+  "provider_model": "gpt-5.6-luna",
+  "sdk_chat_request_count": 6,
+  "sdk_chat_response_count": 6,
+  "sdk_chat_request_ids": [
+    "ec0b8703-5e71-42b9-ae45-4b76bf5668c8",
+    "49155204-c18c-487b-94c6-874c7f79d2db",
+    "6a50dfcf-1e42-4d14-9779-8f3d198fdb9a",
+    "0544a777-a6f4-4954-a8cb-aabbbce25c39",
+    "2fff1fb0-bc8e-4fb0-9069-c598c2efc072",
+    "300aacca-b1a8-4233-8115-69609d2e74b4"
+  ],
+  "provider_tool_calls": [
+    [
+      "ec0b8703-5e71-42b9-ae45-4b76bf5668c8",
+      "call_uewi25H79DOaFAufgB6vCC98",
+      "odoo_record_retriever"
+    ],
+    [
+      "6a50dfcf-1e42-4d14-9779-8f3d198fdb9a",
+      "call_HrQ17DFttW3mUw2rHlQdqDE8",
+      "odoo_record_retriever"
+    ],
+    [
+      "0544a777-a6f4-4954-a8cb-aabbbce25c39",
+      "call_FsYpEbeJpp4PVq27XAchlWli",
+      "odoo_record_retriever"
+    ],
+    [
+      "2fff1fb0-bc8e-4fb0-9069-c598c2efc072",
+      "call_ot3qGIG5iAmKjfXBLm7CKkgx",
+      "office"
+    ]
+  ],
+  "provider_generated_final_failure_message": true,
+  "provider_final_response_id": "chatcmpl-EmVj6kk7YyfLHXf2q2ylscgXehqK9",
+  "provider_final_response_content_sha256": "7d0bcadfeb4751b8068651746f9053fbe7795d71d4ef361f201a482d7309a7b2",
+  "provider_final_response_character_count": 219,
+  "provider_final_assistant_message_persisted_in_thread": false,
+  "mail_message_ids": [
+    487740,
+    487763,
+    487764,
+    487765,
+    487766,
+    487767,
+    487768,
+    487769,
+    487770,
+    487771,
+    487772
+  ],
+  "persisted_office_tool_call_count": 1,
+  "persisted_office_tool_result_count": 1,
+  "office_tool_result": {
+    "chat_request_id": "300aacca-b1a8-4233-8115-69609d2e74b4",
+    "office_tool_call_id": "call_ot3qGIG5iAmKjfXBLm7CKkgx",
+    "operation_status": "provider_export_unavailable",
+    "operation_executed": false,
+    "version_id": 556,
+    "current_version_id": false,
+    "request_digest": "78c1fff51801d1ee9e48334a2cd26b30bc0fc1a8fce1bca060c55272839510ba",
+    "handoff_sha256": "21f2f3a1246b47e5675f67f1648bc37d7a38eadb84812b67dcb91648da00e414",
+    "provider_input_sha256": "8765c9813e9a3917b518b7cdbd933dde62ed0215e44e5088e42f7b0e5d40bde6",
+    "provider_instruction_sha256": "d050e9a3bc8e202234c8f624657ffa4ffd09addeeb6a69e17824bdb75cf0126a",
+    "source_record_count": 2,
+    "source_relation_record_count": 0,
+    "source_relation_pair_count": 0,
+    "artifact_state": "not_presented",
+    "delivery_state": "not_finalized",
+    "error_code": "provider_connection_or_timeout",
+    "provider_operation_status": "indeterminate",
+    "provider_error_category": "provider_connection_or_timeout",
+    "provider_retryable": false,
+    "provider_request_id": null,
+    "provider_response_id": null,
+    "provider_tool_call_ids": [],
+    "provider_file_ids": [],
+    "candidate_present": false,
+    "candidate_sha256": null,
+    "provider_cleanup_state": "unknown"
+  },
+  "local_version": {
+    "id": 556,
+    "state": "verifying",
+    "version_no": 1,
+    "request_digest": "78c1fff51801d1ee9e48334a2cd26b30bc0fc1a8fce1bca060c55272839510ba",
+    "idempotency_key": "m3-export:78c1fff51801d1ee9e48334a2cd26b30bc0fc1a8fce1bca0",
+    "provider_model": "gpt-5.6-luna",
+    "provider_response_id": false,
+    "provider_tool_call_id": false,
+    "provider_file_id": false,
+    "provider_cleanup_state": "pending",
+    "output_attachment": null,
+    "final_attachment": null,
+    "input_attachment": null,
+    "input_sha256": false,
+    "output_sha256": false,
+    "validated_candidate_sha256": false,
+    "validation_report_sha256": false,
+    "file_size": 0,
+    "delivery_state": "not_finalized",
+    "error_code": false
+  },
+  "local_session": {
+    "id": 566,
+    "state": "analyzing",
+    "current_version_id": null,
+    "last_valid_version_id": null,
+    "document_revision": 0
+  },
+  "attachments_found": [],
+  "provable_state": "Local Version 556 and Session 566 remain indeterminate; there is one Office call, no persisted output/final attachment and no Candidate SHA. Provider chat returned a final failure explanation, but it was not persisted as an assistant mail.message. The remote Hosted Code Interpreter outcome/artifact cleanup remains UNKNOWN. No repeat or cleanup was performed."
+}

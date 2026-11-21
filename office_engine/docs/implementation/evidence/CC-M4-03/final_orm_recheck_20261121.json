@@ -1,0 +1,35 @@
+{
+  "checked_at_utc": "2026-11-21T08:25:26.548970+00:00",
+  "database": "odoo18e_llm",
+  "verification_method": "read-only Odoo ORM",
+  "test_threads_remaining": [],
+  "test_users_active": {
+    "522": false,
+    "523": false,
+    "524": false
+  },
+  "synthetic_ccm403_partners_remaining": [],
+  "temporary_provider_audit_allowlist_enabled": false,
+  "temporary_fault_injection_enabled": false,
+  "thread_1995": {
+    "exists": true,
+    "office_tool_call_count": 1,
+    "assistant_final_persisted": false,
+    "version": {
+      "id": 556,
+      "state": "verifying",
+      "output_attachment_id": null,
+      "output_sha256": null,
+      "final_attachment_id": null,
+      "delivery_state": "not_finalized"
+    },
+    "session": {
+      "id": 566,
+      "state": "analyzing",
+      "current_version_id": null,
+      "last_valid_version_id": null,
+      "document_revision": 0
+    }
+  },
+  "status": "PASS"
+}

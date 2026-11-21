@@ -9,6 +9,8 @@ import re
 from odoo import _, fields
 from odoo.exceptions import AccessError, ValidationError
 
+from .m4_tv_test_hooks import configured_fault, consume_fault
+
 
 _PAGE_SIZE = 100
 _MAX_PAGE_SIZE = 500
@@ -77,7 +79,14 @@ def _chunks(values, size):
         yield values[start : start + size]
 
 
-def _read_pages(model, domain, fields, order, *, page_size, max_rows, row_budget=None):
+def _read_pages(model, domain, fields, order, *, page_size, max_rows, row_budget=None, test_thread_id=None):
+    """按稳定顺序读取全部分页，并仅在隔离测试 Thread 上执行受控故障注入。
+
+    参数：``model``、``domain``、``fields`` 和 ``order`` 描述 ORM 查询；
+    ``page_size``、``max_rows`` 与 ``row_budget`` 限制收集范围；
+    ``test_thread_id`` 仅供精确白名单测试故障使用，普通调用不传入。
+    返回：记录列表、可见总数和实际读取页数。
+    """
     if not 1 <= page_size <= _MAX_PAGE_SIZE:
         raise ValidationError(_("The export page size is outside its configured bound."))
     domain = list(domain or [])
@@ -113,6 +122,21 @@ def _read_pages(model, domain, fields, order, *, page_size, max_rows, row_budget
                 raise ValidationError(_("The export exceeded its configured row budget."))
         next_offset = offset + len(page)
         has_more = next_offset < count
+        if pages == 1 and has_more and test_thread_id:
+            injected = consume_fault(
+                model.env,
+                test_thread_id,
+                "collector_page_failure",
+                "after_first_page_before_next_page",
+                page_count=pages,
+                returned_count=len(rows),
+                expected_count=count,
+            )
+            if injected:
+                raise ValidationError(
+                    "M4 test injection: Collector stopped after the first page before the complete dataset was collected. "
+                    "No Candidate was created."
+                )
         if has_more and len(page) != page_size:
             raise ValidationError(_("The counted export changed while it was being collected."))
         if not has_more:
@@ -271,9 +295,20 @@ def _validate_plan(env, source_query, collections, tables, verification_profile)
     }
 
 
-def collect_export_dataset(env, source_query, collections, tables, verification_profile, *, page_size=None):
-    """Collect all pages and explicitly selected direct relations in one ORM transaction."""
+def collect_export_dataset(
+    env, source_query, collections, tables, verification_profile, *, page_size=None, test_thread_id=None
+):
+    """按已批准的查询计划收集全部主记录与指定的直接关系记录。
+
+    参数：``env`` 为当前用户的 ORM 环境；``source_query``、``collections``、``tables``
+    和 ``verification_profile`` 描述 Agent 已确定的收集与输出计划；``page_size`` 为可选页长；
+    ``test_thread_id`` 仅用于精确白名单的隔离故障注入。
+    返回：包含收集数据、分页计数、关系映射和完整性摘要的字典。
+    """
     collection_started_at = fields.Datetime.to_string(fields.Datetime.now())
+    tv_fault = configured_fault(env, test_thread_id) if test_thread_id else None
+    if page_size is None and tv_fault and tv_fault.get("fault") == "collector_page_failure":
+        page_size = tv_fault.get("page_size", 5)
     page_size = _PAGE_SIZE if page_size is None else page_size
     if type(page_size) is not int or not 1 <= page_size <= _MAX_PAGE_SIZE:
         raise ValidationError(_("The export page size is invalid."))
@@ -281,7 +316,7 @@ def collect_export_dataset(env, source_query, collections, tables, verification_
     root_fields = list(dict.fromkeys(["id", *plan["fields"], *(item["relation_field"] for item in plan["collections"])]))
     root_rows, root_count, root_pages = _read_pages(
         plan["model_obj"], plan["domain"], root_fields, plan["order"],
-        page_size=page_size, max_rows=_MAX_ROOT_ROWS,
+        page_size=page_size, max_rows=_MAX_ROOT_ROWS, test_thread_id=test_thread_id,
     )
     root_ids = [row["id"] for row in root_rows]
     relations = {}
@@ -316,6 +351,7 @@ def collect_export_dataset(env, source_query, collections, tables, verification_
                     page_size=page_size,
                     max_rows=_MAX_RELATION_ROWS,
                     row_budget=_MAX_RELATION_ROWS - relation_total,
+                    test_thread_id=test_thread_id,
                 )
                 for row in rows:
                     parent_ids = _as_relation_ids(row.get(collection["inverse_field"]), many2one=True)
@@ -336,6 +372,7 @@ def collect_export_dataset(env, source_query, collections, tables, verification_
                     page_size=page_size,
                     max_rows=_MAX_RELATION_ROWS,
                     row_budget=_MAX_RELATION_ROWS - relation_total,
+                    test_thread_id=test_thread_id,
                 )
                 for row in rows:
                     if row["id"] in child_by_id:

@@ -1,0 +1,265 @@
+{
+  "checked_at_utc": "2026-11-21T07:35:28.134090+00:00",
+  "database": "odoo18e_llm",
+  "verification_method": "read-only Odoo ORM",
+  "thread": {
+    "exists": true,
+    "id": 1995,
+    "user_id": 466,
+    "provider_id": 1,
+    "model_id": 14,
+    "tool_ids": [
+      "odoo_record_retriever",
+      "office_prepare_context",
+      "office_save_mapping_preview",
+      "office_restore_proposal_revision",
+      "office_finalize",
+      "office"
+    ]
+  },
+  "version": {
+    "exists": true,
+    "id": 556,
+    "state": "verifying",
+    "version_no": 1,
+    "version_kind": "initial",
+    "request_digest": "78c1fff51801d1ee9e48334a2cd26b30bc0fc1a8fce1bca060c55272839510ba",
+    "idempotency_key": "m3-export:78c1fff51801d1ee9e48334a2cd26b30bc0fc1a8fce1bca0",
+    "provider_id": "openai-responses",
+    "provider_model": "gpt-5.6-luna",
+    "provider_response_id": false,
+    "provider_tool_call_id": false,
+    "provider_file_id": false,
+    "provider_cleanup_state": "pending",
+    "provider_usage_receipt": {},
+    "error_code": false,
+    "input_sha256": false,
+    "output_sha256": false,
+    "file_size": 0,
+    "validation_result": false,
+    "validation_report_sha256": false,
+    "validated_candidate_sha256": false,
+    "delivery_state": "not_finalized",
+    "output_attachment": null,
+    "final_attachment": null,
+    "input_attachment": null,
+    "data_integrity_receipt": {}
+  },
+  "session": {
+    "exists": true,
+    "id": 566,
+    "state": "analyzing",
+    "revision": 1,
+    "proposal_revision": 0,
+    "document_revision": 0,
+    "current_version_id": null,
+    "last_valid_version_id": null,
+    "preview_attachment": null,
+    "source_attachment": null
+  },
+  "candidate_versions_for_thread": [
+    {
+      "id": 556,
+      "state": "verifying",
+      "version_no": 1,
+      "request_digest": "78c1fff51801d1ee9e48334a2cd26b30bc0fc1a8fce1bca060c55272839510ba",
+      "error_code": false,
+      "output_attachment_id": null,
+      "output_sha256": false,
+      "delivery_state": "not_finalized"
+    }
+  ],
+  "sessions_for_thread": [
+    {
+      "id": 566,
+      "state": "analyzing",
+      "current_version_id": null,
+      "last_valid_version_id": null,
+      "document_revision": 0
+    }
+  ],
+  "attachments": [],
+  "thread_message_receipts": [
+    {
+      "id": 487740,
+      "role": false,
+      "is_error": false,
+      "silent": false,
+      "body_sha256": "57fccf38bdf80f07eda0b14366a2b96aaf226eef4c90c152cc96af42b2335c1e",
+      "attachment_ids": []
+    },
+    {
+      "id": 487763,
+      "role": "user",
+      "is_error": false,
+      "silent": false,
+      "body_sha256": "3a4cf657fc527ec83e04feab3678bcf8af4a2581427c1be6f24db1804a224533",
+      "attachment_ids": []
+    },
+    {
+      "id": 487764,
+      "role": "assistant",
+      "is_error": false,
+      "silent": true,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "attachment_ids": [],
+      "tool_calls": [
+        {
+          "tool_name": "odoo_record_retriever",
+          "tool_call_id": "call_uewi25H79DOaFAufgB6vCC98",
+          "action": null,
+          "candidate_version_id": null
+        }
+      ]
+    },
+    {
+      "id": 487765,
+      "role": "tool",
+      "is_error": false,
+      "silent": true,
+      "body_sha256": "67bae57bf9bccafaa069e11a3281b9f528cf8b31399961c186fc9536b1296f36",
+      "attachment_ids": [],
+      "tool_name": "odoo_record_retriever",
+      "tool_call_id": "call_uewi25H79DOaFAufgB6vCC98",
+      "status": "completed"
+    },
+    {
+      "id": 487766,
+      "role": false,
+      "is_error": false,
+      "silent": true,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "attachment_ids": []
+    },
+    {
+      "id": 487767,
+      "role": "assistant",
+      "is_error": false,
+      "silent": true,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "attachment_ids": [],
+      "tool_calls": [
+        {
+          "tool_name": "odoo_record_retriever",
+          "tool_call_id": "call_HrQ17DFttW3mUw2rHlQdqDE8",
+          "action": null,
+          "candidate_version_id": null
+        }
+      ]
+    },
+    {
+      "id": 487768,
+      "role": "tool",
+      "is_error": false,
+      "silent": true,
+      "body_sha256": "67bae57bf9bccafaa069e11a3281b9f528cf8b31399961c186fc9536b1296f36",
+      "attachment_ids": [],
+      "tool_name": "odoo_record_retriever",
+      "tool_call_id": "call_HrQ17DFttW3mUw2rHlQdqDE8",
+      "status": "completed"
+    },
+    {
+      "id": 487769,
+      "role": "assistant",
+      "is_error": false,
+      "silent": true,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "attachment_ids": [],
+      "tool_calls": [
+        {
+          "tool_name": "odoo_record_retriever",
+          "tool_call_id": "call_FsYpEbeJpp4PVq27XAchlWli",
+          "action": null,
+          "candidate_version_id": null
+        }
+      ]
+    },
+    {
+      "id": 487770,
+      "role": "tool",
+      "is_error": false,
+      "silent": true,
+      "body_sha256": "67bae57bf9bccafaa069e11a3281b9f528cf8b31399961c186fc9536b1296f36",
+      "attachment_ids": [],
+      "tool_name": "odoo_record_retriever",
+      "tool_call_id": "call_FsYpEbeJpp4PVq27XAchlWli",
+      "status": "completed"
+    },
+    {
+      "id": 487771,
+      "role": "assistant",
+      "is_error": false,
+      "silent": false,
+      "body_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "attachment_ids": [],
+      "tool_calls": [
+        {
+          "tool_name": "office",
+          "tool_call_id": "call_ot3qGIG5iAmKjfXBLm7CKkgx",
+          "action": "export_records",
+          "candidate_version_id": null
+        }
+      ]
+    },
+    {
+      "id": 487772,
+      "role": "tool",
+      "is_error": false,
+      "silent": false,
+      "body_sha256": "718e62abaada9b337dd5e38a208084250ab9d5407364e590c1e0b7e7ba971d63",
+      "attachment_ids": [],
+      "tool_name": "office",
+      "tool_call_id": "call_ot3qGIG5iAmKjfXBLm7CKkgx",
+      "status": "completed"
+    }
+  ],
+  "usage_receipts": [
+    {
+      "id": 1053,
+      "matched_by": "thread_id",
+      "error_code": false,
+      "create_date": "2026-11-21 03:00:46.287683"
+    },
+    {
+      "id": 1054,
+      "matched_by": "thread_id",
+      "error_code": false,
+      "create_date": "2026-11-21 03:00:56.871538"
+    },
+    {
+      "id": 1055,
+      "matched_by": "thread_id",
+      "error_code": false,
+      "create_date": "2026-11-21 03:00:58.892423"
+    },
+    {
+      "id": 1056,
+      "matched_by": "thread_id",
+      "error_code": false,
+      "create_date": "2026-11-21 03:01:02.728919"
+    }
+  ],
+  "usage_model_fields": [
+    "attempt_no",
+    "call_uuid",
+    "company_id",
+    "completion_tokens",
+    "create_date",
+    "create_uid",
+    "display_name",
+    "elapsed_ms",
+    "error_code",
+    "id",
+    "model_name",
+    "outcome",
+    "owner_id",
+    "prompt_tokens",
+    "provider_code",
+    "reasoning_tokens",
+    "response_id",
+    "thread_id",
+    "total_tokens",
+    "write_date",
+    "write_uid"
+  ]
+}

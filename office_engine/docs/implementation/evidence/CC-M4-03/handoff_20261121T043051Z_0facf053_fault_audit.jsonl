@@ -1,0 +1,1 @@
+{"database": "odoo18e_llm", "details": {}, "event": "m4_tv_fault_injected", "fault": "handoff_interruption", "stage": "after_complete_collection_before_hosted_ci", "thread_id": 2049, "timestamp": "2026-11-21T04:31:11.750047+00:00"}

@@ -1,0 +1,772 @@
+{
+  "cc": "CC-M4-03 v0.2",
+  "database": "odoo18e_llm",
+  "provider": "OpenAI GPT-5.6 Luna",
+  "model": "gpt-5.6-luna",
+  "result": "PASS",
+  "accepted_provider_threads": [
+    2119,
+    2122,
+    2123
+  ],
+  "accepted_provider_request_response_count": 21,
+  "accepted_provider_responses": 21,
+  "tests": [
+    {
+      "case": "single INVALID_QUERY correction",
+      "status": "PASS",
+      "thread_id": 2119,
+      "provider_requests": 8,
+      "provider_responses": 8,
+      "injected_error_count": 1,
+      "returned_error_codes": [
+        "INVALID_QUERY"
+      ],
+      "oracle": {
+        "expected_ids": [
+          28181,
+          28182
+        ],
+        "excluded_ids": [
+          28183,
+          28184,
+          28185
+        ],
+        "target_pairs_present": true,
+        "excluded_records_absent": true,
+        "expected_count_stated": true,
+        "matches": true
+      },
+      "visible_final_assistant": true,
+      "calls_and_results": [
+        {
+          "kind": "call",
+          "message_id": 490798,
+          "tool_call_id": "call_zKH8rQq9pClC3ygJqSXipWY9",
+          "operation": "discover",
+          "model": null,
+          "domain": null,
+          "fields": null,
+          "query_present": true
+        },
+        {
+          "kind": "result",
+          "message_id": 490799,
+          "tool_call_id": "call_zKH8rQq9pClC3ygJqSXipWY9",
+          "status": "completed",
+          "error_code": null,
+          "record_ids": [],
+          "count": 757,
+          "has_more": true
+        },
+        {
+          "kind": "call",
+          "message_id": 490801,
+          "tool_call_id": "call_dDXXmwyZO9hkQ0dbBW25SgX0",
+          "operation": "describe",
+          "model": "res.partner",
+          "domain": null,
+          "fields": null,
+          "query_present": false
+        },
+        {
+          "kind": "result",
+          "message_id": 490802,
+          "tool_call_id": "call_dDXXmwyZO9hkQ0dbBW25SgX0",
+          "status": "completed",
+          "error_code": null,
+          "record_ids": [],
+          "count": 198,
+          "has_more": true
+        },
+        {
+          "kind": "call",
+          "message_id": 490803,
+          "tool_call_id": "call_URecSTp1RcbCgEGXKoYpGTJb",
+          "operation": "describe",
+          "model": "res.partner",
+          "domain": null,
+          "fields": null,
+          "query_present": false
+        },
+        {
+          "kind": "result",
+          "message_id": 490804,
+          "tool_call_id": "call_URecSTp1RcbCgEGXKoYpGTJb",
+          "status": "completed",
+          "error_code": null,
+          "record_ids": [],
+          "count": 198,
+          "has_more": false
+        },
+        {
+          "kind": "call",
+          "message_id": 490805,
+          "tool_call_id": "call_rkEXKoHK73UCMhAlXdFEE47q",
+          "operation": "search",
+          "model": "res.partner",
+          "domain": [
+            [
+              "name",
+              "=",
+              "Synthetic CCM403-invalid-query-once-7ec03407951d Company"
+            ]
+          ],
+          "fields": [
+            "id",
+            "name",
+            "active",
+            "is_company"
+          ],
+          "query_present": false
+        },
+        {
+          "kind": "result",
+          "message_id": 490806,
+          "tool_call_id": "call_rkEXKoHK73UCMhAlXdFEE47q",
+          "status": "error",
+          "error_code": "INVALID_QUERY",
+          "record_ids": [],
+          "count": null,
+          "has_more": null
+        },
+        {
+          "kind": "call",
+          "message_id": 490807,
+          "tool_call_id": "call_tpha1Zy2TbVmfA2SDlpaqZtq",
+          "operation": "legacy-search",
+          "model": "res.partner",
+          "domain": [
+            [
+              "name",
+              "=",
+              "Synthetic CCM403-invalid-query-once-7ec03407951d Company"
+            ]
+          ],
+          "fields": [
+            "id",
+            "name",
+            "active",
+            "is_company"
+          ],
+          "query_present": false
+        },
+        {
+          "kind": "result",
+          "message_id": 490808,
+          "tool_call_id": "call_tpha1Zy2TbVmfA2SDlpaqZtq",
+          "status": "completed",
+          "error_code": null,
+          "record_ids": [
+            28179
+          ],
+          "count": 1,
+          "has_more": false
+        },
+        {
+          "kind": "call",
+          "message_id": 490809,
+          "tool_call_id": "call_5L16HdsP0fwa3bNUNn1OC9bS",
+          "operation": "legacy-search",
+          "model": "res.partner",
+          "domain": [
+            [
+              "parent_id",
+              "=",
+              28179
+            ],
+            [
+              "active",
+              "=",
+              true
+            ],
+            [
+              "email",
+              "!=",
+              ""
+            ]
+          ],
+          "fields": [
+            "id",
+            "name",
+            "email",
+            "active",
+            "parent_id"
+          ],
+          "query_present": false
+        },
+        {
+          "kind": "result",
+          "message_id": 490810,
+          "tool_call_id": "call_5L16HdsP0fwa3bNUNn1OC9bS",
+          "status": "completed",
+          "error_code": null,
+          "record_ids": [
+            28181,
+            28182
+          ],
+          "count": 2,
+          "has_more": false
+        }
+      ],
+      "fault_injection": [
+        {
+          "case": "invalid_query_once",
+          "error_code": "INVALID_QUERY",
+          "injected_arguments_sha256": "d2d28a9db79d6960784755671bfbb43274e8e81ee5deaf06fb3786889af5a9c6",
+          "injection_index": 1,
+          "mode": "once",
+          "orm_business_query_executed": false,
+          "provider_arguments": {
+            "domain": [
+              [
+                "name",
+                "=",
+                "Synthetic CCM403-invalid-query-once-7ec03407951d Company"
+              ]
+            ],
+            "fields": [
+              "id",
+              "name",
+              "active",
+              "is_company"
+            ],
+            "include_pagination": true,
+            "limit": 500,
+            "model": "res.partner",
+            "operation": "search"
+          },
+          "provider_arguments_sha256": "3aa46a05e3ad94aa33ecee923b588ae40a7f9bfdc1e785204bae4b0554ee1828",
+          "retriever_execution_arguments": {
+            "domain": [
+              [
+                "name",
+                "=",
+                "Synthetic CCM403-invalid-query-once-7ec03407951d Company"
+              ]
+            ],
+            "fields": [
+              "id",
+              "name",
+              "active",
+              "is_company"
+            ],
+            "include_pagination": true,
+            "limit": 500,
+            "model": "res.partner",
+            "operation": "search",
+            "query": "controlled-test-invalid-query-invalid_query_once"
+          },
+          "thread_id": 2119,
+          "tool_call_id": "call_rkEXKoHK73UCMhAlXdFEE47q"
+        }
+      ],
+      "note": "The original run JSON marked the case FAIL because its helper treated the empty email of a negative fixture as a value required to be absent. This independent review uses the actual ORM identities, Tool result rows and final message; it does not alter the raw run file."
+    },
+    {
+      "case": "single FIELD_NOT_FOUND correction",
+      "status": "PASS",
+      "thread_id": 2122,
+      "provider_requests": 7,
+      "provider_responses": 7,
+      "injected_error_count": 1,
+      "returned_error_codes": [
+        "FIELD_NOT_FOUND"
+      ],
+      "oracle": {
+        "all_expected_name_email_pairs_present": true,
+        "all_excluded_name_email_pairs_absent": true,
+        "expected_count_two_stated": true,
+        "matches_oracle": true
+      },
+      "visible_final_assistant": true,
+      "calls_and_results": [
+        {
+          "kind": "call",
+          "message_id": 490834,
+          "tool_call_id": "call_JSVYQsOy1Qc9JnTCcNDEEuuG",
+          "operation": "discover",
+          "model": null,
+          "domain": null,
+          "fields": null,
+          "query_present": true
+        },
+        {
+          "kind": "result",
+          "message_id": 490835,
+          "tool_call_id": "call_JSVYQsOy1Qc9JnTCcNDEEuuG",
+          "status": "completed",
+          "error_code": null,
+          "record_ids": [],
+          "count": 757,
+          "has_more": true
+        },
+        {
+          "kind": "call",
+          "message_id": 490837,
+          "tool_call_id": "call_W8cjEhHiO0Y5uhT43JQLt17u",
+          "operation": "describe",
+          "model": "res.partner",
+          "domain": null,
+          "fields": null,
+          "query_present": false
+        },
+        {
+          "kind": "result",
+          "message_id": 490838,
+          "tool_call_id": "call_W8cjEhHiO0Y5uhT43JQLt17u",
+          "status": "completed",
+          "error_code": null,
+          "record_ids": [],
+          "count": 198,
+          "has_more": false
+        },
+        {
+          "kind": "call",
+          "message_id": 490839,
+          "tool_call_id": "call_SMQxZcMHJB7MX4QmPhNgocoU",
+          "operation": "search",
+          "model": "res.partner",
+          "domain": [
+            [
+              "name",
+              "=",
+              "Synthetic CCM403-field-not-found-once-5935a1ff3243 Company"
+            ]
+          ],
+          "fields": [
+            "id",
+            "name",
+            "active",
+            "is_company",
+            "parent_id",
+            "email",
+            "type"
+          ],
+          "query_present": false
+        },
+        {
+          "kind": "result",
+          "message_id": 490840,
+          "tool_call_id": "call_SMQxZcMHJB7MX4QmPhNgocoU",
+          "status": "error",
+          "error_code": "FIELD_NOT_FOUND",
+          "record_ids": [],
+          "count": null,
+          "has_more": null
+        },
+        {
+          "kind": "call",
+          "message_id": 490841,
+          "tool_call_id": "call_QOJPnqKEVfX8AvVZJmFRrxQo",
+          "operation": "search",
+          "model": "res.partner",
+          "domain": [
+            [
+              "name",
+              "=",
+              "Synthetic CCM403-field-not-found-once-5935a1ff3243 Company"
+            ]
+          ],
+          "fields": [
+            "id",
+            "name",
+            "active",
+            "is_company",
+            "parent_id",
+            "email",
+            "type"
+          ],
+          "query_present": false
+        },
+        {
+          "kind": "result",
+          "message_id": 490842,
+          "tool_call_id": "call_QOJPnqKEVfX8AvVZJmFRrxQo",
+          "status": "completed",
+          "error_code": null,
+          "record_ids": [
+            28201
+          ],
+          "count": 1,
+          "has_more": false
+        },
+        {
+          "kind": "call",
+          "message_id": 490843,
+          "tool_call_id": "call_rLKQcY1pZhhvgJ2j9T7aaHmR",
+          "operation": "search",
+          "model": "res.partner",
+          "domain": [
+            [
+              "parent_id",
+              "=",
+              28201
+            ],
+            [
+              "active",
+              "=",
+              true
+            ],
+            [
+              "email",
+              "!=",
+              ""
+            ]
+          ],
+          "fields": [
+            "id",
+            "name",
+            "email",
+            "parent_id",
+            "active",
+            "type"
+          ],
+          "query_present": false
+        },
+        {
+          "kind": "result",
+          "message_id": 490844,
+          "tool_call_id": "call_rLKQcY1pZhhvgJ2j9T7aaHmR",
+          "status": "completed",
+          "error_code": null,
+          "record_ids": [
+            28203,
+            28204
+          ],
+          "count": 2,
+          "has_more": false
+        }
+      ],
+      "fault_injection": [
+        {
+          "case": "field_not_found_once",
+          "error_code": "FIELD_NOT_FOUND",
+          "injected_arguments_sha256": "d608e35bbd0145de488733c8a2d4a05870e608ebae9a84dc695feef9995270f9",
+          "injection_index": 1,
+          "mode": "once",
+          "orm_business_query_executed": false,
+          "provider_arguments": {
+            "domain": [
+              [
+                "name",
+                "=",
+                "Synthetic CCM403-field-not-found-once-5935a1ff3243 Company"
+              ]
+            ],
+            "fields": [
+              "id",
+              "name",
+              "active",
+              "is_company",
+              "parent_id",
+              "email",
+              "type"
+            ],
+            "include_pagination": true,
+            "limit": 500,
+            "model": "res.partner",
+            "offset": 0,
+            "operation": "search"
+          },
+          "provider_arguments_sha256": "8cbd04c1fc72fc27ba5b9e968359f0c85dfd36ffd8c9916b8192593d32b32823",
+          "retriever_execution_arguments": {
+            "domain": [
+              [
+                "name",
+                "=",
+                "Synthetic CCM403-field-not-found-once-5935a1ff3243 Company"
+              ]
+            ],
+            "fields": [
+              "id",
+              "name",
+              "active",
+              "is_company",
+              "parent_id",
+              "email",
+              "type",
+              "cc_m4_missing_4d34ebf548"
+            ],
+            "include_pagination": true,
+            "limit": 500,
+            "model": "res.partner",
+            "offset": 0,
+            "operation": "search"
+          },
+          "thread_id": 2122,
+          "tool_call_id": "call_SMQxZcMHJB7MX4QmPhNgocoU"
+        }
+      ]
+    },
+    {
+      "case": "repeated INVALID_QUERY stop",
+      "status": "PASS",
+      "thread_id": 2123,
+      "provider_requests": 6,
+      "provider_responses": 6,
+      "injected_error_count": 2,
+      "returned_error_codes": [
+        "INVALID_QUERY",
+        "INVALID_QUERY"
+      ],
+      "retry_bound": {
+        "initial_error_plus_max_two_corrections": true,
+        "stopped_after_repeated_invalid_query": true,
+        "no_business_search_succeeded_after_persistent_injection": true,
+        "search_call_count": 2,
+        "injected_error_count": 2
+      },
+      "final_failure_message": "无法完成查询：联系人模型已确认，但检索接口当前持续返回 INVALID_QUERY ，因此无法可靠解析目标公司或统计其直接联系人。\n\n为避免误报，我没有把失败结果当作“0 人”，也没有列出未经验证的联系人。",
+      "visible_final_assistant": true,
+      "calls_and_results": [
+        {
+          "kind": "call",
+          "message_id": 490847,
+          "tool_call_id": "call_jcouW02XzhJMehp233W0cZWD",
+          "operation": "discover",
+          "model": null,
+          "domain": null,
+          "fields": null,
+          "query_present": true
+        },
+        {
+          "kind": "result",
+          "message_id": 490848,
+          "tool_call_id": "call_jcouW02XzhJMehp233W0cZWD",
+          "status": "completed",
+          "error_code": null,
+          "record_ids": [],
+          "count": 757,
+          "has_more": true
+        },
+        {
+          "kind": "call",
+          "message_id": 490850,
+          "tool_call_id": "call_mFgfUbBaG4C8jiC7Pr71iOfq",
+          "operation": "describe",
+          "model": "res.partner",
+          "domain": null,
+          "fields": [
+            "name",
+            "active",
+            "email",
+            "parent_id",
+            "company_type"
+          ],
+          "query_present": false
+        },
+        {
+          "kind": "result",
+          "message_id": 490851,
+          "tool_call_id": "call_mFgfUbBaG4C8jiC7Pr71iOfq",
+          "status": "completed",
+          "error_code": null,
+          "record_ids": [],
+          "count": 5,
+          "has_more": false
+        },
+        {
+          "kind": "call",
+          "message_id": 490852,
+          "tool_call_id": "call_RlRy64r4w8W5YADsN9BRgN4z",
+          "operation": "search",
+          "model": "res.partner",
+          "domain": [
+            [
+              "name",
+              "=",
+              "Synthetic CCM403-invalid-query-repeated-5935a1ff3243 Company"
+            ],
+            [
+              "company_type",
+              "=",
+              "company"
+            ]
+          ],
+          "fields": [
+            "name"
+          ],
+          "query_present": false
+        },
+        {
+          "kind": "result",
+          "message_id": 490853,
+          "tool_call_id": "call_RlRy64r4w8W5YADsN9BRgN4z",
+          "status": "error",
+          "error_code": "INVALID_QUERY",
+          "record_ids": [],
+          "count": null,
+          "has_more": null
+        },
+        {
+          "kind": "call",
+          "message_id": 490854,
+          "tool_call_id": "call_yfKwZO2vbml0hFxcZAthZkiM",
+          "operation": "search",
+          "model": "res.partner",
+          "domain": [
+            [
+              "name",
+              "=",
+              "Synthetic CCM403-invalid-query-repeated-5935a1ff3243 Company"
+            ]
+          ],
+          "fields": [
+            "name",
+            "company_type"
+          ],
+          "query_present": false
+        },
+        {
+          "kind": "result",
+          "message_id": 490855,
+          "tool_call_id": "call_yfKwZO2vbml0hFxcZAthZkiM",
+          "status": "error",
+          "error_code": "INVALID_QUERY",
+          "record_ids": [],
+          "count": null,
+          "has_more": null
+        }
+      ],
+      "fault_injection": [
+        {
+          "case": "invalid_query_repeated",
+          "error_code": "INVALID_QUERY",
+          "injected_arguments_sha256": "64afb2caed4417ae29ea64ff734c689b9182dd2adb9467424418037d5059e64f",
+          "injection_index": 1,
+          "mode": "persistent",
+          "orm_business_query_executed": false,
+          "provider_arguments": {
+            "domain": [
+              [
+                "name",
+                "=",
+                "Synthetic CCM403-invalid-query-repeated-5935a1ff3243 Company"
+              ],
+              [
+                "company_type",
+                "=",
+                "company"
+              ]
+            ],
+            "fields": [
+              "name"
+            ],
+            "include_pagination": true,
+            "limit": 100,
+            "model": "res.partner",
+            "offset": 0,
+            "operation": "search"
+          },
+          "provider_arguments_sha256": "d256eb6ff32ef70c32c16dc9b68cc1d1cbaeb12e97dae8581bccb354e4b116d1",
+          "retriever_execution_arguments": {
+            "domain": [
+              [
+                "name",
+                "=",
+                "Synthetic CCM403-invalid-query-repeated-5935a1ff3243 Company"
+              ],
+              [
+                "company_type",
+                "=",
+                "company"
+              ]
+            ],
+            "fields": [
+              "name"
+            ],
+            "include_pagination": true,
+            "limit": 100,
+            "model": "res.partner",
+            "offset": 0,
+            "operation": "search",
+            "query": "controlled-test-invalid-query-invalid_query_repeated"
+          },
+          "thread_id": 2123,
+          "tool_call_id": "call_RlRy64r4w8W5YADsN9BRgN4z"
+        },
+        {
+          "case": "invalid_query_repeated",
+          "error_code": "INVALID_QUERY",
+          "injected_arguments_sha256": "28a3440604e2c2d437ea8c178ba9aed9274448884e7ff727ae4e23ac352bcefa",
+          "injection_index": 2,
+          "mode": "persistent",
+          "orm_business_query_executed": false,
+          "provider_arguments": {
+            "domain": [
+              [
+                "name",
+                "=",
+                "Synthetic CCM403-invalid-query-repeated-5935a1ff3243 Company"
+              ]
+            ],
+            "fields": [
+              "name",
+              "company_type"
+            ],
+            "include_pagination": true,
+            "limit": 100,
+            "model": "res.partner",
+            "offset": 0,
+            "operation": "search"
+          },
+          "provider_arguments_sha256": "2d66a89a5a38b001276a0ec2257d71f93cc74d4ea387095388d97ef3618d0b7c",
+          "retriever_execution_arguments": {
+            "domain": [
+              [
+                "name",
+                "=",
+                "Synthetic CCM403-invalid-query-repeated-5935a1ff3243 Company"
+              ]
+            ],
+            "fields": [
+              "name",
+              "company_type"
+            ],
+            "include_pagination": true,
+            "limit": 100,
+            "model": "res.partner",
+            "offset": 0,
+            "operation": "search",
+            "query": "controlled-test-invalid-query-invalid_query_repeated"
+          },
+          "thread_id": 2123,
+          "tool_call_id": "call_yfKwZO2vbml0hFxcZAthZkiM"
+        }
+      ]
+    }
+  ],
+  "retained_attempts": [
+    {
+      "run": "retriever_20261121T074310Z",
+      "threads": [
+        2116,
+        2117,
+        2118
+      ],
+      "raw_status": "FAIL",
+      "reason": "The generated synthetic fixture identifiers contained underscores that the Agent altered in the final response; exact Oracle comparison failed. Preserved; not counted as acceptance."
+    },
+    {
+      "run": "retriever_20261121T074630Z",
+      "threads": [
+        2120,
+        2121
+      ],
+      "raw_status": "BLOCKED",
+      "reason": "Thread 2120 APITimeoutError and Thread 2121 APIConnectionError; each had one submitted request and no Provider response. Preserved; later independent Threads completed those branches."
+    }
+  ],
+  "products_modified": false,
+  "ui_hvr": false,
+  "git_commit": false,
+  "provider_audit_files": [
+    "office_engine/docs/implementation/evidence/CC-M4-03/retriever_20261121T074630Z_provider_sdk_audit.jsonl",
+    "office_engine/docs/implementation/evidence/CC-M4-03/retriever_20261121T081335Z_provider_sdk_audit.jsonl"
+  ],
+  "fault_audit_files": [
+    "office_engine/docs/implementation/evidence/CC-M4-03/retriever_20261121T074630Z_fault_audit.jsonl",
+    "office_engine/docs/implementation/evidence/CC-M4-03/retriever_20261121T081335Z_fault_audit.jsonl"
+  ]
+}

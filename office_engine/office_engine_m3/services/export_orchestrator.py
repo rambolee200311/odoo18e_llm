@@ -39,6 +39,7 @@ from odoo.addons.office_engine_m2.services.workbook_version_service import (
 from .data_handoff import build_provider_instruction, canonical_json, sha256_hex
 from .dataset_collector import collect_export_dataset
 from .export_verification import verify_export_workbook
+from .m4_tv_test_hooks import corrupt_output_identity, raise_handoff_interruption
 
 
 _logger = logging.getLogger(__name__)
@@ -239,8 +240,15 @@ def execute_export_records(
             raise AccessError(_("The export intent is not the current user message."))
 
     collected = collect_export_dataset(
-        env, source_query, collections, tables, verification_profile, page_size=page_size
+        env,
+        source_query,
+        collections,
+        tables,
+        verification_profile,
+        page_size=page_size,
+        test_thread_id=thread.id,
     )
+    raise_handoff_interruption(env, thread.id)
     if workbook_source == "new":
         input_bytes = _blank_carrier_bytes()
         source_sha = sha256_hex(input_bytes)
@@ -348,6 +356,7 @@ def execute_export_records(
                 current_version_id=session.current_version_id.id or False,
                 message="The Provider did not return a usable XLSX Candidate; Current was not advanced.",
             )
+        output_bytes = corrupt_output_identity(env, thread.id, output_bytes, collected["plan"])
         filename = getattr(provider_result, "provider_filename", None)
         if not isinstance(filename, str) or not filename.lower().endswith(".xlsx"):
             filename = "export.xlsx"

@@ -1,0 +1,112 @@
+{
+  "pre_cleanup": {
+    "database": "odoo18e_llm",
+    "thread_ids": [
+      1993,
+      1994,
+      1995,
+      2002
+    ],
+    "threads_present": [
+      1993,
+      1994,
+      1995,
+      2002
+    ],
+    "version_rows": [
+      {
+        "id": 556,
+        "thread_id": 1995,
+        "state": "verifying",
+        "output_attachment_id": false,
+        "final_attachment_id": false,
+        "delivery_state": "not_finalized"
+      }
+    ],
+    "session_ids": [
+      566
+    ],
+    "test_users": [
+      {
+        "id": 466,
+        "login": "cc-m4-03-c62829e4873e@example.invalid",
+        "active": true,
+        "provider_usage_rows": 4
+      },
+      {
+        "id": 473,
+        "login": "cc-m4-03-6105f9784c6c@example.invalid",
+        "active": true,
+        "provider_usage_rows": 6
+      }
+    ],
+    "synthetic_partner_ids": [
+      26592,
+      26593,
+      26594,
+      26595,
+      26607,
+      26608,
+      26609,
+      26610,
+      26596,
+      26597,
+      26598,
+      26599,
+      26588,
+      26589,
+      26590,
+      26591
+    ],
+    "parameters": {
+      "office_engine.m4_tv.audit_thread_ids": false,
+      "office_engine.m4_tv.test_fault": false
+    }
+  },
+  "post_cleanup": {
+    "database": "odoo18e_llm",
+    "removed_threads": [
+      1993,
+      1994,
+      2002
+    ],
+    "preserved_thread_with_version": 1995,
+    "residual_threads": [
+      1995
+    ],
+    "residual_sessions": [
+      566
+    ],
+    "residual_synthetic_partners": [],
+    "retained_versions": [
+      {
+        "id": 556,
+        "thread_id": 1995,
+        "state": "verifying",
+        "output_attachment_id": false,
+        "final_attachment_id": false,
+        "delivery_state": "not_finalized"
+      }
+    ],
+    "users": [
+      {
+        "id": 466,
+        "login": "cc-m4-03-c62829e4873e@example.invalid",
+        "active": false,
+        "provider_usage_rows": 4
+      },
+      {
+        "id": 473,
+        "login": "cc-m4-03-6105f9784c6c@example.invalid",
+        "active": false,
+        "provider_usage_rows": 6
+      }
+    ],
+    "parameters": {
+      "office_engine.m4_tv.audit_thread_ids": false,
+      "office_engine.m4_tv.test_fault": false
+    },
+    "residual_test_bus_rows": 0
+  },
+  "interpretation": "Only synthetic test data with exact run suffixes was deleted. Thread 1995/version 556 is retained because operation state is verifying/indeterminate; synthetic users are inactive because provider usage rows retain owner foreign keys."
+}

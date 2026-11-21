@@ -1,0 +1,33 @@
+{
+  "checked_at_utc": "2026-11-21T04:41:05.710695+00:00",
+  "database": "odoo18e_llm",
+  "verification_method": "Read-only Odoo ORM shell after the final M3 test run",
+  "temporary_test_parameters": {
+    "office_engine.m4_tv.audit_thread_ids": false,
+    "office_engine.m4_tv.test_fault": false
+  },
+  "threads": {
+    "1993": false,
+    "1994": false,
+    "1995": true,
+    "2002": false,
+    "2049": false
+  },
+  "retained_indeterminate_office_state": {
+    "thread_id": 1995,
+    "version_id": 556,
+    "version_state": "verifying",
+    "output_attachment_id": false,
+    "final_attachment_id": false,
+    "delivery_state": "not_finalized",
+    "session_id": 566,
+    "session_state": "analyzing",
+    "action": "preserved without retry or cleanup because execution state remains indeterminate"
+  },
+  "synthetic_test_users": {
+    "466": false,
+    "473": false,
+    "501": false
+  },
+  "persistent_8091_listener": false
+}

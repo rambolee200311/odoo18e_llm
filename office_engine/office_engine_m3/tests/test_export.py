@@ -5,6 +5,8 @@ import json
 import re
 from datetime import date, datetime
 from io import BytesIO
+from pathlib import Path
+from tempfile import TemporaryDirectory
 from types import SimpleNamespace
 from unittest.mock import patch
 from uuid import uuid4
@@ -600,6 +602,58 @@ class TestM3Export(WorkbookVersionFixtures, TransactionCase):
         self.assertEqual(result["operation_status"], "export_rejected", result)
         self.assertFalse(adapter.calls)
         self.assertFalse(env["office.mapping.session"].search([("thread_id", "=", thread.id)]))
+
+    def test_handoff_fault_fails_closed_before_session_provider_or_candidate(self):
+        """验证普通用户 Thread 的隔离 handoff 故障会在 Hosted CI 前停止。"""
+        partner = self.env["res.partner"].create({"name": "M4 handoff fault " + uuid4().hex})
+        env = self._owner_env()
+        thread = self._make_thread(env)
+        self._user(thread, "Export the synthetic contact.")
+        tool_message = self._tool(thread)
+        plan = self._root_plan([partner.id])
+        adapter = _HostedCIFixtureAdapter()
+        office_tool = env["llm.tool"].search([("name", "=", "office")], limit=1)
+        params = self.env["ir.config_parameter"].sudo()
+        params.set_param("office_engine.m4_tv.test_fault", json.dumps({
+            "fault": "handoff_interruption",
+            "thread_id": thread.id,
+        }))
+
+        with TemporaryDirectory() as directory:
+            audit_path = Path(directory) / "faults.jsonl"
+            with (
+                patch.dict("os.environ", {
+                    "OFFICE_M4_TV_TEST_HOOKS": "1",
+                    "OFFICE_M4_TV_FAULT_AUDIT_PATH": str(audit_path),
+                }),
+                patch(
+                    "odoo.addons.office_engine_m3.services.export_orchestrator._provider_dependencies",
+                    return_value=(adapter, object(), "synthetic-route-b", SimpleNamespace()),
+                ),
+            ):
+                result = office_tool.with_context(message=tool_message).execute({
+                    "action": "export_records",
+                    "candidate_version_id": None,
+                    "confirmation_required": None,
+                    "confirmation_reason": None,
+                    "workbook_source": "new",
+                    "source_query": plan["source_query"],
+                    "collections": [],
+                    "tables": plan["tables"],
+                    "verification_profile": plan["verification_profile"],
+                })
+
+            fault_rows = [json.loads(line) for line in audit_path.read_text().splitlines() if line.strip()]
+
+        self.assertEqual(result["operation_status"], "export_rejected", result)
+        self.assertIn("interrupted before Hosted Code Interpreter handoff", result["message"])
+        self.assertFalse(adapter.calls)
+        self.assertFalse(env["office.mapping.session"].search([("thread_id", "=", thread.id)]))
+        self.assertFalse(env["office.workbook.version"].search([("thread_id", "=", thread.id)]))
+        self.assertFalse(params.get_param("office_engine.m4_tv.test_fault"))
+        self.assertEqual(len(fault_rows), 1)
+        self.assertEqual(fault_rows[0]["thread_id"], thread.id)
+        self.assertEqual(fault_rows[0]["stage"], "after_complete_collection_before_hosted_ci")
 
     def test_relation_row_limit_fails_before_provider_dispatch(self):
         categories = self.env["res.partner.category"].create([

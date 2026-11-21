@@ -1,0 +1,62 @@
+{
+  "run_tag": "handoff_20261121T043051Z_0facf053",
+  "database": "odoo18e_llm",
+  "provider": "OpenAI GPT-5.6 Luna",
+  "model": "gpt-5.6-luna",
+  "thread_id": 2049,
+  "provider_requests": 7,
+  "provider_responses": 7,
+  "tool_sequence": [
+    "odoo_record_retriever",
+    "odoo_record_retriever",
+    "odoo_record_retriever",
+    "odoo_record_retriever",
+    "office"
+  ],
+  "office_root_table_source": "root",
+  "ordinary_user_data_read": {
+    "company_name": "Synthetic CCM403-handoff-776c6675195d Company",
+    "expected_direct_contact_count": 2,
+    "returned_contact_count": 2,
+    "contact_names_and_emails_match_synthetic_oracle": true,
+    "decoy_not_in_results": true,
+    "final_failure_message_reports_the_expected_contacts": true,
+    "returned_contact_ids": [
+      26947,
+      26948
+    ],
+    "contact_ids_match_hidden_oracle": true
+  },
+  "fault": [
+    {
+      "database": "odoo18e_llm",
+      "details": {},
+      "event": "m4_tv_fault_injected",
+      "fault": "handoff_interruption",
+      "stage": "after_complete_collection_before_hosted_ci",
+      "thread_id": 2049,
+      "timestamp": "2026-11-21T04:31:11.750047+00:00"
+    }
+  ],
+  "office_result": {
+    "status": "failed",
+    "operation_executed": false,
+    "error_code": "export_plan_or_integrity_invalid",
+    "candidate_created": false
+  },
+  "final_assistant_message": {
+    "message_id": 488811,
+    "persisted_and_visible_after_refetch": true,
+    "claims_file_created": false,
+    "text": "导出未完成。Odoo 中已确认公司 *Synthetic CCM403-handoff-776c6675195d Company*，并找到 *2 位直接隶属联系人*（仅使用 parent_id 直接关联，未包含无关联系人）：\n\nSynthetic CCM403-handoff-776c6675195d Contact 1 — ccm403-handoff-776c6675195d-1@example.invalid\nSynthetic CCM403-handoff-776c6675195d Contact 2 — ccm403-handoff-776c6675195d-2@example.invalid\n\n但 Excel 生成流程在创建候选文件前被系统中断，因此目前没有可下载的文件。"
+  },
+  "cleanup": {
+    "thread_removed": true,
+    "business_fixture_partners_removed": true,
+    "test_user_deactivated": true,
+    "temporary_config_parameters_restored_to_false": true,
+    "test_user_partner_deactivated": true,
+    "post_cleanup_orm_recheck": "run_handoff_20261121T043051Z_0facf053_cleanup_orm.json"
+  },
+  "result": "PASS for injected handoff failure visibility, data-grounded status, and no-candidate fail-closed boundary; this is not a successful Excel delivery test."
+}
